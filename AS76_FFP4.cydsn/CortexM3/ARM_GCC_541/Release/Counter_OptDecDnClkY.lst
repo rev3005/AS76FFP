@@ -1,0 +1,2358 @@
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\ccBTgQmo.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"Counter_OptDecDnClkY.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	Counter_OptDecDnClkY_initVar
+  20              		.bss
+  21              		.type	Counter_OptDecDnClkY_initVar, %object
+  22              		.size	Counter_OptDecDnClkY_initVar, 1
+  23              	Counter_OptDecDnClkY_initVar:
+  24 0000 00       		.space	1
+  25              		.section	.text.Counter_OptDecDnClkY_Init,"ax",%progbits
+  26              		.align	2
+  27              		.global	Counter_OptDecDnClkY_Init
+  28              		.thumb
+  29              		.thumb_func
+  30              		.type	Counter_OptDecDnClkY_Init, %function
+  31              	Counter_OptDecDnClkY_Init:
+  32              	.LFB0:
+  33              		.file 1 "Generated_Source\\PSoC5\\Counter_OptDecDnClkY.c"
+   1:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * File Name: Counter_OptDecDnClkY.c  
+   3:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Version 3.0
+   4:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+   5:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *  Description:
+   6:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *     The Counter component consists of a 8, 16, 24 or 32-bit counter with
+   7:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *     a selectable period between 2 and 2^Width - 1.  
+   8:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+   9:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *   Note:
+  10:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *     None
+  11:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+  12:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** ********************************************************************************
+  13:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Copyright 2008-2012, Cypress Semiconductor Corporation.  All rights reserved.
+  14:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  15:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  16:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * the software package with which this file was provided.
+  17:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *******************************************************************************/
+  18:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** 
+  19:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** #include "Counter_OptDecDnClkY.h"
+  20:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** 
+  21:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** uint8 Counter_OptDecDnClkY_initVar = 0u;
+  22:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** 
+  23:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** 
+  24:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** /*******************************************************************************
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\ccBTgQmo.s 			page 2
+
+
+  25:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Function Name: Counter_OptDecDnClkY_Init
+  26:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** ********************************************************************************
+  27:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Summary:
+  28:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *     Initialize to the schematic state
+  29:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * 
+  30:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Parameters:  
+  31:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *  void  
+  32:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+  33:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Return: 
+  34:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *  void
+  35:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+  36:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *******************************************************************************/
+  37:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** void Counter_OptDecDnClkY_Init(void) 
+  38:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** {
+  34              		.loc 1 38 0
+  35              		.cfi_startproc
+  36              		@ args = 0, pretend = 0, frame = 8
+  37              		@ frame_needed = 1, uses_anonymous_args = 0
+  38 0000 80B5     		push	{r7, lr}
+  39              		.cfi_def_cfa_offset 8
+  40              		.cfi_offset 7, -8
+  41              		.cfi_offset 14, -4
+  42 0002 82B0     		sub	sp, sp, #8
+  43              		.cfi_def_cfa_offset 16
+  44 0004 00AF     		add	r7, sp, #0
+  45              		.cfi_def_cfa_register 7
+  39:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         #if (!Counter_OptDecDnClkY_UsingFixedFunction && !Counter_OptDecDnClkY_ControlRegRemoved)
+  40:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             uint8 ctrl;
+  41:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         #endif /* (!Counter_OptDecDnClkY_UsingFixedFunction && !Counter_OptDecDnClkY_ControlRegRemo
+  42:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         
+  43:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         #if(!Counter_OptDecDnClkY_UsingFixedFunction) 
+  44:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             /* Interrupt State Backup for Critical Region*/
+  45:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             uint8 Counter_OptDecDnClkY_interruptState;
+  46:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         #endif /* (!Counter_OptDecDnClkY_UsingFixedFunction) */
+  47:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         
+  48:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         #if (Counter_OptDecDnClkY_UsingFixedFunction)
+  49:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             /* Clear all bits but the enable bit (if it's already set for Timer operation */
+  50:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             Counter_OptDecDnClkY_CONTROL &= Counter_OptDecDnClkY_CTRL_ENABLE;
+  51:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             
+  52:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             /* Clear the mode bits for continuous run mode */
+  53:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             #if (CY_PSOC5A)
+  54:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****                 Counter_OptDecDnClkY_CONTROL2 &= ((uint8)(~Counter_OptDecDnClkY_CTRL_MODE_MASK));
+  55:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             #endif /* (CY_PSOC5A) */
+  56:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             #if (CY_PSOC3 || CY_PSOC5LP)
+  57:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****                 Counter_OptDecDnClkY_CONTROL3 &= ((uint8)(~Counter_OptDecDnClkY_CTRL_MODE_MASK));  
+  58:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             #endif /* (CY_PSOC3 || CY_PSOC5LP) */
+  59:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             /* Check if One Shot mode is enabled i.e. RunMode !=0*/
+  60:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             #if (Counter_OptDecDnClkY_RunModeUsed != 0x0u)
+  61:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****                 /* Set 3rd bit of Control register to enable one shot mode */
+  62:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****                 Counter_OptDecDnClkY_CONTROL |= Counter_OptDecDnClkY_ONESHOT;
+  63:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             #endif /* (Counter_OptDecDnClkY_RunModeUsed != 0x0u) */
+  64:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             
+  65:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             /* Set the IRQ to use the status register interrupts */
+  66:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             Counter_OptDecDnClkY_CONTROL2 |= Counter_OptDecDnClkY_CTRL2_IRQ_SEL;
+  67:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             
+  68:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             /* Clear and Set SYNCTC and SYNCCMP bits of RT1 register */
+  69:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             Counter_OptDecDnClkY_RT1 &= ((uint8)(~Counter_OptDecDnClkY_RT1_MASK));
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\ccBTgQmo.s 			page 3
+
+
+  70:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             Counter_OptDecDnClkY_RT1 |= Counter_OptDecDnClkY_SYNC;     
+  71:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****                     
+  72:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             /*Enable DSI Sync all all inputs of the Timer*/
+  73:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             Counter_OptDecDnClkY_RT1 &= ((uint8)(~Counter_OptDecDnClkY_SYNCDSI_MASK));
+  74:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             Counter_OptDecDnClkY_RT1 |= Counter_OptDecDnClkY_SYNCDSI_EN;
+  75:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** 
+  76:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         #else
+  77:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             #if(!Counter_OptDecDnClkY_ControlRegRemoved)
+  78:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             /* Set the default compare mode defined in the parameter */
+  79:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             ctrl = Counter_OptDecDnClkY_CONTROL & ((uint8)(~Counter_OptDecDnClkY_CTRL_CMPMODE_MASK)
+  46              		.loc 1 79 0
+  47 0006 1C4B     		ldr	r3, .L2
+  48 0008 1B78     		ldrb	r3, [r3]
+  49 000a DBB2     		uxtb	r3, r3
+  50 000c 23F00703 		bic	r3, r3, #7
+  51 0010 FB71     		strb	r3, [r7, #7]
+  80:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             Counter_OptDecDnClkY_CONTROL = ctrl | Counter_OptDecDnClkY_DEFAULT_COMPARE_MODE;
+  52              		.loc 1 80 0
+  53 0012 194A     		ldr	r2, .L2
+  54 0014 FB79     		ldrb	r3, [r7, #7]
+  55 0016 43F00103 		orr	r3, r3, #1
+  56 001a DBB2     		uxtb	r3, r3
+  57 001c 1370     		strb	r3, [r2]
+  81:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             
+  82:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             /* Set the default capture mode defined in the parameter */
+  83:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             ctrl = Counter_OptDecDnClkY_CONTROL & ((uint8)(~Counter_OptDecDnClkY_CTRL_CAPMODE_MASK)
+  58              		.loc 1 83 0
+  59 001e 164B     		ldr	r3, .L2
+  60 0020 1B78     		ldrb	r3, [r3]
+  61 0022 DBB2     		uxtb	r3, r3
+  62 0024 23F00303 		bic	r3, r3, #3
+  63 0028 FB71     		strb	r3, [r7, #7]
+  84:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             
+  85:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             #if( 0 != Counter_OptDecDnClkY_CAPTURE_MODE_CONF)
+  86:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****                 Counter_OptDecDnClkY_CONTROL = ctrl | Counter_OptDecDnClkY_DEFAULT_CAPTURE_MODE;
+  87:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             #else
+  88:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****                 Counter_OptDecDnClkY_CONTROL = ctrl;
+  64              		.loc 1 88 0
+  65 002a 134A     		ldr	r2, .L2
+  66 002c FB79     		ldrb	r3, [r7, #7]
+  67 002e 1370     		strb	r3, [r2]
+  89:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             #endif /* 0 != Counter_OptDecDnClkY_CAPTURE_MODE */ 
+  90:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             
+  91:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             #endif /* (!Counter_OptDecDnClkY_ControlRegRemoved) */
+  92:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         #endif /* (Counter_OptDecDnClkY_UsingFixedFunction) */
+  93:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         
+  94:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         /* Clear all data in the FIFO's */
+  95:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         #if (!Counter_OptDecDnClkY_UsingFixedFunction)
+  96:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             Counter_OptDecDnClkY_ClearFIFO();
+  68              		.loc 1 96 0
+  69 0030 FFF7FEFF 		bl	Counter_OptDecDnClkY_ClearFIFO
+  97:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         #endif /* (!Counter_OptDecDnClkY_UsingFixedFunction) */
+  98:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         
+  99:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         /* Set Initial values from Configuration */
+ 100:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         Counter_OptDecDnClkY_WritePeriod(Counter_OptDecDnClkY_INIT_PERIOD_VALUE);
+  70              		.loc 1 100 0
+  71 0034 1148     		ldr	r0, .L2+4
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\ccBTgQmo.s 			page 4
+
+
+  72 0036 FFF7FEFF 		bl	Counter_OptDecDnClkY_WritePeriod
+ 101:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         #if (!(Counter_OptDecDnClkY_UsingFixedFunction && (CY_PSOC5A)))
+ 102:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             Counter_OptDecDnClkY_WriteCounter(Counter_OptDecDnClkY_INIT_COUNTER_VALUE);
+  73              		.loc 1 102 0
+  74 003a 0020     		movs	r0, #0
+  75 003c FFF7FEFF 		bl	Counter_OptDecDnClkY_WriteCounter
+ 103:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         #endif /* (!(Counter_OptDecDnClkY_UsingFixedFunction && (CY_PSOC5A))) */
+ 104:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         Counter_OptDecDnClkY_SetInterruptMode(Counter_OptDecDnClkY_INIT_INTERRUPTS_MASK);
+  76              		.loc 1 104 0
+  77 0040 0020     		movs	r0, #0
+  78 0042 FFF7FEFF 		bl	Counter_OptDecDnClkY_SetInterruptMode
+ 105:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         
+ 106:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         #if (!Counter_OptDecDnClkY_UsingFixedFunction)
+ 107:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             /* Read the status register to clear the unwanted interrupts */
+ 108:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             (void)Counter_OptDecDnClkY_ReadStatusRegister();
+  79              		.loc 1 108 0
+  80 0046 FFF7FEFF 		bl	Counter_OptDecDnClkY_ReadStatusRegister
+ 109:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             /* Set the compare value (only available to non-fixed function implementation */
+ 110:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             Counter_OptDecDnClkY_WriteCompare(Counter_OptDecDnClkY_INIT_COMPARE_VALUE);
+  81              		.loc 1 110 0
+  82 004a 3220     		movs	r0, #50
+  83 004c FFF7FEFF 		bl	Counter_OptDecDnClkY_WriteCompare
+ 111:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             /* Use the interrupt output of the status register for IRQ output */
+ 112:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             
+ 113:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             /* CyEnterCriticalRegion and CyExitCriticalRegion are used to mark following region cri
+ 114:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             /* Enter Critical Region*/
+ 115:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             Counter_OptDecDnClkY_interruptState = CyEnterCriticalSection();
+  84              		.loc 1 115 0
+  85 0050 FFF7FEFF 		bl	CyEnterCriticalSection
+  86 0054 0346     		mov	r3, r0
+  87 0056 BB71     		strb	r3, [r7, #6]
+ 116:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             
+ 117:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             Counter_OptDecDnClkY_STATUS_AUX_CTRL |= Counter_OptDecDnClkY_STATUS_ACTL_INT_EN_MASK;
+  88              		.loc 1 117 0
+  89 0058 094A     		ldr	r2, .L2+8
+  90 005a 094B     		ldr	r3, .L2+8
+  91 005c 1B78     		ldrb	r3, [r3]
+  92 005e DBB2     		uxtb	r3, r3
+  93 0060 43F01003 		orr	r3, r3, #16
+  94 0064 DBB2     		uxtb	r3, r3
+  95 0066 1370     		strb	r3, [r2]
+ 118:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             
+ 119:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             /* Exit Critical Region*/
+ 120:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             CyExitCriticalSection(Counter_OptDecDnClkY_interruptState);
+  96              		.loc 1 120 0
+  97 0068 BB79     		ldrb	r3, [r7, #6]	@ zero_extendqisi2
+  98 006a 1846     		mov	r0, r3
+  99 006c FFF7FEFF 		bl	CyExitCriticalSection
+ 121:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****             
+ 122:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         #endif /* (!Counter_OptDecDnClkY_UsingFixedFunction) */
+ 123:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** }
+ 100              		.loc 1 123 0
+ 101 0070 00BF     		nop
+ 102 0072 0837     		adds	r7, r7, #8
+ 103              		.cfi_def_cfa_offset 8
+ 104 0074 BD46     		mov	sp, r7
+ 105              		.cfi_def_cfa_register 13
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\ccBTgQmo.s 			page 5
+
+
+ 106              		@ sp needed
+ 107 0076 80BD     		pop	{r7, pc}
+ 108              	.L3:
+ 109              		.align	2
+ 110              	.L2:
+ 111 0078 7B650040 		.word	1073767803
+ 112 007c FEFFFF00 		.word	16777214
+ 113 0080 9A640040 		.word	1073767578
+ 114              		.cfi_endproc
+ 115              	.LFE0:
+ 116              		.size	Counter_OptDecDnClkY_Init, .-Counter_OptDecDnClkY_Init
+ 117              		.section	.text.Counter_OptDecDnClkY_Enable,"ax",%progbits
+ 118              		.align	2
+ 119              		.global	Counter_OptDecDnClkY_Enable
+ 120              		.thumb
+ 121              		.thumb_func
+ 122              		.type	Counter_OptDecDnClkY_Enable, %function
+ 123              	Counter_OptDecDnClkY_Enable:
+ 124              	.LFB1:
+ 124:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** 
+ 125:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** 
+ 126:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** /*******************************************************************************
+ 127:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Function Name: Counter_OptDecDnClkY_Enable
+ 128:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** ********************************************************************************
+ 129:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Summary:
+ 130:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *     Enable the Counter
+ 131:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * 
+ 132:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Parameters:  
+ 133:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *  void  
+ 134:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 135:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Return: 
+ 136:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *  void
+ 137:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 138:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Side Effects: 
+ 139:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *   If the Enable mode is set to Hardware only then this function has no effect 
+ 140:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *   on the operation of the counter.
+ 141:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 142:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *******************************************************************************/
+ 143:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** void Counter_OptDecDnClkY_Enable(void) 
+ 144:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** {
+ 125              		.loc 1 144 0
+ 126              		.cfi_startproc
+ 127              		@ args = 0, pretend = 0, frame = 0
+ 128              		@ frame_needed = 1, uses_anonymous_args = 0
+ 129              		@ link register save eliminated.
+ 130 0000 80B4     		push	{r7}
+ 131              		.cfi_def_cfa_offset 4
+ 132              		.cfi_offset 7, -4
+ 133 0002 00AF     		add	r7, sp, #0
+ 134              		.cfi_def_cfa_register 7
+ 145:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     /* Globally Enable the Fixed Function Block chosen */
+ 146:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     #if (Counter_OptDecDnClkY_UsingFixedFunction)
+ 147:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         Counter_OptDecDnClkY_GLOBAL_ENABLE |= Counter_OptDecDnClkY_BLOCK_EN_MASK;
+ 148:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         Counter_OptDecDnClkY_GLOBAL_STBY_ENABLE |= Counter_OptDecDnClkY_BLOCK_STBY_EN_MASK;
+ 149:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     #endif /* (Counter_OptDecDnClkY_UsingFixedFunction) */  
+ 150:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         
+ 151:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     /* Enable the counter from the control register  */
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\ccBTgQmo.s 			page 6
+
+
+ 152:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     /* If Fixed Function then make sure Mode is set correctly */
+ 153:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     /* else make sure reset is clear */
+ 154:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     #if(!Counter_OptDecDnClkY_ControlRegRemoved || Counter_OptDecDnClkY_UsingFixedFunction)
+ 155:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         Counter_OptDecDnClkY_CONTROL |= Counter_OptDecDnClkY_CTRL_ENABLE;                
+ 135              		.loc 1 155 0
+ 136 0004 054A     		ldr	r2, .L5
+ 137 0006 054B     		ldr	r3, .L5
+ 138 0008 1B78     		ldrb	r3, [r3]
+ 139 000a DBB2     		uxtb	r3, r3
+ 140 000c 63F07F03 		orn	r3, r3, #127
+ 141 0010 DBB2     		uxtb	r3, r3
+ 142 0012 1370     		strb	r3, [r2]
+ 156:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     #endif /* (!Counter_OptDecDnClkY_ControlRegRemoved || Counter_OptDecDnClkY_UsingFixedFunction) 
+ 157:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     
+ 158:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** }
+ 143              		.loc 1 158 0
+ 144 0014 00BF     		nop
+ 145 0016 BD46     		mov	sp, r7
+ 146              		.cfi_def_cfa_register 13
+ 147              		@ sp needed
+ 148 0018 80BC     		pop	{r7}
+ 149              		.cfi_restore 7
+ 150              		.cfi_def_cfa_offset 0
+ 151 001a 7047     		bx	lr
+ 152              	.L6:
+ 153              		.align	2
+ 154              	.L5:
+ 155 001c 7B650040 		.word	1073767803
+ 156              		.cfi_endproc
+ 157              	.LFE1:
+ 158              		.size	Counter_OptDecDnClkY_Enable, .-Counter_OptDecDnClkY_Enable
+ 159              		.section	.text.Counter_OptDecDnClkY_Start,"ax",%progbits
+ 160              		.align	2
+ 161              		.global	Counter_OptDecDnClkY_Start
+ 162              		.thumb
+ 163              		.thumb_func
+ 164              		.type	Counter_OptDecDnClkY_Start, %function
+ 165              	Counter_OptDecDnClkY_Start:
+ 166              	.LFB2:
+ 159:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** 
+ 160:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** 
+ 161:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** /*******************************************************************************
+ 162:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Function Name: Counter_OptDecDnClkY_Start
+ 163:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** ********************************************************************************
+ 164:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Summary:
+ 165:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *  Enables the counter for operation 
+ 166:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 167:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Parameters:  
+ 168:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *  void  
+ 169:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 170:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Return: 
+ 171:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *  void
+ 172:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 173:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Global variables:
+ 174:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *  Counter_OptDecDnClkY_initVar: Is modified when this function is called for the  
+ 175:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *   first time. Is used to ensure that initialization happens only once.
+ 176:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\ccBTgQmo.s 			page 7
+
+
+ 177:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *******************************************************************************/
+ 178:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** void Counter_OptDecDnClkY_Start(void) 
+ 179:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** {
+ 167              		.loc 1 179 0
+ 168              		.cfi_startproc
+ 169              		@ args = 0, pretend = 0, frame = 0
+ 170              		@ frame_needed = 1, uses_anonymous_args = 0
+ 171 0000 80B5     		push	{r7, lr}
+ 172              		.cfi_def_cfa_offset 8
+ 173              		.cfi_offset 7, -8
+ 174              		.cfi_offset 14, -4
+ 175 0002 00AF     		add	r7, sp, #0
+ 176              		.cfi_def_cfa_register 7
+ 180:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     if(Counter_OptDecDnClkY_initVar == 0u)
+ 177              		.loc 1 180 0
+ 178 0004 064B     		ldr	r3, .L9
+ 179 0006 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 180 0008 002B     		cmp	r3, #0
+ 181 000a 04D1     		bne	.L8
+ 181:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     {
+ 182:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         Counter_OptDecDnClkY_Init();
+ 182              		.loc 1 182 0
+ 183 000c FFF7FEFF 		bl	Counter_OptDecDnClkY_Init
+ 183:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         
+ 184:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         Counter_OptDecDnClkY_initVar = 1u; /* Clear this bit for Initialization */        
+ 184              		.loc 1 184 0
+ 185 0010 034B     		ldr	r3, .L9
+ 186 0012 0122     		movs	r2, #1
+ 187 0014 1A70     		strb	r2, [r3]
+ 188              	.L8:
+ 185:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     }
+ 186:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     
+ 187:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     /* Enable the Counter */
+ 188:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     Counter_OptDecDnClkY_Enable();        
+ 189              		.loc 1 188 0
+ 190 0016 FFF7FEFF 		bl	Counter_OptDecDnClkY_Enable
+ 189:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** }
+ 191              		.loc 1 189 0
+ 192 001a 00BF     		nop
+ 193 001c 80BD     		pop	{r7, pc}
+ 194              	.L10:
+ 195 001e 00BF     		.align	2
+ 196              	.L9:
+ 197 0020 00000000 		.word	Counter_OptDecDnClkY_initVar
+ 198              		.cfi_endproc
+ 199              	.LFE2:
+ 200              		.size	Counter_OptDecDnClkY_Start, .-Counter_OptDecDnClkY_Start
+ 201              		.section	.text.Counter_OptDecDnClkY_Stop,"ax",%progbits
+ 202              		.align	2
+ 203              		.global	Counter_OptDecDnClkY_Stop
+ 204              		.thumb
+ 205              		.thumb_func
+ 206              		.type	Counter_OptDecDnClkY_Stop, %function
+ 207              	Counter_OptDecDnClkY_Stop:
+ 208              	.LFB3:
+ 190:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** 
+ 191:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** 
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\ccBTgQmo.s 			page 8
+
+
+ 192:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** /*******************************************************************************
+ 193:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Function Name: Counter_OptDecDnClkY_Stop
+ 194:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** ********************************************************************************
+ 195:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Summary:
+ 196:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Halts the counter, but does not change any modes or disable interrupts.
+ 197:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 198:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Parameters:  
+ 199:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *  void  
+ 200:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 201:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Return: 
+ 202:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *  void
+ 203:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 204:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Side Effects: If the Enable mode is set to Hardware only then this function
+ 205:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *               has no effect on the operation of the counter.
+ 206:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 207:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *******************************************************************************/
+ 208:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** void Counter_OptDecDnClkY_Stop(void) 
+ 209:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** {
+ 209              		.loc 1 209 0
+ 210              		.cfi_startproc
+ 211              		@ args = 0, pretend = 0, frame = 0
+ 212              		@ frame_needed = 1, uses_anonymous_args = 0
+ 213              		@ link register save eliminated.
+ 214 0000 80B4     		push	{r7}
+ 215              		.cfi_def_cfa_offset 4
+ 216              		.cfi_offset 7, -4
+ 217 0002 00AF     		add	r7, sp, #0
+ 218              		.cfi_def_cfa_register 7
+ 210:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     /* Disable Counter */
+ 211:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     #if(!Counter_OptDecDnClkY_ControlRegRemoved || Counter_OptDecDnClkY_UsingFixedFunction)
+ 212:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         Counter_OptDecDnClkY_CONTROL &= ((uint8)(~Counter_OptDecDnClkY_CTRL_ENABLE));        
+ 219              		.loc 1 212 0
+ 220 0004 054A     		ldr	r2, .L12
+ 221 0006 054B     		ldr	r3, .L12
+ 222 0008 1B78     		ldrb	r3, [r3]
+ 223 000a DBB2     		uxtb	r3, r3
+ 224 000c 03F07F03 		and	r3, r3, #127
+ 225 0010 DBB2     		uxtb	r3, r3
+ 226 0012 1370     		strb	r3, [r2]
+ 213:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     #endif /* (!Counter_OptDecDnClkY_ControlRegRemoved || Counter_OptDecDnClkY_UsingFixedFunction) 
+ 214:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     
+ 215:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     /* Globally disable the Fixed Function Block chosen */
+ 216:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     #if (Counter_OptDecDnClkY_UsingFixedFunction)
+ 217:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         Counter_OptDecDnClkY_GLOBAL_ENABLE &= ((uint8)(~Counter_OptDecDnClkY_BLOCK_EN_MASK));
+ 218:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         Counter_OptDecDnClkY_GLOBAL_STBY_ENABLE &= ((uint8)(~Counter_OptDecDnClkY_BLOCK_STBY_EN_MAS
+ 219:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     #endif /* (Counter_OptDecDnClkY_UsingFixedFunction) */
+ 220:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** }
+ 227              		.loc 1 220 0
+ 228 0014 00BF     		nop
+ 229 0016 BD46     		mov	sp, r7
+ 230              		.cfi_def_cfa_register 13
+ 231              		@ sp needed
+ 232 0018 80BC     		pop	{r7}
+ 233              		.cfi_restore 7
+ 234              		.cfi_def_cfa_offset 0
+ 235 001a 7047     		bx	lr
+ 236              	.L13:
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\ccBTgQmo.s 			page 9
+
+
+ 237              		.align	2
+ 238              	.L12:
+ 239 001c 7B650040 		.word	1073767803
+ 240              		.cfi_endproc
+ 241              	.LFE3:
+ 242              		.size	Counter_OptDecDnClkY_Stop, .-Counter_OptDecDnClkY_Stop
+ 243              		.section	.text.Counter_OptDecDnClkY_SetInterruptMode,"ax",%progbits
+ 244              		.align	2
+ 245              		.global	Counter_OptDecDnClkY_SetInterruptMode
+ 246              		.thumb
+ 247              		.thumb_func
+ 248              		.type	Counter_OptDecDnClkY_SetInterruptMode, %function
+ 249              	Counter_OptDecDnClkY_SetInterruptMode:
+ 250              	.LFB4:
+ 221:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** 
+ 222:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** 
+ 223:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** /*******************************************************************************
+ 224:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Function Name: Counter_OptDecDnClkY_SetInterruptMode
+ 225:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** ********************************************************************************
+ 226:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Summary:
+ 227:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Configures which interrupt sources are enabled to generate the final interrupt
+ 228:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 229:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Parameters:  
+ 230:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *  InterruptsMask: This parameter is an or'd collection of the status bits
+ 231:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *                   which will be allowed to generate the counters interrupt.   
+ 232:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 233:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Return: 
+ 234:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *  void
+ 235:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 236:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *******************************************************************************/
+ 237:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** void Counter_OptDecDnClkY_SetInterruptMode(uint8 interruptsMask) 
+ 238:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** {
+ 251              		.loc 1 238 0
+ 252              		.cfi_startproc
+ 253              		@ args = 0, pretend = 0, frame = 8
+ 254              		@ frame_needed = 1, uses_anonymous_args = 0
+ 255              		@ link register save eliminated.
+ 256 0000 80B4     		push	{r7}
+ 257              		.cfi_def_cfa_offset 4
+ 258              		.cfi_offset 7, -4
+ 259 0002 83B0     		sub	sp, sp, #12
+ 260              		.cfi_def_cfa_offset 16
+ 261 0004 00AF     		add	r7, sp, #0
+ 262              		.cfi_def_cfa_register 7
+ 263 0006 0346     		mov	r3, r0
+ 264 0008 FB71     		strb	r3, [r7, #7]
+ 239:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     Counter_OptDecDnClkY_STATUS_MASK = interruptsMask;
+ 265              		.loc 1 239 0
+ 266 000a 044A     		ldr	r2, .L15
+ 267 000c FB79     		ldrb	r3, [r7, #7]
+ 268 000e 1370     		strb	r3, [r2]
+ 240:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** }
+ 269              		.loc 1 240 0
+ 270 0010 00BF     		nop
+ 271 0012 0C37     		adds	r7, r7, #12
+ 272              		.cfi_def_cfa_offset 4
+ 273 0014 BD46     		mov	sp, r7
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\ccBTgQmo.s 			page 10
+
+
+ 274              		.cfi_def_cfa_register 13
+ 275              		@ sp needed
+ 276 0016 80BC     		pop	{r7}
+ 277              		.cfi_restore 7
+ 278              		.cfi_def_cfa_offset 0
+ 279 0018 7047     		bx	lr
+ 280              	.L16:
+ 281 001a 00BF     		.align	2
+ 282              	.L15:
+ 283 001c 8A640040 		.word	1073767562
+ 284              		.cfi_endproc
+ 285              	.LFE4:
+ 286              		.size	Counter_OptDecDnClkY_SetInterruptMode, .-Counter_OptDecDnClkY_SetInterruptMode
+ 287              		.section	.text.Counter_OptDecDnClkY_ReadStatusRegister,"ax",%progbits
+ 288              		.align	2
+ 289              		.global	Counter_OptDecDnClkY_ReadStatusRegister
+ 290              		.thumb
+ 291              		.thumb_func
+ 292              		.type	Counter_OptDecDnClkY_ReadStatusRegister, %function
+ 293              	Counter_OptDecDnClkY_ReadStatusRegister:
+ 294              	.LFB5:
+ 241:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** 
+ 242:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** 
+ 243:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** /*******************************************************************************
+ 244:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Function Name: Counter_OptDecDnClkY_ReadStatusRegister
+ 245:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** ********************************************************************************
+ 246:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Summary:
+ 247:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *   Reads the status register and returns it's state. This function should use
+ 248:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *       defined types for the bit-field information as the bits in this
+ 249:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *       register may be permuteable.
+ 250:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 251:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Parameters:  
+ 252:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *  void
+ 253:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 254:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Return: 
+ 255:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *  (uint8) The contents of the status register
+ 256:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 257:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Side Effects:
+ 258:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *   Status register bits may be clear on read. 
+ 259:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 260:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *******************************************************************************/
+ 261:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** uint8   Counter_OptDecDnClkY_ReadStatusRegister(void) 
+ 262:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** {
+ 295              		.loc 1 262 0
+ 296              		.cfi_startproc
+ 297              		@ args = 0, pretend = 0, frame = 0
+ 298              		@ frame_needed = 1, uses_anonymous_args = 0
+ 299              		@ link register save eliminated.
+ 300 0000 80B4     		push	{r7}
+ 301              		.cfi_def_cfa_offset 4
+ 302              		.cfi_offset 7, -4
+ 303 0002 00AF     		add	r7, sp, #0
+ 304              		.cfi_def_cfa_register 7
+ 263:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     return Counter_OptDecDnClkY_STATUS;
+ 305              		.loc 1 263 0
+ 306 0004 034B     		ldr	r3, .L19
+ 307 0006 1B78     		ldrb	r3, [r3]
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\ccBTgQmo.s 			page 11
+
+
+ 308 0008 DBB2     		uxtb	r3, r3
+ 264:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** }
+ 309              		.loc 1 264 0
+ 310 000a 1846     		mov	r0, r3
+ 311 000c BD46     		mov	sp, r7
+ 312              		.cfi_def_cfa_register 13
+ 313              		@ sp needed
+ 314 000e 80BC     		pop	{r7}
+ 315              		.cfi_restore 7
+ 316              		.cfi_def_cfa_offset 0
+ 317 0010 7047     		bx	lr
+ 318              	.L20:
+ 319 0012 00BF     		.align	2
+ 320              	.L19:
+ 321 0014 6A640040 		.word	1073767530
+ 322              		.cfi_endproc
+ 323              	.LFE5:
+ 324              		.size	Counter_OptDecDnClkY_ReadStatusRegister, .-Counter_OptDecDnClkY_ReadStatusRegister
+ 325              		.section	.text.Counter_OptDecDnClkY_ReadControlRegister,"ax",%progbits
+ 326              		.align	2
+ 327              		.global	Counter_OptDecDnClkY_ReadControlRegister
+ 328              		.thumb
+ 329              		.thumb_func
+ 330              		.type	Counter_OptDecDnClkY_ReadControlRegister, %function
+ 331              	Counter_OptDecDnClkY_ReadControlRegister:
+ 332              	.LFB6:
+ 265:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** 
+ 266:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** 
+ 267:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** #if(!Counter_OptDecDnClkY_ControlRegRemoved)
+ 268:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** /*******************************************************************************
+ 269:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Function Name: Counter_OptDecDnClkY_ReadControlRegister
+ 270:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** ********************************************************************************
+ 271:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Summary:
+ 272:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *   Reads the control register and returns it's state. This function should use
+ 273:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *       defined types for the bit-field information as the bits in this
+ 274:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *       register may be permuteable.
+ 275:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 276:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Parameters:  
+ 277:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *  void
+ 278:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 279:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Return: 
+ 280:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *  (uint8) The contents of the control register
+ 281:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 282:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *******************************************************************************/
+ 283:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** uint8   Counter_OptDecDnClkY_ReadControlRegister(void) 
+ 284:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** {
+ 333              		.loc 1 284 0
+ 334              		.cfi_startproc
+ 335              		@ args = 0, pretend = 0, frame = 0
+ 336              		@ frame_needed = 1, uses_anonymous_args = 0
+ 337              		@ link register save eliminated.
+ 338 0000 80B4     		push	{r7}
+ 339              		.cfi_def_cfa_offset 4
+ 340              		.cfi_offset 7, -4
+ 341 0002 00AF     		add	r7, sp, #0
+ 342              		.cfi_def_cfa_register 7
+ 285:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     return Counter_OptDecDnClkY_CONTROL;
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\ccBTgQmo.s 			page 12
+
+
+ 343              		.loc 1 285 0
+ 344 0004 034B     		ldr	r3, .L23
+ 345 0006 1B78     		ldrb	r3, [r3]
+ 346 0008 DBB2     		uxtb	r3, r3
+ 286:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** }
+ 347              		.loc 1 286 0
+ 348 000a 1846     		mov	r0, r3
+ 349 000c BD46     		mov	sp, r7
+ 350              		.cfi_def_cfa_register 13
+ 351              		@ sp needed
+ 352 000e 80BC     		pop	{r7}
+ 353              		.cfi_restore 7
+ 354              		.cfi_def_cfa_offset 0
+ 355 0010 7047     		bx	lr
+ 356              	.L24:
+ 357 0012 00BF     		.align	2
+ 358              	.L23:
+ 359 0014 7B650040 		.word	1073767803
+ 360              		.cfi_endproc
+ 361              	.LFE6:
+ 362              		.size	Counter_OptDecDnClkY_ReadControlRegister, .-Counter_OptDecDnClkY_ReadControlRegister
+ 363              		.section	.text.Counter_OptDecDnClkY_WriteControlRegister,"ax",%progbits
+ 364              		.align	2
+ 365              		.global	Counter_OptDecDnClkY_WriteControlRegister
+ 366              		.thumb
+ 367              		.thumb_func
+ 368              		.type	Counter_OptDecDnClkY_WriteControlRegister, %function
+ 369              	Counter_OptDecDnClkY_WriteControlRegister:
+ 370              	.LFB7:
+ 287:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** 
+ 288:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** 
+ 289:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** /*******************************************************************************
+ 290:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Function Name: Counter_OptDecDnClkY_WriteControlRegister
+ 291:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** ********************************************************************************
+ 292:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Summary:
+ 293:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *   Sets the bit-field of the control register.  This function should use
+ 294:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *       defined types for the bit-field information as the bits in this
+ 295:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *       register may be permuteable.
+ 296:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 297:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Parameters:  
+ 298:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *  void
+ 299:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 300:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Return: 
+ 301:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *  (uint8) The contents of the control register
+ 302:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 303:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *******************************************************************************/
+ 304:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** void    Counter_OptDecDnClkY_WriteControlRegister(uint8 control) 
+ 305:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** {
+ 371              		.loc 1 305 0
+ 372              		.cfi_startproc
+ 373              		@ args = 0, pretend = 0, frame = 8
+ 374              		@ frame_needed = 1, uses_anonymous_args = 0
+ 375              		@ link register save eliminated.
+ 376 0000 80B4     		push	{r7}
+ 377              		.cfi_def_cfa_offset 4
+ 378              		.cfi_offset 7, -4
+ 379 0002 83B0     		sub	sp, sp, #12
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\ccBTgQmo.s 			page 13
+
+
+ 380              		.cfi_def_cfa_offset 16
+ 381 0004 00AF     		add	r7, sp, #0
+ 382              		.cfi_def_cfa_register 7
+ 383 0006 0346     		mov	r3, r0
+ 384 0008 FB71     		strb	r3, [r7, #7]
+ 306:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     Counter_OptDecDnClkY_CONTROL = control;
+ 385              		.loc 1 306 0
+ 386 000a 044A     		ldr	r2, .L26
+ 387 000c FB79     		ldrb	r3, [r7, #7]
+ 388 000e 1370     		strb	r3, [r2]
+ 307:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** }
+ 389              		.loc 1 307 0
+ 390 0010 00BF     		nop
+ 391 0012 0C37     		adds	r7, r7, #12
+ 392              		.cfi_def_cfa_offset 4
+ 393 0014 BD46     		mov	sp, r7
+ 394              		.cfi_def_cfa_register 13
+ 395              		@ sp needed
+ 396 0016 80BC     		pop	{r7}
+ 397              		.cfi_restore 7
+ 398              		.cfi_def_cfa_offset 0
+ 399 0018 7047     		bx	lr
+ 400              	.L27:
+ 401 001a 00BF     		.align	2
+ 402              	.L26:
+ 403 001c 7B650040 		.word	1073767803
+ 404              		.cfi_endproc
+ 405              	.LFE7:
+ 406              		.size	Counter_OptDecDnClkY_WriteControlRegister, .-Counter_OptDecDnClkY_WriteControlRegister
+ 407              		.section	.text.Counter_OptDecDnClkY_WriteCounter,"ax",%progbits
+ 408              		.align	2
+ 409              		.global	Counter_OptDecDnClkY_WriteCounter
+ 410              		.thumb
+ 411              		.thumb_func
+ 412              		.type	Counter_OptDecDnClkY_WriteCounter, %function
+ 413              	Counter_OptDecDnClkY_WriteCounter:
+ 414              	.LFB8:
+ 308:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** 
+ 309:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** #endif  /* (!Counter_OptDecDnClkY_ControlRegRemoved) */
+ 310:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** 
+ 311:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** 
+ 312:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** #if (!(Counter_OptDecDnClkY_UsingFixedFunction && (CY_PSOC5A)))
+ 313:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** /*******************************************************************************
+ 314:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Function Name: Counter_OptDecDnClkY_WriteCounter
+ 315:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** ********************************************************************************
+ 316:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Summary:
+ 317:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *   This funtion is used to set the counter to a specific value
+ 318:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 319:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Parameters:  
+ 320:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *  counter:  New counter value. 
+ 321:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 322:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Return: 
+ 323:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *  void 
+ 324:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 325:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *******************************************************************************/
+ 326:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** void Counter_OptDecDnClkY_WriteCounter(uint32 counter) \
+ 327:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****                                    
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\ccBTgQmo.s 			page 14
+
+
+ 328:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** {
+ 415              		.loc 1 328 0
+ 416              		.cfi_startproc
+ 417              		@ args = 0, pretend = 0, frame = 8
+ 418              		@ frame_needed = 1, uses_anonymous_args = 0
+ 419 0000 80B5     		push	{r7, lr}
+ 420              		.cfi_def_cfa_offset 8
+ 421              		.cfi_offset 7, -8
+ 422              		.cfi_offset 14, -4
+ 423 0002 82B0     		sub	sp, sp, #8
+ 424              		.cfi_def_cfa_offset 16
+ 425 0004 00AF     		add	r7, sp, #0
+ 426              		.cfi_def_cfa_register 7
+ 427 0006 7860     		str	r0, [r7, #4]
+ 329:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     #if(Counter_OptDecDnClkY_UsingFixedFunction)
+ 330:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         /* assert if block is already enabled */
+ 331:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         CYASSERT (0u == (Counter_OptDecDnClkY_GLOBAL_ENABLE & Counter_OptDecDnClkY_BLOCK_EN_MASK));
+ 332:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         /* If block is disabled, enable it and then write the counter */
+ 333:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         Counter_OptDecDnClkY_GLOBAL_ENABLE |= Counter_OptDecDnClkY_BLOCK_EN_MASK;
+ 334:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         CY_SET_REG16(Counter_OptDecDnClkY_COUNTER_LSB_PTR, (uint16)counter);
+ 335:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         Counter_OptDecDnClkY_GLOBAL_ENABLE &= ((uint8)(~Counter_OptDecDnClkY_BLOCK_EN_MASK));
+ 336:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     #else
+ 337:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         CY_SET_REG24(Counter_OptDecDnClkY_COUNTER_LSB_PTR, counter);
+ 428              		.loc 1 337 0
+ 429 0008 7968     		ldr	r1, [r7, #4]
+ 430 000a 0348     		ldr	r0, .L29
+ 431 000c FFF7FEFF 		bl	CySetReg24
+ 338:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     #endif /* (Counter_OptDecDnClkY_UsingFixedFunction) */
+ 339:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** }
+ 432              		.loc 1 339 0
+ 433 0010 00BF     		nop
+ 434 0012 0837     		adds	r7, r7, #8
+ 435              		.cfi_def_cfa_offset 8
+ 436 0014 BD46     		mov	sp, r7
+ 437              		.cfi_def_cfa_register 13
+ 438              		@ sp needed
+ 439 0016 80BD     		pop	{r7, pc}
+ 440              	.L30:
+ 441              		.align	2
+ 442              	.L29:
+ 443 0018 07640040 		.word	1073767431
+ 444              		.cfi_endproc
+ 445              	.LFE8:
+ 446              		.size	Counter_OptDecDnClkY_WriteCounter, .-Counter_OptDecDnClkY_WriteCounter
+ 447              		.section	.text.Counter_OptDecDnClkY_ReadCounter,"ax",%progbits
+ 448              		.align	2
+ 449              		.global	Counter_OptDecDnClkY_ReadCounter
+ 450              		.thumb
+ 451              		.thumb_func
+ 452              		.type	Counter_OptDecDnClkY_ReadCounter, %function
+ 453              	Counter_OptDecDnClkY_ReadCounter:
+ 454              	.LFB9:
+ 340:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** #endif /* (!(Counter_OptDecDnClkY_UsingFixedFunction && (CY_PSOC5A))) */
+ 341:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** 
+ 342:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** 
+ 343:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** /*******************************************************************************
+ 344:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Function Name: Counter_OptDecDnClkY_ReadCounter
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\ccBTgQmo.s 			page 15
+
+
+ 345:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** ********************************************************************************
+ 346:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Summary:
+ 347:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Returns the current value of the counter.  It doesn't matter
+ 348:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * if the counter is enabled or running.
+ 349:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 350:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Parameters:  
+ 351:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *  void:  
+ 352:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 353:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Return: 
+ 354:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *  (uint32) The present value of the counter.
+ 355:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 356:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *******************************************************************************/
+ 357:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** uint32 Counter_OptDecDnClkY_ReadCounter(void) 
+ 358:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** {
+ 455              		.loc 1 358 0
+ 456              		.cfi_startproc
+ 457              		@ args = 0, pretend = 0, frame = 0
+ 458              		@ frame_needed = 1, uses_anonymous_args = 0
+ 459              		@ link register save eliminated.
+ 460 0000 80B4     		push	{r7}
+ 461              		.cfi_def_cfa_offset 4
+ 462              		.cfi_offset 7, -4
+ 463 0002 00AF     		add	r7, sp, #0
+ 464              		.cfi_def_cfa_register 7
+ 359:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     /* Force capture by reading Accumulator */
+ 360:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     /* Must first do a software capture to be able to read the counter */
+ 361:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     /* It is up to the user code to make sure there isn't already captured data in the FIFO */
+ 362:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     #if(Counter_OptDecDnClkY_UsingFixedFunction)
+ 363:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** 		(void)CY_GET_REG16(Counter_OptDecDnClkY_COUNTER_LSB_PTR);
+ 364:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** 	#else
+ 365:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** 		(void)CY_GET_REG8(Counter_OptDecDnClkY_COUNTER_LSB_PTR_8BIT);
+ 465              		.loc 1 365 0
+ 466 0004 044B     		ldr	r3, .L33
+ 467 0006 1B78     		ldrb	r3, [r3]
+ 366:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** 	#endif/* (Counter_OptDecDnClkY_UsingFixedFunction) */
+ 367:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     
+ 368:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     /* Read the data from the FIFO (or capture register for Fixed Function)*/
+ 369:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     #if(Counter_OptDecDnClkY_UsingFixedFunction)
+ 370:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         return ((uint32)CY_GET_REG16(Counter_OptDecDnClkY_STATICCOUNT_LSB_PTR));
+ 371:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     #else
+ 372:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         return (CY_GET_REG24(Counter_OptDecDnClkY_STATICCOUNT_LSB_PTR));
+ 468              		.loc 1 372 0
+ 469 0008 044B     		ldr	r3, .L33+4
+ 470 000a 1B68     		ldr	r3, [r3]
+ 471 000c 23F07F43 		bic	r3, r3, #-16777216
+ 373:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     #endif /* (Counter_OptDecDnClkY_UsingFixedFunction) */
+ 374:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** }
+ 472              		.loc 1 374 0
+ 473 0010 1846     		mov	r0, r3
+ 474 0012 BD46     		mov	sp, r7
+ 475              		.cfi_def_cfa_register 13
+ 476              		@ sp needed
+ 477 0014 80BC     		pop	{r7}
+ 478              		.cfi_restore 7
+ 479              		.cfi_def_cfa_offset 0
+ 480 0016 7047     		bx	lr
+ 481              	.L34:
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\ccBTgQmo.s 			page 16
+
+
+ 482              		.align	2
+ 483              	.L33:
+ 484 0018 07640040 		.word	1073767431
+ 485 001c 47640040 		.word	1073767495
+ 486              		.cfi_endproc
+ 487              	.LFE9:
+ 488              		.size	Counter_OptDecDnClkY_ReadCounter, .-Counter_OptDecDnClkY_ReadCounter
+ 489              		.section	.text.Counter_OptDecDnClkY_ReadCapture,"ax",%progbits
+ 490              		.align	2
+ 491              		.global	Counter_OptDecDnClkY_ReadCapture
+ 492              		.thumb
+ 493              		.thumb_func
+ 494              		.type	Counter_OptDecDnClkY_ReadCapture, %function
+ 495              	Counter_OptDecDnClkY_ReadCapture:
+ 496              	.LFB10:
+ 375:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** 
+ 376:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** 
+ 377:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** /*******************************************************************************
+ 378:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Function Name: Counter_OptDecDnClkY_ReadCapture
+ 379:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** ********************************************************************************
+ 380:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Summary:
+ 381:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *   This function returns the last value captured.
+ 382:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 383:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Parameters:  
+ 384:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *  void
+ 385:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 386:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Return: 
+ 387:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *  (uint32) Present Capture value.
+ 388:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 389:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *******************************************************************************/
+ 390:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** uint32 Counter_OptDecDnClkY_ReadCapture(void) 
+ 391:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** {
+ 497              		.loc 1 391 0
+ 498              		.cfi_startproc
+ 499              		@ args = 0, pretend = 0, frame = 0
+ 500              		@ frame_needed = 1, uses_anonymous_args = 0
+ 501              		@ link register save eliminated.
+ 502 0000 80B4     		push	{r7}
+ 503              		.cfi_def_cfa_offset 4
+ 504              		.cfi_offset 7, -4
+ 505 0002 00AF     		add	r7, sp, #0
+ 506              		.cfi_def_cfa_register 7
+ 392:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     #if(Counter_OptDecDnClkY_UsingFixedFunction)
+ 393:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         return ((uint32)CY_GET_REG16(Counter_OptDecDnClkY_STATICCOUNT_LSB_PTR));
+ 394:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     #else
+ 395:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         return (CY_GET_REG24(Counter_OptDecDnClkY_STATICCOUNT_LSB_PTR));
+ 507              		.loc 1 395 0
+ 508 0004 034B     		ldr	r3, .L37
+ 509 0006 1B68     		ldr	r3, [r3]
+ 510 0008 23F07F43 		bic	r3, r3, #-16777216
+ 396:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     #endif /* (Counter_OptDecDnClkY_UsingFixedFunction) */
+ 397:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** }
+ 511              		.loc 1 397 0
+ 512 000c 1846     		mov	r0, r3
+ 513 000e BD46     		mov	sp, r7
+ 514              		.cfi_def_cfa_register 13
+ 515              		@ sp needed
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\ccBTgQmo.s 			page 17
+
+
+ 516 0010 80BC     		pop	{r7}
+ 517              		.cfi_restore 7
+ 518              		.cfi_def_cfa_offset 0
+ 519 0012 7047     		bx	lr
+ 520              	.L38:
+ 521              		.align	2
+ 522              	.L37:
+ 523 0014 47640040 		.word	1073767495
+ 524              		.cfi_endproc
+ 525              	.LFE10:
+ 526              		.size	Counter_OptDecDnClkY_ReadCapture, .-Counter_OptDecDnClkY_ReadCapture
+ 527              		.section	.text.Counter_OptDecDnClkY_WritePeriod,"ax",%progbits
+ 528              		.align	2
+ 529              		.global	Counter_OptDecDnClkY_WritePeriod
+ 530              		.thumb
+ 531              		.thumb_func
+ 532              		.type	Counter_OptDecDnClkY_WritePeriod, %function
+ 533              	Counter_OptDecDnClkY_WritePeriod:
+ 534              	.LFB11:
+ 398:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** 
+ 399:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** 
+ 400:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** /*******************************************************************************
+ 401:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Function Name: Counter_OptDecDnClkY_WritePeriod
+ 402:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** ********************************************************************************
+ 403:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Summary:
+ 404:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Changes the period of the counter.  The new period 
+ 405:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * will be loaded the next time terminal count is detected.
+ 406:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 407:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Parameters:  
+ 408:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *  period: (uint32) A value of 0 will result in
+ 409:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *         the counter remaining at zero.  
+ 410:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 411:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Return: 
+ 412:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *  void
+ 413:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 414:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *******************************************************************************/
+ 415:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** void Counter_OptDecDnClkY_WritePeriod(uint32 period) 
+ 416:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** {
+ 535              		.loc 1 416 0
+ 536              		.cfi_startproc
+ 537              		@ args = 0, pretend = 0, frame = 8
+ 538              		@ frame_needed = 1, uses_anonymous_args = 0
+ 539 0000 80B5     		push	{r7, lr}
+ 540              		.cfi_def_cfa_offset 8
+ 541              		.cfi_offset 7, -8
+ 542              		.cfi_offset 14, -4
+ 543 0002 82B0     		sub	sp, sp, #8
+ 544              		.cfi_def_cfa_offset 16
+ 545 0004 00AF     		add	r7, sp, #0
+ 546              		.cfi_def_cfa_register 7
+ 547 0006 7860     		str	r0, [r7, #4]
+ 417:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     #if(Counter_OptDecDnClkY_UsingFixedFunction)
+ 418:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         CY_SET_REG16(Counter_OptDecDnClkY_PERIOD_LSB_PTR,(uint16)period);
+ 419:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     #else
+ 420:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         CY_SET_REG24(Counter_OptDecDnClkY_PERIOD_LSB_PTR, period);
+ 548              		.loc 1 420 0
+ 549 0008 7968     		ldr	r1, [r7, #4]
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\ccBTgQmo.s 			page 18
+
+
+ 550 000a 0348     		ldr	r0, .L40
+ 551 000c FFF7FEFF 		bl	CySetReg24
+ 421:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     #endif /* (Counter_OptDecDnClkY_UsingFixedFunction) */
+ 422:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** }
+ 552              		.loc 1 422 0
+ 553 0010 00BF     		nop
+ 554 0012 0837     		adds	r7, r7, #8
+ 555              		.cfi_def_cfa_offset 8
+ 556 0014 BD46     		mov	sp, r7
+ 557              		.cfi_def_cfa_register 13
+ 558              		@ sp needed
+ 559 0016 80BD     		pop	{r7, pc}
+ 560              	.L41:
+ 561              		.align	2
+ 562              	.L40:
+ 563 0018 27640040 		.word	1073767463
+ 564              		.cfi_endproc
+ 565              	.LFE11:
+ 566              		.size	Counter_OptDecDnClkY_WritePeriod, .-Counter_OptDecDnClkY_WritePeriod
+ 567              		.section	.text.Counter_OptDecDnClkY_ReadPeriod,"ax",%progbits
+ 568              		.align	2
+ 569              		.global	Counter_OptDecDnClkY_ReadPeriod
+ 570              		.thumb
+ 571              		.thumb_func
+ 572              		.type	Counter_OptDecDnClkY_ReadPeriod, %function
+ 573              	Counter_OptDecDnClkY_ReadPeriod:
+ 574              	.LFB12:
+ 423:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** 
+ 424:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** 
+ 425:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** /*******************************************************************************
+ 426:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Function Name: Counter_OptDecDnClkY_ReadPeriod
+ 427:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** ********************************************************************************
+ 428:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Summary:
+ 429:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Reads the current period value without affecting counter operation.
+ 430:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 431:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Parameters:  
+ 432:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *  void:  
+ 433:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 434:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Return: 
+ 435:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *  (uint32) Present period value.
+ 436:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 437:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *******************************************************************************/
+ 438:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** uint32 Counter_OptDecDnClkY_ReadPeriod(void) 
+ 439:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** {
+ 575              		.loc 1 439 0
+ 576              		.cfi_startproc
+ 577              		@ args = 0, pretend = 0, frame = 0
+ 578              		@ frame_needed = 1, uses_anonymous_args = 0
+ 579              		@ link register save eliminated.
+ 580 0000 80B4     		push	{r7}
+ 581              		.cfi_def_cfa_offset 4
+ 582              		.cfi_offset 7, -4
+ 583 0002 00AF     		add	r7, sp, #0
+ 584              		.cfi_def_cfa_register 7
+ 440:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     #if(Counter_OptDecDnClkY_UsingFixedFunction)
+ 441:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         return ((uint32)CY_GET_REG16(Counter_OptDecDnClkY_PERIOD_LSB_PTR));
+ 442:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     #else
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\ccBTgQmo.s 			page 19
+
+
+ 443:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         return (CY_GET_REG24(Counter_OptDecDnClkY_PERIOD_LSB_PTR));
+ 585              		.loc 1 443 0
+ 586 0004 034B     		ldr	r3, .L44
+ 587 0006 1B68     		ldr	r3, [r3]
+ 588 0008 23F07F43 		bic	r3, r3, #-16777216
+ 444:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     #endif /* (Counter_OptDecDnClkY_UsingFixedFunction) */
+ 445:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** }
+ 589              		.loc 1 445 0
+ 590 000c 1846     		mov	r0, r3
+ 591 000e BD46     		mov	sp, r7
+ 592              		.cfi_def_cfa_register 13
+ 593              		@ sp needed
+ 594 0010 80BC     		pop	{r7}
+ 595              		.cfi_restore 7
+ 596              		.cfi_def_cfa_offset 0
+ 597 0012 7047     		bx	lr
+ 598              	.L45:
+ 599              		.align	2
+ 600              	.L44:
+ 601 0014 27640040 		.word	1073767463
+ 602              		.cfi_endproc
+ 603              	.LFE12:
+ 604              		.size	Counter_OptDecDnClkY_ReadPeriod, .-Counter_OptDecDnClkY_ReadPeriod
+ 605              		.section	.text.Counter_OptDecDnClkY_WriteCompare,"ax",%progbits
+ 606              		.align	2
+ 607              		.global	Counter_OptDecDnClkY_WriteCompare
+ 608              		.thumb
+ 609              		.thumb_func
+ 610              		.type	Counter_OptDecDnClkY_WriteCompare, %function
+ 611              	Counter_OptDecDnClkY_WriteCompare:
+ 612              	.LFB13:
+ 446:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** 
+ 447:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** 
+ 448:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** #if (!Counter_OptDecDnClkY_UsingFixedFunction)
+ 449:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** /*******************************************************************************
+ 450:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Function Name: Counter_OptDecDnClkY_WriteCompare
+ 451:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** ********************************************************************************
+ 452:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Summary:
+ 453:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Changes the compare value.  The compare output will 
+ 454:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * reflect the new value on the next UDB clock.  The compare output will be 
+ 455:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * driven high when the present counter value compares true based on the 
+ 456:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * configured compare mode setting. 
+ 457:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 458:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Parameters:  
+ 459:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *  Compare:  New compare value. 
+ 460:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 461:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Return: 
+ 462:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *  void
+ 463:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 464:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *******************************************************************************/
+ 465:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** void Counter_OptDecDnClkY_WriteCompare(uint32 compare) \
+ 466:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****                                    
+ 467:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** {
+ 613              		.loc 1 467 0
+ 614              		.cfi_startproc
+ 615              		@ args = 0, pretend = 0, frame = 8
+ 616              		@ frame_needed = 1, uses_anonymous_args = 0
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\ccBTgQmo.s 			page 20
+
+
+ 617 0000 80B5     		push	{r7, lr}
+ 618              		.cfi_def_cfa_offset 8
+ 619              		.cfi_offset 7, -8
+ 620              		.cfi_offset 14, -4
+ 621 0002 82B0     		sub	sp, sp, #8
+ 622              		.cfi_def_cfa_offset 16
+ 623 0004 00AF     		add	r7, sp, #0
+ 624              		.cfi_def_cfa_register 7
+ 625 0006 7860     		str	r0, [r7, #4]
+ 468:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     #if(Counter_OptDecDnClkY_UsingFixedFunction)
+ 469:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         CY_SET_REG16(Counter_OptDecDnClkY_COMPARE_LSB_PTR, (uint16)compare);
+ 470:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     #else
+ 471:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         CY_SET_REG24(Counter_OptDecDnClkY_COMPARE_LSB_PTR, compare);
+ 626              		.loc 1 471 0
+ 627 0008 7968     		ldr	r1, [r7, #4]
+ 628 000a 0348     		ldr	r0, .L47
+ 629 000c FFF7FEFF 		bl	CySetReg24
+ 472:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     #endif /* (Counter_OptDecDnClkY_UsingFixedFunction) */
+ 473:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** }
+ 630              		.loc 1 473 0
+ 631 0010 00BF     		nop
+ 632 0012 0837     		adds	r7, r7, #8
+ 633              		.cfi_def_cfa_offset 8
+ 634 0014 BD46     		mov	sp, r7
+ 635              		.cfi_def_cfa_register 13
+ 636              		@ sp needed
+ 637 0016 80BD     		pop	{r7, pc}
+ 638              	.L48:
+ 639              		.align	2
+ 640              	.L47:
+ 641 0018 37640040 		.word	1073767479
+ 642              		.cfi_endproc
+ 643              	.LFE13:
+ 644              		.size	Counter_OptDecDnClkY_WriteCompare, .-Counter_OptDecDnClkY_WriteCompare
+ 645              		.section	.text.Counter_OptDecDnClkY_ReadCompare,"ax",%progbits
+ 646              		.align	2
+ 647              		.global	Counter_OptDecDnClkY_ReadCompare
+ 648              		.thumb
+ 649              		.thumb_func
+ 650              		.type	Counter_OptDecDnClkY_ReadCompare, %function
+ 651              	Counter_OptDecDnClkY_ReadCompare:
+ 652              	.LFB14:
+ 474:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** 
+ 475:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** 
+ 476:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** /*******************************************************************************
+ 477:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Function Name: Counter_OptDecDnClkY_ReadCompare
+ 478:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** ********************************************************************************
+ 479:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Summary:
+ 480:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Returns the compare value.
+ 481:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 482:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Parameters:  
+ 483:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *  void:
+ 484:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 485:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Return: 
+ 486:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *  (uint32) Present compare value.
+ 487:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 488:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *******************************************************************************/
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\ccBTgQmo.s 			page 21
+
+
+ 489:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** uint32 Counter_OptDecDnClkY_ReadCompare(void) 
+ 490:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** {
+ 653              		.loc 1 490 0
+ 654              		.cfi_startproc
+ 655              		@ args = 0, pretend = 0, frame = 0
+ 656              		@ frame_needed = 1, uses_anonymous_args = 0
+ 657              		@ link register save eliminated.
+ 658 0000 80B4     		push	{r7}
+ 659              		.cfi_def_cfa_offset 4
+ 660              		.cfi_offset 7, -4
+ 661 0002 00AF     		add	r7, sp, #0
+ 662              		.cfi_def_cfa_register 7
+ 491:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     return (CY_GET_REG24(Counter_OptDecDnClkY_COMPARE_LSB_PTR));
+ 663              		.loc 1 491 0
+ 664 0004 034B     		ldr	r3, .L51
+ 665 0006 1B68     		ldr	r3, [r3]
+ 666 0008 23F07F43 		bic	r3, r3, #-16777216
+ 492:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** }
+ 667              		.loc 1 492 0
+ 668 000c 1846     		mov	r0, r3
+ 669 000e BD46     		mov	sp, r7
+ 670              		.cfi_def_cfa_register 13
+ 671              		@ sp needed
+ 672 0010 80BC     		pop	{r7}
+ 673              		.cfi_restore 7
+ 674              		.cfi_def_cfa_offset 0
+ 675 0012 7047     		bx	lr
+ 676              	.L52:
+ 677              		.align	2
+ 678              	.L51:
+ 679 0014 37640040 		.word	1073767479
+ 680              		.cfi_endproc
+ 681              	.LFE14:
+ 682              		.size	Counter_OptDecDnClkY_ReadCompare, .-Counter_OptDecDnClkY_ReadCompare
+ 683              		.section	.text.Counter_OptDecDnClkY_ClearFIFO,"ax",%progbits
+ 684              		.align	2
+ 685              		.global	Counter_OptDecDnClkY_ClearFIFO
+ 686              		.thumb
+ 687              		.thumb_func
+ 688              		.type	Counter_OptDecDnClkY_ClearFIFO, %function
+ 689              	Counter_OptDecDnClkY_ClearFIFO:
+ 690              	.LFB15:
+ 493:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** 
+ 494:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** 
+ 495:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** #if (Counter_OptDecDnClkY_COMPARE_MODE_SOFTWARE)
+ 496:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** /*******************************************************************************
+ 497:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Function Name: Counter_OptDecDnClkY_SetCompareMode
+ 498:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** ********************************************************************************
+ 499:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Summary:
+ 500:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *  Sets the software controlled Compare Mode.
+ 501:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 502:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Parameters:
+ 503:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *  compareMode:  Compare Mode Enumerated Type.
+ 504:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 505:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Return:
+ 506:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *  void
+ 507:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\ccBTgQmo.s 			page 22
+
+
+ 508:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *******************************************************************************/
+ 509:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** void Counter_OptDecDnClkY_SetCompareMode(uint8 compareMode) 
+ 510:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** {
+ 511:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     /* Clear the compare mode bits in the control register */
+ 512:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     Counter_OptDecDnClkY_CONTROL &= ((uint8)(~Counter_OptDecDnClkY_CTRL_CMPMODE_MASK));
+ 513:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     
+ 514:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     /* Write the new setting */
+ 515:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     Counter_OptDecDnClkY_CONTROL |= compareMode;
+ 516:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** }
+ 517:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** #endif  /* (Counter_OptDecDnClkY_COMPARE_MODE_SOFTWARE) */
+ 518:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** 
+ 519:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** 
+ 520:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** #if (Counter_OptDecDnClkY_CAPTURE_MODE_SOFTWARE)
+ 521:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** /*******************************************************************************
+ 522:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Function Name: Counter_OptDecDnClkY_SetCaptureMode
+ 523:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** ********************************************************************************
+ 524:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Summary:
+ 525:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *  Sets the software controlled Capture Mode.
+ 526:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 527:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Parameters:
+ 528:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *  captureMode:  Capture Mode Enumerated Type.
+ 529:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 530:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Return:
+ 531:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *  void
+ 532:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 533:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *******************************************************************************/
+ 534:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** void Counter_OptDecDnClkY_SetCaptureMode(uint8 captureMode) 
+ 535:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** {
+ 536:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     /* Clear the capture mode bits in the control register */
+ 537:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     Counter_OptDecDnClkY_CONTROL &= ((uint8)(~Counter_OptDecDnClkY_CTRL_CAPMODE_MASK));
+ 538:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     
+ 539:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     /* Write the new setting */
+ 540:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     Counter_OptDecDnClkY_CONTROL |= ((uint8)((uint8)captureMode << Counter_OptDecDnClkY_CTRL_CAPMOD
+ 541:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** }
+ 542:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** #endif  /* (Counter_OptDecDnClkY_CAPTURE_MODE_SOFTWARE) */
+ 543:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** 
+ 544:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** 
+ 545:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** /*******************************************************************************
+ 546:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Function Name: Counter_OptDecDnClkY_ClearFIFO
+ 547:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** ********************************************************************************
+ 548:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Summary:
+ 549:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *   This function clears all capture data from the capture FIFO
+ 550:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 551:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Parameters:  
+ 552:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *  void:
+ 553:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 554:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** * Return: 
+ 555:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *  None
+ 556:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *
+ 557:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** *******************************************************************************/
+ 558:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** void Counter_OptDecDnClkY_ClearFIFO(void) 
+ 559:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** {
+ 691              		.loc 1 559 0
+ 692              		.cfi_startproc
+ 693              		@ args = 0, pretend = 0, frame = 0
+ 694              		@ frame_needed = 1, uses_anonymous_args = 0
+ 695 0000 80B5     		push	{r7, lr}
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\ccBTgQmo.s 			page 23
+
+
+ 696              		.cfi_def_cfa_offset 8
+ 697              		.cfi_offset 7, -8
+ 698              		.cfi_offset 14, -4
+ 699 0002 00AF     		add	r7, sp, #0
+ 700              		.cfi_def_cfa_register 7
+ 560:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** 
+ 561:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     while(0u != (Counter_OptDecDnClkY_ReadStatusRegister() & Counter_OptDecDnClkY_STATUS_FIFONEMP))
+ 701              		.loc 1 561 0
+ 702 0004 01E0     		b	.L54
+ 703              	.L55:
+ 562:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     {
+ 563:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****         (void)Counter_OptDecDnClkY_ReadCapture();
+ 704              		.loc 1 563 0
+ 705 0006 FFF7FEFF 		bl	Counter_OptDecDnClkY_ReadCapture
+ 706              	.L54:
+ 561:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     {
+ 707              		.loc 1 561 0
+ 708 000a FFF7FEFF 		bl	Counter_OptDecDnClkY_ReadStatusRegister
+ 709 000e 0346     		mov	r3, r0
+ 710 0010 03F04003 		and	r3, r3, #64
+ 711 0014 002B     		cmp	r3, #0
+ 712 0016 F6D1     		bne	.L55
+ 564:Generated_Source\PSoC5/Counter_OptDecDnClkY.c ****     }
+ 565:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** 
+ 566:Generated_Source\PSoC5/Counter_OptDecDnClkY.c **** }
+ 713              		.loc 1 566 0
+ 714 0018 00BF     		nop
+ 715 001a 80BD     		pop	{r7, pc}
+ 716              		.cfi_endproc
+ 717              	.LFE15:
+ 718              		.size	Counter_OptDecDnClkY_ClearFIFO, .-Counter_OptDecDnClkY_ClearFIFO
+ 719              		.text
+ 720              	.Letext0:
+ 721              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 722              		.section	.debug_info,"",%progbits
+ 723              	.Ldebug_info0:
+ 724 0000 8D020000 		.4byte	0x28d
+ 725 0004 0400     		.2byte	0x4
+ 726 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 727 000a 04       		.byte	0x4
+ 728 000b 01       		.uleb128 0x1
+ 729 000c 41000000 		.4byte	.LASF41
+ 730 0010 0C       		.byte	0xc
+ 731 0011 37040000 		.4byte	.LASF42
+ 732 0015 EB020000 		.4byte	.LASF43
+ 733 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 734 001d 00000000 		.4byte	0
+ 735 0021 00000000 		.4byte	.Ldebug_line0
+ 736 0025 02       		.uleb128 0x2
+ 737 0026 01       		.byte	0x1
+ 738 0027 06       		.byte	0x6
+ 739 0028 23040000 		.4byte	.LASF0
+ 740 002c 02       		.uleb128 0x2
+ 741 002d 01       		.byte	0x1
+ 742 002e 08       		.byte	0x8
+ 743 002f 93010000 		.4byte	.LASF1
+ 744 0033 02       		.uleb128 0x2
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\ccBTgQmo.s 			page 24
+
+
+ 745 0034 02       		.byte	0x2
+ 746 0035 05       		.byte	0x5
+ 747 0036 B8030000 		.4byte	.LASF2
+ 748 003a 02       		.uleb128 0x2
+ 749 003b 02       		.byte	0x2
+ 750 003c 07       		.byte	0x7
+ 751 003d F2000000 		.4byte	.LASF3
+ 752 0041 02       		.uleb128 0x2
+ 753 0042 04       		.byte	0x4
+ 754 0043 05       		.byte	0x5
+ 755 0044 E8030000 		.4byte	.LASF4
+ 756 0048 02       		.uleb128 0x2
+ 757 0049 04       		.byte	0x4
+ 758 004a 07       		.byte	0x7
+ 759 004b EE010000 		.4byte	.LASF5
+ 760 004f 02       		.uleb128 0x2
+ 761 0050 08       		.byte	0x8
+ 762 0051 05       		.byte	0x5
+ 763 0052 53030000 		.4byte	.LASF6
+ 764 0056 02       		.uleb128 0x2
+ 765 0057 08       		.byte	0x8
+ 766 0058 07       		.byte	0x7
+ 767 0059 B2020000 		.4byte	.LASF7
+ 768 005d 03       		.uleb128 0x3
+ 769 005e 04       		.byte	0x4
+ 770 005f 05       		.byte	0x5
+ 771 0060 696E7400 		.ascii	"int\000"
+ 772 0064 02       		.uleb128 0x2
+ 773 0065 04       		.byte	0x4
+ 774 0066 07       		.byte	0x7
+ 775 0067 8A020000 		.4byte	.LASF8
+ 776 006b 04       		.uleb128 0x4
+ 777 006c 00020000 		.4byte	.LASF9
+ 778 0070 02       		.byte	0x2
+ 779 0071 E401     		.2byte	0x1e4
+ 780 0073 2C000000 		.4byte	0x2c
+ 781 0077 04       		.uleb128 0x4
+ 782 0078 83020000 		.4byte	.LASF10
+ 783 007c 02       		.byte	0x2
+ 784 007d E601     		.2byte	0x1e6
+ 785 007f 48000000 		.4byte	0x48
+ 786 0083 02       		.uleb128 0x2
+ 787 0084 04       		.byte	0x4
+ 788 0085 04       		.byte	0x4
+ 789 0086 63010000 		.4byte	.LASF11
+ 790 008a 02       		.uleb128 0x2
+ 791 008b 08       		.byte	0x8
+ 792 008c 04       		.byte	0x4
+ 793 008d 1D020000 		.4byte	.LASF12
+ 794 0091 02       		.uleb128 0x2
+ 795 0092 01       		.byte	0x1
+ 796 0093 08       		.byte	0x8
+ 797 0094 61030000 		.4byte	.LASF13
+ 798 0098 04       		.uleb128 0x4
+ 799 0099 E9010000 		.4byte	.LASF14
+ 800 009d 02       		.byte	0x2
+ 801 009e 8E02     		.2byte	0x28e
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\ccBTgQmo.s 			page 25
+
+
+ 802 00a0 A4000000 		.4byte	0xa4
+ 803 00a4 05       		.uleb128 0x5
+ 804 00a5 6B000000 		.4byte	0x6b
+ 805 00a9 04       		.uleb128 0x4
+ 806 00aa 3B000000 		.4byte	.LASF15
+ 807 00ae 02       		.byte	0x2
+ 808 00af 9002     		.2byte	0x290
+ 809 00b1 B5000000 		.4byte	0xb5
+ 810 00b5 05       		.uleb128 0x5
+ 811 00b6 77000000 		.4byte	0x77
+ 812 00ba 02       		.uleb128 0x2
+ 813 00bb 08       		.byte	0x8
+ 814 00bc 04       		.byte	0x4
+ 815 00bd 17040000 		.4byte	.LASF16
+ 816 00c1 02       		.uleb128 0x2
+ 817 00c2 04       		.byte	0x4
+ 818 00c3 07       		.byte	0x7
+ 819 00c4 4A030000 		.4byte	.LASF17
+ 820 00c8 06       		.uleb128 0x6
+ 821 00c9 21000000 		.4byte	.LASF23
+ 822 00cd 01       		.byte	0x1
+ 823 00ce 25       		.byte	0x25
+ 824 00cf 00000000 		.4byte	.LFB0
+ 825 00d3 84000000 		.4byte	.LFE0-.LFB0
+ 826 00d7 01       		.uleb128 0x1
+ 827 00d8 9C       		.byte	0x9c
+ 828 00d9 FA000000 		.4byte	0xfa
+ 829 00dd 07       		.uleb128 0x7
+ 830 00de E3030000 		.4byte	.LASF18
+ 831 00e2 01       		.byte	0x1
+ 832 00e3 28       		.byte	0x28
+ 833 00e4 6B000000 		.4byte	0x6b
+ 834 00e8 02       		.uleb128 0x2
+ 835 00e9 91       		.byte	0x91
+ 836 00ea 77       		.sleb128 -9
+ 837 00eb 07       		.uleb128 0x7
+ 838 00ec 24020000 		.4byte	.LASF19
+ 839 00f0 01       		.byte	0x1
+ 840 00f1 2D       		.byte	0x2d
+ 841 00f2 6B000000 		.4byte	0x6b
+ 842 00f6 02       		.uleb128 0x2
+ 843 00f7 91       		.byte	0x91
+ 844 00f8 76       		.sleb128 -10
+ 845 00f9 00       		.byte	0
+ 846 00fa 08       		.uleb128 0x8
+ 847 00fb CF000000 		.4byte	.LASF20
+ 848 00ff 01       		.byte	0x1
+ 849 0100 8F       		.byte	0x8f
+ 850 0101 00000000 		.4byte	.LFB1
+ 851 0105 20000000 		.4byte	.LFE1-.LFB1
+ 852 0109 01       		.uleb128 0x1
+ 853 010a 9C       		.byte	0x9c
+ 854 010b 09       		.uleb128 0x9
+ 855 010c 97020000 		.4byte	.LASF21
+ 856 0110 01       		.byte	0x1
+ 857 0111 B2       		.byte	0xb2
+ 858 0112 00000000 		.4byte	.LFB2
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\ccBTgQmo.s 			page 26
+
+
+ 859 0116 24000000 		.4byte	.LFE2-.LFB2
+ 860 011a 01       		.uleb128 0x1
+ 861 011b 9C       		.byte	0x9c
+ 862 011c 08       		.uleb128 0x8
+ 863 011d 69020000 		.4byte	.LASF22
+ 864 0121 01       		.byte	0x1
+ 865 0122 D0       		.byte	0xd0
+ 866 0123 00000000 		.4byte	.LFB3
+ 867 0127 20000000 		.4byte	.LFE3-.LFB3
+ 868 012b 01       		.uleb128 0x1
+ 869 012c 9C       		.byte	0x9c
+ 870 012d 0A       		.uleb128 0xa
+ 871 012e F1030000 		.4byte	.LASF24
+ 872 0132 01       		.byte	0x1
+ 873 0133 ED       		.byte	0xed
+ 874 0134 00000000 		.4byte	.LFB4
+ 875 0138 20000000 		.4byte	.LFE4-.LFB4
+ 876 013c 01       		.uleb128 0x1
+ 877 013d 9C       		.byte	0x9c
+ 878 013e 51010000 		.4byte	0x151
+ 879 0142 0B       		.uleb128 0xb
+ 880 0143 0E020000 		.4byte	.LASF28
+ 881 0147 01       		.byte	0x1
+ 882 0148 ED       		.byte	0xed
+ 883 0149 6B000000 		.4byte	0x6b
+ 884 014d 02       		.uleb128 0x2
+ 885 014e 91       		.byte	0x91
+ 886 014f 77       		.sleb128 -9
+ 887 0150 00       		.byte	0
+ 888 0151 0C       		.uleb128 0xc
+ 889 0152 90030000 		.4byte	.LASF25
+ 890 0156 01       		.byte	0x1
+ 891 0157 0501     		.2byte	0x105
+ 892 0159 6B000000 		.4byte	0x6b
+ 893 015d 00000000 		.4byte	.LFB5
+ 894 0161 18000000 		.4byte	.LFE5-.LFB5
+ 895 0165 01       		.uleb128 0x1
+ 896 0166 9C       		.byte	0x9c
+ 897 0167 0C       		.uleb128 0xc
+ 898 0168 C0010000 		.4byte	.LASF26
+ 899 016c 01       		.byte	0x1
+ 900 016d 1B01     		.2byte	0x11b
+ 901 016f 6B000000 		.4byte	0x6b
+ 902 0173 00000000 		.4byte	.LFB6
+ 903 0177 18000000 		.4byte	.LFE6-.LFB6
+ 904 017b 01       		.uleb128 0x1
+ 905 017c 9C       		.byte	0x9c
+ 906 017d 0D       		.uleb128 0xd
+ 907 017e 66030000 		.4byte	.LASF27
+ 908 0182 01       		.byte	0x1
+ 909 0183 3001     		.2byte	0x130
+ 910 0185 00000000 		.4byte	.LFB7
+ 911 0189 20000000 		.4byte	.LFE7-.LFB7
+ 912 018d 01       		.uleb128 0x1
+ 913 018e 9C       		.byte	0x9c
+ 914 018f A3010000 		.4byte	0x1a3
+ 915 0193 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\ccBTgQmo.s 			page 27
+
+
+ 916 0194 06020000 		.4byte	.LASF29
+ 917 0198 01       		.byte	0x1
+ 918 0199 3001     		.2byte	0x130
+ 919 019b 6B000000 		.4byte	0x6b
+ 920 019f 02       		.uleb128 0x2
+ 921 01a0 91       		.byte	0x91
+ 922 01a1 77       		.sleb128 -9
+ 923 01a2 00       		.byte	0
+ 924 01a3 0F       		.uleb128 0xf
+ 925 01a4 71010000 		.4byte	.LASF30
+ 926 01a8 01       		.byte	0x1
+ 927 01a9 4601     		.2byte	0x146
+ 928 01ab 00000000 		.4byte	.LFB8
+ 929 01af 1C000000 		.4byte	.LFE8-.LFB8
+ 930 01b3 01       		.uleb128 0x1
+ 931 01b4 9C       		.byte	0x9c
+ 932 01b5 C9010000 		.4byte	0x1c9
+ 933 01b9 0E       		.uleb128 0xe
+ 934 01ba 69010000 		.4byte	.LASF31
+ 935 01be 01       		.byte	0x1
+ 936 01bf 4601     		.2byte	0x146
+ 937 01c1 77000000 		.4byte	0x77
+ 938 01c5 02       		.uleb128 0x2
+ 939 01c6 91       		.byte	0x91
+ 940 01c7 74       		.sleb128 -12
+ 941 01c8 00       		.byte	0
+ 942 01c9 0C       		.uleb128 0xc
+ 943 01ca 22010000 		.4byte	.LASF32
+ 944 01ce 01       		.byte	0x1
+ 945 01cf 6501     		.2byte	0x165
+ 946 01d1 77000000 		.4byte	0x77
+ 947 01d5 00000000 		.4byte	.LFB9
+ 948 01d9 20000000 		.4byte	.LFE9-.LFB9
+ 949 01dd 01       		.uleb128 0x1
+ 950 01de 9C       		.byte	0x9c
+ 951 01df 0C       		.uleb128 0xc
+ 952 01e0 00000000 		.4byte	.LASF33
+ 953 01e4 01       		.byte	0x1
+ 954 01e5 8601     		.2byte	0x186
+ 955 01e7 77000000 		.4byte	0x77
+ 956 01eb 00000000 		.4byte	.LFB10
+ 957 01ef 18000000 		.4byte	.LFE10-.LFB10
+ 958 01f3 01       		.uleb128 0x1
+ 959 01f4 9C       		.byte	0x9c
+ 960 01f5 0F       		.uleb128 0xf
+ 961 01f6 48020000 		.4byte	.LASF34
+ 962 01fa 01       		.byte	0x1
+ 963 01fb 9F01     		.2byte	0x19f
+ 964 01fd 00000000 		.4byte	.LFB11
+ 965 0201 1C000000 		.4byte	.LFE11-.LFB11
+ 966 0205 01       		.uleb128 0x1
+ 967 0206 9C       		.byte	0x9c
+ 968 0207 1B020000 		.4byte	0x21b
+ 969 020b 0E       		.uleb128 0xe
+ 970 020c EB000000 		.4byte	.LASF35
+ 971 0210 01       		.byte	0x1
+ 972 0211 9F01     		.2byte	0x19f
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\ccBTgQmo.s 			page 28
+
+
+ 973 0213 77000000 		.4byte	0x77
+ 974 0217 02       		.uleb128 0x2
+ 975 0218 91       		.byte	0x91
+ 976 0219 74       		.sleb128 -12
+ 977 021a 00       		.byte	0
+ 978 021b 0C       		.uleb128 0xc
+ 979 021c 43010000 		.4byte	.LASF36
+ 980 0220 01       		.byte	0x1
+ 981 0221 B601     		.2byte	0x1b6
+ 982 0223 77000000 		.4byte	0x77
+ 983 0227 00000000 		.4byte	.LFB12
+ 984 022b 18000000 		.4byte	.LFE12-.LFB12
+ 985 022f 01       		.uleb128 0x1
+ 986 0230 9C       		.byte	0x9c
+ 987 0231 0F       		.uleb128 0xf
+ 988 0232 C9020000 		.4byte	.LASF37
+ 989 0236 01       		.byte	0x1
+ 990 0237 D101     		.2byte	0x1d1
+ 991 0239 00000000 		.4byte	.LFB13
+ 992 023d 1C000000 		.4byte	.LFE13-.LFB13
+ 993 0241 01       		.uleb128 0x1
+ 994 0242 9C       		.byte	0x9c
+ 995 0243 57020000 		.4byte	0x257
+ 996 0247 0E       		.uleb128 0xe
+ 997 0248 2F040000 		.4byte	.LASF38
+ 998 024c 01       		.byte	0x1
+ 999 024d D101     		.2byte	0x1d1
+ 1000 024f 77000000 		.4byte	0x77
+ 1001 0253 02       		.uleb128 0x2
+ 1002 0254 91       		.byte	0x91
+ 1003 0255 74       		.sleb128 -12
+ 1004 0256 00       		.byte	0
+ 1005 0257 0C       		.uleb128 0xc
+ 1006 0258 C2030000 		.4byte	.LASF39
+ 1007 025c 01       		.byte	0x1
+ 1008 025d E901     		.2byte	0x1e9
+ 1009 025f 77000000 		.4byte	0x77
+ 1010 0263 00000000 		.4byte	.LFB14
+ 1011 0267 18000000 		.4byte	.LFE14-.LFB14
+ 1012 026b 01       		.uleb128 0x1
+ 1013 026c 9C       		.byte	0x9c
+ 1014 026d 10       		.uleb128 0x10
+ 1015 026e A1010000 		.4byte	.LASF40
+ 1016 0272 01       		.byte	0x1
+ 1017 0273 2E02     		.2byte	0x22e
+ 1018 0275 00000000 		.4byte	.LFB15
+ 1019 0279 1C000000 		.4byte	.LFE15-.LFB15
+ 1020 027d 01       		.uleb128 0x1
+ 1021 027e 9C       		.byte	0x9c
+ 1022 027f 11       		.uleb128 0x11
+ 1023 0280 05010000 		.4byte	.LASF44
+ 1024 0284 01       		.byte	0x1
+ 1025 0285 15       		.byte	0x15
+ 1026 0286 6B000000 		.4byte	0x6b
+ 1027 028a 05       		.uleb128 0x5
+ 1028 028b 03       		.byte	0x3
+ 1029 028c 00000000 		.4byte	Counter_OptDecDnClkY_initVar
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\ccBTgQmo.s 			page 29
+
+
+ 1030 0290 00       		.byte	0
+ 1031              		.section	.debug_abbrev,"",%progbits
+ 1032              	.Ldebug_abbrev0:
+ 1033 0000 01       		.uleb128 0x1
+ 1034 0001 11       		.uleb128 0x11
+ 1035 0002 01       		.byte	0x1
+ 1036 0003 25       		.uleb128 0x25
+ 1037 0004 0E       		.uleb128 0xe
+ 1038 0005 13       		.uleb128 0x13
+ 1039 0006 0B       		.uleb128 0xb
+ 1040 0007 03       		.uleb128 0x3
+ 1041 0008 0E       		.uleb128 0xe
+ 1042 0009 1B       		.uleb128 0x1b
+ 1043 000a 0E       		.uleb128 0xe
+ 1044 000b 55       		.uleb128 0x55
+ 1045 000c 17       		.uleb128 0x17
+ 1046 000d 11       		.uleb128 0x11
+ 1047 000e 01       		.uleb128 0x1
+ 1048 000f 10       		.uleb128 0x10
+ 1049 0010 17       		.uleb128 0x17
+ 1050 0011 00       		.byte	0
+ 1051 0012 00       		.byte	0
+ 1052 0013 02       		.uleb128 0x2
+ 1053 0014 24       		.uleb128 0x24
+ 1054 0015 00       		.byte	0
+ 1055 0016 0B       		.uleb128 0xb
+ 1056 0017 0B       		.uleb128 0xb
+ 1057 0018 3E       		.uleb128 0x3e
+ 1058 0019 0B       		.uleb128 0xb
+ 1059 001a 03       		.uleb128 0x3
+ 1060 001b 0E       		.uleb128 0xe
+ 1061 001c 00       		.byte	0
+ 1062 001d 00       		.byte	0
+ 1063 001e 03       		.uleb128 0x3
+ 1064 001f 24       		.uleb128 0x24
+ 1065 0020 00       		.byte	0
+ 1066 0021 0B       		.uleb128 0xb
+ 1067 0022 0B       		.uleb128 0xb
+ 1068 0023 3E       		.uleb128 0x3e
+ 1069 0024 0B       		.uleb128 0xb
+ 1070 0025 03       		.uleb128 0x3
+ 1071 0026 08       		.uleb128 0x8
+ 1072 0027 00       		.byte	0
+ 1073 0028 00       		.byte	0
+ 1074 0029 04       		.uleb128 0x4
+ 1075 002a 16       		.uleb128 0x16
+ 1076 002b 00       		.byte	0
+ 1077 002c 03       		.uleb128 0x3
+ 1078 002d 0E       		.uleb128 0xe
+ 1079 002e 3A       		.uleb128 0x3a
+ 1080 002f 0B       		.uleb128 0xb
+ 1081 0030 3B       		.uleb128 0x3b
+ 1082 0031 05       		.uleb128 0x5
+ 1083 0032 49       		.uleb128 0x49
+ 1084 0033 13       		.uleb128 0x13
+ 1085 0034 00       		.byte	0
+ 1086 0035 00       		.byte	0
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\ccBTgQmo.s 			page 30
+
+
+ 1087 0036 05       		.uleb128 0x5
+ 1088 0037 35       		.uleb128 0x35
+ 1089 0038 00       		.byte	0
+ 1090 0039 49       		.uleb128 0x49
+ 1091 003a 13       		.uleb128 0x13
+ 1092 003b 00       		.byte	0
+ 1093 003c 00       		.byte	0
+ 1094 003d 06       		.uleb128 0x6
+ 1095 003e 2E       		.uleb128 0x2e
+ 1096 003f 01       		.byte	0x1
+ 1097 0040 3F       		.uleb128 0x3f
+ 1098 0041 19       		.uleb128 0x19
+ 1099 0042 03       		.uleb128 0x3
+ 1100 0043 0E       		.uleb128 0xe
+ 1101 0044 3A       		.uleb128 0x3a
+ 1102 0045 0B       		.uleb128 0xb
+ 1103 0046 3B       		.uleb128 0x3b
+ 1104 0047 0B       		.uleb128 0xb
+ 1105 0048 27       		.uleb128 0x27
+ 1106 0049 19       		.uleb128 0x19
+ 1107 004a 11       		.uleb128 0x11
+ 1108 004b 01       		.uleb128 0x1
+ 1109 004c 12       		.uleb128 0x12
+ 1110 004d 06       		.uleb128 0x6
+ 1111 004e 40       		.uleb128 0x40
+ 1112 004f 18       		.uleb128 0x18
+ 1113 0050 9642     		.uleb128 0x2116
+ 1114 0052 19       		.uleb128 0x19
+ 1115 0053 01       		.uleb128 0x1
+ 1116 0054 13       		.uleb128 0x13
+ 1117 0055 00       		.byte	0
+ 1118 0056 00       		.byte	0
+ 1119 0057 07       		.uleb128 0x7
+ 1120 0058 34       		.uleb128 0x34
+ 1121 0059 00       		.byte	0
+ 1122 005a 03       		.uleb128 0x3
+ 1123 005b 0E       		.uleb128 0xe
+ 1124 005c 3A       		.uleb128 0x3a
+ 1125 005d 0B       		.uleb128 0xb
+ 1126 005e 3B       		.uleb128 0x3b
+ 1127 005f 0B       		.uleb128 0xb
+ 1128 0060 49       		.uleb128 0x49
+ 1129 0061 13       		.uleb128 0x13
+ 1130 0062 02       		.uleb128 0x2
+ 1131 0063 18       		.uleb128 0x18
+ 1132 0064 00       		.byte	0
+ 1133 0065 00       		.byte	0
+ 1134 0066 08       		.uleb128 0x8
+ 1135 0067 2E       		.uleb128 0x2e
+ 1136 0068 00       		.byte	0
+ 1137 0069 3F       		.uleb128 0x3f
+ 1138 006a 19       		.uleb128 0x19
+ 1139 006b 03       		.uleb128 0x3
+ 1140 006c 0E       		.uleb128 0xe
+ 1141 006d 3A       		.uleb128 0x3a
+ 1142 006e 0B       		.uleb128 0xb
+ 1143 006f 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\ccBTgQmo.s 			page 31
+
+
+ 1144 0070 0B       		.uleb128 0xb
+ 1145 0071 27       		.uleb128 0x27
+ 1146 0072 19       		.uleb128 0x19
+ 1147 0073 11       		.uleb128 0x11
+ 1148 0074 01       		.uleb128 0x1
+ 1149 0075 12       		.uleb128 0x12
+ 1150 0076 06       		.uleb128 0x6
+ 1151 0077 40       		.uleb128 0x40
+ 1152 0078 18       		.uleb128 0x18
+ 1153 0079 9742     		.uleb128 0x2117
+ 1154 007b 19       		.uleb128 0x19
+ 1155 007c 00       		.byte	0
+ 1156 007d 00       		.byte	0
+ 1157 007e 09       		.uleb128 0x9
+ 1158 007f 2E       		.uleb128 0x2e
+ 1159 0080 00       		.byte	0
+ 1160 0081 3F       		.uleb128 0x3f
+ 1161 0082 19       		.uleb128 0x19
+ 1162 0083 03       		.uleb128 0x3
+ 1163 0084 0E       		.uleb128 0xe
+ 1164 0085 3A       		.uleb128 0x3a
+ 1165 0086 0B       		.uleb128 0xb
+ 1166 0087 3B       		.uleb128 0x3b
+ 1167 0088 0B       		.uleb128 0xb
+ 1168 0089 27       		.uleb128 0x27
+ 1169 008a 19       		.uleb128 0x19
+ 1170 008b 11       		.uleb128 0x11
+ 1171 008c 01       		.uleb128 0x1
+ 1172 008d 12       		.uleb128 0x12
+ 1173 008e 06       		.uleb128 0x6
+ 1174 008f 40       		.uleb128 0x40
+ 1175 0090 18       		.uleb128 0x18
+ 1176 0091 9642     		.uleb128 0x2116
+ 1177 0093 19       		.uleb128 0x19
+ 1178 0094 00       		.byte	0
+ 1179 0095 00       		.byte	0
+ 1180 0096 0A       		.uleb128 0xa
+ 1181 0097 2E       		.uleb128 0x2e
+ 1182 0098 01       		.byte	0x1
+ 1183 0099 3F       		.uleb128 0x3f
+ 1184 009a 19       		.uleb128 0x19
+ 1185 009b 03       		.uleb128 0x3
+ 1186 009c 0E       		.uleb128 0xe
+ 1187 009d 3A       		.uleb128 0x3a
+ 1188 009e 0B       		.uleb128 0xb
+ 1189 009f 3B       		.uleb128 0x3b
+ 1190 00a0 0B       		.uleb128 0xb
+ 1191 00a1 27       		.uleb128 0x27
+ 1192 00a2 19       		.uleb128 0x19
+ 1193 00a3 11       		.uleb128 0x11
+ 1194 00a4 01       		.uleb128 0x1
+ 1195 00a5 12       		.uleb128 0x12
+ 1196 00a6 06       		.uleb128 0x6
+ 1197 00a7 40       		.uleb128 0x40
+ 1198 00a8 18       		.uleb128 0x18
+ 1199 00a9 9742     		.uleb128 0x2117
+ 1200 00ab 19       		.uleb128 0x19
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\ccBTgQmo.s 			page 32
+
+
+ 1201 00ac 01       		.uleb128 0x1
+ 1202 00ad 13       		.uleb128 0x13
+ 1203 00ae 00       		.byte	0
+ 1204 00af 00       		.byte	0
+ 1205 00b0 0B       		.uleb128 0xb
+ 1206 00b1 05       		.uleb128 0x5
+ 1207 00b2 00       		.byte	0
+ 1208 00b3 03       		.uleb128 0x3
+ 1209 00b4 0E       		.uleb128 0xe
+ 1210 00b5 3A       		.uleb128 0x3a
+ 1211 00b6 0B       		.uleb128 0xb
+ 1212 00b7 3B       		.uleb128 0x3b
+ 1213 00b8 0B       		.uleb128 0xb
+ 1214 00b9 49       		.uleb128 0x49
+ 1215 00ba 13       		.uleb128 0x13
+ 1216 00bb 02       		.uleb128 0x2
+ 1217 00bc 18       		.uleb128 0x18
+ 1218 00bd 00       		.byte	0
+ 1219 00be 00       		.byte	0
+ 1220 00bf 0C       		.uleb128 0xc
+ 1221 00c0 2E       		.uleb128 0x2e
+ 1222 00c1 00       		.byte	0
+ 1223 00c2 3F       		.uleb128 0x3f
+ 1224 00c3 19       		.uleb128 0x19
+ 1225 00c4 03       		.uleb128 0x3
+ 1226 00c5 0E       		.uleb128 0xe
+ 1227 00c6 3A       		.uleb128 0x3a
+ 1228 00c7 0B       		.uleb128 0xb
+ 1229 00c8 3B       		.uleb128 0x3b
+ 1230 00c9 05       		.uleb128 0x5
+ 1231 00ca 27       		.uleb128 0x27
+ 1232 00cb 19       		.uleb128 0x19
+ 1233 00cc 49       		.uleb128 0x49
+ 1234 00cd 13       		.uleb128 0x13
+ 1235 00ce 11       		.uleb128 0x11
+ 1236 00cf 01       		.uleb128 0x1
+ 1237 00d0 12       		.uleb128 0x12
+ 1238 00d1 06       		.uleb128 0x6
+ 1239 00d2 40       		.uleb128 0x40
+ 1240 00d3 18       		.uleb128 0x18
+ 1241 00d4 9742     		.uleb128 0x2117
+ 1242 00d6 19       		.uleb128 0x19
+ 1243 00d7 00       		.byte	0
+ 1244 00d8 00       		.byte	0
+ 1245 00d9 0D       		.uleb128 0xd
+ 1246 00da 2E       		.uleb128 0x2e
+ 1247 00db 01       		.byte	0x1
+ 1248 00dc 3F       		.uleb128 0x3f
+ 1249 00dd 19       		.uleb128 0x19
+ 1250 00de 03       		.uleb128 0x3
+ 1251 00df 0E       		.uleb128 0xe
+ 1252 00e0 3A       		.uleb128 0x3a
+ 1253 00e1 0B       		.uleb128 0xb
+ 1254 00e2 3B       		.uleb128 0x3b
+ 1255 00e3 05       		.uleb128 0x5
+ 1256 00e4 27       		.uleb128 0x27
+ 1257 00e5 19       		.uleb128 0x19
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\ccBTgQmo.s 			page 33
+
+
+ 1258 00e6 11       		.uleb128 0x11
+ 1259 00e7 01       		.uleb128 0x1
+ 1260 00e8 12       		.uleb128 0x12
+ 1261 00e9 06       		.uleb128 0x6
+ 1262 00ea 40       		.uleb128 0x40
+ 1263 00eb 18       		.uleb128 0x18
+ 1264 00ec 9742     		.uleb128 0x2117
+ 1265 00ee 19       		.uleb128 0x19
+ 1266 00ef 01       		.uleb128 0x1
+ 1267 00f0 13       		.uleb128 0x13
+ 1268 00f1 00       		.byte	0
+ 1269 00f2 00       		.byte	0
+ 1270 00f3 0E       		.uleb128 0xe
+ 1271 00f4 05       		.uleb128 0x5
+ 1272 00f5 00       		.byte	0
+ 1273 00f6 03       		.uleb128 0x3
+ 1274 00f7 0E       		.uleb128 0xe
+ 1275 00f8 3A       		.uleb128 0x3a
+ 1276 00f9 0B       		.uleb128 0xb
+ 1277 00fa 3B       		.uleb128 0x3b
+ 1278 00fb 05       		.uleb128 0x5
+ 1279 00fc 49       		.uleb128 0x49
+ 1280 00fd 13       		.uleb128 0x13
+ 1281 00fe 02       		.uleb128 0x2
+ 1282 00ff 18       		.uleb128 0x18
+ 1283 0100 00       		.byte	0
+ 1284 0101 00       		.byte	0
+ 1285 0102 0F       		.uleb128 0xf
+ 1286 0103 2E       		.uleb128 0x2e
+ 1287 0104 01       		.byte	0x1
+ 1288 0105 3F       		.uleb128 0x3f
+ 1289 0106 19       		.uleb128 0x19
+ 1290 0107 03       		.uleb128 0x3
+ 1291 0108 0E       		.uleb128 0xe
+ 1292 0109 3A       		.uleb128 0x3a
+ 1293 010a 0B       		.uleb128 0xb
+ 1294 010b 3B       		.uleb128 0x3b
+ 1295 010c 05       		.uleb128 0x5
+ 1296 010d 27       		.uleb128 0x27
+ 1297 010e 19       		.uleb128 0x19
+ 1298 010f 11       		.uleb128 0x11
+ 1299 0110 01       		.uleb128 0x1
+ 1300 0111 12       		.uleb128 0x12
+ 1301 0112 06       		.uleb128 0x6
+ 1302 0113 40       		.uleb128 0x40
+ 1303 0114 18       		.uleb128 0x18
+ 1304 0115 9642     		.uleb128 0x2116
+ 1305 0117 19       		.uleb128 0x19
+ 1306 0118 01       		.uleb128 0x1
+ 1307 0119 13       		.uleb128 0x13
+ 1308 011a 00       		.byte	0
+ 1309 011b 00       		.byte	0
+ 1310 011c 10       		.uleb128 0x10
+ 1311 011d 2E       		.uleb128 0x2e
+ 1312 011e 00       		.byte	0
+ 1313 011f 3F       		.uleb128 0x3f
+ 1314 0120 19       		.uleb128 0x19
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\ccBTgQmo.s 			page 34
+
+
+ 1315 0121 03       		.uleb128 0x3
+ 1316 0122 0E       		.uleb128 0xe
+ 1317 0123 3A       		.uleb128 0x3a
+ 1318 0124 0B       		.uleb128 0xb
+ 1319 0125 3B       		.uleb128 0x3b
+ 1320 0126 05       		.uleb128 0x5
+ 1321 0127 27       		.uleb128 0x27
+ 1322 0128 19       		.uleb128 0x19
+ 1323 0129 11       		.uleb128 0x11
+ 1324 012a 01       		.uleb128 0x1
+ 1325 012b 12       		.uleb128 0x12
+ 1326 012c 06       		.uleb128 0x6
+ 1327 012d 40       		.uleb128 0x40
+ 1328 012e 18       		.uleb128 0x18
+ 1329 012f 9642     		.uleb128 0x2116
+ 1330 0131 19       		.uleb128 0x19
+ 1331 0132 00       		.byte	0
+ 1332 0133 00       		.byte	0
+ 1333 0134 11       		.uleb128 0x11
+ 1334 0135 34       		.uleb128 0x34
+ 1335 0136 00       		.byte	0
+ 1336 0137 03       		.uleb128 0x3
+ 1337 0138 0E       		.uleb128 0xe
+ 1338 0139 3A       		.uleb128 0x3a
+ 1339 013a 0B       		.uleb128 0xb
+ 1340 013b 3B       		.uleb128 0x3b
+ 1341 013c 0B       		.uleb128 0xb
+ 1342 013d 49       		.uleb128 0x49
+ 1343 013e 13       		.uleb128 0x13
+ 1344 013f 3F       		.uleb128 0x3f
+ 1345 0140 19       		.uleb128 0x19
+ 1346 0141 02       		.uleb128 0x2
+ 1347 0142 18       		.uleb128 0x18
+ 1348 0143 00       		.byte	0
+ 1349 0144 00       		.byte	0
+ 1350 0145 00       		.byte	0
+ 1351              		.section	.debug_aranges,"",%progbits
+ 1352 0000 94000000 		.4byte	0x94
+ 1353 0004 0200     		.2byte	0x2
+ 1354 0006 00000000 		.4byte	.Ldebug_info0
+ 1355 000a 04       		.byte	0x4
+ 1356 000b 00       		.byte	0
+ 1357 000c 0000     		.2byte	0
+ 1358 000e 0000     		.2byte	0
+ 1359 0010 00000000 		.4byte	.LFB0
+ 1360 0014 84000000 		.4byte	.LFE0-.LFB0
+ 1361 0018 00000000 		.4byte	.LFB1
+ 1362 001c 20000000 		.4byte	.LFE1-.LFB1
+ 1363 0020 00000000 		.4byte	.LFB2
+ 1364 0024 24000000 		.4byte	.LFE2-.LFB2
+ 1365 0028 00000000 		.4byte	.LFB3
+ 1366 002c 20000000 		.4byte	.LFE3-.LFB3
+ 1367 0030 00000000 		.4byte	.LFB4
+ 1368 0034 20000000 		.4byte	.LFE4-.LFB4
+ 1369 0038 00000000 		.4byte	.LFB5
+ 1370 003c 18000000 		.4byte	.LFE5-.LFB5
+ 1371 0040 00000000 		.4byte	.LFB6
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\ccBTgQmo.s 			page 35
+
+
+ 1372 0044 18000000 		.4byte	.LFE6-.LFB6
+ 1373 0048 00000000 		.4byte	.LFB7
+ 1374 004c 20000000 		.4byte	.LFE7-.LFB7
+ 1375 0050 00000000 		.4byte	.LFB8
+ 1376 0054 1C000000 		.4byte	.LFE8-.LFB8
+ 1377 0058 00000000 		.4byte	.LFB9
+ 1378 005c 20000000 		.4byte	.LFE9-.LFB9
+ 1379 0060 00000000 		.4byte	.LFB10
+ 1380 0064 18000000 		.4byte	.LFE10-.LFB10
+ 1381 0068 00000000 		.4byte	.LFB11
+ 1382 006c 1C000000 		.4byte	.LFE11-.LFB11
+ 1383 0070 00000000 		.4byte	.LFB12
+ 1384 0074 18000000 		.4byte	.LFE12-.LFB12
+ 1385 0078 00000000 		.4byte	.LFB13
+ 1386 007c 1C000000 		.4byte	.LFE13-.LFB13
+ 1387 0080 00000000 		.4byte	.LFB14
+ 1388 0084 18000000 		.4byte	.LFE14-.LFB14
+ 1389 0088 00000000 		.4byte	.LFB15
+ 1390 008c 1C000000 		.4byte	.LFE15-.LFB15
+ 1391 0090 00000000 		.4byte	0
+ 1392 0094 00000000 		.4byte	0
+ 1393              		.section	.debug_ranges,"",%progbits
+ 1394              	.Ldebug_ranges0:
+ 1395 0000 00000000 		.4byte	.LFB0
+ 1396 0004 84000000 		.4byte	.LFE0
+ 1397 0008 00000000 		.4byte	.LFB1
+ 1398 000c 20000000 		.4byte	.LFE1
+ 1399 0010 00000000 		.4byte	.LFB2
+ 1400 0014 24000000 		.4byte	.LFE2
+ 1401 0018 00000000 		.4byte	.LFB3
+ 1402 001c 20000000 		.4byte	.LFE3
+ 1403 0020 00000000 		.4byte	.LFB4
+ 1404 0024 20000000 		.4byte	.LFE4
+ 1405 0028 00000000 		.4byte	.LFB5
+ 1406 002c 18000000 		.4byte	.LFE5
+ 1407 0030 00000000 		.4byte	.LFB6
+ 1408 0034 18000000 		.4byte	.LFE6
+ 1409 0038 00000000 		.4byte	.LFB7
+ 1410 003c 20000000 		.4byte	.LFE7
+ 1411 0040 00000000 		.4byte	.LFB8
+ 1412 0044 1C000000 		.4byte	.LFE8
+ 1413 0048 00000000 		.4byte	.LFB9
+ 1414 004c 20000000 		.4byte	.LFE9
+ 1415 0050 00000000 		.4byte	.LFB10
+ 1416 0054 18000000 		.4byte	.LFE10
+ 1417 0058 00000000 		.4byte	.LFB11
+ 1418 005c 1C000000 		.4byte	.LFE11
+ 1419 0060 00000000 		.4byte	.LFB12
+ 1420 0064 18000000 		.4byte	.LFE12
+ 1421 0068 00000000 		.4byte	.LFB13
+ 1422 006c 1C000000 		.4byte	.LFE13
+ 1423 0070 00000000 		.4byte	.LFB14
+ 1424 0074 18000000 		.4byte	.LFE14
+ 1425 0078 00000000 		.4byte	.LFB15
+ 1426 007c 1C000000 		.4byte	.LFE15
+ 1427 0080 00000000 		.4byte	0
+ 1428 0084 00000000 		.4byte	0
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\ccBTgQmo.s 			page 36
+
+
+ 1429              		.section	.debug_line,"",%progbits
+ 1430              	.Ldebug_line0:
+ 1431 0000 8E010000 		.section	.debug_str,"MS",%progbits,1
+ 1431      02005100 
+ 1431      00000201 
+ 1431      FB0E0D00 
+ 1431      01010101 
+ 1432              	.LASF33:
+ 1433 0000 436F756E 		.ascii	"Counter_OptDecDnClkY_ReadCapture\000"
+ 1433      7465725F 
+ 1433      4F707444 
+ 1433      6563446E 
+ 1433      436C6B59 
+ 1434              	.LASF23:
+ 1435 0021 436F756E 		.ascii	"Counter_OptDecDnClkY_Init\000"
+ 1435      7465725F 
+ 1435      4F707444 
+ 1435      6563446E 
+ 1435      436C6B59 
+ 1436              	.LASF15:
+ 1437 003b 72656733 		.ascii	"reg32\000"
+ 1437      3200
+ 1438              	.LASF41:
+ 1439 0041 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1439      43313120 
+ 1439      352E342E 
+ 1439      31203230 
+ 1439      31363036 
+ 1440 0074 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1440      20726576 
+ 1440      6973696F 
+ 1440      6E203233 
+ 1440      37373135 
+ 1441 00a7 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 1441      66756E63 
+ 1441      74696F6E 
+ 1441      2D736563 
+ 1441      74696F6E 
+ 1442              	.LASF20:
+ 1443 00cf 436F756E 		.ascii	"Counter_OptDecDnClkY_Enable\000"
+ 1443      7465725F 
+ 1443      4F707444 
+ 1443      6563446E 
+ 1443      436C6B59 
+ 1444              	.LASF35:
+ 1445 00eb 70657269 		.ascii	"period\000"
+ 1445      6F6400
+ 1446              	.LASF3:
+ 1447 00f2 73686F72 		.ascii	"short unsigned int\000"
+ 1447      7420756E 
+ 1447      7369676E 
+ 1447      65642069 
+ 1447      6E7400
+ 1448              	.LASF44:
+ 1449 0105 436F756E 		.ascii	"Counter_OptDecDnClkY_initVar\000"
+ 1449      7465725F 
+ 1449      4F707444 
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\ccBTgQmo.s 			page 37
+
+
+ 1449      6563446E 
+ 1449      436C6B59 
+ 1450              	.LASF32:
+ 1451 0122 436F756E 		.ascii	"Counter_OptDecDnClkY_ReadCounter\000"
+ 1451      7465725F 
+ 1451      4F707444 
+ 1451      6563446E 
+ 1451      436C6B59 
+ 1452              	.LASF36:
+ 1453 0143 436F756E 		.ascii	"Counter_OptDecDnClkY_ReadPeriod\000"
+ 1453      7465725F 
+ 1453      4F707444 
+ 1453      6563446E 
+ 1453      436C6B59 
+ 1454              	.LASF11:
+ 1455 0163 666C6F61 		.ascii	"float\000"
+ 1455      7400
+ 1456              	.LASF31:
+ 1457 0169 636F756E 		.ascii	"counter\000"
+ 1457      74657200 
+ 1458              	.LASF30:
+ 1459 0171 436F756E 		.ascii	"Counter_OptDecDnClkY_WriteCounter\000"
+ 1459      7465725F 
+ 1459      4F707444 
+ 1459      6563446E 
+ 1459      436C6B59 
+ 1460              	.LASF1:
+ 1461 0193 756E7369 		.ascii	"unsigned char\000"
+ 1461      676E6564 
+ 1461      20636861 
+ 1461      7200
+ 1462              	.LASF40:
+ 1463 01a1 436F756E 		.ascii	"Counter_OptDecDnClkY_ClearFIFO\000"
+ 1463      7465725F 
+ 1463      4F707444 
+ 1463      6563446E 
+ 1463      436C6B59 
+ 1464              	.LASF26:
+ 1465 01c0 436F756E 		.ascii	"Counter_OptDecDnClkY_ReadControlRegister\000"
+ 1465      7465725F 
+ 1465      4F707444 
+ 1465      6563446E 
+ 1465      436C6B59 
+ 1466              	.LASF14:
+ 1467 01e9 72656738 		.ascii	"reg8\000"
+ 1467      00
+ 1468              	.LASF5:
+ 1469 01ee 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1469      20756E73 
+ 1469      69676E65 
+ 1469      6420696E 
+ 1469      7400
+ 1470              	.LASF9:
+ 1471 0200 75696E74 		.ascii	"uint8\000"
+ 1471      3800
+ 1472              	.LASF29:
+ 1473 0206 636F6E74 		.ascii	"control\000"
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\ccBTgQmo.s 			page 38
+
+
+ 1473      726F6C00 
+ 1474              	.LASF28:
+ 1475 020e 696E7465 		.ascii	"interruptsMask\000"
+ 1475      72727570 
+ 1475      74734D61 
+ 1475      736B00
+ 1476              	.LASF12:
+ 1477 021d 646F7562 		.ascii	"double\000"
+ 1477      6C6500
+ 1478              	.LASF19:
+ 1479 0224 436F756E 		.ascii	"Counter_OptDecDnClkY_interruptState\000"
+ 1479      7465725F 
+ 1479      4F707444 
+ 1479      6563446E 
+ 1479      436C6B59 
+ 1480              	.LASF34:
+ 1481 0248 436F756E 		.ascii	"Counter_OptDecDnClkY_WritePeriod\000"
+ 1481      7465725F 
+ 1481      4F707444 
+ 1481      6563446E 
+ 1481      436C6B59 
+ 1482              	.LASF22:
+ 1483 0269 436F756E 		.ascii	"Counter_OptDecDnClkY_Stop\000"
+ 1483      7465725F 
+ 1483      4F707444 
+ 1483      6563446E 
+ 1483      436C6B59 
+ 1484              	.LASF10:
+ 1485 0283 75696E74 		.ascii	"uint32\000"
+ 1485      333200
+ 1486              	.LASF8:
+ 1487 028a 756E7369 		.ascii	"unsigned int\000"
+ 1487      676E6564 
+ 1487      20696E74 
+ 1487      00
+ 1488              	.LASF21:
+ 1489 0297 436F756E 		.ascii	"Counter_OptDecDnClkY_Start\000"
+ 1489      7465725F 
+ 1489      4F707444 
+ 1489      6563446E 
+ 1489      436C6B59 
+ 1490              	.LASF7:
+ 1491 02b2 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1491      206C6F6E 
+ 1491      6720756E 
+ 1491      7369676E 
+ 1491      65642069 
+ 1492              	.LASF37:
+ 1493 02c9 436F756E 		.ascii	"Counter_OptDecDnClkY_WriteCompare\000"
+ 1493      7465725F 
+ 1493      4F707444 
+ 1493      6563446E 
+ 1493      436C6B59 
+ 1494              	.LASF43:
+ 1495 02eb 443A5C53 		.ascii	"D:\\Sigtuple\\Firmware\\Firmware for ShonitV2.1 PCB"
+ 1495      69677475 
+ 1495      706C655C 
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\ccBTgQmo.s 			page 39
+
+
+ 1495      4669726D 
+ 1495      77617265 
+ 1496 031b 20414931 		.ascii	" AI100 - for 60 unit Production\\Design01.cydsn\000"
+ 1496      3030202D 
+ 1496      20666F72 
+ 1496      20363020 
+ 1496      756E6974 
+ 1497              	.LASF17:
+ 1498 034a 73697A65 		.ascii	"sizetype\000"
+ 1498      74797065 
+ 1498      00
+ 1499              	.LASF6:
+ 1500 0353 6C6F6E67 		.ascii	"long long int\000"
+ 1500      206C6F6E 
+ 1500      6720696E 
+ 1500      7400
+ 1501              	.LASF13:
+ 1502 0361 63686172 		.ascii	"char\000"
+ 1502      00
+ 1503              	.LASF27:
+ 1504 0366 436F756E 		.ascii	"Counter_OptDecDnClkY_WriteControlRegister\000"
+ 1504      7465725F 
+ 1504      4F707444 
+ 1504      6563446E 
+ 1504      436C6B59 
+ 1505              	.LASF25:
+ 1506 0390 436F756E 		.ascii	"Counter_OptDecDnClkY_ReadStatusRegister\000"
+ 1506      7465725F 
+ 1506      4F707444 
+ 1506      6563446E 
+ 1506      436C6B59 
+ 1507              	.LASF2:
+ 1508 03b8 73686F72 		.ascii	"short int\000"
+ 1508      7420696E 
+ 1508      7400
+ 1509              	.LASF39:
+ 1510 03c2 436F756E 		.ascii	"Counter_OptDecDnClkY_ReadCompare\000"
+ 1510      7465725F 
+ 1510      4F707444 
+ 1510      6563446E 
+ 1510      436C6B59 
+ 1511              	.LASF18:
+ 1512 03e3 6374726C 		.ascii	"ctrl\000"
+ 1512      00
+ 1513              	.LASF4:
+ 1514 03e8 6C6F6E67 		.ascii	"long int\000"
+ 1514      20696E74 
+ 1514      00
+ 1515              	.LASF24:
+ 1516 03f1 436F756E 		.ascii	"Counter_OptDecDnClkY_SetInterruptMode\000"
+ 1516      7465725F 
+ 1516      4F707444 
+ 1516      6563446E 
+ 1516      436C6B59 
+ 1517              	.LASF16:
+ 1518 0417 6C6F6E67 		.ascii	"long double\000"
+ 1518      20646F75 
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\ccBTgQmo.s 			page 40
+
+
+ 1518      626C6500 
+ 1519              	.LASF0:
+ 1520 0423 7369676E 		.ascii	"signed char\000"
+ 1520      65642063 
+ 1520      68617200 
+ 1521              	.LASF38:
+ 1522 042f 636F6D70 		.ascii	"compare\000"
+ 1522      61726500 
+ 1523              	.LASF42:
+ 1524 0437 47656E65 		.ascii	"Generated_Source\\PSoC5\\Counter_OptDecDnClkY.c\000"
+ 1524      72617465 
+ 1524      645F536F 
+ 1524      75726365 
+ 1524      5C50536F 
+ 1525              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

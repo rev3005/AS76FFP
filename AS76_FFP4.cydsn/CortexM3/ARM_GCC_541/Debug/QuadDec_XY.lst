@@ -1,0 +1,1912 @@
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccXFTWEi.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"QuadDec_XY.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.QuadDec_XY_Init,"ax",%progbits
+  20              		.align	2
+  21              		.global	QuadDec_XY_Init
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	QuadDec_XY_Init, %function
+  25              	QuadDec_XY_Init:
+  26              	.LFB0:
+  27              		.file 1 "Generated_Source\\PSoC5\\QuadDec_XY.c"
+   1:Generated_Source\PSoC5/QuadDec_XY.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/QuadDec_XY.c **** * File Name: QuadDec_XY.c  
+   3:Generated_Source\PSoC5/QuadDec_XY.c **** * Version 3.0
+   4:Generated_Source\PSoC5/QuadDec_XY.c **** *
+   5:Generated_Source\PSoC5/QuadDec_XY.c **** * Description:
+   6:Generated_Source\PSoC5/QuadDec_XY.c **** *  This file provides the source code to the API for the Quadrature Decoder
+   7:Generated_Source\PSoC5/QuadDec_XY.c **** *  component.
+   8:Generated_Source\PSoC5/QuadDec_XY.c **** *
+   9:Generated_Source\PSoC5/QuadDec_XY.c **** * Note:
+  10:Generated_Source\PSoC5/QuadDec_XY.c **** *  None.
+  11:Generated_Source\PSoC5/QuadDec_XY.c **** *   
+  12:Generated_Source\PSoC5/QuadDec_XY.c **** ********************************************************************************
+  13:Generated_Source\PSoC5/QuadDec_XY.c **** * Copyright 2008-2014, Cypress Semiconductor Corporation.  All rights reserved.
+  14:Generated_Source\PSoC5/QuadDec_XY.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  15:Generated_Source\PSoC5/QuadDec_XY.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  16:Generated_Source\PSoC5/QuadDec_XY.c **** * the software package with which this file was provided.
+  17:Generated_Source\PSoC5/QuadDec_XY.c **** *******************************************************************************/
+  18:Generated_Source\PSoC5/QuadDec_XY.c **** 
+  19:Generated_Source\PSoC5/QuadDec_XY.c **** #include "QuadDec_XY.h"
+  20:Generated_Source\PSoC5/QuadDec_XY.c **** 
+  21:Generated_Source\PSoC5/QuadDec_XY.c **** #if (QuadDec_XY_COUNTER_SIZE == QuadDec_XY_COUNTER_SIZE_32_BIT)
+  22:Generated_Source\PSoC5/QuadDec_XY.c ****     #include "QuadDec_XY_PVT.h"
+  23:Generated_Source\PSoC5/QuadDec_XY.c **** #endif /* QuadDec_XY_COUNTER_SIZE == QuadDec_XY_COUNTER_SIZE_32_BIT */
+  24:Generated_Source\PSoC5/QuadDec_XY.c **** 
+  25:Generated_Source\PSoC5/QuadDec_XY.c **** uint8 QuadDec_XY_initVar = 0u;
+  26:Generated_Source\PSoC5/QuadDec_XY.c **** 
+  27:Generated_Source\PSoC5/QuadDec_XY.c **** 
+  28:Generated_Source\PSoC5/QuadDec_XY.c **** /*******************************************************************************
+  29:Generated_Source\PSoC5/QuadDec_XY.c **** * Function Name: QuadDec_XY_Init
+  30:Generated_Source\PSoC5/QuadDec_XY.c **** ********************************************************************************
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccXFTWEi.s 			page 2
+
+
+  31:Generated_Source\PSoC5/QuadDec_XY.c **** *
+  32:Generated_Source\PSoC5/QuadDec_XY.c **** * Summary:
+  33:Generated_Source\PSoC5/QuadDec_XY.c **** *  Inits/Restores default QuadDec configuration provided with customizer.
+  34:Generated_Source\PSoC5/QuadDec_XY.c **** *
+  35:Generated_Source\PSoC5/QuadDec_XY.c **** * Parameters:
+  36:Generated_Source\PSoC5/QuadDec_XY.c **** *  None.
+  37:Generated_Source\PSoC5/QuadDec_XY.c **** *
+  38:Generated_Source\PSoC5/QuadDec_XY.c **** * Return:
+  39:Generated_Source\PSoC5/QuadDec_XY.c **** *  None.
+  40:Generated_Source\PSoC5/QuadDec_XY.c **** *
+  41:Generated_Source\PSoC5/QuadDec_XY.c **** *******************************************************************************/
+  42:Generated_Source\PSoC5/QuadDec_XY.c **** void QuadDec_XY_Init(void) 
+  43:Generated_Source\PSoC5/QuadDec_XY.c **** {
+  28              		.loc 1 43 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 10B5     		push	{r4, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 4, -8
+  35              		.cfi_offset 14, -4
+  44:Generated_Source\PSoC5/QuadDec_XY.c ****     #if (QuadDec_XY_COUNTER_SIZE == QuadDec_XY_COUNTER_SIZE_32_BIT)
+  45:Generated_Source\PSoC5/QuadDec_XY.c ****         /* Disable Interrupt. */
+  46:Generated_Source\PSoC5/QuadDec_XY.c ****         CyIntDisable(QuadDec_XY_ISR_NUMBER);
+  36              		.loc 1 46 0
+  37 0002 0224     		movs	r4, #2
+  38 0004 054B     		ldr	r3, .L3
+  39 0006 1C60     		str	r4, [r3]
+  47:Generated_Source\PSoC5/QuadDec_XY.c ****         /* Set the ISR to point to the QuadDec_XY_isr Interrupt. */
+  48:Generated_Source\PSoC5/QuadDec_XY.c ****         (void) CyIntSetVector(QuadDec_XY_ISR_NUMBER, & QuadDec_XY_ISR);
+  40              		.loc 1 48 0
+  41 0008 0549     		ldr	r1, .L3+4
+  42 000a 0120     		movs	r0, #1
+  43 000c FFF7FEFF 		bl	CyIntSetVector
+  44              	.LVL0:
+  49:Generated_Source\PSoC5/QuadDec_XY.c ****         /* Set the priority. */
+  50:Generated_Source\PSoC5/QuadDec_XY.c ****         CyIntSetPriority(QuadDec_XY_ISR_NUMBER, QuadDec_XY_ISR_PRIORITY);
+  45              		.loc 1 50 0
+  46 0010 2146     		mov	r1, r4
+  47 0012 0120     		movs	r0, #1
+  48 0014 FFF7FEFF 		bl	CyIntSetPriority
+  49              	.LVL1:
+  50 0018 10BD     		pop	{r4, pc}
+  51              	.L4:
+  52 001a 00BF     		.align	2
+  53              	.L3:
+  54 001c 80E100E0 		.word	-536813184
+  55 0020 00000000 		.word	QuadDec_XY_ISR
+  56              		.cfi_endproc
+  57              	.LFE0:
+  58              		.size	QuadDec_XY_Init, .-QuadDec_XY_Init
+  59              		.section	.text.QuadDec_XY_Stop,"ax",%progbits
+  60              		.align	2
+  61              		.global	QuadDec_XY_Stop
+  62              		.thumb
+  63              		.thumb_func
+  64              		.type	QuadDec_XY_Stop, %function
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccXFTWEi.s 			page 3
+
+
+  65              	QuadDec_XY_Stop:
+  66              	.LFB3:
+  51:Generated_Source\PSoC5/QuadDec_XY.c ****     #endif /* QuadDec_XY_COUNTER_SIZE == QuadDec_XY_COUNTER_SIZE_32_BIT */
+  52:Generated_Source\PSoC5/QuadDec_XY.c **** }
+  53:Generated_Source\PSoC5/QuadDec_XY.c **** 
+  54:Generated_Source\PSoC5/QuadDec_XY.c **** 
+  55:Generated_Source\PSoC5/QuadDec_XY.c **** /*******************************************************************************
+  56:Generated_Source\PSoC5/QuadDec_XY.c **** * Function Name: QuadDec_XY_Enable
+  57:Generated_Source\PSoC5/QuadDec_XY.c **** ********************************************************************************
+  58:Generated_Source\PSoC5/QuadDec_XY.c **** *
+  59:Generated_Source\PSoC5/QuadDec_XY.c **** * Summary:
+  60:Generated_Source\PSoC5/QuadDec_XY.c **** *  This function enable interrupts from Component and also enable Component's
+  61:Generated_Source\PSoC5/QuadDec_XY.c **** *  ISR in case of 32-bit counter.
+  62:Generated_Source\PSoC5/QuadDec_XY.c **** *
+  63:Generated_Source\PSoC5/QuadDec_XY.c **** * Parameters:
+  64:Generated_Source\PSoC5/QuadDec_XY.c **** *  None.
+  65:Generated_Source\PSoC5/QuadDec_XY.c **** *
+  66:Generated_Source\PSoC5/QuadDec_XY.c **** * Return:
+  67:Generated_Source\PSoC5/QuadDec_XY.c **** *  None.
+  68:Generated_Source\PSoC5/QuadDec_XY.c **** *
+  69:Generated_Source\PSoC5/QuadDec_XY.c **** *******************************************************************************/
+  70:Generated_Source\PSoC5/QuadDec_XY.c **** void QuadDec_XY_Enable(void) 
+  71:Generated_Source\PSoC5/QuadDec_XY.c **** {
+  72:Generated_Source\PSoC5/QuadDec_XY.c ****     uint8 enableInterrupts;
+  73:Generated_Source\PSoC5/QuadDec_XY.c **** 
+  74:Generated_Source\PSoC5/QuadDec_XY.c ****     QuadDec_XY_SetInterruptMask(QuadDec_XY_INIT_INT_MASK);
+  75:Generated_Source\PSoC5/QuadDec_XY.c **** 
+  76:Generated_Source\PSoC5/QuadDec_XY.c ****     /* Clear pending interrupts. */
+  77:Generated_Source\PSoC5/QuadDec_XY.c ****     (void) QuadDec_XY_GetEvents();
+  78:Generated_Source\PSoC5/QuadDec_XY.c ****     
+  79:Generated_Source\PSoC5/QuadDec_XY.c ****     enableInterrupts = CyEnterCriticalSection();
+  80:Generated_Source\PSoC5/QuadDec_XY.c **** 
+  81:Generated_Source\PSoC5/QuadDec_XY.c ****     /* Enable interrupts from Statusi register */
+  82:Generated_Source\PSoC5/QuadDec_XY.c ****     QuadDec_XY_SR_AUX_CONTROL |= QuadDec_XY_INTERRUPTS_ENABLE;
+  83:Generated_Source\PSoC5/QuadDec_XY.c **** 
+  84:Generated_Source\PSoC5/QuadDec_XY.c ****     CyExitCriticalSection(enableInterrupts);        
+  85:Generated_Source\PSoC5/QuadDec_XY.c **** 
+  86:Generated_Source\PSoC5/QuadDec_XY.c ****     #if (QuadDec_XY_COUNTER_SIZE == QuadDec_XY_COUNTER_SIZE_32_BIT)
+  87:Generated_Source\PSoC5/QuadDec_XY.c ****         /* Enable Component interrupts */
+  88:Generated_Source\PSoC5/QuadDec_XY.c ****         CyIntEnable(QuadDec_XY_ISR_NUMBER);
+  89:Generated_Source\PSoC5/QuadDec_XY.c ****     #endif /* QuadDec_XY_COUNTER_SIZE == QuadDec_XY_COUNTER_SIZE_32_BIT */
+  90:Generated_Source\PSoC5/QuadDec_XY.c **** }
+  91:Generated_Source\PSoC5/QuadDec_XY.c **** 
+  92:Generated_Source\PSoC5/QuadDec_XY.c **** 
+  93:Generated_Source\PSoC5/QuadDec_XY.c **** /*******************************************************************************
+  94:Generated_Source\PSoC5/QuadDec_XY.c **** * Function Name: QuadDec_XY_Start
+  95:Generated_Source\PSoC5/QuadDec_XY.c **** ********************************************************************************
+  96:Generated_Source\PSoC5/QuadDec_XY.c **** *
+  97:Generated_Source\PSoC5/QuadDec_XY.c **** * Summary:
+  98:Generated_Source\PSoC5/QuadDec_XY.c **** *  Initializes UDBs and other relevant hardware.
+  99:Generated_Source\PSoC5/QuadDec_XY.c **** *  Resets counter, enables or disables all relevant interrupts.
+ 100:Generated_Source\PSoC5/QuadDec_XY.c **** *  Starts monitoring the inputs and counting.
+ 101:Generated_Source\PSoC5/QuadDec_XY.c **** *
+ 102:Generated_Source\PSoC5/QuadDec_XY.c **** * Parameters:
+ 103:Generated_Source\PSoC5/QuadDec_XY.c **** *  None.
+ 104:Generated_Source\PSoC5/QuadDec_XY.c **** *
+ 105:Generated_Source\PSoC5/QuadDec_XY.c **** * Return:
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccXFTWEi.s 			page 4
+
+
+ 106:Generated_Source\PSoC5/QuadDec_XY.c **** *  None.
+ 107:Generated_Source\PSoC5/QuadDec_XY.c **** *
+ 108:Generated_Source\PSoC5/QuadDec_XY.c **** * Global variables:
+ 109:Generated_Source\PSoC5/QuadDec_XY.c **** *  QuadDec_XY_initVar - used to check initial configuration, modified on
+ 110:Generated_Source\PSoC5/QuadDec_XY.c **** *  first function call.
+ 111:Generated_Source\PSoC5/QuadDec_XY.c **** *
+ 112:Generated_Source\PSoC5/QuadDec_XY.c **** * Reentrant:
+ 113:Generated_Source\PSoC5/QuadDec_XY.c **** *  No.
+ 114:Generated_Source\PSoC5/QuadDec_XY.c **** *
+ 115:Generated_Source\PSoC5/QuadDec_XY.c **** *******************************************************************************/
+ 116:Generated_Source\PSoC5/QuadDec_XY.c **** void QuadDec_XY_Start(void) 
+ 117:Generated_Source\PSoC5/QuadDec_XY.c **** {
+ 118:Generated_Source\PSoC5/QuadDec_XY.c ****     #if (QuadDec_XY_COUNTER_SIZE == QuadDec_XY_COUNTER_SIZE_8_BIT)
+ 119:Generated_Source\PSoC5/QuadDec_XY.c ****         QuadDec_XY_Cnt8_Start();
+ 120:Generated_Source\PSoC5/QuadDec_XY.c ****         QuadDec_XY_Cnt8_WriteCounter(QuadDec_XY_COUNTER_INIT_VALUE);
+ 121:Generated_Source\PSoC5/QuadDec_XY.c ****     #else
+ 122:Generated_Source\PSoC5/QuadDec_XY.c ****         /* (QuadDec_XY_COUNTER_SIZE == QuadDec_XY_COUNTER_SIZE_16_BIT) || 
+ 123:Generated_Source\PSoC5/QuadDec_XY.c ****         *  (QuadDec_XY_COUNTER_SIZE == QuadDec_XY_COUNTER_SIZE_32_BIT) 
+ 124:Generated_Source\PSoC5/QuadDec_XY.c ****         */
+ 125:Generated_Source\PSoC5/QuadDec_XY.c ****         QuadDec_XY_Cnt16_Start();
+ 126:Generated_Source\PSoC5/QuadDec_XY.c ****         QuadDec_XY_Cnt16_WriteCounter(QuadDec_XY_COUNTER_INIT_VALUE);
+ 127:Generated_Source\PSoC5/QuadDec_XY.c ****     #endif /* QuadDec_XY_COUNTER_SIZE == QuadDec_XY_COUNTER_SIZE_8_BIT */
+ 128:Generated_Source\PSoC5/QuadDec_XY.c ****     
+ 129:Generated_Source\PSoC5/QuadDec_XY.c ****     #if (QuadDec_XY_COUNTER_SIZE == QuadDec_XY_COUNTER_SIZE_32_BIT)        
+ 130:Generated_Source\PSoC5/QuadDec_XY.c ****        QuadDec_XY_count32SoftPart = 0;
+ 131:Generated_Source\PSoC5/QuadDec_XY.c ****     #endif /* QuadDec_XY_COUNTER_SIZE == QuadDec_XY_COUNTER_SIZE_32_BIT */
+ 132:Generated_Source\PSoC5/QuadDec_XY.c **** 
+ 133:Generated_Source\PSoC5/QuadDec_XY.c ****     if (QuadDec_XY_initVar == 0u)
+ 134:Generated_Source\PSoC5/QuadDec_XY.c ****     {
+ 135:Generated_Source\PSoC5/QuadDec_XY.c ****         QuadDec_XY_Init();
+ 136:Generated_Source\PSoC5/QuadDec_XY.c ****         QuadDec_XY_initVar = 1u;
+ 137:Generated_Source\PSoC5/QuadDec_XY.c ****     }
+ 138:Generated_Source\PSoC5/QuadDec_XY.c **** 
+ 139:Generated_Source\PSoC5/QuadDec_XY.c ****     QuadDec_XY_Enable();
+ 140:Generated_Source\PSoC5/QuadDec_XY.c **** }
+ 141:Generated_Source\PSoC5/QuadDec_XY.c **** 
+ 142:Generated_Source\PSoC5/QuadDec_XY.c **** 
+ 143:Generated_Source\PSoC5/QuadDec_XY.c **** /*******************************************************************************
+ 144:Generated_Source\PSoC5/QuadDec_XY.c **** * Function Name: QuadDec_XY_Stop
+ 145:Generated_Source\PSoC5/QuadDec_XY.c **** ********************************************************************************
+ 146:Generated_Source\PSoC5/QuadDec_XY.c **** *
+ 147:Generated_Source\PSoC5/QuadDec_XY.c **** * Summary:
+ 148:Generated_Source\PSoC5/QuadDec_XY.c **** *  Turns off UDBs and other relevant hardware.
+ 149:Generated_Source\PSoC5/QuadDec_XY.c **** *
+ 150:Generated_Source\PSoC5/QuadDec_XY.c **** * Parameters:
+ 151:Generated_Source\PSoC5/QuadDec_XY.c **** *  None.
+ 152:Generated_Source\PSoC5/QuadDec_XY.c **** *
+ 153:Generated_Source\PSoC5/QuadDec_XY.c **** * Return:
+ 154:Generated_Source\PSoC5/QuadDec_XY.c **** *  None.
+ 155:Generated_Source\PSoC5/QuadDec_XY.c **** *
+ 156:Generated_Source\PSoC5/QuadDec_XY.c **** *******************************************************************************/
+ 157:Generated_Source\PSoC5/QuadDec_XY.c **** void QuadDec_XY_Stop(void) 
+ 158:Generated_Source\PSoC5/QuadDec_XY.c **** {
+  67              		.loc 1 158 0
+  68              		.cfi_startproc
+  69              		@ args = 0, pretend = 0, frame = 0
+  70              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccXFTWEi.s 			page 5
+
+
+  71 0000 08B5     		push	{r3, lr}
+  72              		.cfi_def_cfa_offset 8
+  73              		.cfi_offset 3, -8
+  74              		.cfi_offset 14, -4
+ 159:Generated_Source\PSoC5/QuadDec_XY.c ****     uint8 enableInterrupts;
+ 160:Generated_Source\PSoC5/QuadDec_XY.c **** 
+ 161:Generated_Source\PSoC5/QuadDec_XY.c ****     #if (QuadDec_XY_COUNTER_SIZE == QuadDec_XY_COUNTER_SIZE_8_BIT)
+ 162:Generated_Source\PSoC5/QuadDec_XY.c ****         QuadDec_XY_Cnt8_Stop();
+ 163:Generated_Source\PSoC5/QuadDec_XY.c ****     #else 
+ 164:Generated_Source\PSoC5/QuadDec_XY.c ****         /* (QuadDec_XY_COUNTER_SIZE == QuadDec_XY_COUNTER_SIZE_16_BIT) ||
+ 165:Generated_Source\PSoC5/QuadDec_XY.c ****         *  (QuadDec_XY_COUNTER_SIZE == QuadDec_XY_COUNTER_SIZE_32_BIT)
+ 166:Generated_Source\PSoC5/QuadDec_XY.c ****         */
+ 167:Generated_Source\PSoC5/QuadDec_XY.c ****         QuadDec_XY_Cnt16_Stop();    /* counter disable */
+  75              		.loc 1 167 0
+  76 0002 FFF7FEFF 		bl	QuadDec_XY_Cnt16_Stop
+  77              	.LVL2:
+ 168:Generated_Source\PSoC5/QuadDec_XY.c ****     #endif /* (QuadDec_XY_COUNTER_SIZE == QuadDec_XY_COUNTER_SIZE_8_BIT) */
+ 169:Generated_Source\PSoC5/QuadDec_XY.c ****  
+ 170:Generated_Source\PSoC5/QuadDec_XY.c ****     enableInterrupts = CyEnterCriticalSection();
+  78              		.loc 1 170 0
+  79 0006 FFF7FEFF 		bl	CyEnterCriticalSection
+  80              	.LVL3:
+ 171:Generated_Source\PSoC5/QuadDec_XY.c **** 
+ 172:Generated_Source\PSoC5/QuadDec_XY.c ****     /* Disable interrupts interrupts from Statusi register */
+ 173:Generated_Source\PSoC5/QuadDec_XY.c ****     QuadDec_XY_SR_AUX_CONTROL &= (uint8) (~QuadDec_XY_INTERRUPTS_ENABLE);
+  81              		.loc 1 173 0
+  82 000a 054A     		ldr	r2, .L7
+  83 000c 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  84 000e 03F0EF03 		and	r3, r3, #239
+  85 0012 1370     		strb	r3, [r2]
+ 174:Generated_Source\PSoC5/QuadDec_XY.c **** 
+ 175:Generated_Source\PSoC5/QuadDec_XY.c ****     CyExitCriticalSection(enableInterrupts);
+  86              		.loc 1 175 0
+  87 0014 FFF7FEFF 		bl	CyExitCriticalSection
+  88              	.LVL4:
+ 176:Generated_Source\PSoC5/QuadDec_XY.c **** 
+ 177:Generated_Source\PSoC5/QuadDec_XY.c ****     #if (QuadDec_XY_COUNTER_SIZE == QuadDec_XY_COUNTER_SIZE_32_BIT)
+ 178:Generated_Source\PSoC5/QuadDec_XY.c ****         CyIntDisable(QuadDec_XY_ISR_NUMBER);    /* interrupt disable */
+  89              		.loc 1 178 0
+  90 0018 0222     		movs	r2, #2
+  91 001a 024B     		ldr	r3, .L7+4
+  92 001c 1A60     		str	r2, [r3]
+  93 001e 08BD     		pop	{r3, pc}
+  94              	.L8:
+  95              		.align	2
+  96              	.L7:
+  97 0020 9E640040 		.word	1073767582
+  98 0024 80E100E0 		.word	-536813184
+  99              		.cfi_endproc
+ 100              	.LFE3:
+ 101              		.size	QuadDec_XY_Stop, .-QuadDec_XY_Stop
+ 102              		.section	.text.QuadDec_XY_GetCounter,"ax",%progbits
+ 103              		.align	2
+ 104              		.global	QuadDec_XY_GetCounter
+ 105              		.thumb
+ 106              		.thumb_func
+ 107              		.type	QuadDec_XY_GetCounter, %function
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccXFTWEi.s 			page 6
+
+
+ 108              	QuadDec_XY_GetCounter:
+ 109              	.LFB4:
+ 179:Generated_Source\PSoC5/QuadDec_XY.c ****     #endif /* QuadDec_XY_COUNTER_SIZE == QuadDec_XY_COUNTER_SIZE_32_BIT */
+ 180:Generated_Source\PSoC5/QuadDec_XY.c **** }
+ 181:Generated_Source\PSoC5/QuadDec_XY.c **** 
+ 182:Generated_Source\PSoC5/QuadDec_XY.c **** 
+ 183:Generated_Source\PSoC5/QuadDec_XY.c **** /*******************************************************************************
+ 184:Generated_Source\PSoC5/QuadDec_XY.c **** * Function Name: QuadDec_XY_GetCounter
+ 185:Generated_Source\PSoC5/QuadDec_XY.c **** ********************************************************************************
+ 186:Generated_Source\PSoC5/QuadDec_XY.c **** *
+ 187:Generated_Source\PSoC5/QuadDec_XY.c **** * Summary:
+ 188:Generated_Source\PSoC5/QuadDec_XY.c **** *  Reports the current value of the counter.
+ 189:Generated_Source\PSoC5/QuadDec_XY.c **** *
+ 190:Generated_Source\PSoC5/QuadDec_XY.c **** * Parameters:
+ 191:Generated_Source\PSoC5/QuadDec_XY.c **** *  None.
+ 192:Generated_Source\PSoC5/QuadDec_XY.c **** *
+ 193:Generated_Source\PSoC5/QuadDec_XY.c **** * Return:
+ 194:Generated_Source\PSoC5/QuadDec_XY.c **** *  The counter value. Return type is signed and per the counter size setting.
+ 195:Generated_Source\PSoC5/QuadDec_XY.c **** *  A positive value indicates clockwise movement (B before A).
+ 196:Generated_Source\PSoC5/QuadDec_XY.c **** *
+ 197:Generated_Source\PSoC5/QuadDec_XY.c **** * Global variables:
+ 198:Generated_Source\PSoC5/QuadDec_XY.c **** *  QuadDec_XY_count32SoftPart - used to get hi 16 bit for current value
+ 199:Generated_Source\PSoC5/QuadDec_XY.c **** *  of the 32-bit counter, when Counter size equal 32-bit.
+ 200:Generated_Source\PSoC5/QuadDec_XY.c **** *
+ 201:Generated_Source\PSoC5/QuadDec_XY.c **** *******************************************************************************/
+ 202:Generated_Source\PSoC5/QuadDec_XY.c **** int32 QuadDec_XY_GetCounter(void) 
+ 203:Generated_Source\PSoC5/QuadDec_XY.c **** {
+ 110              		.loc 1 203 0
+ 111              		.cfi_startproc
+ 112              		@ args = 0, pretend = 0, frame = 0
+ 113              		@ frame_needed = 0, uses_anonymous_args = 0
+ 114 0000 10B5     		push	{r4, lr}
+ 115              		.cfi_def_cfa_offset 8
+ 116              		.cfi_offset 4, -8
+ 117              		.cfi_offset 14, -4
+ 204:Generated_Source\PSoC5/QuadDec_XY.c ****     int32 count;
+ 205:Generated_Source\PSoC5/QuadDec_XY.c ****     uint16 tmpCnt;
+ 206:Generated_Source\PSoC5/QuadDec_XY.c **** 
+ 207:Generated_Source\PSoC5/QuadDec_XY.c ****     #if (QuadDec_XY_COUNTER_SIZE == QuadDec_XY_COUNTER_SIZE_32_BIT)
+ 208:Generated_Source\PSoC5/QuadDec_XY.c ****         int16 hwCount;
+ 209:Generated_Source\PSoC5/QuadDec_XY.c **** 
+ 210:Generated_Source\PSoC5/QuadDec_XY.c ****         CyIntDisable(QuadDec_XY_ISR_NUMBER);
+ 118              		.loc 1 210 0
+ 119 0002 0224     		movs	r4, #2
+ 120 0004 064B     		ldr	r3, .L11
+ 121 0006 1C60     		str	r4, [r3]
+ 211:Generated_Source\PSoC5/QuadDec_XY.c **** 
+ 212:Generated_Source\PSoC5/QuadDec_XY.c ****         tmpCnt = QuadDec_XY_Cnt16_ReadCounter();
+ 122              		.loc 1 212 0
+ 123 0008 FFF7FEFF 		bl	QuadDec_XY_Cnt16_ReadCounter
+ 124              	.LVL5:
+ 213:Generated_Source\PSoC5/QuadDec_XY.c ****         hwCount = (int16) ((int32) tmpCnt - (int32) QuadDec_XY_COUNTER_INIT_VALUE);
+ 125              		.loc 1 213 0
+ 126 000c A0F50040 		sub	r0, r0, #32768
+ 127              	.LVL6:
+ 128 0010 00B2     		sxth	r0, r0
+ 129              	.LVL7:
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccXFTWEi.s 			page 7
+
+
+ 214:Generated_Source\PSoC5/QuadDec_XY.c ****         count = QuadDec_XY_count32SoftPart + hwCount;
+ 130              		.loc 1 214 0
+ 131 0012 044B     		ldr	r3, .L11+4
+ 132 0014 1B68     		ldr	r3, [r3]
+ 133              	.LVL8:
+ 215:Generated_Source\PSoC5/QuadDec_XY.c **** 
+ 216:Generated_Source\PSoC5/QuadDec_XY.c ****         CyIntEnable(QuadDec_XY_ISR_NUMBER);
+ 134              		.loc 1 216 0
+ 135 0016 044A     		ldr	r2, .L11+8
+ 136 0018 1460     		str	r4, [r2]
+ 217:Generated_Source\PSoC5/QuadDec_XY.c ****     #else 
+ 218:Generated_Source\PSoC5/QuadDec_XY.c ****         /* (QuadDec_XY_COUNTER_SIZE == QuadDec_XY_COUNTER_SIZE_8_BIT) || 
+ 219:Generated_Source\PSoC5/QuadDec_XY.c ****         *  (QuadDec_XY_COUNTER_SIZE == QuadDec_XY_COUNTER_SIZE_16_BIT)
+ 220:Generated_Source\PSoC5/QuadDec_XY.c ****         */
+ 221:Generated_Source\PSoC5/QuadDec_XY.c ****         #if (QuadDec_XY_COUNTER_SIZE == QuadDec_XY_COUNTER_SIZE_8_BIT)
+ 222:Generated_Source\PSoC5/QuadDec_XY.c ****             tmpCnt = QuadDec_XY_Cnt8_ReadCounter();
+ 223:Generated_Source\PSoC5/QuadDec_XY.c ****         #else /* (QuadDec_XY_COUNTER_SIZE == QuadDec_XY_COUNTER_SIZE_16_BIT) */
+ 224:Generated_Source\PSoC5/QuadDec_XY.c ****             tmpCnt = QuadDec_XY_Cnt16_ReadCounter();
+ 225:Generated_Source\PSoC5/QuadDec_XY.c ****         #endif  /* QuadDec_XY_COUNTER_SIZE == QuadDec_XY_COUNTER_SIZE_8_BIT */
+ 226:Generated_Source\PSoC5/QuadDec_XY.c **** 
+ 227:Generated_Source\PSoC5/QuadDec_XY.c ****         count = (int32) ((int32) tmpCnt -
+ 228:Generated_Source\PSoC5/QuadDec_XY.c ****                 (int32) QuadDec_XY_COUNTER_INIT_VALUE);
+ 229:Generated_Source\PSoC5/QuadDec_XY.c **** 
+ 230:Generated_Source\PSoC5/QuadDec_XY.c ****     #endif /* QuadDec_XY_COUNTER_SIZE == QuadDec_XY_COUNTER_SIZE_32_BIT */ 
+ 231:Generated_Source\PSoC5/QuadDec_XY.c **** 
+ 232:Generated_Source\PSoC5/QuadDec_XY.c ****     return (count);
+ 233:Generated_Source\PSoC5/QuadDec_XY.c **** }
+ 137              		.loc 1 233 0
+ 138 001a 1844     		add	r0, r0, r3
+ 139              	.LVL9:
+ 140 001c 10BD     		pop	{r4, pc}
+ 141              	.L12:
+ 142 001e 00BF     		.align	2
+ 143              	.L11:
+ 144 0020 80E100E0 		.word	-536813184
+ 145 0024 00000000 		.word	QuadDec_XY_count32SoftPart
+ 146 0028 00E100E0 		.word	-536813312
+ 147              		.cfi_endproc
+ 148              	.LFE4:
+ 149              		.size	QuadDec_XY_GetCounter, .-QuadDec_XY_GetCounter
+ 150              		.section	.text.QuadDec_XY_SetCounter,"ax",%progbits
+ 151              		.align	2
+ 152              		.global	QuadDec_XY_SetCounter
+ 153              		.thumb
+ 154              		.thumb_func
+ 155              		.type	QuadDec_XY_SetCounter, %function
+ 156              	QuadDec_XY_SetCounter:
+ 157              	.LFB5:
+ 234:Generated_Source\PSoC5/QuadDec_XY.c **** 
+ 235:Generated_Source\PSoC5/QuadDec_XY.c **** 
+ 236:Generated_Source\PSoC5/QuadDec_XY.c **** /*******************************************************************************
+ 237:Generated_Source\PSoC5/QuadDec_XY.c **** * Function Name: QuadDec_XY_SetCounter
+ 238:Generated_Source\PSoC5/QuadDec_XY.c **** ********************************************************************************
+ 239:Generated_Source\PSoC5/QuadDec_XY.c **** *
+ 240:Generated_Source\PSoC5/QuadDec_XY.c **** * Summary:
+ 241:Generated_Source\PSoC5/QuadDec_XY.c **** *  Sets the current value of the counter.
+ 242:Generated_Source\PSoC5/QuadDec_XY.c **** *
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccXFTWEi.s 			page 8
+
+
+ 243:Generated_Source\PSoC5/QuadDec_XY.c **** * Parameters:
+ 244:Generated_Source\PSoC5/QuadDec_XY.c **** *  value:  The new value. Parameter type is signed and per the counter size
+ 245:Generated_Source\PSoC5/QuadDec_XY.c **** *  setting.
+ 246:Generated_Source\PSoC5/QuadDec_XY.c **** *
+ 247:Generated_Source\PSoC5/QuadDec_XY.c **** * Return:
+ 248:Generated_Source\PSoC5/QuadDec_XY.c **** *  None.
+ 249:Generated_Source\PSoC5/QuadDec_XY.c **** *
+ 250:Generated_Source\PSoC5/QuadDec_XY.c **** * Global variables:
+ 251:Generated_Source\PSoC5/QuadDec_XY.c **** *  QuadDec_XY_count32SoftPart - modified to set hi 16 bit for current
+ 252:Generated_Source\PSoC5/QuadDec_XY.c **** *  value of the 32-bit counter, when Counter size equal 32-bit.
+ 253:Generated_Source\PSoC5/QuadDec_XY.c **** *
+ 254:Generated_Source\PSoC5/QuadDec_XY.c **** * Reentrant:
+ 255:Generated_Source\PSoC5/QuadDec_XY.c **** *  No.
+ 256:Generated_Source\PSoC5/QuadDec_XY.c **** *
+ 257:Generated_Source\PSoC5/QuadDec_XY.c **** *******************************************************************************/
+ 258:Generated_Source\PSoC5/QuadDec_XY.c **** void QuadDec_XY_SetCounter(int32 value) 
+ 259:Generated_Source\PSoC5/QuadDec_XY.c **** {
+ 158              		.loc 1 259 0
+ 159              		.cfi_startproc
+ 160              		@ args = 0, pretend = 0, frame = 0
+ 161              		@ frame_needed = 0, uses_anonymous_args = 0
+ 162              	.LVL10:
+ 163 0000 38B5     		push	{r3, r4, r5, lr}
+ 164              		.cfi_def_cfa_offset 16
+ 165              		.cfi_offset 3, -16
+ 166              		.cfi_offset 4, -12
+ 167              		.cfi_offset 5, -8
+ 168              		.cfi_offset 14, -4
+ 169 0002 0546     		mov	r5, r0
+ 260:Generated_Source\PSoC5/QuadDec_XY.c ****     #if ((QuadDec_XY_COUNTER_SIZE == QuadDec_XY_COUNTER_SIZE_8_BIT) || \
+ 261:Generated_Source\PSoC5/QuadDec_XY.c ****          (QuadDec_XY_COUNTER_SIZE == QuadDec_XY_COUNTER_SIZE_16_BIT))
+ 262:Generated_Source\PSoC5/QuadDec_XY.c ****         uint16 count;
+ 263:Generated_Source\PSoC5/QuadDec_XY.c ****         
+ 264:Generated_Source\PSoC5/QuadDec_XY.c ****         if (value >= 0)
+ 265:Generated_Source\PSoC5/QuadDec_XY.c ****         {
+ 266:Generated_Source\PSoC5/QuadDec_XY.c ****             count = (uint16) value + QuadDec_XY_COUNTER_INIT_VALUE;
+ 267:Generated_Source\PSoC5/QuadDec_XY.c ****         }
+ 268:Generated_Source\PSoC5/QuadDec_XY.c ****         else
+ 269:Generated_Source\PSoC5/QuadDec_XY.c ****         {
+ 270:Generated_Source\PSoC5/QuadDec_XY.c ****             count = QuadDec_XY_COUNTER_INIT_VALUE - (uint16)(-value);
+ 271:Generated_Source\PSoC5/QuadDec_XY.c ****         }
+ 272:Generated_Source\PSoC5/QuadDec_XY.c ****         #if (QuadDec_XY_COUNTER_SIZE == QuadDec_XY_COUNTER_SIZE_8_BIT)
+ 273:Generated_Source\PSoC5/QuadDec_XY.c ****             QuadDec_XY_Cnt8_WriteCounter(count);
+ 274:Generated_Source\PSoC5/QuadDec_XY.c ****         #else /* (QuadDec_XY_COUNTER_SIZE == QuadDec_XY_COUNTER_SIZE_16_BIT) */
+ 275:Generated_Source\PSoC5/QuadDec_XY.c ****             QuadDec_XY_Cnt16_WriteCounter(count);
+ 276:Generated_Source\PSoC5/QuadDec_XY.c ****         #endif  /* QuadDec_XY_COUNTER_SIZE == QuadDec_XY_COUNTER_SIZE_8_BIT */
+ 277:Generated_Source\PSoC5/QuadDec_XY.c ****     #else /* (QuadDec_XY_COUNTER_SIZE == QuadDec_XY_COUNTER_SIZE_32_BIT) */
+ 278:Generated_Source\PSoC5/QuadDec_XY.c ****         CyIntDisable(QuadDec_XY_ISR_NUMBER);
+ 170              		.loc 1 278 0
+ 171 0004 0224     		movs	r4, #2
+ 172 0006 054B     		ldr	r3, .L15
+ 173 0008 1C60     		str	r4, [r3]
+ 279:Generated_Source\PSoC5/QuadDec_XY.c **** 
+ 280:Generated_Source\PSoC5/QuadDec_XY.c ****         QuadDec_XY_Cnt16_WriteCounter(QuadDec_XY_COUNTER_INIT_VALUE);
+ 174              		.loc 1 280 0
+ 175 000a 4FF40040 		mov	r0, #32768
+ 176              	.LVL11:
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccXFTWEi.s 			page 9
+
+
+ 177 000e FFF7FEFF 		bl	QuadDec_XY_Cnt16_WriteCounter
+ 178              	.LVL12:
+ 281:Generated_Source\PSoC5/QuadDec_XY.c ****         QuadDec_XY_count32SoftPart = value;
+ 179              		.loc 1 281 0
+ 180 0012 034B     		ldr	r3, .L15+4
+ 181 0014 1D60     		str	r5, [r3]
+ 282:Generated_Source\PSoC5/QuadDec_XY.c **** 
+ 283:Generated_Source\PSoC5/QuadDec_XY.c ****         CyIntEnable(QuadDec_XY_ISR_NUMBER);
+ 182              		.loc 1 283 0
+ 183 0016 034B     		ldr	r3, .L15+8
+ 184 0018 1C60     		str	r4, [r3]
+ 185 001a 38BD     		pop	{r3, r4, r5, pc}
+ 186              	.LVL13:
+ 187              	.L16:
+ 188              		.align	2
+ 189              	.L15:
+ 190 001c 80E100E0 		.word	-536813184
+ 191 0020 00000000 		.word	QuadDec_XY_count32SoftPart
+ 192 0024 00E100E0 		.word	-536813312
+ 193              		.cfi_endproc
+ 194              	.LFE5:
+ 195              		.size	QuadDec_XY_SetCounter, .-QuadDec_XY_SetCounter
+ 196              		.section	.text.QuadDec_XY_GetEvents,"ax",%progbits
+ 197              		.align	2
+ 198              		.global	QuadDec_XY_GetEvents
+ 199              		.thumb
+ 200              		.thumb_func
+ 201              		.type	QuadDec_XY_GetEvents, %function
+ 202              	QuadDec_XY_GetEvents:
+ 203              	.LFB6:
+ 284:Generated_Source\PSoC5/QuadDec_XY.c ****     #endif  /* (QuadDec_XY_COUNTER_SIZE == QuadDec_XY_COUNTER_SIZE_8_BIT) ||
+ 285:Generated_Source\PSoC5/QuadDec_XY.c ****              * (QuadDec_XY_COUNTER_SIZE == QuadDec_XY_COUNTER_SIZE_16_BIT)
+ 286:Generated_Source\PSoC5/QuadDec_XY.c ****              */
+ 287:Generated_Source\PSoC5/QuadDec_XY.c **** }
+ 288:Generated_Source\PSoC5/QuadDec_XY.c **** 
+ 289:Generated_Source\PSoC5/QuadDec_XY.c **** 
+ 290:Generated_Source\PSoC5/QuadDec_XY.c **** /*******************************************************************************
+ 291:Generated_Source\PSoC5/QuadDec_XY.c **** * Function Name: QuadDec_XY_GetEvents
+ 292:Generated_Source\PSoC5/QuadDec_XY.c **** ********************************************************************************
+ 293:Generated_Source\PSoC5/QuadDec_XY.c **** * 
+ 294:Generated_Source\PSoC5/QuadDec_XY.c **** * Summary:
+ 295:Generated_Source\PSoC5/QuadDec_XY.c **** *   Reports the current status of events. This function clears the bits of the 
+ 296:Generated_Source\PSoC5/QuadDec_XY.c **** *   status register.
+ 297:Generated_Source\PSoC5/QuadDec_XY.c **** *
+ 298:Generated_Source\PSoC5/QuadDec_XY.c **** * Parameters:
+ 299:Generated_Source\PSoC5/QuadDec_XY.c **** *  None.
+ 300:Generated_Source\PSoC5/QuadDec_XY.c **** *
+ 301:Generated_Source\PSoC5/QuadDec_XY.c **** * Return:
+ 302:Generated_Source\PSoC5/QuadDec_XY.c **** *  The events, as bits in an unsigned 8-bit value:
+ 303:Generated_Source\PSoC5/QuadDec_XY.c **** *    Bit      Description
+ 304:Generated_Source\PSoC5/QuadDec_XY.c **** *     0        Counter overflow.
+ 305:Generated_Source\PSoC5/QuadDec_XY.c **** *     1        Counter underflow.
+ 306:Generated_Source\PSoC5/QuadDec_XY.c **** *     2        Counter reset due to index, if index input is used.
+ 307:Generated_Source\PSoC5/QuadDec_XY.c **** *     3        Invalid A, B inputs state transition.
+ 308:Generated_Source\PSoC5/QuadDec_XY.c **** *
+ 309:Generated_Source\PSoC5/QuadDec_XY.c **** *******************************************************************************/
+ 310:Generated_Source\PSoC5/QuadDec_XY.c **** uint8 QuadDec_XY_GetEvents(void) 
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccXFTWEi.s 			page 10
+
+
+ 311:Generated_Source\PSoC5/QuadDec_XY.c **** {
+ 204              		.loc 1 311 0
+ 205              		.cfi_startproc
+ 206              		@ args = 0, pretend = 0, frame = 0
+ 207              		@ frame_needed = 0, uses_anonymous_args = 0
+ 208              		@ link register save eliminated.
+ 312:Generated_Source\PSoC5/QuadDec_XY.c ****     return (QuadDec_XY_STATUS_REG & QuadDec_XY_INIT_INT_MASK);
+ 209              		.loc 1 312 0
+ 210 0000 024B     		ldr	r3, .L18
+ 211 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 313:Generated_Source\PSoC5/QuadDec_XY.c **** }
+ 212              		.loc 1 313 0
+ 213 0004 00F00F00 		and	r0, r0, #15
+ 214 0008 7047     		bx	lr
+ 215              	.L19:
+ 216 000a 00BF     		.align	2
+ 217              	.L18:
+ 218 000c 6E640040 		.word	1073767534
+ 219              		.cfi_endproc
+ 220              	.LFE6:
+ 221              		.size	QuadDec_XY_GetEvents, .-QuadDec_XY_GetEvents
+ 222              		.section	.text.QuadDec_XY_SetInterruptMask,"ax",%progbits
+ 223              		.align	2
+ 224              		.global	QuadDec_XY_SetInterruptMask
+ 225              		.thumb
+ 226              		.thumb_func
+ 227              		.type	QuadDec_XY_SetInterruptMask, %function
+ 228              	QuadDec_XY_SetInterruptMask:
+ 229              	.LFB7:
+ 314:Generated_Source\PSoC5/QuadDec_XY.c **** 
+ 315:Generated_Source\PSoC5/QuadDec_XY.c **** 
+ 316:Generated_Source\PSoC5/QuadDec_XY.c **** /*******************************************************************************
+ 317:Generated_Source\PSoC5/QuadDec_XY.c **** * Function Name: QuadDec_XY_SetInterruptMask
+ 318:Generated_Source\PSoC5/QuadDec_XY.c **** ********************************************************************************
+ 319:Generated_Source\PSoC5/QuadDec_XY.c **** *
+ 320:Generated_Source\PSoC5/QuadDec_XY.c **** * Summary:
+ 321:Generated_Source\PSoC5/QuadDec_XY.c **** *  Enables / disables interrupts due to the events.
+ 322:Generated_Source\PSoC5/QuadDec_XY.c **** *  For the 32-bit counter, the overflow, underflow and reset interrupts cannot
+ 323:Generated_Source\PSoC5/QuadDec_XY.c **** *  be disabled, these bits are ignored.
+ 324:Generated_Source\PSoC5/QuadDec_XY.c **** *
+ 325:Generated_Source\PSoC5/QuadDec_XY.c **** * Parameters:
+ 326:Generated_Source\PSoC5/QuadDec_XY.c **** *  mask: Enable / disable bits in an 8-bit value, where 1 enables the interrupt.
+ 327:Generated_Source\PSoC5/QuadDec_XY.c **** *
+ 328:Generated_Source\PSoC5/QuadDec_XY.c **** * Return:
+ 329:Generated_Source\PSoC5/QuadDec_XY.c **** *  None.
+ 330:Generated_Source\PSoC5/QuadDec_XY.c **** *
+ 331:Generated_Source\PSoC5/QuadDec_XY.c **** *******************************************************************************/
+ 332:Generated_Source\PSoC5/QuadDec_XY.c **** void QuadDec_XY_SetInterruptMask(uint8 mask) 
+ 333:Generated_Source\PSoC5/QuadDec_XY.c **** {
+ 230              		.loc 1 333 0
+ 231              		.cfi_startproc
+ 232              		@ args = 0, pretend = 0, frame = 0
+ 233              		@ frame_needed = 0, uses_anonymous_args = 0
+ 234              		@ link register save eliminated.
+ 235              	.LVL14:
+ 334:Generated_Source\PSoC5/QuadDec_XY.c ****     #if (QuadDec_XY_COUNTER_SIZE == QuadDec_XY_COUNTER_SIZE_32_BIT)
+ 335:Generated_Source\PSoC5/QuadDec_XY.c ****         /* Underflow, Overflow and Reset interrupts for 32-bit Counter are always enable */
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccXFTWEi.s 			page 11
+
+
+ 336:Generated_Source\PSoC5/QuadDec_XY.c ****         mask |= (QuadDec_XY_COUNTER_OVERFLOW | QuadDec_XY_COUNTER_UNDERFLOW |
+ 236              		.loc 1 336 0
+ 237 0000 40F00700 		orr	r0, r0, #7
+ 238              	.LVL15:
+ 337:Generated_Source\PSoC5/QuadDec_XY.c ****                  QuadDec_XY_COUNTER_RESET);
+ 338:Generated_Source\PSoC5/QuadDec_XY.c ****     #endif /* QuadDec_XY_COUNTER_SIZE == QuadDec_XY_COUNTER_SIZE_32_BIT */
+ 339:Generated_Source\PSoC5/QuadDec_XY.c **** 
+ 340:Generated_Source\PSoC5/QuadDec_XY.c ****     QuadDec_XY_STATUS_MASK = mask;
+ 239              		.loc 1 340 0
+ 240 0004 014B     		ldr	r3, .L21
+ 241 0006 1870     		strb	r0, [r3]
+ 242 0008 7047     		bx	lr
+ 243              	.L22:
+ 244 000a 00BF     		.align	2
+ 245              	.L21:
+ 246 000c 8E640040 		.word	1073767566
+ 247              		.cfi_endproc
+ 248              	.LFE7:
+ 249              		.size	QuadDec_XY_SetInterruptMask, .-QuadDec_XY_SetInterruptMask
+ 250              		.section	.text.QuadDec_XY_Enable,"ax",%progbits
+ 251              		.align	2
+ 252              		.global	QuadDec_XY_Enable
+ 253              		.thumb
+ 254              		.thumb_func
+ 255              		.type	QuadDec_XY_Enable, %function
+ 256              	QuadDec_XY_Enable:
+ 257              	.LFB1:
+  71:Generated_Source\PSoC5/QuadDec_XY.c ****     uint8 enableInterrupts;
+ 258              		.loc 1 71 0
+ 259              		.cfi_startproc
+ 260              		@ args = 0, pretend = 0, frame = 0
+ 261              		@ frame_needed = 0, uses_anonymous_args = 0
+ 262 0000 08B5     		push	{r3, lr}
+ 263              		.cfi_def_cfa_offset 8
+ 264              		.cfi_offset 3, -8
+ 265              		.cfi_offset 14, -4
+  74:Generated_Source\PSoC5/QuadDec_XY.c **** 
+ 266              		.loc 1 74 0
+ 267 0002 0F20     		movs	r0, #15
+ 268 0004 FFF7FEFF 		bl	QuadDec_XY_SetInterruptMask
+ 269              	.LVL16:
+  77:Generated_Source\PSoC5/QuadDec_XY.c ****     
+ 270              		.loc 1 77 0
+ 271 0008 FFF7FEFF 		bl	QuadDec_XY_GetEvents
+ 272              	.LVL17:
+  79:Generated_Source\PSoC5/QuadDec_XY.c **** 
+ 273              		.loc 1 79 0
+ 274 000c FFF7FEFF 		bl	CyEnterCriticalSection
+ 275              	.LVL18:
+  82:Generated_Source\PSoC5/QuadDec_XY.c **** 
+ 276              		.loc 1 82 0
+ 277 0010 054A     		ldr	r2, .L25
+ 278 0012 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 279 0014 43F01003 		orr	r3, r3, #16
+ 280 0018 1370     		strb	r3, [r2]
+  84:Generated_Source\PSoC5/QuadDec_XY.c **** 
+ 281              		.loc 1 84 0
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccXFTWEi.s 			page 12
+
+
+ 282 001a FFF7FEFF 		bl	CyExitCriticalSection
+ 283              	.LVL19:
+  88:Generated_Source\PSoC5/QuadDec_XY.c ****     #endif /* QuadDec_XY_COUNTER_SIZE == QuadDec_XY_COUNTER_SIZE_32_BIT */
+ 284              		.loc 1 88 0
+ 285 001e 0222     		movs	r2, #2
+ 286 0020 024B     		ldr	r3, .L25+4
+ 287 0022 1A60     		str	r2, [r3]
+ 288 0024 08BD     		pop	{r3, pc}
+ 289              	.L26:
+ 290 0026 00BF     		.align	2
+ 291              	.L25:
+ 292 0028 9E640040 		.word	1073767582
+ 293 002c 00E100E0 		.word	-536813312
+ 294              		.cfi_endproc
+ 295              	.LFE1:
+ 296              		.size	QuadDec_XY_Enable, .-QuadDec_XY_Enable
+ 297              		.section	.text.QuadDec_XY_Start,"ax",%progbits
+ 298              		.align	2
+ 299              		.global	QuadDec_XY_Start
+ 300              		.thumb
+ 301              		.thumb_func
+ 302              		.type	QuadDec_XY_Start, %function
+ 303              	QuadDec_XY_Start:
+ 304              	.LFB2:
+ 117:Generated_Source\PSoC5/QuadDec_XY.c ****     #if (QuadDec_XY_COUNTER_SIZE == QuadDec_XY_COUNTER_SIZE_8_BIT)
+ 305              		.loc 1 117 0
+ 306              		.cfi_startproc
+ 307              		@ args = 0, pretend = 0, frame = 0
+ 308              		@ frame_needed = 0, uses_anonymous_args = 0
+ 309 0000 08B5     		push	{r3, lr}
+ 310              		.cfi_def_cfa_offset 8
+ 311              		.cfi_offset 3, -8
+ 312              		.cfi_offset 14, -4
+ 125:Generated_Source\PSoC5/QuadDec_XY.c ****         QuadDec_XY_Cnt16_WriteCounter(QuadDec_XY_COUNTER_INIT_VALUE);
+ 313              		.loc 1 125 0
+ 314 0002 FFF7FEFF 		bl	QuadDec_XY_Cnt16_Start
+ 315              	.LVL20:
+ 126:Generated_Source\PSoC5/QuadDec_XY.c ****     #endif /* QuadDec_XY_COUNTER_SIZE == QuadDec_XY_COUNTER_SIZE_8_BIT */
+ 316              		.loc 1 126 0
+ 317 0006 4FF40040 		mov	r0, #32768
+ 318 000a FFF7FEFF 		bl	QuadDec_XY_Cnt16_WriteCounter
+ 319              	.LVL21:
+ 130:Generated_Source\PSoC5/QuadDec_XY.c ****     #endif /* QuadDec_XY_COUNTER_SIZE == QuadDec_XY_COUNTER_SIZE_32_BIT */
+ 320              		.loc 1 130 0
+ 321 000e 0022     		movs	r2, #0
+ 322 0010 064B     		ldr	r3, .L30
+ 323 0012 1A60     		str	r2, [r3]
+ 133:Generated_Source\PSoC5/QuadDec_XY.c ****     {
+ 324              		.loc 1 133 0
+ 325 0014 064B     		ldr	r3, .L30+4
+ 326 0016 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 327 0018 23B9     		cbnz	r3, .L28
+ 135:Generated_Source\PSoC5/QuadDec_XY.c ****         QuadDec_XY_initVar = 1u;
+ 328              		.loc 1 135 0
+ 329 001a FFF7FEFF 		bl	QuadDec_XY_Init
+ 330              	.LVL22:
+ 136:Generated_Source\PSoC5/QuadDec_XY.c ****     }
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccXFTWEi.s 			page 13
+
+
+ 331              		.loc 1 136 0
+ 332 001e 0122     		movs	r2, #1
+ 333 0020 034B     		ldr	r3, .L30+4
+ 334 0022 1A70     		strb	r2, [r3]
+ 335              	.L28:
+ 139:Generated_Source\PSoC5/QuadDec_XY.c **** }
+ 336              		.loc 1 139 0
+ 337 0024 FFF7FEFF 		bl	QuadDec_XY_Enable
+ 338              	.LVL23:
+ 339 0028 08BD     		pop	{r3, pc}
+ 340              	.L31:
+ 341 002a 00BF     		.align	2
+ 342              	.L30:
+ 343 002c 00000000 		.word	QuadDec_XY_count32SoftPart
+ 344 0030 00000000 		.word	.LANCHOR0
+ 345              		.cfi_endproc
+ 346              	.LFE2:
+ 347              		.size	QuadDec_XY_Start, .-QuadDec_XY_Start
+ 348              		.section	.text.QuadDec_XY_GetInterruptMask,"ax",%progbits
+ 349              		.align	2
+ 350              		.global	QuadDec_XY_GetInterruptMask
+ 351              		.thumb
+ 352              		.thumb_func
+ 353              		.type	QuadDec_XY_GetInterruptMask, %function
+ 354              	QuadDec_XY_GetInterruptMask:
+ 355              	.LFB8:
+ 341:Generated_Source\PSoC5/QuadDec_XY.c **** }
+ 342:Generated_Source\PSoC5/QuadDec_XY.c **** 
+ 343:Generated_Source\PSoC5/QuadDec_XY.c **** 
+ 344:Generated_Source\PSoC5/QuadDec_XY.c **** /*******************************************************************************
+ 345:Generated_Source\PSoC5/QuadDec_XY.c **** * Function Name: QuadDec_XY_GetInterruptMask
+ 346:Generated_Source\PSoC5/QuadDec_XY.c **** ********************************************************************************
+ 347:Generated_Source\PSoC5/QuadDec_XY.c **** *
+ 348:Generated_Source\PSoC5/QuadDec_XY.c **** * Summary:
+ 349:Generated_Source\PSoC5/QuadDec_XY.c **** *  Reports the current interrupt mask settings.
+ 350:Generated_Source\PSoC5/QuadDec_XY.c **** *
+ 351:Generated_Source\PSoC5/QuadDec_XY.c **** * Parameters:
+ 352:Generated_Source\PSoC5/QuadDec_XY.c **** *  None.
+ 353:Generated_Source\PSoC5/QuadDec_XY.c **** *
+ 354:Generated_Source\PSoC5/QuadDec_XY.c **** * Return:
+ 355:Generated_Source\PSoC5/QuadDec_XY.c **** *  Enable / disable bits in an 8-bit value, where 1 enables the interrupt.
+ 356:Generated_Source\PSoC5/QuadDec_XY.c **** *  For the 32-bit counter, the overflow, underflow and reset enable bits are
+ 357:Generated_Source\PSoC5/QuadDec_XY.c **** *  always set.
+ 358:Generated_Source\PSoC5/QuadDec_XY.c **** *
+ 359:Generated_Source\PSoC5/QuadDec_XY.c **** *******************************************************************************/
+ 360:Generated_Source\PSoC5/QuadDec_XY.c **** uint8 QuadDec_XY_GetInterruptMask(void) 
+ 361:Generated_Source\PSoC5/QuadDec_XY.c **** {
+ 356              		.loc 1 361 0
+ 357              		.cfi_startproc
+ 358              		@ args = 0, pretend = 0, frame = 0
+ 359              		@ frame_needed = 0, uses_anonymous_args = 0
+ 360              		@ link register save eliminated.
+ 362:Generated_Source\PSoC5/QuadDec_XY.c ****     return (QuadDec_XY_STATUS_MASK & QuadDec_XY_INIT_INT_MASK);
+ 361              		.loc 1 362 0
+ 362 0000 024B     		ldr	r3, .L33
+ 363 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 363:Generated_Source\PSoC5/QuadDec_XY.c **** }
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccXFTWEi.s 			page 14
+
+
+ 364              		.loc 1 363 0
+ 365 0004 00F00F00 		and	r0, r0, #15
+ 366 0008 7047     		bx	lr
+ 367              	.L34:
+ 368 000a 00BF     		.align	2
+ 369              	.L33:
+ 370 000c 8E640040 		.word	1073767566
+ 371              		.cfi_endproc
+ 372              	.LFE8:
+ 373              		.size	QuadDec_XY_GetInterruptMask, .-QuadDec_XY_GetInterruptMask
+ 374              		.global	QuadDec_XY_initVar
+ 375              		.bss
+ 376              		.set	.LANCHOR0,. + 0
+ 377              		.type	QuadDec_XY_initVar, %object
+ 378              		.size	QuadDec_XY_initVar, 1
+ 379              	QuadDec_XY_initVar:
+ 380 0000 00       		.space	1
+ 381              		.text
+ 382              	.Letext0:
+ 383              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 384              		.file 3 "Generated_Source\\PSoC5\\QuadDec_XY_PVT.h"
+ 385              		.file 4 "Generated_Source\\PSoC5\\CyLib.h"
+ 386              		.file 5 "Generated_Source\\PSoC5\\QuadDec_XY_Cnt16.h"
+ 387              		.section	.debug_info,"",%progbits
+ 388              	.Ldebug_info0:
+ 389 0000 54030000 		.4byte	0x354
+ 390 0004 0400     		.2byte	0x4
+ 391 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 392 000a 04       		.byte	0x4
+ 393 000b 01       		.uleb128 0x1
+ 394 000c 85000000 		.4byte	.LASF45
+ 395 0010 0C       		.byte	0xc
+ 396 0011 FC020000 		.4byte	.LASF46
+ 397 0015 46030000 		.4byte	.LASF47
+ 398 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 399 001d 00000000 		.4byte	0
+ 400 0021 00000000 		.4byte	.Ldebug_line0
+ 401 0025 02       		.uleb128 0x2
+ 402 0026 04       		.byte	0x4
+ 403 0027 05       		.byte	0x5
+ 404 0028 696E7400 		.ascii	"int\000"
+ 405 002c 03       		.uleb128 0x3
+ 406 002d 04       		.byte	0x4
+ 407 002e 07       		.byte	0x7
+ 408 002f 06020000 		.4byte	.LASF0
+ 409 0033 03       		.uleb128 0x3
+ 410 0034 08       		.byte	0x8
+ 411 0035 05       		.byte	0x5
+ 412 0036 7B020000 		.4byte	.LASF1
+ 413 003a 03       		.uleb128 0x3
+ 414 003b 08       		.byte	0x8
+ 415 003c 04       		.byte	0x4
+ 416 003d 2E030000 		.4byte	.LASF2
+ 417 0041 03       		.uleb128 0x3
+ 418 0042 01       		.byte	0x1
+ 419 0043 06       		.byte	0x6
+ 420 0044 3A030000 		.4byte	.LASF3
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccXFTWEi.s 			page 15
+
+
+ 421 0048 03       		.uleb128 0x3
+ 422 0049 01       		.byte	0x1
+ 423 004a 08       		.byte	0x8
+ 424 004b 77000000 		.4byte	.LASF4
+ 425 004f 03       		.uleb128 0x3
+ 426 0050 02       		.byte	0x2
+ 427 0051 05       		.byte	0x5
+ 428 0052 CE020000 		.4byte	.LASF5
+ 429 0056 03       		.uleb128 0x3
+ 430 0057 02       		.byte	0x2
+ 431 0058 07       		.byte	0x7
+ 432 0059 47000000 		.4byte	.LASF6
+ 433 005d 03       		.uleb128 0x3
+ 434 005e 04       		.byte	0x4
+ 435 005f 05       		.byte	0x5
+ 436 0060 20030000 		.4byte	.LASF7
+ 437 0064 03       		.uleb128 0x3
+ 438 0065 04       		.byte	0x4
+ 439 0066 07       		.byte	0x7
+ 440 0067 4B010000 		.4byte	.LASF8
+ 441 006b 03       		.uleb128 0x3
+ 442 006c 08       		.byte	0x8
+ 443 006d 07       		.byte	0x7
+ 444 006e 60000000 		.4byte	.LASF9
+ 445 0072 03       		.uleb128 0x3
+ 446 0073 04       		.byte	0x4
+ 447 0074 07       		.byte	0x7
+ 448 0075 72020000 		.4byte	.LASF10
+ 449 0079 03       		.uleb128 0x3
+ 450 007a 01       		.byte	0x1
+ 451 007b 08       		.byte	0x8
+ 452 007c 29030000 		.4byte	.LASF11
+ 453 0080 04       		.uleb128 0x4
+ 454 0081 F6020000 		.4byte	.LASF12
+ 455 0085 02       		.byte	0x2
+ 456 0086 E401     		.2byte	0x1e4
+ 457 0088 48000000 		.4byte	0x48
+ 458 008c 04       		.uleb128 0x4
+ 459 008d E1010000 		.4byte	.LASF13
+ 460 0091 02       		.byte	0x2
+ 461 0092 E501     		.2byte	0x1e5
+ 462 0094 56000000 		.4byte	0x56
+ 463 0098 04       		.uleb128 0x4
+ 464 0099 E8010000 		.4byte	.LASF14
+ 465 009d 02       		.byte	0x2
+ 466 009e E601     		.2byte	0x1e6
+ 467 00a0 64000000 		.4byte	0x64
+ 468 00a4 04       		.uleb128 0x4
+ 469 00a5 3A020000 		.4byte	.LASF15
+ 470 00a9 02       		.byte	0x2
+ 471 00aa E801     		.2byte	0x1e8
+ 472 00ac 4F000000 		.4byte	0x4f
+ 473 00b0 04       		.uleb128 0x4
+ 474 00b1 5D010000 		.4byte	.LASF16
+ 475 00b5 02       		.byte	0x2
+ 476 00b6 E901     		.2byte	0x1e9
+ 477 00b8 5D000000 		.4byte	0x5d
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccXFTWEi.s 			page 16
+
+
+ 478 00bc 03       		.uleb128 0x3
+ 479 00bd 04       		.byte	0x4
+ 480 00be 04       		.byte	0x4
+ 481 00bf 5A000000 		.4byte	.LASF17
+ 482 00c3 03       		.uleb128 0x3
+ 483 00c4 08       		.byte	0x8
+ 484 00c5 04       		.byte	0x4
+ 485 00c6 AE010000 		.4byte	.LASF18
+ 486 00ca 04       		.uleb128 0x4
+ 487 00cb 1B010000 		.4byte	.LASF19
+ 488 00cf 02       		.byte	0x2
+ 489 00d0 8E02     		.2byte	0x28e
+ 490 00d2 D6000000 		.4byte	0xd6
+ 491 00d6 05       		.uleb128 0x5
+ 492 00d7 80000000 		.4byte	0x80
+ 493 00db 04       		.uleb128 0x4
+ 494 00dc 00000000 		.4byte	.LASF20
+ 495 00e0 02       		.byte	0x2
+ 496 00e1 9002     		.2byte	0x290
+ 497 00e3 E7000000 		.4byte	0xe7
+ 498 00e7 05       		.uleb128 0x5
+ 499 00e8 98000000 		.4byte	0x98
+ 500 00ec 06       		.uleb128 0x6
+ 501 00ed 37000000 		.4byte	.LASF21
+ 502 00f1 01       		.byte	0x1
+ 503 00f2 2A       		.byte	0x2a
+ 504 00f3 00000000 		.4byte	.LFB0
+ 505 00f7 24000000 		.4byte	.LFE0-.LFB0
+ 506 00fb 01       		.uleb128 0x1
+ 507 00fc 9C       		.byte	0x9c
+ 508 00fd 2A010000 		.4byte	0x12a
+ 509 0101 07       		.uleb128 0x7
+ 510 0102 10000000 		.4byte	.LVL0
+ 511 0106 FF020000 		.4byte	0x2ff
+ 512 010a 14010000 		.4byte	0x114
+ 513 010e 08       		.uleb128 0x8
+ 514 010f 01       		.uleb128 0x1
+ 515 0110 50       		.byte	0x50
+ 516 0111 01       		.uleb128 0x1
+ 517 0112 31       		.byte	0x31
+ 518 0113 00       		.byte	0
+ 519 0114 09       		.uleb128 0x9
+ 520 0115 18000000 		.4byte	.LVL1
+ 521 0119 0A030000 		.4byte	0x30a
+ 522 011d 08       		.uleb128 0x8
+ 523 011e 01       		.uleb128 0x1
+ 524 011f 50       		.byte	0x50
+ 525 0120 01       		.uleb128 0x1
+ 526 0121 31       		.byte	0x31
+ 527 0122 08       		.uleb128 0x8
+ 528 0123 01       		.uleb128 0x1
+ 529 0124 51       		.byte	0x51
+ 530 0125 02       		.uleb128 0x2
+ 531 0126 74       		.byte	0x74
+ 532 0127 00       		.sleb128 0
+ 533 0128 00       		.byte	0
+ 534 0129 00       		.byte	0
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccXFTWEi.s 			page 17
+
+
+ 535 012a 06       		.uleb128 0x6
+ 536 012b BE020000 		.4byte	.LASF22
+ 537 012f 01       		.byte	0x1
+ 538 0130 9D       		.byte	0x9d
+ 539 0131 00000000 		.4byte	.LFB3
+ 540 0135 28000000 		.4byte	.LFE3-.LFB3
+ 541 0139 01       		.uleb128 0x1
+ 542 013a 9C       		.byte	0x9c
+ 543 013b 6A010000 		.4byte	0x16a
+ 544 013f 0A       		.uleb128 0xa
+ 545 0140 9D010000 		.4byte	.LASF23
+ 546 0144 01       		.byte	0x1
+ 547 0145 9F       		.byte	0x9f
+ 548 0146 80000000 		.4byte	0x80
+ 549 014a 00000000 		.4byte	.LLST0
+ 550 014e 0B       		.uleb128 0xb
+ 551 014f 06000000 		.4byte	.LVL2
+ 552 0153 15030000 		.4byte	0x315
+ 553 0157 0B       		.uleb128 0xb
+ 554 0158 0A000000 		.4byte	.LVL3
+ 555 015c 20030000 		.4byte	0x320
+ 556 0160 0B       		.uleb128 0xb
+ 557 0161 18000000 		.4byte	.LVL4
+ 558 0165 2B030000 		.4byte	0x32b
+ 559 0169 00       		.byte	0
+ 560 016a 0C       		.uleb128 0xc
+ 561 016b 35010000 		.4byte	.LASF48
+ 562 016f 01       		.byte	0x1
+ 563 0170 CA       		.byte	0xca
+ 564 0171 B0000000 		.4byte	0xb0
+ 565 0175 00000000 		.4byte	.LFB4
+ 566 0179 2C000000 		.4byte	.LFE4-.LFB4
+ 567 017d 01       		.uleb128 0x1
+ 568 017e 9C       		.byte	0x9c
+ 569 017f BA010000 		.4byte	0x1ba
+ 570 0183 0A       		.uleb128 0xa
+ 571 0184 31000000 		.4byte	.LASF24
+ 572 0188 01       		.byte	0x1
+ 573 0189 CC       		.byte	0xcc
+ 574 018a B0000000 		.4byte	0xb0
+ 575 018e 13000000 		.4byte	.LLST1
+ 576 0192 0A       		.uleb128 0xa
+ 577 0193 63010000 		.4byte	.LASF25
+ 578 0197 01       		.byte	0x1
+ 579 0198 CD       		.byte	0xcd
+ 580 0199 8C000000 		.4byte	0x8c
+ 581 019d 36000000 		.4byte	.LLST2
+ 582 01a1 0A       		.uleb128 0xa
+ 583 01a2 13010000 		.4byte	.LASF26
+ 584 01a6 01       		.byte	0x1
+ 585 01a7 D0       		.byte	0xd0
+ 586 01a8 A4000000 		.4byte	0xa4
+ 587 01ac 49000000 		.4byte	.LLST3
+ 588 01b0 0B       		.uleb128 0xb
+ 589 01b1 0C000000 		.4byte	.LVL5
+ 590 01b5 36030000 		.4byte	0x336
+ 591 01b9 00       		.byte	0
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccXFTWEi.s 			page 18
+
+
+ 592 01ba 0D       		.uleb128 0xd
+ 593 01bb 5C020000 		.4byte	.LASF27
+ 594 01bf 01       		.byte	0x1
+ 595 01c0 0201     		.2byte	0x102
+ 596 01c2 00000000 		.4byte	.LFB5
+ 597 01c6 28000000 		.4byte	.LFE5-.LFB5
+ 598 01ca 01       		.uleb128 0x1
+ 599 01cb 9C       		.byte	0x9c
+ 600 01cc F2010000 		.4byte	0x1f2
+ 601 01d0 0E       		.uleb128 0xe
+ 602 01d1 2B000000 		.4byte	.LASF29
+ 603 01d5 01       		.byte	0x1
+ 604 01d6 0201     		.2byte	0x102
+ 605 01d8 B0000000 		.4byte	0xb0
+ 606 01dc 5C000000 		.4byte	.LLST4
+ 607 01e0 09       		.uleb128 0x9
+ 608 01e1 12000000 		.4byte	.LVL12
+ 609 01e5 41030000 		.4byte	0x341
+ 610 01e9 08       		.uleb128 0x8
+ 611 01ea 01       		.uleb128 0x1
+ 612 01eb 50       		.byte	0x50
+ 613 01ec 03       		.uleb128 0x3
+ 614 01ed 0B       		.byte	0xb
+ 615 01ee 0080     		.2byte	0x8000
+ 616 01f0 00       		.byte	0
+ 617 01f1 00       		.byte	0
+ 618 01f2 0F       		.uleb128 0xf
+ 619 01f3 20010000 		.4byte	.LASF33
+ 620 01f7 01       		.byte	0x1
+ 621 01f8 3601     		.2byte	0x136
+ 622 01fa 80000000 		.4byte	0x80
+ 623 01fe 00000000 		.4byte	.LFB6
+ 624 0202 10000000 		.4byte	.LFE6-.LFB6
+ 625 0206 01       		.uleb128 0x1
+ 626 0207 9C       		.byte	0x9c
+ 627 0208 0D       		.uleb128 0xd
+ 628 0209 6A010000 		.4byte	.LASF28
+ 629 020d 01       		.byte	0x1
+ 630 020e 4C01     		.2byte	0x14c
+ 631 0210 00000000 		.4byte	.LFB7
+ 632 0214 10000000 		.4byte	.LFE7-.LFB7
+ 633 0218 01       		.uleb128 0x1
+ 634 0219 9C       		.byte	0x9c
+ 635 021a 2F020000 		.4byte	0x22f
+ 636 021e 0E       		.uleb128 0xe
+ 637 021f 89020000 		.4byte	.LASF30
+ 638 0223 01       		.byte	0x1
+ 639 0224 4C01     		.2byte	0x14c
+ 640 0226 80000000 		.4byte	0x80
+ 641 022a 88000000 		.4byte	.LLST5
+ 642 022e 00       		.byte	0
+ 643 022f 06       		.uleb128 0x6
+ 644 0230 8C030000 		.4byte	.LASF31
+ 645 0234 01       		.byte	0x1
+ 646 0235 46       		.byte	0x46
+ 647 0236 00000000 		.4byte	.LFB1
+ 648 023a 30000000 		.4byte	.LFE1-.LFB1
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccXFTWEi.s 			page 19
+
+
+ 649 023e 01       		.uleb128 0x1
+ 650 023f 9C       		.byte	0x9c
+ 651 0240 82020000 		.4byte	0x282
+ 652 0244 0A       		.uleb128 0xa
+ 653 0245 9D010000 		.4byte	.LASF23
+ 654 0249 01       		.byte	0x1
+ 655 024a 48       		.byte	0x48
+ 656 024b 80000000 		.4byte	0x80
+ 657 024f A6000000 		.4byte	.LLST6
+ 658 0253 07       		.uleb128 0x7
+ 659 0254 08000000 		.4byte	.LVL16
+ 660 0258 08020000 		.4byte	0x208
+ 661 025c 66020000 		.4byte	0x266
+ 662 0260 08       		.uleb128 0x8
+ 663 0261 01       		.uleb128 0x1
+ 664 0262 50       		.byte	0x50
+ 665 0263 01       		.uleb128 0x1
+ 666 0264 3F       		.byte	0x3f
+ 667 0265 00       		.byte	0
+ 668 0266 0B       		.uleb128 0xb
+ 669 0267 0C000000 		.4byte	.LVL17
+ 670 026b F2010000 		.4byte	0x1f2
+ 671 026f 0B       		.uleb128 0xb
+ 672 0270 10000000 		.4byte	.LVL18
+ 673 0274 20030000 		.4byte	0x320
+ 674 0278 0B       		.uleb128 0xb
+ 675 0279 1E000000 		.4byte	.LVL19
+ 676 027d 2B030000 		.4byte	0x32b
+ 677 0281 00       		.byte	0
+ 678 0282 06       		.uleb128 0x6
+ 679 0283 B5010000 		.4byte	.LASF32
+ 680 0287 01       		.byte	0x1
+ 681 0288 74       		.byte	0x74
+ 682 0289 00000000 		.4byte	.LFB2
+ 683 028d 34000000 		.4byte	.LFE2-.LFB2
+ 684 0291 01       		.uleb128 0x1
+ 685 0292 9C       		.byte	0x9c
+ 686 0293 C8020000 		.4byte	0x2c8
+ 687 0297 0B       		.uleb128 0xb
+ 688 0298 06000000 		.4byte	.LVL20
+ 689 029c 4C030000 		.4byte	0x34c
+ 690 02a0 07       		.uleb128 0x7
+ 691 02a1 0E000000 		.4byte	.LVL21
+ 692 02a5 41030000 		.4byte	0x341
+ 693 02a9 B5020000 		.4byte	0x2b5
+ 694 02ad 08       		.uleb128 0x8
+ 695 02ae 01       		.uleb128 0x1
+ 696 02af 50       		.byte	0x50
+ 697 02b0 03       		.uleb128 0x3
+ 698 02b1 0B       		.byte	0xb
+ 699 02b2 0080     		.2byte	0x8000
+ 700 02b4 00       		.byte	0
+ 701 02b5 0B       		.uleb128 0xb
+ 702 02b6 1E000000 		.4byte	.LVL22
+ 703 02ba EC000000 		.4byte	0xec
+ 704 02be 0B       		.uleb128 0xb
+ 705 02bf 28000000 		.4byte	.LVL23
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccXFTWEi.s 			page 20
+
+
+ 706 02c3 2F020000 		.4byte	0x22f
+ 707 02c7 00       		.byte	0
+ 708 02c8 0F       		.uleb128 0xf
+ 709 02c9 40020000 		.4byte	.LASF34
+ 710 02cd 01       		.byte	0x1
+ 711 02ce 6801     		.2byte	0x168
+ 712 02d0 80000000 		.4byte	0x80
+ 713 02d4 00000000 		.4byte	.LFB8
+ 714 02d8 10000000 		.4byte	.LFE8-.LFB8
+ 715 02dc 01       		.uleb128 0x1
+ 716 02dd 9C       		.byte	0x9c
+ 717 02de 10       		.uleb128 0x10
+ 718 02df 8E020000 		.4byte	.LASF35
+ 719 02e3 01       		.byte	0x1
+ 720 02e4 19       		.byte	0x19
+ 721 02e5 80000000 		.4byte	0x80
+ 722 02e9 05       		.uleb128 0x5
+ 723 02ea 03       		.byte	0x3
+ 724 02eb 00000000 		.4byte	QuadDec_XY_initVar
+ 725 02ef 11       		.uleb128 0x11
+ 726 02f0 C6010000 		.4byte	.LASF36
+ 727 02f4 03       		.byte	0x3
+ 728 02f5 18       		.byte	0x18
+ 729 02f6 FA020000 		.4byte	0x2fa
+ 730 02fa 05       		.uleb128 0x5
+ 731 02fb B0000000 		.4byte	0xb0
+ 732 02ff 12       		.uleb128 0x12
+ 733 0300 1C000000 		.4byte	.LASF37
+ 734 0304 1C000000 		.4byte	.LASF37
+ 735 0308 04       		.byte	0x4
+ 736 0309 88       		.byte	0x88
+ 737 030a 12       		.uleb128 0x12
+ 738 030b 29020000 		.4byte	.LASF38
+ 739 030f 29020000 		.4byte	.LASF38
+ 740 0313 04       		.byte	0x4
+ 741 0314 8B       		.byte	0x8b
+ 742 0315 12       		.uleb128 0x12
+ 743 0316 06000000 		.4byte	.LASF39
+ 744 031a 06000000 		.4byte	.LASF39
+ 745 031e 05       		.byte	0x5
+ 746 031f 50       		.byte	0x50
+ 747 0320 12       		.uleb128 0x12
+ 748 0321 EF010000 		.4byte	.LASF40
+ 749 0325 EF010000 		.4byte	.LASF40
+ 750 0329 04       		.byte	0x4
+ 751 032a 7D       		.byte	0x7d
+ 752 032b 12       		.uleb128 0x12
+ 753 032c 13020000 		.4byte	.LASF41
+ 754 0330 13020000 		.4byte	.LASF41
+ 755 0334 04       		.byte	0x4
+ 756 0335 7E       		.byte	0x7e
+ 757 0336 12       		.uleb128 0x12
+ 758 0337 A1020000 		.4byte	.LASF42
+ 759 033b A1020000 		.4byte	.LASF42
+ 760 033f 05       		.byte	0x5
+ 761 0340 5D       		.byte	0x5d
+ 762 0341 12       		.uleb128 0x12
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccXFTWEi.s 			page 21
+
+
+ 763 0342 D8020000 		.4byte	.LASF43
+ 764 0346 D8020000 		.4byte	.LASF43
+ 765 034a 05       		.byte	0x5
+ 766 034b 5A       		.byte	0x5a
+ 767 034c 12       		.uleb128 0x12
+ 768 034d 86010000 		.4byte	.LASF44
+ 769 0351 86010000 		.4byte	.LASF44
+ 770 0355 05       		.byte	0x5
+ 771 0356 4F       		.byte	0x4f
+ 772 0357 00       		.byte	0
+ 773              		.section	.debug_abbrev,"",%progbits
+ 774              	.Ldebug_abbrev0:
+ 775 0000 01       		.uleb128 0x1
+ 776 0001 11       		.uleb128 0x11
+ 777 0002 01       		.byte	0x1
+ 778 0003 25       		.uleb128 0x25
+ 779 0004 0E       		.uleb128 0xe
+ 780 0005 13       		.uleb128 0x13
+ 781 0006 0B       		.uleb128 0xb
+ 782 0007 03       		.uleb128 0x3
+ 783 0008 0E       		.uleb128 0xe
+ 784 0009 1B       		.uleb128 0x1b
+ 785 000a 0E       		.uleb128 0xe
+ 786 000b 55       		.uleb128 0x55
+ 787 000c 17       		.uleb128 0x17
+ 788 000d 11       		.uleb128 0x11
+ 789 000e 01       		.uleb128 0x1
+ 790 000f 10       		.uleb128 0x10
+ 791 0010 17       		.uleb128 0x17
+ 792 0011 00       		.byte	0
+ 793 0012 00       		.byte	0
+ 794 0013 02       		.uleb128 0x2
+ 795 0014 24       		.uleb128 0x24
+ 796 0015 00       		.byte	0
+ 797 0016 0B       		.uleb128 0xb
+ 798 0017 0B       		.uleb128 0xb
+ 799 0018 3E       		.uleb128 0x3e
+ 800 0019 0B       		.uleb128 0xb
+ 801 001a 03       		.uleb128 0x3
+ 802 001b 08       		.uleb128 0x8
+ 803 001c 00       		.byte	0
+ 804 001d 00       		.byte	0
+ 805 001e 03       		.uleb128 0x3
+ 806 001f 24       		.uleb128 0x24
+ 807 0020 00       		.byte	0
+ 808 0021 0B       		.uleb128 0xb
+ 809 0022 0B       		.uleb128 0xb
+ 810 0023 3E       		.uleb128 0x3e
+ 811 0024 0B       		.uleb128 0xb
+ 812 0025 03       		.uleb128 0x3
+ 813 0026 0E       		.uleb128 0xe
+ 814 0027 00       		.byte	0
+ 815 0028 00       		.byte	0
+ 816 0029 04       		.uleb128 0x4
+ 817 002a 16       		.uleb128 0x16
+ 818 002b 00       		.byte	0
+ 819 002c 03       		.uleb128 0x3
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccXFTWEi.s 			page 22
+
+
+ 820 002d 0E       		.uleb128 0xe
+ 821 002e 3A       		.uleb128 0x3a
+ 822 002f 0B       		.uleb128 0xb
+ 823 0030 3B       		.uleb128 0x3b
+ 824 0031 05       		.uleb128 0x5
+ 825 0032 49       		.uleb128 0x49
+ 826 0033 13       		.uleb128 0x13
+ 827 0034 00       		.byte	0
+ 828 0035 00       		.byte	0
+ 829 0036 05       		.uleb128 0x5
+ 830 0037 35       		.uleb128 0x35
+ 831 0038 00       		.byte	0
+ 832 0039 49       		.uleb128 0x49
+ 833 003a 13       		.uleb128 0x13
+ 834 003b 00       		.byte	0
+ 835 003c 00       		.byte	0
+ 836 003d 06       		.uleb128 0x6
+ 837 003e 2E       		.uleb128 0x2e
+ 838 003f 01       		.byte	0x1
+ 839 0040 3F       		.uleb128 0x3f
+ 840 0041 19       		.uleb128 0x19
+ 841 0042 03       		.uleb128 0x3
+ 842 0043 0E       		.uleb128 0xe
+ 843 0044 3A       		.uleb128 0x3a
+ 844 0045 0B       		.uleb128 0xb
+ 845 0046 3B       		.uleb128 0x3b
+ 846 0047 0B       		.uleb128 0xb
+ 847 0048 27       		.uleb128 0x27
+ 848 0049 19       		.uleb128 0x19
+ 849 004a 11       		.uleb128 0x11
+ 850 004b 01       		.uleb128 0x1
+ 851 004c 12       		.uleb128 0x12
+ 852 004d 06       		.uleb128 0x6
+ 853 004e 40       		.uleb128 0x40
+ 854 004f 18       		.uleb128 0x18
+ 855 0050 9742     		.uleb128 0x2117
+ 856 0052 19       		.uleb128 0x19
+ 857 0053 01       		.uleb128 0x1
+ 858 0054 13       		.uleb128 0x13
+ 859 0055 00       		.byte	0
+ 860 0056 00       		.byte	0
+ 861 0057 07       		.uleb128 0x7
+ 862 0058 898201   		.uleb128 0x4109
+ 863 005b 01       		.byte	0x1
+ 864 005c 11       		.uleb128 0x11
+ 865 005d 01       		.uleb128 0x1
+ 866 005e 31       		.uleb128 0x31
+ 867 005f 13       		.uleb128 0x13
+ 868 0060 01       		.uleb128 0x1
+ 869 0061 13       		.uleb128 0x13
+ 870 0062 00       		.byte	0
+ 871 0063 00       		.byte	0
+ 872 0064 08       		.uleb128 0x8
+ 873 0065 8A8201   		.uleb128 0x410a
+ 874 0068 00       		.byte	0
+ 875 0069 02       		.uleb128 0x2
+ 876 006a 18       		.uleb128 0x18
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccXFTWEi.s 			page 23
+
+
+ 877 006b 9142     		.uleb128 0x2111
+ 878 006d 18       		.uleb128 0x18
+ 879 006e 00       		.byte	0
+ 880 006f 00       		.byte	0
+ 881 0070 09       		.uleb128 0x9
+ 882 0071 898201   		.uleb128 0x4109
+ 883 0074 01       		.byte	0x1
+ 884 0075 11       		.uleb128 0x11
+ 885 0076 01       		.uleb128 0x1
+ 886 0077 31       		.uleb128 0x31
+ 887 0078 13       		.uleb128 0x13
+ 888 0079 00       		.byte	0
+ 889 007a 00       		.byte	0
+ 890 007b 0A       		.uleb128 0xa
+ 891 007c 34       		.uleb128 0x34
+ 892 007d 00       		.byte	0
+ 893 007e 03       		.uleb128 0x3
+ 894 007f 0E       		.uleb128 0xe
+ 895 0080 3A       		.uleb128 0x3a
+ 896 0081 0B       		.uleb128 0xb
+ 897 0082 3B       		.uleb128 0x3b
+ 898 0083 0B       		.uleb128 0xb
+ 899 0084 49       		.uleb128 0x49
+ 900 0085 13       		.uleb128 0x13
+ 901 0086 02       		.uleb128 0x2
+ 902 0087 17       		.uleb128 0x17
+ 903 0088 00       		.byte	0
+ 904 0089 00       		.byte	0
+ 905 008a 0B       		.uleb128 0xb
+ 906 008b 898201   		.uleb128 0x4109
+ 907 008e 00       		.byte	0
+ 908 008f 11       		.uleb128 0x11
+ 909 0090 01       		.uleb128 0x1
+ 910 0091 31       		.uleb128 0x31
+ 911 0092 13       		.uleb128 0x13
+ 912 0093 00       		.byte	0
+ 913 0094 00       		.byte	0
+ 914 0095 0C       		.uleb128 0xc
+ 915 0096 2E       		.uleb128 0x2e
+ 916 0097 01       		.byte	0x1
+ 917 0098 3F       		.uleb128 0x3f
+ 918 0099 19       		.uleb128 0x19
+ 919 009a 03       		.uleb128 0x3
+ 920 009b 0E       		.uleb128 0xe
+ 921 009c 3A       		.uleb128 0x3a
+ 922 009d 0B       		.uleb128 0xb
+ 923 009e 3B       		.uleb128 0x3b
+ 924 009f 0B       		.uleb128 0xb
+ 925 00a0 27       		.uleb128 0x27
+ 926 00a1 19       		.uleb128 0x19
+ 927 00a2 49       		.uleb128 0x49
+ 928 00a3 13       		.uleb128 0x13
+ 929 00a4 11       		.uleb128 0x11
+ 930 00a5 01       		.uleb128 0x1
+ 931 00a6 12       		.uleb128 0x12
+ 932 00a7 06       		.uleb128 0x6
+ 933 00a8 40       		.uleb128 0x40
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccXFTWEi.s 			page 24
+
+
+ 934 00a9 18       		.uleb128 0x18
+ 935 00aa 9742     		.uleb128 0x2117
+ 936 00ac 19       		.uleb128 0x19
+ 937 00ad 01       		.uleb128 0x1
+ 938 00ae 13       		.uleb128 0x13
+ 939 00af 00       		.byte	0
+ 940 00b0 00       		.byte	0
+ 941 00b1 0D       		.uleb128 0xd
+ 942 00b2 2E       		.uleb128 0x2e
+ 943 00b3 01       		.byte	0x1
+ 944 00b4 3F       		.uleb128 0x3f
+ 945 00b5 19       		.uleb128 0x19
+ 946 00b6 03       		.uleb128 0x3
+ 947 00b7 0E       		.uleb128 0xe
+ 948 00b8 3A       		.uleb128 0x3a
+ 949 00b9 0B       		.uleb128 0xb
+ 950 00ba 3B       		.uleb128 0x3b
+ 951 00bb 05       		.uleb128 0x5
+ 952 00bc 27       		.uleb128 0x27
+ 953 00bd 19       		.uleb128 0x19
+ 954 00be 11       		.uleb128 0x11
+ 955 00bf 01       		.uleb128 0x1
+ 956 00c0 12       		.uleb128 0x12
+ 957 00c1 06       		.uleb128 0x6
+ 958 00c2 40       		.uleb128 0x40
+ 959 00c3 18       		.uleb128 0x18
+ 960 00c4 9742     		.uleb128 0x2117
+ 961 00c6 19       		.uleb128 0x19
+ 962 00c7 01       		.uleb128 0x1
+ 963 00c8 13       		.uleb128 0x13
+ 964 00c9 00       		.byte	0
+ 965 00ca 00       		.byte	0
+ 966 00cb 0E       		.uleb128 0xe
+ 967 00cc 05       		.uleb128 0x5
+ 968 00cd 00       		.byte	0
+ 969 00ce 03       		.uleb128 0x3
+ 970 00cf 0E       		.uleb128 0xe
+ 971 00d0 3A       		.uleb128 0x3a
+ 972 00d1 0B       		.uleb128 0xb
+ 973 00d2 3B       		.uleb128 0x3b
+ 974 00d3 05       		.uleb128 0x5
+ 975 00d4 49       		.uleb128 0x49
+ 976 00d5 13       		.uleb128 0x13
+ 977 00d6 02       		.uleb128 0x2
+ 978 00d7 17       		.uleb128 0x17
+ 979 00d8 00       		.byte	0
+ 980 00d9 00       		.byte	0
+ 981 00da 0F       		.uleb128 0xf
+ 982 00db 2E       		.uleb128 0x2e
+ 983 00dc 00       		.byte	0
+ 984 00dd 3F       		.uleb128 0x3f
+ 985 00de 19       		.uleb128 0x19
+ 986 00df 03       		.uleb128 0x3
+ 987 00e0 0E       		.uleb128 0xe
+ 988 00e1 3A       		.uleb128 0x3a
+ 989 00e2 0B       		.uleb128 0xb
+ 990 00e3 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccXFTWEi.s 			page 25
+
+
+ 991 00e4 05       		.uleb128 0x5
+ 992 00e5 27       		.uleb128 0x27
+ 993 00e6 19       		.uleb128 0x19
+ 994 00e7 49       		.uleb128 0x49
+ 995 00e8 13       		.uleb128 0x13
+ 996 00e9 11       		.uleb128 0x11
+ 997 00ea 01       		.uleb128 0x1
+ 998 00eb 12       		.uleb128 0x12
+ 999 00ec 06       		.uleb128 0x6
+ 1000 00ed 40       		.uleb128 0x40
+ 1001 00ee 18       		.uleb128 0x18
+ 1002 00ef 9742     		.uleb128 0x2117
+ 1003 00f1 19       		.uleb128 0x19
+ 1004 00f2 00       		.byte	0
+ 1005 00f3 00       		.byte	0
+ 1006 00f4 10       		.uleb128 0x10
+ 1007 00f5 34       		.uleb128 0x34
+ 1008 00f6 00       		.byte	0
+ 1009 00f7 03       		.uleb128 0x3
+ 1010 00f8 0E       		.uleb128 0xe
+ 1011 00f9 3A       		.uleb128 0x3a
+ 1012 00fa 0B       		.uleb128 0xb
+ 1013 00fb 3B       		.uleb128 0x3b
+ 1014 00fc 0B       		.uleb128 0xb
+ 1015 00fd 49       		.uleb128 0x49
+ 1016 00fe 13       		.uleb128 0x13
+ 1017 00ff 3F       		.uleb128 0x3f
+ 1018 0100 19       		.uleb128 0x19
+ 1019 0101 02       		.uleb128 0x2
+ 1020 0102 18       		.uleb128 0x18
+ 1021 0103 00       		.byte	0
+ 1022 0104 00       		.byte	0
+ 1023 0105 11       		.uleb128 0x11
+ 1024 0106 34       		.uleb128 0x34
+ 1025 0107 00       		.byte	0
+ 1026 0108 03       		.uleb128 0x3
+ 1027 0109 0E       		.uleb128 0xe
+ 1028 010a 3A       		.uleb128 0x3a
+ 1029 010b 0B       		.uleb128 0xb
+ 1030 010c 3B       		.uleb128 0x3b
+ 1031 010d 0B       		.uleb128 0xb
+ 1032 010e 49       		.uleb128 0x49
+ 1033 010f 13       		.uleb128 0x13
+ 1034 0110 3F       		.uleb128 0x3f
+ 1035 0111 19       		.uleb128 0x19
+ 1036 0112 3C       		.uleb128 0x3c
+ 1037 0113 19       		.uleb128 0x19
+ 1038 0114 00       		.byte	0
+ 1039 0115 00       		.byte	0
+ 1040 0116 12       		.uleb128 0x12
+ 1041 0117 2E       		.uleb128 0x2e
+ 1042 0118 00       		.byte	0
+ 1043 0119 3F       		.uleb128 0x3f
+ 1044 011a 19       		.uleb128 0x19
+ 1045 011b 3C       		.uleb128 0x3c
+ 1046 011c 19       		.uleb128 0x19
+ 1047 011d 6E       		.uleb128 0x6e
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccXFTWEi.s 			page 26
+
+
+ 1048 011e 0E       		.uleb128 0xe
+ 1049 011f 03       		.uleb128 0x3
+ 1050 0120 0E       		.uleb128 0xe
+ 1051 0121 3A       		.uleb128 0x3a
+ 1052 0122 0B       		.uleb128 0xb
+ 1053 0123 3B       		.uleb128 0x3b
+ 1054 0124 0B       		.uleb128 0xb
+ 1055 0125 00       		.byte	0
+ 1056 0126 00       		.byte	0
+ 1057 0127 00       		.byte	0
+ 1058              		.section	.debug_loc,"",%progbits
+ 1059              	.Ldebug_loc0:
+ 1060              	.LLST0:
+ 1061 0000 0A000000 		.4byte	.LVL3
+ 1062 0004 17000000 		.4byte	.LVL4-1
+ 1063 0008 0100     		.2byte	0x1
+ 1064 000a 50       		.byte	0x50
+ 1065 000b 00000000 		.4byte	0
+ 1066 000f 00000000 		.4byte	0
+ 1067              	.LLST1:
+ 1068 0013 16000000 		.4byte	.LVL8
+ 1069 0017 1C000000 		.4byte	.LVL9
+ 1070 001b 0600     		.2byte	0x6
+ 1071 001d 70       		.byte	0x70
+ 1072 001e 00       		.sleb128 0
+ 1073 001f 73       		.byte	0x73
+ 1074 0020 00       		.sleb128 0
+ 1075 0021 22       		.byte	0x22
+ 1076 0022 9F       		.byte	0x9f
+ 1077 0023 1C000000 		.4byte	.LVL9
+ 1078 0027 2C000000 		.4byte	.LFE4
+ 1079 002b 0100     		.2byte	0x1
+ 1080 002d 50       		.byte	0x50
+ 1081 002e 00000000 		.4byte	0
+ 1082 0032 00000000 		.4byte	0
+ 1083              	.LLST2:
+ 1084 0036 0C000000 		.4byte	.LVL5
+ 1085 003a 10000000 		.4byte	.LVL6
+ 1086 003e 0100     		.2byte	0x1
+ 1087 0040 50       		.byte	0x50
+ 1088 0041 00000000 		.4byte	0
+ 1089 0045 00000000 		.4byte	0
+ 1090              	.LLST3:
+ 1091 0049 12000000 		.4byte	.LVL7
+ 1092 004d 1C000000 		.4byte	.LVL9
+ 1093 0051 0100     		.2byte	0x1
+ 1094 0053 50       		.byte	0x50
+ 1095 0054 00000000 		.4byte	0
+ 1096 0058 00000000 		.4byte	0
+ 1097              	.LLST4:
+ 1098 005c 00000000 		.4byte	.LVL10
+ 1099 0060 0E000000 		.4byte	.LVL11
+ 1100 0064 0100     		.2byte	0x1
+ 1101 0066 50       		.byte	0x50
+ 1102 0067 0E000000 		.4byte	.LVL11
+ 1103 006b 1C000000 		.4byte	.LVL13
+ 1104 006f 0100     		.2byte	0x1
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccXFTWEi.s 			page 27
+
+
+ 1105 0071 55       		.byte	0x55
+ 1106 0072 1C000000 		.4byte	.LVL13
+ 1107 0076 28000000 		.4byte	.LFE5
+ 1108 007a 0400     		.2byte	0x4
+ 1109 007c F3       		.byte	0xf3
+ 1110 007d 01       		.uleb128 0x1
+ 1111 007e 50       		.byte	0x50
+ 1112 007f 9F       		.byte	0x9f
+ 1113 0080 00000000 		.4byte	0
+ 1114 0084 00000000 		.4byte	0
+ 1115              	.LLST5:
+ 1116 0088 00000000 		.4byte	.LVL14
+ 1117 008c 04000000 		.4byte	.LVL15
+ 1118 0090 0100     		.2byte	0x1
+ 1119 0092 50       		.byte	0x50
+ 1120 0093 04000000 		.4byte	.LVL15
+ 1121 0097 10000000 		.4byte	.LFE7
+ 1122 009b 0100     		.2byte	0x1
+ 1123 009d 50       		.byte	0x50
+ 1124 009e 00000000 		.4byte	0
+ 1125 00a2 00000000 		.4byte	0
+ 1126              	.LLST6:
+ 1127 00a6 10000000 		.4byte	.LVL18
+ 1128 00aa 1D000000 		.4byte	.LVL19-1
+ 1129 00ae 0100     		.2byte	0x1
+ 1130 00b0 50       		.byte	0x50
+ 1131 00b1 00000000 		.4byte	0
+ 1132 00b5 00000000 		.4byte	0
+ 1133              		.section	.debug_aranges,"",%progbits
+ 1134 0000 5C000000 		.4byte	0x5c
+ 1135 0004 0200     		.2byte	0x2
+ 1136 0006 00000000 		.4byte	.Ldebug_info0
+ 1137 000a 04       		.byte	0x4
+ 1138 000b 00       		.byte	0
+ 1139 000c 0000     		.2byte	0
+ 1140 000e 0000     		.2byte	0
+ 1141 0010 00000000 		.4byte	.LFB0
+ 1142 0014 24000000 		.4byte	.LFE0-.LFB0
+ 1143 0018 00000000 		.4byte	.LFB3
+ 1144 001c 28000000 		.4byte	.LFE3-.LFB3
+ 1145 0020 00000000 		.4byte	.LFB4
+ 1146 0024 2C000000 		.4byte	.LFE4-.LFB4
+ 1147 0028 00000000 		.4byte	.LFB5
+ 1148 002c 28000000 		.4byte	.LFE5-.LFB5
+ 1149 0030 00000000 		.4byte	.LFB6
+ 1150 0034 10000000 		.4byte	.LFE6-.LFB6
+ 1151 0038 00000000 		.4byte	.LFB7
+ 1152 003c 10000000 		.4byte	.LFE7-.LFB7
+ 1153 0040 00000000 		.4byte	.LFB1
+ 1154 0044 30000000 		.4byte	.LFE1-.LFB1
+ 1155 0048 00000000 		.4byte	.LFB2
+ 1156 004c 34000000 		.4byte	.LFE2-.LFB2
+ 1157 0050 00000000 		.4byte	.LFB8
+ 1158 0054 10000000 		.4byte	.LFE8-.LFB8
+ 1159 0058 00000000 		.4byte	0
+ 1160 005c 00000000 		.4byte	0
+ 1161              		.section	.debug_ranges,"",%progbits
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccXFTWEi.s 			page 28
+
+
+ 1162              	.Ldebug_ranges0:
+ 1163 0000 00000000 		.4byte	.LFB0
+ 1164 0004 24000000 		.4byte	.LFE0
+ 1165 0008 00000000 		.4byte	.LFB3
+ 1166 000c 28000000 		.4byte	.LFE3
+ 1167 0010 00000000 		.4byte	.LFB4
+ 1168 0014 2C000000 		.4byte	.LFE4
+ 1169 0018 00000000 		.4byte	.LFB5
+ 1170 001c 28000000 		.4byte	.LFE5
+ 1171 0020 00000000 		.4byte	.LFB6
+ 1172 0024 10000000 		.4byte	.LFE6
+ 1173 0028 00000000 		.4byte	.LFB7
+ 1174 002c 10000000 		.4byte	.LFE7
+ 1175 0030 00000000 		.4byte	.LFB1
+ 1176 0034 30000000 		.4byte	.LFE1
+ 1177 0038 00000000 		.4byte	.LFB2
+ 1178 003c 34000000 		.4byte	.LFE2
+ 1179 0040 00000000 		.4byte	.LFB8
+ 1180 0044 10000000 		.4byte	.LFE8
+ 1181 0048 00000000 		.4byte	0
+ 1182 004c 00000000 		.4byte	0
+ 1183              		.section	.debug_line,"",%progbits
+ 1184              	.Ldebug_line0:
+ 1185 0000 3C010000 		.section	.debug_str,"MS",%progbits,1
+ 1185      02007C00 
+ 1185      00000201 
+ 1185      FB0E0D00 
+ 1185      01010101 
+ 1186              	.LASF20:
+ 1187 0000 72656733 		.ascii	"reg32\000"
+ 1187      3200
+ 1188              	.LASF39:
+ 1189 0006 51756164 		.ascii	"QuadDec_XY_Cnt16_Stop\000"
+ 1189      4465635F 
+ 1189      58595F43 
+ 1189      6E743136 
+ 1189      5F53746F 
+ 1190              	.LASF37:
+ 1191 001c 4379496E 		.ascii	"CyIntSetVector\000"
+ 1191      74536574 
+ 1191      56656374 
+ 1191      6F7200
+ 1192              	.LASF29:
+ 1193 002b 76616C75 		.ascii	"value\000"
+ 1193      6500
+ 1194              	.LASF24:
+ 1195 0031 636F756E 		.ascii	"count\000"
+ 1195      7400
+ 1196              	.LASF21:
+ 1197 0037 51756164 		.ascii	"QuadDec_XY_Init\000"
+ 1197      4465635F 
+ 1197      58595F49 
+ 1197      6E697400 
+ 1198              	.LASF6:
+ 1199 0047 73686F72 		.ascii	"short unsigned int\000"
+ 1199      7420756E 
+ 1199      7369676E 
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccXFTWEi.s 			page 29
+
+
+ 1199      65642069 
+ 1199      6E7400
+ 1200              	.LASF17:
+ 1201 005a 666C6F61 		.ascii	"float\000"
+ 1201      7400
+ 1202              	.LASF9:
+ 1203 0060 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1203      206C6F6E 
+ 1203      6720756E 
+ 1203      7369676E 
+ 1203      65642069 
+ 1204              	.LASF4:
+ 1205 0077 756E7369 		.ascii	"unsigned char\000"
+ 1205      676E6564 
+ 1205      20636861 
+ 1205      7200
+ 1206              	.LASF45:
+ 1207 0085 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1207      43313120 
+ 1207      352E342E 
+ 1207      31203230 
+ 1207      31363036 
+ 1208 00b8 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1208      20726576 
+ 1208      6973696F 
+ 1208      6E203233 
+ 1208      37373135 
+ 1209 00eb 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1209      66756E63 
+ 1209      74696F6E 
+ 1209      2D736563 
+ 1209      74696F6E 
+ 1210              	.LASF26:
+ 1211 0113 6877436F 		.ascii	"hwCount\000"
+ 1211      756E7400 
+ 1212              	.LASF19:
+ 1213 011b 72656738 		.ascii	"reg8\000"
+ 1213      00
+ 1214              	.LASF33:
+ 1215 0120 51756164 		.ascii	"QuadDec_XY_GetEvents\000"
+ 1215      4465635F 
+ 1215      58595F47 
+ 1215      65744576 
+ 1215      656E7473 
+ 1216              	.LASF48:
+ 1217 0135 51756164 		.ascii	"QuadDec_XY_GetCounter\000"
+ 1217      4465635F 
+ 1217      58595F47 
+ 1217      6574436F 
+ 1217      756E7465 
+ 1218              	.LASF8:
+ 1219 014b 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1219      20756E73 
+ 1219      69676E65 
+ 1219      6420696E 
+ 1219      7400
+ 1220              	.LASF16:
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccXFTWEi.s 			page 30
+
+
+ 1221 015d 696E7433 		.ascii	"int32\000"
+ 1221      3200
+ 1222              	.LASF25:
+ 1223 0163 746D7043 		.ascii	"tmpCnt\000"
+ 1223      6E7400
+ 1224              	.LASF28:
+ 1225 016a 51756164 		.ascii	"QuadDec_XY_SetInterruptMask\000"
+ 1225      4465635F 
+ 1225      58595F53 
+ 1225      6574496E 
+ 1225      74657272 
+ 1226              	.LASF44:
+ 1227 0186 51756164 		.ascii	"QuadDec_XY_Cnt16_Start\000"
+ 1227      4465635F 
+ 1227      58595F43 
+ 1227      6E743136 
+ 1227      5F537461 
+ 1228              	.LASF23:
+ 1229 019d 656E6162 		.ascii	"enableInterrupts\000"
+ 1229      6C65496E 
+ 1229      74657272 
+ 1229      75707473 
+ 1229      00
+ 1230              	.LASF18:
+ 1231 01ae 646F7562 		.ascii	"double\000"
+ 1231      6C6500
+ 1232              	.LASF32:
+ 1233 01b5 51756164 		.ascii	"QuadDec_XY_Start\000"
+ 1233      4465635F 
+ 1233      58595F53 
+ 1233      74617274 
+ 1233      00
+ 1234              	.LASF36:
+ 1235 01c6 51756164 		.ascii	"QuadDec_XY_count32SoftPart\000"
+ 1235      4465635F 
+ 1235      58595F63 
+ 1235      6F756E74 
+ 1235      3332536F 
+ 1236              	.LASF13:
+ 1237 01e1 75696E74 		.ascii	"uint16\000"
+ 1237      313600
+ 1238              	.LASF14:
+ 1239 01e8 75696E74 		.ascii	"uint32\000"
+ 1239      333200
+ 1240              	.LASF40:
+ 1241 01ef 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 1241      74657243 
+ 1241      72697469 
+ 1241      63616C53 
+ 1241      65637469 
+ 1242              	.LASF0:
+ 1243 0206 756E7369 		.ascii	"unsigned int\000"
+ 1243      676E6564 
+ 1243      20696E74 
+ 1243      00
+ 1244              	.LASF41:
+ 1245 0213 43794578 		.ascii	"CyExitCriticalSection\000"
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccXFTWEi.s 			page 31
+
+
+ 1245      69744372 
+ 1245      69746963 
+ 1245      616C5365 
+ 1245      6374696F 
+ 1246              	.LASF38:
+ 1247 0229 4379496E 		.ascii	"CyIntSetPriority\000"
+ 1247      74536574 
+ 1247      5072696F 
+ 1247      72697479 
+ 1247      00
+ 1248              	.LASF15:
+ 1249 023a 696E7431 		.ascii	"int16\000"
+ 1249      3600
+ 1250              	.LASF34:
+ 1251 0240 51756164 		.ascii	"QuadDec_XY_GetInterruptMask\000"
+ 1251      4465635F 
+ 1251      58595F47 
+ 1251      6574496E 
+ 1251      74657272 
+ 1252              	.LASF27:
+ 1253 025c 51756164 		.ascii	"QuadDec_XY_SetCounter\000"
+ 1253      4465635F 
+ 1253      58595F53 
+ 1253      6574436F 
+ 1253      756E7465 
+ 1254              	.LASF10:
+ 1255 0272 73697A65 		.ascii	"sizetype\000"
+ 1255      74797065 
+ 1255      00
+ 1256              	.LASF1:
+ 1257 027b 6C6F6E67 		.ascii	"long long int\000"
+ 1257      206C6F6E 
+ 1257      6720696E 
+ 1257      7400
+ 1258              	.LASF30:
+ 1259 0289 6D61736B 		.ascii	"mask\000"
+ 1259      00
+ 1260              	.LASF35:
+ 1261 028e 51756164 		.ascii	"QuadDec_XY_initVar\000"
+ 1261      4465635F 
+ 1261      58595F69 
+ 1261      6E697456 
+ 1261      617200
+ 1262              	.LASF42:
+ 1263 02a1 51756164 		.ascii	"QuadDec_XY_Cnt16_ReadCounter\000"
+ 1263      4465635F 
+ 1263      58595F43 
+ 1263      6E743136 
+ 1263      5F526561 
+ 1264              	.LASF22:
+ 1265 02be 51756164 		.ascii	"QuadDec_XY_Stop\000"
+ 1265      4465635F 
+ 1265      58595F53 
+ 1265      746F7000 
+ 1266              	.LASF5:
+ 1267 02ce 73686F72 		.ascii	"short int\000"
+ 1267      7420696E 
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccXFTWEi.s 			page 32
+
+
+ 1267      7400
+ 1268              	.LASF43:
+ 1269 02d8 51756164 		.ascii	"QuadDec_XY_Cnt16_WriteCounter\000"
+ 1269      4465635F 
+ 1269      58595F43 
+ 1269      6E743136 
+ 1269      5F577269 
+ 1270              	.LASF12:
+ 1271 02f6 75696E74 		.ascii	"uint8\000"
+ 1271      3800
+ 1272              	.LASF46:
+ 1273 02fc 47656E65 		.ascii	"Generated_Source\\PSoC5\\QuadDec_XY.c\000"
+ 1273      72617465 
+ 1273      645F536F 
+ 1273      75726365 
+ 1273      5C50536F 
+ 1274              	.LASF7:
+ 1275 0320 6C6F6E67 		.ascii	"long int\000"
+ 1275      20696E74 
+ 1275      00
+ 1276              	.LASF11:
+ 1277 0329 63686172 		.ascii	"char\000"
+ 1277      00
+ 1278              	.LASF2:
+ 1279 032e 6C6F6E67 		.ascii	"long double\000"
+ 1279      20646F75 
+ 1279      626C6500 
+ 1280              	.LASF3:
+ 1281 033a 7369676E 		.ascii	"signed char\000"
+ 1281      65642063 
+ 1281      68617200 
+ 1282              	.LASF47:
+ 1283 0346 433A5C55 		.ascii	"C:\\Users\\Revanth\\Documents\\GitHub\\Pscoc_TMC516"
+ 1283      73657273 
+ 1283      5C526576 
+ 1283      616E7468 
+ 1283      5C446F63 
+ 1284 0374 305F4261 		.ascii	"0_Basics\\Design01.cydsn\000"
+ 1284      73696373 
+ 1284      5C446573 
+ 1284      69676E30 
+ 1284      312E6379 
+ 1285              	.LASF31:
+ 1286 038c 51756164 		.ascii	"QuadDec_XY_Enable\000"
+ 1286      4465635F 
+ 1286      58595F45 
+ 1286      6E61626C 
+ 1286      6500
+ 1287              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

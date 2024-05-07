@@ -1,0 +1,1425 @@
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\cco8yVTv.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"USB_descr.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	USB_DEVICE0_DESCR
+  20              		.section	.rodata
+  21              		.align	2
+  22              		.type	USB_DEVICE0_DESCR, %object
+  23              		.size	USB_DEVICE0_DESCR, 18
+  24              	USB_DEVICE0_DESCR:
+  25 0000 12       		.byte	18
+  26 0001 01       		.byte	1
+  27 0002 00       		.byte	0
+  28 0003 02       		.byte	2
+  29 0004 02       		.byte	2
+  30 0005 00       		.byte	0
+  31 0006 00       		.byte	0
+  32 0007 08       		.byte	8
+  33 0008 B4       		.byte	-76
+  34 0009 04       		.byte	4
+  35 000a 32       		.byte	50
+  36 000b F2       		.byte	-14
+  37 000c 01       		.byte	1
+  38 000d 00       		.byte	0
+  39 000e 01       		.byte	1
+  40 000f 02       		.byte	2
+  41 0010 80       		.byte	-128
+  42 0011 01       		.byte	1
+  43              		.global	USB_DEVICE0_CONFIGURATION0_DESCR
+  44 0012 0000     		.align	2
+  45              		.type	USB_DEVICE0_CONFIGURATION0_DESCR, %object
+  46              		.size	USB_DEVICE0_CONFIGURATION0_DESCR, 67
+  47              	USB_DEVICE0_CONFIGURATION0_DESCR:
+  48 0014 09       		.byte	9
+  49 0015 02       		.byte	2
+  50 0016 43       		.byte	67
+  51 0017 00       		.byte	0
+  52 0018 02       		.byte	2
+  53 0019 01       		.byte	1
+  54 001a 05       		.byte	5
+  55 001b 80       		.byte	-128
+  56 001c 32       		.byte	50
+  57 001d 09       		.byte	9
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\cco8yVTv.s 			page 2
+
+
+  58 001e 04       		.byte	4
+  59 001f 00       		.byte	0
+  60 0020 00       		.byte	0
+  61 0021 01       		.byte	1
+  62 0022 02       		.byte	2
+  63 0023 02       		.byte	2
+  64 0024 01       		.byte	1
+  65 0025 03       		.byte	3
+  66 0026 05       		.byte	5
+  67 0027 24       		.byte	36
+  68 0028 00       		.byte	0
+  69 0029 10       		.byte	16
+  70 002a 01       		.byte	1
+  71 002b 04       		.byte	4
+  72 002c 24       		.byte	36
+  73 002d 02       		.byte	2
+  74 002e 02       		.byte	2
+  75 002f 05       		.byte	5
+  76 0030 24       		.byte	36
+  77 0031 06       		.byte	6
+  78 0032 00       		.byte	0
+  79 0033 01       		.byte	1
+  80 0034 05       		.byte	5
+  81 0035 24       		.byte	36
+  82 0036 01       		.byte	1
+  83 0037 00       		.byte	0
+  84 0038 01       		.byte	1
+  85 0039 07       		.byte	7
+  86 003a 05       		.byte	5
+  87 003b 81       		.byte	-127
+  88 003c 03       		.byte	3
+  89 003d 08       		.byte	8
+  90 003e 00       		.byte	0
+  91 003f 0A       		.byte	10
+  92 0040 09       		.byte	9
+  93 0041 04       		.byte	4
+  94 0042 01       		.byte	1
+  95 0043 00       		.byte	0
+  96 0044 02       		.byte	2
+  97 0045 0A       		.byte	10
+  98 0046 00       		.byte	0
+  99 0047 00       		.byte	0
+ 100 0048 04       		.byte	4
+ 101 0049 07       		.byte	7
+ 102 004a 05       		.byte	5
+ 103 004b 82       		.byte	-126
+ 104 004c 02       		.byte	2
+ 105 004d 40       		.byte	64
+ 106 004e 00       		.byte	0
+ 107 004f 00       		.byte	0
+ 108 0050 07       		.byte	7
+ 109 0051 05       		.byte	5
+ 110 0052 03       		.byte	3
+ 111 0053 02       		.byte	2
+ 112 0054 40       		.byte	64
+ 113 0055 00       		.byte	0
+ 114 0056 00       		.byte	0
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\cco8yVTv.s 			page 3
+
+
+ 115              		.global	USB_STRING_DESCRIPTORS
+ 116 0057 00       		.align	2
+ 117              		.type	USB_STRING_DESCRIPTORS, %object
+ 118              		.size	USB_STRING_DESCRIPTORS, 231
+ 119              	USB_STRING_DESCRIPTORS:
+ 120 0058 04       		.byte	4
+ 121 0059 03       		.byte	3
+ 122 005a 09       		.byte	9
+ 123 005b 04       		.byte	4
+ 124 005c 3A       		.byte	58
+ 125 005d 03       		.byte	3
+ 126 005e 43       		.byte	67
+ 127 005f 00       		.byte	0
+ 128 0060 79       		.byte	121
+ 129 0061 00       		.byte	0
+ 130 0062 70       		.byte	112
+ 131 0063 00       		.byte	0
+ 132 0064 72       		.byte	114
+ 133 0065 00       		.byte	0
+ 134 0066 65       		.byte	101
+ 135 0067 00       		.byte	0
+ 136 0068 73       		.byte	115
+ 137 0069 00       		.byte	0
+ 138 006a 73       		.byte	115
+ 139 006b 00       		.byte	0
+ 140 006c 20       		.byte	32
+ 141 006d 00       		.byte	0
+ 142 006e 4D       		.byte	77
+ 143 006f 00       		.byte	0
+ 144 0070 6F       		.byte	111
+ 145 0071 00       		.byte	0
+ 146 0072 74       		.byte	116
+ 147 0073 00       		.byte	0
+ 148 0074 6F       		.byte	111
+ 149 0075 00       		.byte	0
+ 150 0076 72       		.byte	114
+ 151 0077 00       		.byte	0
+ 152 0078 20       		.byte	32
+ 153 0079 00       		.byte	0
+ 154 007a 43       		.byte	67
+ 155 007b 00       		.byte	0
+ 156 007c 6F       		.byte	111
+ 157 007d 00       		.byte	0
+ 158 007e 6E       		.byte	110
+ 159 007f 00       		.byte	0
+ 160 0080 74       		.byte	116
+ 161 0081 00       		.byte	0
+ 162 0082 72       		.byte	114
+ 163 0083 00       		.byte	0
+ 164 0084 6F       		.byte	111
+ 165 0085 00       		.byte	0
+ 166 0086 6C       		.byte	108
+ 167 0087 00       		.byte	0
+ 168 0088 20       		.byte	32
+ 169 0089 00       		.byte	0
+ 170 008a 42       		.byte	66
+ 171 008b 00       		.byte	0
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\cco8yVTv.s 			page 4
+
+
+ 172 008c 6F       		.byte	111
+ 173 008d 00       		.byte	0
+ 174 008e 61       		.byte	97
+ 175 008f 00       		.byte	0
+ 176 0090 72       		.byte	114
+ 177 0091 00       		.byte	0
+ 178 0092 64       		.byte	100
+ 179 0093 00       		.byte	0
+ 180 0094 20       		.byte	32
+ 181 0095 00       		.byte	0
+ 182 0096 10       		.byte	16
+ 183 0097 03       		.byte	3
+ 184 0098 55       		.byte	85
+ 185 0099 00       		.byte	0
+ 186 009a 53       		.byte	83
+ 187 009b 00       		.byte	0
+ 188 009c 42       		.byte	66
+ 189 009d 00       		.byte	0
+ 190 009e 55       		.byte	85
+ 191 009f 00       		.byte	0
+ 192 00a0 41       		.byte	65
+ 193 00a1 00       		.byte	0
+ 194 00a2 52       		.byte	82
+ 195 00a3 00       		.byte	0
+ 196 00a4 54       		.byte	84
+ 197 00a5 00       		.byte	0
+ 198 00a6 38       		.byte	56
+ 199 00a7 03       		.byte	3
+ 200 00a8 43       		.byte	67
+ 201 00a9 00       		.byte	0
+ 202 00aa 44       		.byte	68
+ 203 00ab 00       		.byte	0
+ 204 00ac 43       		.byte	67
+ 205 00ad 00       		.byte	0
+ 206 00ae 20       		.byte	32
+ 207 00af 00       		.byte	0
+ 208 00b0 43       		.byte	67
+ 209 00b1 00       		.byte	0
+ 210 00b2 6F       		.byte	111
+ 211 00b3 00       		.byte	0
+ 212 00b4 6D       		.byte	109
+ 213 00b5 00       		.byte	0
+ 214 00b6 6D       		.byte	109
+ 215 00b7 00       		.byte	0
+ 216 00b8 75       		.byte	117
+ 217 00b9 00       		.byte	0
+ 218 00ba 6E       		.byte	110
+ 219 00bb 00       		.byte	0
+ 220 00bc 69       		.byte	105
+ 221 00bd 00       		.byte	0
+ 222 00be 63       		.byte	99
+ 223 00bf 00       		.byte	0
+ 224 00c0 61       		.byte	97
+ 225 00c1 00       		.byte	0
+ 226 00c2 74       		.byte	116
+ 227 00c3 00       		.byte	0
+ 228 00c4 69       		.byte	105
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\cco8yVTv.s 			page 5
+
+
+ 229 00c5 00       		.byte	0
+ 230 00c6 6F       		.byte	111
+ 231 00c7 00       		.byte	0
+ 232 00c8 6E       		.byte	110
+ 233 00c9 00       		.byte	0
+ 234 00ca 20       		.byte	32
+ 235 00cb 00       		.byte	0
+ 236 00cc 49       		.byte	73
+ 237 00cd 00       		.byte	0
+ 238 00ce 6E       		.byte	110
+ 239 00cf 00       		.byte	0
+ 240 00d0 74       		.byte	116
+ 241 00d1 00       		.byte	0
+ 242 00d2 65       		.byte	101
+ 243 00d3 00       		.byte	0
+ 244 00d4 72       		.byte	114
+ 245 00d5 00       		.byte	0
+ 246 00d6 66       		.byte	102
+ 247 00d7 00       		.byte	0
+ 248 00d8 61       		.byte	97
+ 249 00d9 00       		.byte	0
+ 250 00da 63       		.byte	99
+ 251 00db 00       		.byte	0
+ 252 00dc 65       		.byte	101
+ 253 00dd 00       		.byte	0
+ 254 00de 26       		.byte	38
+ 255 00df 03       		.byte	3
+ 256 00e0 43       		.byte	67
+ 257 00e1 00       		.byte	0
+ 258 00e2 44       		.byte	68
+ 259 00e3 00       		.byte	0
+ 260 00e4 43       		.byte	67
+ 261 00e5 00       		.byte	0
+ 262 00e6 20       		.byte	32
+ 263 00e7 00       		.byte	0
+ 264 00e8 44       		.byte	68
+ 265 00e9 00       		.byte	0
+ 266 00ea 61       		.byte	97
+ 267 00eb 00       		.byte	0
+ 268 00ec 74       		.byte	116
+ 269 00ed 00       		.byte	0
+ 270 00ee 61       		.byte	97
+ 271 00ef 00       		.byte	0
+ 272 00f0 20       		.byte	32
+ 273 00f1 00       		.byte	0
+ 274 00f2 49       		.byte	73
+ 275 00f3 00       		.byte	0
+ 276 00f4 6E       		.byte	110
+ 277 00f5 00       		.byte	0
+ 278 00f6 74       		.byte	116
+ 279 00f7 00       		.byte	0
+ 280 00f8 65       		.byte	101
+ 281 00f9 00       		.byte	0
+ 282 00fa 72       		.byte	114
+ 283 00fb 00       		.byte	0
+ 284 00fc 66       		.byte	102
+ 285 00fd 00       		.byte	0
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\cco8yVTv.s 			page 6
+
+
+ 286 00fe 61       		.byte	97
+ 287 00ff 00       		.byte	0
+ 288 0100 63       		.byte	99
+ 289 0101 00       		.byte	0
+ 290 0102 65       		.byte	101
+ 291 0103 00       		.byte	0
+ 292 0104 3A       		.byte	58
+ 293 0105 03       		.byte	3
+ 294 0106 43       		.byte	67
+ 295 0107 00       		.byte	0
+ 296 0108 79       		.byte	121
+ 297 0109 00       		.byte	0
+ 298 010a 70       		.byte	112
+ 299 010b 00       		.byte	0
+ 300 010c 72       		.byte	114
+ 301 010d 00       		.byte	0
+ 302 010e 65       		.byte	101
+ 303 010f 00       		.byte	0
+ 304 0110 73       		.byte	115
+ 305 0111 00       		.byte	0
+ 306 0112 73       		.byte	115
+ 307 0113 00       		.byte	0
+ 308 0114 20       		.byte	32
+ 309 0115 00       		.byte	0
+ 310 0116 4D       		.byte	77
+ 311 0117 00       		.byte	0
+ 312 0118 6F       		.byte	111
+ 313 0119 00       		.byte	0
+ 314 011a 74       		.byte	116
+ 315 011b 00       		.byte	0
+ 316 011c 6F       		.byte	111
+ 317 011d 00       		.byte	0
+ 318 011e 72       		.byte	114
+ 319 011f 00       		.byte	0
+ 320 0120 20       		.byte	32
+ 321 0121 00       		.byte	0
+ 322 0122 43       		.byte	67
+ 323 0123 00       		.byte	0
+ 324 0124 6F       		.byte	111
+ 325 0125 00       		.byte	0
+ 326 0126 6E       		.byte	110
+ 327 0127 00       		.byte	0
+ 328 0128 74       		.byte	116
+ 329 0129 00       		.byte	0
+ 330 012a 72       		.byte	114
+ 331 012b 00       		.byte	0
+ 332 012c 6F       		.byte	111
+ 333 012d 00       		.byte	0
+ 334 012e 6C       		.byte	108
+ 335 012f 00       		.byte	0
+ 336 0130 20       		.byte	32
+ 337 0131 00       		.byte	0
+ 338 0132 42       		.byte	66
+ 339 0133 00       		.byte	0
+ 340 0134 6F       		.byte	111
+ 341 0135 00       		.byte	0
+ 342 0136 61       		.byte	97
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\cco8yVTv.s 			page 7
+
+
+ 343 0137 00       		.byte	0
+ 344 0138 72       		.byte	114
+ 345 0139 00       		.byte	0
+ 346 013a 64       		.byte	100
+ 347 013b 00       		.byte	0
+ 348 013c 20       		.byte	32
+ 349 013d 00       		.byte	0
+ 350 013e 00       		.byte	0
+ 351              		.global	USB_SN_STRING_DESCRIPTOR
+ 352 013f 00       		.align	2
+ 353              		.type	USB_SN_STRING_DESCRIPTOR, %object
+ 354              		.size	USB_SN_STRING_DESCRIPTOR, 2
+ 355              	USB_SN_STRING_DESCRIPTOR:
+ 356 0140 02       		.byte	2
+ 357 0141 03       		.byte	3
+ 358              		.global	USB_HIDREPORT_DESCRIPTOR1
+ 359 0142 0000     		.align	2
+ 360              		.type	USB_HIDREPORT_DESCRIPTOR1, %object
+ 361              		.size	USB_HIDREPORT_DESCRIPTOR1, 54
+ 362              	USB_HIDREPORT_DESCRIPTOR1:
+ 363 0144 32       		.byte	50
+ 364 0145 00       		.byte	0
+ 365 0146 05       		.byte	5
+ 366 0147 01       		.byte	1
+ 367 0148 09       		.byte	9
+ 368 0149 02       		.byte	2
+ 369 014a A1       		.byte	-95
+ 370 014b 01       		.byte	1
+ 371 014c 09       		.byte	9
+ 372 014d 01       		.byte	1
+ 373 014e A1       		.byte	-95
+ 374 014f 00       		.byte	0
+ 375 0150 05       		.byte	5
+ 376 0151 09       		.byte	9
+ 377 0152 19       		.byte	25
+ 378 0153 01       		.byte	1
+ 379 0154 29       		.byte	41
+ 380 0155 03       		.byte	3
+ 381 0156 15       		.byte	21
+ 382 0157 00       		.byte	0
+ 383 0158 25       		.byte	37
+ 384 0159 01       		.byte	1
+ 385 015a 95       		.byte	-107
+ 386 015b 03       		.byte	3
+ 387 015c 75       		.byte	117
+ 388 015d 01       		.byte	1
+ 389 015e 81       		.byte	-127
+ 390 015f 02       		.byte	2
+ 391 0160 95       		.byte	-107
+ 392 0161 01       		.byte	1
+ 393 0162 75       		.byte	117
+ 394 0163 05       		.byte	5
+ 395 0164 81       		.byte	-127
+ 396 0165 01       		.byte	1
+ 397 0166 05       		.byte	5
+ 398 0167 01       		.byte	1
+ 399 0168 09       		.byte	9
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\cco8yVTv.s 			page 8
+
+
+ 400 0169 30       		.byte	48
+ 401 016a 09       		.byte	9
+ 402 016b 31       		.byte	49
+ 403 016c 15       		.byte	21
+ 404 016d 81       		.byte	-127
+ 405 016e 25       		.byte	37
+ 406 016f 7F       		.byte	127
+ 407 0170 75       		.byte	117
+ 408 0171 08       		.byte	8
+ 409 0172 95       		.byte	-107
+ 410 0173 02       		.byte	2
+ 411 0174 81       		.byte	-127
+ 412 0175 06       		.byte	6
+ 413 0176 C0       		.byte	-64
+ 414 0177 C0       		.byte	-64
+ 415 0178 00       		.byte	0
+ 416 0179 00       		.byte	0
+ 417              		.global	USB_DEVICE0_CONFIGURATION0_EP_SETTINGS_TABLE
+ 418 017a 0000     		.align	2
+ 419              		.type	USB_DEVICE0_CONFIGURATION0_EP_SETTINGS_TABLE, %object
+ 420              		.size	USB_DEVICE0_CONFIGURATION0_EP_SETTINGS_TABLE, 24
+ 421              	USB_DEVICE0_CONFIGURATION0_EP_SETTINGS_TABLE:
+ 422 017c 00       		.byte	0
+ 423 017d 00       		.byte	0
+ 424 017e 81       		.byte	-127
+ 425 017f 03       		.byte	3
+ 426 0180 0800     		.short	8
+ 427 0182 02       		.byte	2
+ 428 0183 00       		.space	1
+ 429 0184 01       		.byte	1
+ 430 0185 00       		.byte	0
+ 431 0186 82       		.byte	-126
+ 432 0187 02       		.byte	2
+ 433 0188 4000     		.short	64
+ 434 018a 0A       		.byte	10
+ 435 018b 00       		.space	1
+ 436 018c 01       		.byte	1
+ 437 018d 00       		.byte	0
+ 438 018e 03       		.byte	3
+ 439 018f 02       		.byte	2
+ 440 0190 4000     		.short	64
+ 441 0192 0A       		.byte	10
+ 442 0193 00       		.space	1
+ 443              		.global	USB_DEVICE0_CONFIGURATION0_INTERFACE_CLASS
+ 444              		.align	2
+ 445              		.type	USB_DEVICE0_CONFIGURATION0_INTERFACE_CLASS, %object
+ 446              		.size	USB_DEVICE0_CONFIGURATION0_INTERFACE_CLASS, 2
+ 447              	USB_DEVICE0_CONFIGURATION0_INTERFACE_CLASS:
+ 448 0194 02       		.byte	2
+ 449 0195 0A       		.byte	10
+ 450              		.global	USB_DEVICE0_CONFIGURATION0_TABLE
+ 451 0196 0000     		.align	2
+ 452              		.type	USB_DEVICE0_CONFIGURATION0_TABLE, %object
+ 453              		.size	USB_DEVICE0_CONFIGURATION0_TABLE, 40
+ 454              	USB_DEVICE0_CONFIGURATION0_TABLE:
+ 455 0198 01       		.byte	1
+ 456 0199 000000   		.space	3
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\cco8yVTv.s 			page 9
+
+
+ 457 019c 00000000 		.word	USB_DEVICE0_CONFIGURATION0_DESCR
+ 458 01a0 03       		.byte	3
+ 459 01a1 000000   		.space	3
+ 460 01a4 00000000 		.word	USB_DEVICE0_CONFIGURATION0_EP_SETTINGS_TABLE
+ 461 01a8 00       		.byte	0
+ 462 01a9 000000   		.space	3
+ 463 01ac 00000000 		.word	0
+ 464 01b0 00       		.byte	0
+ 465 01b1 000000   		.space	3
+ 466 01b4 00000000 		.word	0
+ 467 01b8 00       		.byte	0
+ 468 01b9 000000   		.space	3
+ 469 01bc 00000000 		.word	USB_DEVICE0_CONFIGURATION0_INTERFACE_CLASS
+ 470              		.global	USB_DEVICE0_TABLE
+ 471              		.align	2
+ 472              		.type	USB_DEVICE0_TABLE, %object
+ 473              		.size	USB_DEVICE0_TABLE, 24
+ 474              	USB_DEVICE0_TABLE:
+ 475 01c0 01       		.byte	1
+ 476 01c1 000000   		.space	3
+ 477 01c4 00000000 		.word	USB_DEVICE0_DESCR
+ 478 01c8 00       		.byte	0
+ 479 01c9 000000   		.space	3
+ 480 01cc 00000000 		.word	0
+ 481 01d0 01       		.byte	1
+ 482 01d1 000000   		.space	3
+ 483 01d4 00000000 		.word	USB_DEVICE0_CONFIGURATION0_TABLE
+ 484              		.global	USB_TABLE
+ 485              		.align	2
+ 486              		.type	USB_TABLE, %object
+ 487              		.size	USB_TABLE, 8
+ 488              	USB_TABLE:
+ 489 01d8 01       		.byte	1
+ 490 01d9 000000   		.space	3
+ 491 01dc 00000000 		.word	USB_DEVICE0_TABLE
+ 492              		.global	USB_MSOS_DESCRIPTOR
+ 493              		.align	2
+ 494              		.type	USB_MSOS_DESCRIPTOR, %object
+ 495              		.size	USB_MSOS_DESCRIPTOR, 18
+ 496              	USB_MSOS_DESCRIPTOR:
+ 497 01e0 12       		.byte	18
+ 498 01e1 03       		.byte	3
+ 499 01e2 4D       		.byte	77
+ 500 01e3 00       		.byte	0
+ 501 01e4 53       		.byte	83
+ 502 01e5 00       		.byte	0
+ 503 01e6 46       		.byte	70
+ 504 01e7 00       		.byte	0
+ 505 01e8 54       		.byte	84
+ 506 01e9 00       		.byte	0
+ 507 01ea 31       		.byte	49
+ 508 01eb 00       		.byte	0
+ 509 01ec 30       		.byte	48
+ 510 01ed 00       		.byte	0
+ 511 01ee 30       		.byte	48
+ 512 01ef 00       		.byte	0
+ 513 01f0 01       		.byte	1
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\cco8yVTv.s 			page 10
+
+
+ 514 01f1 00       		.byte	0
+ 515              		.global	USB_MSOS_CONFIGURATION_DESCR
+ 516 01f2 0000     		.align	2
+ 517              		.type	USB_MSOS_CONFIGURATION_DESCR, %object
+ 518              		.size	USB_MSOS_CONFIGURATION_DESCR, 40
+ 519              	USB_MSOS_CONFIGURATION_DESCR:
+ 520 01f4 28       		.byte	40
+ 521 01f5 00       		.byte	0
+ 522 01f6 00       		.byte	0
+ 523 01f7 00       		.byte	0
+ 524 01f8 00       		.byte	0
+ 525 01f9 01       		.byte	1
+ 526 01fa 04       		.byte	4
+ 527 01fb 00       		.byte	0
+ 528 01fc 01       		.byte	1
+ 529 01fd 00       		.byte	0
+ 530 01fe 00       		.byte	0
+ 531 01ff 00       		.byte	0
+ 532 0200 00       		.byte	0
+ 533 0201 00       		.byte	0
+ 534 0202 00       		.byte	0
+ 535 0203 00       		.byte	0
+ 536 0204 00       		.byte	0
+ 537 0205 01       		.byte	1
+ 538 0206 43       		.byte	67
+ 539 0207 59       		.byte	89
+ 540 0208 55       		.byte	85
+ 541 0209 53       		.byte	83
+ 542 020a 42       		.byte	66
+ 543 020b 00       		.byte	0
+ 544 020c 00       		.byte	0
+ 545 020d 00       		.byte	0
+ 546 020e 30       		.byte	48
+ 547 020f 30       		.byte	48
+ 548 0210 30       		.byte	48
+ 549 0211 30       		.byte	48
+ 550 0212 31       		.byte	49
+ 551 0213 00       		.byte	0
+ 552 0214 00       		.byte	0
+ 553 0215 00       		.byte	0
+ 554 0216 00       		.byte	0
+ 555 0217 00       		.byte	0
+ 556 0218 00       		.byte	0
+ 557 0219 00       		.byte	0
+ 558 021a 00       		.byte	0
+ 559 021b 00       		.byte	0
+ 560              		.comm	USB_idSerialNumberStringDescriptor,34,4
+ 561              		.text
+ 562              	.Letext0:
+ 563              		.file 1 "Generated_Source\\PSoC5\\cytypes.h"
+ 564              		.file 2 "Generated_Source\\PSoC5\\USB.h"
+ 565              		.file 3 "Generated_Source\\PSoC5\\USB_descr.c"
+ 566              		.section	.debug_info,"",%progbits
+ 567              	.Ldebug_info0:
+ 568 0000 08030000 		.4byte	0x308
+ 569 0004 0400     		.2byte	0x4
+ 570 0006 00000000 		.4byte	.Ldebug_abbrev0
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\cco8yVTv.s 			page 11
+
+
+ 571 000a 04       		.byte	0x4
+ 572 000b 01       		.uleb128 0x1
+ 573 000c 00000000 		.4byte	.LASF38
+ 574 0010 0C       		.byte	0xc
+ 575 0011 42020000 		.4byte	.LASF39
+ 576 0015 83020000 		.4byte	.LASF40
+ 577 0019 00000000 		.4byte	.Ldebug_line0
+ 578 001d 02       		.uleb128 0x2
+ 579 001e 01       		.byte	0x1
+ 580 001f 06       		.byte	0x6
+ 581 0020 B8030000 		.4byte	.LASF0
+ 582 0024 02       		.uleb128 0x2
+ 583 0025 01       		.byte	0x1
+ 584 0026 08       		.byte	0x8
+ 585 0027 29010000 		.4byte	.LASF1
+ 586 002b 02       		.uleb128 0x2
+ 587 002c 02       		.byte	0x2
+ 588 002d 05       		.byte	0x5
+ 589 002e 5E030000 		.4byte	.LASF2
+ 590 0032 02       		.uleb128 0x2
+ 591 0033 02       		.byte	0x2
+ 592 0034 07       		.byte	0x7
+ 593 0035 B1000000 		.4byte	.LASF3
+ 594 0039 02       		.uleb128 0x2
+ 595 003a 04       		.byte	0x4
+ 596 003b 05       		.byte	0x5
+ 597 003c A3030000 		.4byte	.LASF4
+ 598 0040 02       		.uleb128 0x2
+ 599 0041 04       		.byte	0x4
+ 600 0042 07       		.byte	0x7
+ 601 0043 42010000 		.4byte	.LASF5
+ 602 0047 02       		.uleb128 0x2
+ 603 0048 08       		.byte	0x8
+ 604 0049 05       		.byte	0x5
+ 605 004a 28030000 		.4byte	.LASF6
+ 606 004e 02       		.uleb128 0x2
+ 607 004f 08       		.byte	0x8
+ 608 0050 07       		.byte	0x7
+ 609 0051 65020000 		.4byte	.LASF7
+ 610 0055 03       		.uleb128 0x3
+ 611 0056 04       		.byte	0x4
+ 612 0057 05       		.byte	0x5
+ 613 0058 696E7400 		.ascii	"int\000"
+ 614 005c 02       		.uleb128 0x2
+ 615 005d 04       		.byte	0x4
+ 616 005e 07       		.byte	0x7
+ 617 005f 18020000 		.4byte	.LASF8
+ 618 0063 04       		.uleb128 0x4
+ 619 0064 68030000 		.4byte	.LASF9
+ 620 0068 01       		.byte	0x1
+ 621 0069 E401     		.2byte	0x1e4
+ 622 006b 24000000 		.4byte	0x24
+ 623 006f 04       		.uleb128 0x4
+ 624 0070 FD010000 		.4byte	.LASF10
+ 625 0074 01       		.byte	0x1
+ 626 0075 E501     		.2byte	0x1e5
+ 627 0077 32000000 		.4byte	0x32
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\cco8yVTv.s 			page 12
+
+
+ 628 007b 02       		.uleb128 0x2
+ 629 007c 04       		.byte	0x4
+ 630 007d 04       		.byte	0x4
+ 631 007e F7000000 		.4byte	.LASF11
+ 632 0082 02       		.uleb128 0x2
+ 633 0083 08       		.byte	0x8
+ 634 0084 04       		.byte	0x4
+ 635 0085 BE010000 		.4byte	.LASF12
+ 636 0089 02       		.uleb128 0x2
+ 637 008a 01       		.byte	0x1
+ 638 008b 08       		.byte	0x8
+ 639 008c 36030000 		.4byte	.LASF13
+ 640 0090 02       		.uleb128 0x2
+ 641 0091 08       		.byte	0x8
+ 642 0092 04       		.byte	0x4
+ 643 0093 AC030000 		.4byte	.LASF14
+ 644 0097 02       		.uleb128 0x2
+ 645 0098 04       		.byte	0x4
+ 646 0099 07       		.byte	0x7
+ 647 009a 1F030000 		.4byte	.LASF15
+ 648 009e 05       		.uleb128 0x5
+ 649 009f 08       		.byte	0x8
+ 650 00a0 02       		.byte	0x2
+ 651 00a1 9E       		.byte	0x9e
+ 652 00a2 EF000000 		.4byte	0xef
+ 653 00a6 06       		.uleb128 0x6
+ 654 00a7 6E030000 		.4byte	.LASF16
+ 655 00ab 02       		.byte	0x2
+ 656 00ac A0       		.byte	0xa0
+ 657 00ad 63000000 		.4byte	0x63
+ 658 00b1 00       		.byte	0
+ 659 00b2 06       		.uleb128 0x6
+ 660 00b3 FD000000 		.4byte	.LASF17
+ 661 00b7 02       		.byte	0x2
+ 662 00b8 A1       		.byte	0xa1
+ 663 00b9 63000000 		.4byte	0x63
+ 664 00bd 01       		.byte	0x1
+ 665 00be 06       		.uleb128 0x6
+ 666 00bf 54010000 		.4byte	.LASF18
+ 667 00c3 02       		.byte	0x2
+ 668 00c4 A2       		.byte	0xa2
+ 669 00c5 63000000 		.4byte	0x63
+ 670 00c9 02       		.byte	0x2
+ 671 00ca 06       		.uleb128 0x6
+ 672 00cb 37010000 		.4byte	.LASF19
+ 673 00cf 02       		.byte	0x2
+ 674 00d0 A3       		.byte	0xa3
+ 675 00d1 63000000 		.4byte	0x63
+ 676 00d5 03       		.byte	0x3
+ 677 00d6 06       		.uleb128 0x6
+ 678 00d7 C5010000 		.4byte	.LASF20
+ 679 00db 02       		.byte	0x2
+ 680 00dc A4       		.byte	0xa4
+ 681 00dd 6F000000 		.4byte	0x6f
+ 682 00e1 04       		.byte	0x4
+ 683 00e2 06       		.uleb128 0x6
+ 684 00e3 C4030000 		.4byte	.LASF21
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\cco8yVTv.s 			page 13
+
+
+ 685 00e7 02       		.byte	0x2
+ 686 00e8 A5       		.byte	0xa5
+ 687 00e9 63000000 		.4byte	0x63
+ 688 00ed 06       		.byte	0x6
+ 689 00ee 00       		.byte	0
+ 690 00ef 07       		.uleb128 0x7
+ 691 00f0 59010000 		.4byte	.LASF22
+ 692 00f4 02       		.byte	0x2
+ 693 00f5 A6       		.byte	0xa6
+ 694 00f6 9E000000 		.4byte	0x9e
+ 695 00fa 05       		.uleb128 0x5
+ 696 00fb 08       		.byte	0x8
+ 697 00fc 02       		.byte	0x2
+ 698 00fd B5       		.byte	0xb5
+ 699 00fe 19010000 		.4byte	0x119
+ 700 0102 08       		.uleb128 0x8
+ 701 0103 6300     		.ascii	"c\000"
+ 702 0105 02       		.byte	0x2
+ 703 0106 B7       		.byte	0xb7
+ 704 0107 63000000 		.4byte	0x63
+ 705 010b 00       		.byte	0
+ 706 010c 06       		.uleb128 0x6
+ 707 010d 7C020000 		.4byte	.LASF23
+ 708 0111 02       		.byte	0x2
+ 709 0112 B8       		.byte	0xb8
+ 710 0113 19010000 		.4byte	0x119
+ 711 0117 04       		.byte	0x4
+ 712 0118 00       		.byte	0
+ 713 0119 09       		.uleb128 0x9
+ 714 011a 04       		.byte	0x4
+ 715 011b 1F010000 		.4byte	0x11f
+ 716 011f 0A       		.uleb128 0xa
+ 717 0120 07       		.uleb128 0x7
+ 718 0121 1F010000 		.4byte	.LASF24
+ 719 0125 02       		.byte	0x2
+ 720 0126 B9       		.byte	0xb9
+ 721 0127 FA000000 		.4byte	0xfa
+ 722 012b 0B       		.uleb128 0xb
+ 723 012c 3B010000 		.4byte	0x13b
+ 724 0130 3B010000 		.4byte	0x13b
+ 725 0134 0C       		.uleb128 0xc
+ 726 0135 97000000 		.4byte	0x97
+ 727 0139 11       		.byte	0x11
+ 728 013a 00       		.byte	0
+ 729 013b 0D       		.uleb128 0xd
+ 730 013c 63000000 		.4byte	0x63
+ 731 0140 0E       		.uleb128 0xe
+ 732 0141 8B010000 		.4byte	.LASF25
+ 733 0145 03       		.byte	0x3
+ 734 0146 24       		.byte	0x24
+ 735 0147 51010000 		.4byte	0x151
+ 736 014b 05       		.uleb128 0x5
+ 737 014c 03       		.byte	0x3
+ 738 014d 00000000 		.4byte	USB_DEVICE0_DESCR
+ 739 0151 0D       		.uleb128 0xd
+ 740 0152 2B010000 		.4byte	0x12b
+ 741 0156 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\cco8yVTv.s 			page 14
+
+
+ 742 0157 3B010000 		.4byte	0x13b
+ 743 015b 66010000 		.4byte	0x166
+ 744 015f 0C       		.uleb128 0xc
+ 745 0160 97000000 		.4byte	0x97
+ 746 0164 42       		.byte	0x42
+ 747 0165 00       		.byte	0
+ 748 0166 0E       		.uleb128 0xe
+ 749 0167 9D010000 		.4byte	.LASF26
+ 750 016b 03       		.byte	0x3
+ 751 016c 37       		.byte	0x37
+ 752 016d 77010000 		.4byte	0x177
+ 753 0171 05       		.uleb128 0x5
+ 754 0172 03       		.byte	0x3
+ 755 0173 00000000 		.4byte	USB_DEVICE0_CONFIGURATION0_DESCR
+ 756 0177 0D       		.uleb128 0xd
+ 757 0178 56010000 		.4byte	0x156
+ 758 017c 0B       		.uleb128 0xb
+ 759 017d 8C010000 		.4byte	0x18c
+ 760 0181 8C010000 		.4byte	0x18c
+ 761 0185 0C       		.uleb128 0xc
+ 762 0186 97000000 		.4byte	0x97
+ 763 018a 02       		.byte	0x2
+ 764 018b 00       		.byte	0
+ 765 018c 0D       		.uleb128 0xd
+ 766 018d EF000000 		.4byte	0xef
+ 767 0191 0F       		.uleb128 0xf
+ 768 0192 D0010000 		.4byte	.LASF27
+ 769 0196 03       		.byte	0x3
+ 770 0197 0701     		.2byte	0x107
+ 771 0199 A3010000 		.4byte	0x1a3
+ 772 019d 05       		.uleb128 0x5
+ 773 019e 03       		.byte	0x3
+ 774 019f 00000000 		.4byte	USB_DEVICE0_CONFIGURATION0_EP_SETTINGS_TABLE
+ 775 01a3 0D       		.uleb128 0xd
+ 776 01a4 7C010000 		.4byte	0x17c
+ 777 01a8 0B       		.uleb128 0xb
+ 778 01a9 3B010000 		.4byte	0x13b
+ 779 01ad B8010000 		.4byte	0x1b8
+ 780 01b1 0C       		.uleb128 0xc
+ 781 01b2 97000000 		.4byte	0x97
+ 782 01b6 01       		.byte	0x1
+ 783 01b7 00       		.byte	0
+ 784 01b8 0F       		.uleb128 0xf
+ 785 01b9 78030000 		.4byte	.LASF28
+ 786 01bd 03       		.byte	0x3
+ 787 01be 0D01     		.2byte	0x10d
+ 788 01c0 CA010000 		.4byte	0x1ca
+ 789 01c4 05       		.uleb128 0x5
+ 790 01c5 03       		.byte	0x3
+ 791 01c6 00000000 		.4byte	USB_DEVICE0_CONFIGURATION0_INTERFACE_CLASS
+ 792 01ca 0D       		.uleb128 0xd
+ 793 01cb A8010000 		.4byte	0x1a8
+ 794 01cf 0B       		.uleb128 0xb
+ 795 01d0 DF010000 		.4byte	0x1df
+ 796 01d4 DF010000 		.4byte	0x1df
+ 797 01d8 0C       		.uleb128 0xc
+ 798 01d9 97000000 		.4byte	0x97
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\cco8yVTv.s 			page 15
+
+
+ 799 01dd 04       		.byte	0x4
+ 800 01de 00       		.byte	0
+ 801 01df 0D       		.uleb128 0xd
+ 802 01e0 20010000 		.4byte	0x120
+ 803 01e4 0F       		.uleb128 0xf
+ 804 01e5 D6000000 		.4byte	.LASF29
+ 805 01e9 03       		.byte	0x3
+ 806 01ea 1501     		.2byte	0x115
+ 807 01ec F6010000 		.4byte	0x1f6
+ 808 01f0 05       		.uleb128 0x5
+ 809 01f1 03       		.byte	0x3
+ 810 01f2 00000000 		.4byte	USB_DEVICE0_CONFIGURATION0_TABLE
+ 811 01f6 0D       		.uleb128 0xd
+ 812 01f7 CF010000 		.4byte	0x1cf
+ 813 01fb 0B       		.uleb128 0xb
+ 814 01fc DF010000 		.4byte	0x1df
+ 815 0200 0B020000 		.4byte	0x20b
+ 816 0204 0C       		.uleb128 0xc
+ 817 0205 97000000 		.4byte	0x97
+ 818 0209 02       		.byte	0x2
+ 819 020a 00       		.byte	0
+ 820 020b 0F       		.uleb128 0xf
+ 821 020c C4000000 		.4byte	.LASF30
+ 822 0210 03       		.byte	0x3
+ 823 0211 2001     		.2byte	0x120
+ 824 0213 1D020000 		.4byte	0x21d
+ 825 0217 05       		.uleb128 0x5
+ 826 0218 03       		.byte	0x3
+ 827 0219 00000000 		.4byte	USB_DEVICE0_TABLE
+ 828 021d 0D       		.uleb128 0xd
+ 829 021e FB010000 		.4byte	0x1fb
+ 830 0222 0B       		.uleb128 0xb
+ 831 0223 DF010000 		.4byte	0x1df
+ 832 0227 32020000 		.4byte	0x232
+ 833 022b 0C       		.uleb128 0xc
+ 834 022c 97000000 		.4byte	0x97
+ 835 0230 00       		.byte	0
+ 836 0231 00       		.byte	0
+ 837 0232 0F       		.uleb128 0xf
+ 838 0233 54030000 		.4byte	.LASF31
+ 839 0237 03       		.byte	0x3
+ 840 0238 2801     		.2byte	0x128
+ 841 023a 44020000 		.4byte	0x244
+ 842 023e 05       		.uleb128 0x5
+ 843 023f 03       		.byte	0x3
+ 844 0240 00000000 		.4byte	USB_TABLE
+ 845 0244 0D       		.uleb128 0xd
+ 846 0245 22020000 		.4byte	0x222
+ 847 0249 0E       		.uleb128 0xe
+ 848 024a 3B030000 		.4byte	.LASF32
+ 849 024e 03       		.byte	0x3
+ 850 024f D5       		.byte	0xd5
+ 851 0250 5A020000 		.4byte	0x25a
+ 852 0254 05       		.uleb128 0x5
+ 853 0255 03       		.byte	0x3
+ 854 0256 00000000 		.4byte	USB_SN_STRING_DESCRIPTOR
+ 855 025a 0D       		.uleb128 0xd
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\cco8yVTv.s 			page 16
+
+
+ 856 025b A8010000 		.4byte	0x1a8
+ 857 025f 0B       		.uleb128 0xb
+ 858 0260 3B010000 		.4byte	0x13b
+ 859 0264 6F020000 		.4byte	0x26f
+ 860 0268 0C       		.uleb128 0xc
+ 861 0269 97000000 		.4byte	0x97
+ 862 026d E6       		.byte	0xe6
+ 863 026e 00       		.byte	0
+ 864 026f 0E       		.uleb128 0xe
+ 865 0270 08010000 		.4byte	.LASF33
+ 866 0274 03       		.byte	0x3
+ 867 0275 96       		.byte	0x96
+ 868 0276 80020000 		.4byte	0x280
+ 869 027a 05       		.uleb128 0x5
+ 870 027b 03       		.byte	0x3
+ 871 027c 00000000 		.4byte	USB_STRING_DESCRIPTORS
+ 872 0280 0D       		.uleb128 0xd
+ 873 0281 5F020000 		.4byte	0x25f
+ 874 0285 0B       		.uleb128 0xb
+ 875 0286 3B010000 		.4byte	0x13b
+ 876 028a 95020000 		.4byte	0x295
+ 877 028e 0C       		.uleb128 0xc
+ 878 028f 97000000 		.4byte	0x97
+ 879 0293 35       		.byte	0x35
+ 880 0294 00       		.byte	0
+ 881 0295 0E       		.uleb128 0xe
+ 882 0296 71010000 		.4byte	.LASF34
+ 883 029a 03       		.byte	0x3
+ 884 029b DE       		.byte	0xde
+ 885 029c A6020000 		.4byte	0x2a6
+ 886 02a0 05       		.uleb128 0x5
+ 887 02a1 03       		.byte	0x3
+ 888 02a2 00000000 		.4byte	USB_HIDREPORT_DESCRIPTOR1
+ 889 02a6 0D       		.uleb128 0xd
+ 890 02a7 85020000 		.4byte	0x285
+ 891 02ab 0F       		.uleb128 0xf
+ 892 02ac 04020000 		.4byte	.LASF35
+ 893 02b0 03       		.byte	0x3
+ 894 02b1 3801     		.2byte	0x138
+ 895 02b3 BD020000 		.4byte	0x2bd
+ 896 02b7 05       		.uleb128 0x5
+ 897 02b8 03       		.byte	0x3
+ 898 02b9 00000000 		.4byte	USB_MSOS_DESCRIPTOR
+ 899 02bd 0D       		.uleb128 0xd
+ 900 02be 2B010000 		.4byte	0x12b
+ 901 02c2 0B       		.uleb128 0xb
+ 902 02c3 3B010000 		.4byte	0x13b
+ 903 02c7 D2020000 		.4byte	0x2d2
+ 904 02cb 0C       		.uleb128 0xc
+ 905 02cc 97000000 		.4byte	0x97
+ 906 02d0 27       		.byte	0x27
+ 907 02d1 00       		.byte	0
+ 908 02d2 0F       		.uleb128 0xf
+ 909 02d3 25020000 		.4byte	.LASF36
+ 910 02d7 03       		.byte	0x3
+ 911 02d8 4301     		.2byte	0x143
+ 912 02da E4020000 		.4byte	0x2e4
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\cco8yVTv.s 			page 17
+
+
+ 913 02de 05       		.uleb128 0x5
+ 914 02df 03       		.byte	0x3
+ 915 02e0 00000000 		.4byte	USB_MSOS_CONFIGURATION_DESCR
+ 916 02e4 0D       		.uleb128 0xd
+ 917 02e5 C2020000 		.4byte	0x2c2
+ 918 02e9 0B       		.uleb128 0xb
+ 919 02ea 63000000 		.4byte	0x63
+ 920 02ee F9020000 		.4byte	0x2f9
+ 921 02f2 0C       		.uleb128 0xc
+ 922 02f3 97000000 		.4byte	0x97
+ 923 02f7 21       		.byte	0x21
+ 924 02f8 00       		.byte	0
+ 925 02f9 0F       		.uleb128 0xf
+ 926 02fa 8E000000 		.4byte	.LASF37
+ 927 02fe 03       		.byte	0x3
+ 928 02ff 5601     		.2byte	0x156
+ 929 0301 E9020000 		.4byte	0x2e9
+ 930 0305 05       		.uleb128 0x5
+ 931 0306 03       		.byte	0x3
+ 932 0307 00000000 		.4byte	USB_idSerialNumberStringDescriptor
+ 933 030b 00       		.byte	0
+ 934              		.section	.debug_abbrev,"",%progbits
+ 935              	.Ldebug_abbrev0:
+ 936 0000 01       		.uleb128 0x1
+ 937 0001 11       		.uleb128 0x11
+ 938 0002 01       		.byte	0x1
+ 939 0003 25       		.uleb128 0x25
+ 940 0004 0E       		.uleb128 0xe
+ 941 0005 13       		.uleb128 0x13
+ 942 0006 0B       		.uleb128 0xb
+ 943 0007 03       		.uleb128 0x3
+ 944 0008 0E       		.uleb128 0xe
+ 945 0009 1B       		.uleb128 0x1b
+ 946 000a 0E       		.uleb128 0xe
+ 947 000b 10       		.uleb128 0x10
+ 948 000c 17       		.uleb128 0x17
+ 949 000d 00       		.byte	0
+ 950 000e 00       		.byte	0
+ 951 000f 02       		.uleb128 0x2
+ 952 0010 24       		.uleb128 0x24
+ 953 0011 00       		.byte	0
+ 954 0012 0B       		.uleb128 0xb
+ 955 0013 0B       		.uleb128 0xb
+ 956 0014 3E       		.uleb128 0x3e
+ 957 0015 0B       		.uleb128 0xb
+ 958 0016 03       		.uleb128 0x3
+ 959 0017 0E       		.uleb128 0xe
+ 960 0018 00       		.byte	0
+ 961 0019 00       		.byte	0
+ 962 001a 03       		.uleb128 0x3
+ 963 001b 24       		.uleb128 0x24
+ 964 001c 00       		.byte	0
+ 965 001d 0B       		.uleb128 0xb
+ 966 001e 0B       		.uleb128 0xb
+ 967 001f 3E       		.uleb128 0x3e
+ 968 0020 0B       		.uleb128 0xb
+ 969 0021 03       		.uleb128 0x3
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\cco8yVTv.s 			page 18
+
+
+ 970 0022 08       		.uleb128 0x8
+ 971 0023 00       		.byte	0
+ 972 0024 00       		.byte	0
+ 973 0025 04       		.uleb128 0x4
+ 974 0026 16       		.uleb128 0x16
+ 975 0027 00       		.byte	0
+ 976 0028 03       		.uleb128 0x3
+ 977 0029 0E       		.uleb128 0xe
+ 978 002a 3A       		.uleb128 0x3a
+ 979 002b 0B       		.uleb128 0xb
+ 980 002c 3B       		.uleb128 0x3b
+ 981 002d 05       		.uleb128 0x5
+ 982 002e 49       		.uleb128 0x49
+ 983 002f 13       		.uleb128 0x13
+ 984 0030 00       		.byte	0
+ 985 0031 00       		.byte	0
+ 986 0032 05       		.uleb128 0x5
+ 987 0033 13       		.uleb128 0x13
+ 988 0034 01       		.byte	0x1
+ 989 0035 0B       		.uleb128 0xb
+ 990 0036 0B       		.uleb128 0xb
+ 991 0037 3A       		.uleb128 0x3a
+ 992 0038 0B       		.uleb128 0xb
+ 993 0039 3B       		.uleb128 0x3b
+ 994 003a 0B       		.uleb128 0xb
+ 995 003b 01       		.uleb128 0x1
+ 996 003c 13       		.uleb128 0x13
+ 997 003d 00       		.byte	0
+ 998 003e 00       		.byte	0
+ 999 003f 06       		.uleb128 0x6
+ 1000 0040 0D       		.uleb128 0xd
+ 1001 0041 00       		.byte	0
+ 1002 0042 03       		.uleb128 0x3
+ 1003 0043 0E       		.uleb128 0xe
+ 1004 0044 3A       		.uleb128 0x3a
+ 1005 0045 0B       		.uleb128 0xb
+ 1006 0046 3B       		.uleb128 0x3b
+ 1007 0047 0B       		.uleb128 0xb
+ 1008 0048 49       		.uleb128 0x49
+ 1009 0049 13       		.uleb128 0x13
+ 1010 004a 38       		.uleb128 0x38
+ 1011 004b 0B       		.uleb128 0xb
+ 1012 004c 00       		.byte	0
+ 1013 004d 00       		.byte	0
+ 1014 004e 07       		.uleb128 0x7
+ 1015 004f 16       		.uleb128 0x16
+ 1016 0050 00       		.byte	0
+ 1017 0051 03       		.uleb128 0x3
+ 1018 0052 0E       		.uleb128 0xe
+ 1019 0053 3A       		.uleb128 0x3a
+ 1020 0054 0B       		.uleb128 0xb
+ 1021 0055 3B       		.uleb128 0x3b
+ 1022 0056 0B       		.uleb128 0xb
+ 1023 0057 49       		.uleb128 0x49
+ 1024 0058 13       		.uleb128 0x13
+ 1025 0059 00       		.byte	0
+ 1026 005a 00       		.byte	0
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\cco8yVTv.s 			page 19
+
+
+ 1027 005b 08       		.uleb128 0x8
+ 1028 005c 0D       		.uleb128 0xd
+ 1029 005d 00       		.byte	0
+ 1030 005e 03       		.uleb128 0x3
+ 1031 005f 08       		.uleb128 0x8
+ 1032 0060 3A       		.uleb128 0x3a
+ 1033 0061 0B       		.uleb128 0xb
+ 1034 0062 3B       		.uleb128 0x3b
+ 1035 0063 0B       		.uleb128 0xb
+ 1036 0064 49       		.uleb128 0x49
+ 1037 0065 13       		.uleb128 0x13
+ 1038 0066 38       		.uleb128 0x38
+ 1039 0067 0B       		.uleb128 0xb
+ 1040 0068 00       		.byte	0
+ 1041 0069 00       		.byte	0
+ 1042 006a 09       		.uleb128 0x9
+ 1043 006b 0F       		.uleb128 0xf
+ 1044 006c 00       		.byte	0
+ 1045 006d 0B       		.uleb128 0xb
+ 1046 006e 0B       		.uleb128 0xb
+ 1047 006f 49       		.uleb128 0x49
+ 1048 0070 13       		.uleb128 0x13
+ 1049 0071 00       		.byte	0
+ 1050 0072 00       		.byte	0
+ 1051 0073 0A       		.uleb128 0xa
+ 1052 0074 26       		.uleb128 0x26
+ 1053 0075 00       		.byte	0
+ 1054 0076 00       		.byte	0
+ 1055 0077 00       		.byte	0
+ 1056 0078 0B       		.uleb128 0xb
+ 1057 0079 01       		.uleb128 0x1
+ 1058 007a 01       		.byte	0x1
+ 1059 007b 49       		.uleb128 0x49
+ 1060 007c 13       		.uleb128 0x13
+ 1061 007d 01       		.uleb128 0x1
+ 1062 007e 13       		.uleb128 0x13
+ 1063 007f 00       		.byte	0
+ 1064 0080 00       		.byte	0
+ 1065 0081 0C       		.uleb128 0xc
+ 1066 0082 21       		.uleb128 0x21
+ 1067 0083 00       		.byte	0
+ 1068 0084 49       		.uleb128 0x49
+ 1069 0085 13       		.uleb128 0x13
+ 1070 0086 2F       		.uleb128 0x2f
+ 1071 0087 0B       		.uleb128 0xb
+ 1072 0088 00       		.byte	0
+ 1073 0089 00       		.byte	0
+ 1074 008a 0D       		.uleb128 0xd
+ 1075 008b 26       		.uleb128 0x26
+ 1076 008c 00       		.byte	0
+ 1077 008d 49       		.uleb128 0x49
+ 1078 008e 13       		.uleb128 0x13
+ 1079 008f 00       		.byte	0
+ 1080 0090 00       		.byte	0
+ 1081 0091 0E       		.uleb128 0xe
+ 1082 0092 34       		.uleb128 0x34
+ 1083 0093 00       		.byte	0
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\cco8yVTv.s 			page 20
+
+
+ 1084 0094 03       		.uleb128 0x3
+ 1085 0095 0E       		.uleb128 0xe
+ 1086 0096 3A       		.uleb128 0x3a
+ 1087 0097 0B       		.uleb128 0xb
+ 1088 0098 3B       		.uleb128 0x3b
+ 1089 0099 0B       		.uleb128 0xb
+ 1090 009a 49       		.uleb128 0x49
+ 1091 009b 13       		.uleb128 0x13
+ 1092 009c 3F       		.uleb128 0x3f
+ 1093 009d 19       		.uleb128 0x19
+ 1094 009e 02       		.uleb128 0x2
+ 1095 009f 18       		.uleb128 0x18
+ 1096 00a0 00       		.byte	0
+ 1097 00a1 00       		.byte	0
+ 1098 00a2 0F       		.uleb128 0xf
+ 1099 00a3 34       		.uleb128 0x34
+ 1100 00a4 00       		.byte	0
+ 1101 00a5 03       		.uleb128 0x3
+ 1102 00a6 0E       		.uleb128 0xe
+ 1103 00a7 3A       		.uleb128 0x3a
+ 1104 00a8 0B       		.uleb128 0xb
+ 1105 00a9 3B       		.uleb128 0x3b
+ 1106 00aa 05       		.uleb128 0x5
+ 1107 00ab 49       		.uleb128 0x49
+ 1108 00ac 13       		.uleb128 0x13
+ 1109 00ad 3F       		.uleb128 0x3f
+ 1110 00ae 19       		.uleb128 0x19
+ 1111 00af 02       		.uleb128 0x2
+ 1112 00b0 18       		.uleb128 0x18
+ 1113 00b1 00       		.byte	0
+ 1114 00b2 00       		.byte	0
+ 1115 00b3 00       		.byte	0
+ 1116              		.section	.debug_aranges,"",%progbits
+ 1117 0000 14000000 		.4byte	0x14
+ 1118 0004 0200     		.2byte	0x2
+ 1119 0006 00000000 		.4byte	.Ldebug_info0
+ 1120 000a 04       		.byte	0x4
+ 1121 000b 00       		.byte	0
+ 1122 000c 0000     		.2byte	0
+ 1123 000e 0000     		.2byte	0
+ 1124 0010 00000000 		.4byte	0
+ 1125 0014 00000000 		.4byte	0
+ 1126              		.section	.debug_line,"",%progbits
+ 1127              	.Ldebug_line0:
+ 1128 0000 55000000 		.section	.debug_str,"MS",%progbits,1
+ 1128      02004F00 
+ 1128      00000201 
+ 1128      FB0E0D00 
+ 1128      01010101 
+ 1129              	.LASF38:
+ 1130 0000 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1130      43313120 
+ 1130      352E342E 
+ 1130      31203230 
+ 1130      31363036 
+ 1131 0033 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1131      20726576 
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\cco8yVTv.s 			page 21
+
+
+ 1131      6973696F 
+ 1131      6E203233 
+ 1131      37373135 
+ 1132 0066 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 1132      66756E63 
+ 1132      74696F6E 
+ 1132      2D736563 
+ 1132      74696F6E 
+ 1133              	.LASF37:
+ 1134 008e 5553425F 		.ascii	"USB_idSerialNumberStringDescriptor\000"
+ 1134      69645365 
+ 1134      7269616C 
+ 1134      4E756D62 
+ 1134      65725374 
+ 1135              	.LASF3:
+ 1136 00b1 73686F72 		.ascii	"short unsigned int\000"
+ 1136      7420756E 
+ 1136      7369676E 
+ 1136      65642069 
+ 1136      6E7400
+ 1137              	.LASF30:
+ 1138 00c4 5553425F 		.ascii	"USB_DEVICE0_TABLE\000"
+ 1138      44455649 
+ 1138      4345305F 
+ 1138      5441424C 
+ 1138      4500
+ 1139              	.LASF29:
+ 1140 00d6 5553425F 		.ascii	"USB_DEVICE0_CONFIGURATION0_TABLE\000"
+ 1140      44455649 
+ 1140      4345305F 
+ 1140      434F4E46 
+ 1140      49475552 
+ 1141              	.LASF11:
+ 1142 00f7 666C6F61 		.ascii	"float\000"
+ 1142      7400
+ 1143              	.LASF17:
+ 1144 00fd 616C7453 		.ascii	"altSetting\000"
+ 1144      65747469 
+ 1144      6E6700
+ 1145              	.LASF33:
+ 1146 0108 5553425F 		.ascii	"USB_STRING_DESCRIPTORS\000"
+ 1146      53545249 
+ 1146      4E475F44 
+ 1146      45534352 
+ 1146      4950544F 
+ 1147              	.LASF24:
+ 1148 011f 545F5553 		.ascii	"T_USB_LUT\000"
+ 1148      425F4C55 
+ 1148      5400
+ 1149              	.LASF1:
+ 1150 0129 756E7369 		.ascii	"unsigned char\000"
+ 1150      676E6564 
+ 1150      20636861 
+ 1150      7200
+ 1151              	.LASF19:
+ 1152 0137 61747472 		.ascii	"attributes\000"
+ 1152      69627574 
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\cco8yVTv.s 			page 22
+
+
+ 1152      657300
+ 1153              	.LASF5:
+ 1154 0142 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1154      20756E73 
+ 1154      69676E65 
+ 1154      6420696E 
+ 1154      7400
+ 1155              	.LASF18:
+ 1156 0154 61646472 		.ascii	"addr\000"
+ 1156      00
+ 1157              	.LASF22:
+ 1158 0159 545F5553 		.ascii	"T_USB_EP_SETTINGS_BLOCK\000"
+ 1158      425F4550 
+ 1158      5F534554 
+ 1158      54494E47 
+ 1158      535F424C 
+ 1159              	.LASF34:
+ 1160 0171 5553425F 		.ascii	"USB_HIDREPORT_DESCRIPTOR1\000"
+ 1160      48494452 
+ 1160      45504F52 
+ 1160      545F4445 
+ 1160      53435249 
+ 1161              	.LASF25:
+ 1162 018b 5553425F 		.ascii	"USB_DEVICE0_DESCR\000"
+ 1162      44455649 
+ 1162      4345305F 
+ 1162      44455343 
+ 1162      5200
+ 1163              	.LASF26:
+ 1164 019d 5553425F 		.ascii	"USB_DEVICE0_CONFIGURATION0_DESCR\000"
+ 1164      44455649 
+ 1164      4345305F 
+ 1164      434F4E46 
+ 1164      49475552 
+ 1165              	.LASF12:
+ 1166 01be 646F7562 		.ascii	"double\000"
+ 1166      6C6500
+ 1167              	.LASF20:
+ 1168 01c5 62756666 		.ascii	"bufferSize\000"
+ 1168      65725369 
+ 1168      7A6500
+ 1169              	.LASF27:
+ 1170 01d0 5553425F 		.ascii	"USB_DEVICE0_CONFIGURATION0_EP_SETTINGS_TABLE\000"
+ 1170      44455649 
+ 1170      4345305F 
+ 1170      434F4E46 
+ 1170      49475552 
+ 1171              	.LASF10:
+ 1172 01fd 75696E74 		.ascii	"uint16\000"
+ 1172      313600
+ 1173              	.LASF35:
+ 1174 0204 5553425F 		.ascii	"USB_MSOS_DESCRIPTOR\000"
+ 1174      4D534F53 
+ 1174      5F444553 
+ 1174      43524950 
+ 1174      544F5200 
+ 1175              	.LASF8:
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\cco8yVTv.s 			page 23
+
+
+ 1176 0218 756E7369 		.ascii	"unsigned int\000"
+ 1176      676E6564 
+ 1176      20696E74 
+ 1176      00
+ 1177              	.LASF36:
+ 1178 0225 5553425F 		.ascii	"USB_MSOS_CONFIGURATION_DESCR\000"
+ 1178      4D534F53 
+ 1178      5F434F4E 
+ 1178      46494755 
+ 1178      52415449 
+ 1179              	.LASF39:
+ 1180 0242 47656E65 		.ascii	"Generated_Source\\PSoC5\\USB_descr.c\000"
+ 1180      72617465 
+ 1180      645F536F 
+ 1180      75726365 
+ 1180      5C50536F 
+ 1181              	.LASF7:
+ 1182 0265 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1182      206C6F6E 
+ 1182      6720756E 
+ 1182      7369676E 
+ 1182      65642069 
+ 1183              	.LASF23:
+ 1184 027c 705F6C69 		.ascii	"p_list\000"
+ 1184      737400
+ 1185              	.LASF40:
+ 1186 0283 433A5C55 		.ascii	"C:\\Users\\Admin\\Dropbox\\My PC (DESKTOP-JTCBHVV)\\"
+ 1186      73657273 
+ 1186      5C41646D 
+ 1186      696E5C44 
+ 1186      726F7062 
+ 1187 02b2 446F776E 		.ascii	"Downloads\\fw comp\\firmware_binaries_Firmware for "
+ 1187      6C6F6164 
+ 1187      735C6677 
+ 1187      20636F6D 
+ 1187      705C6669 
+ 1188 02e3 53686F6E 		.ascii	"ShonitV2.2 PCB AI100 N_seriesV2.4_devlopment\\Desig"
+ 1188      69745632 
+ 1188      2E322050 
+ 1188      43422041 
+ 1188      49313030 
+ 1189 0315 6E30312E 		.ascii	"n01.cydsn\000"
+ 1189      63796473 
+ 1189      6E00
+ 1190              	.LASF15:
+ 1191 031f 73697A65 		.ascii	"sizetype\000"
+ 1191      74797065 
+ 1191      00
+ 1192              	.LASF6:
+ 1193 0328 6C6F6E67 		.ascii	"long long int\000"
+ 1193      206C6F6E 
+ 1193      6720696E 
+ 1193      7400
+ 1194              	.LASF13:
+ 1195 0336 63686172 		.ascii	"char\000"
+ 1195      00
+ 1196              	.LASF32:
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\cco8yVTv.s 			page 24
+
+
+ 1197 033b 5553425F 		.ascii	"USB_SN_STRING_DESCRIPTOR\000"
+ 1197      534E5F53 
+ 1197      5452494E 
+ 1197      475F4445 
+ 1197      53435249 
+ 1198              	.LASF31:
+ 1199 0354 5553425F 		.ascii	"USB_TABLE\000"
+ 1199      5441424C 
+ 1199      4500
+ 1200              	.LASF2:
+ 1201 035e 73686F72 		.ascii	"short int\000"
+ 1201      7420696E 
+ 1201      7400
+ 1202              	.LASF9:
+ 1203 0368 75696E74 		.ascii	"uint8\000"
+ 1203      3800
+ 1204              	.LASF16:
+ 1205 036e 696E7465 		.ascii	"interface\000"
+ 1205      72666163 
+ 1205      6500
+ 1206              	.LASF28:
+ 1207 0378 5553425F 		.ascii	"USB_DEVICE0_CONFIGURATION0_INTERFACE_CLASS\000"
+ 1207      44455649 
+ 1207      4345305F 
+ 1207      434F4E46 
+ 1207      49475552 
+ 1208              	.LASF4:
+ 1209 03a3 6C6F6E67 		.ascii	"long int\000"
+ 1209      20696E74 
+ 1209      00
+ 1210              	.LASF14:
+ 1211 03ac 6C6F6E67 		.ascii	"long double\000"
+ 1211      20646F75 
+ 1211      626C6500 
+ 1212              	.LASF0:
+ 1213 03b8 7369676E 		.ascii	"signed char\000"
+ 1213      65642063 
+ 1213      68617200 
+ 1214              	.LASF21:
+ 1215 03c4 624D6973 		.ascii	"bMisc\000"
+ 1215      6300
+ 1216              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
