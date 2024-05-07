@@ -23,6 +23,7 @@ int Error = 0;
 
 int32 Position_Y_Requested = 0; // Variable to hold position of Motor X in uSteps 51200 uSteps = 1 rotation of the motor
 int32 Position_X_Requested = 0; // Variable to hold position of Motor X in uSteps 51200 uSteps = 1 rotation of the motor
+int32 Input_Position_X_Temp =0;
 int32 Position_Z_Requested = 0; // Variable to hold position of Motor X in uSteps 51200 uSteps = 1 rotation of the motor
 int32 Position_T_Requested = 0; // Variable to hold position of Motor X in uSteps 51200 uSteps = 1 rotation of the motor
 
@@ -621,6 +622,7 @@ int goTo_X(int32 Position_X_Requested)
         Write_Debug_UART_Char("  \r\n");
         //Step_correction_x(Position_X_Requested);
         Read_All_Optical_Encoder();
+        X_QuadPosition = Input_Position_X_Temp;
         return Error;
     }
     else
@@ -1041,6 +1043,7 @@ int goTo_XYZ(int32 Position_X_Requested,int32 Position_Y_Requested,int32 Positio
     Buffer_Z_QuadPosition = Z_QuadPosition;
     }
     Read_All_Optical_Encoder();
+    X_QuadPosition = Position_X_Requested;
     Send_Feedback_to_USB(Error);
     
     CyDelayUs(50);
@@ -1208,7 +1211,7 @@ void Read_All_Optical_Encoder()//Read all optical encoder value and update XYZ v
         T_QuadPosition = Buffer_T_QuadPosition;
         Z_QuadPosition = -QuadDec_TZ_GetCounter();
     }
-    X_QuadPosition = -QuadDec_X_GetCounter();
+    X_QuadPosition =  Input_Position_X_Temp ;
     Y_QuadPosition = -QuadDec_Y_GetCounter();
 }    
 //Optical Decoder Functions Stop-------------------------------------------------------
@@ -1261,6 +1264,7 @@ void Process_USB_Data()/* Process USB incoming data command. */
         Position_X_Requested = ((int32)USB_received[5] << 24) + ((int32)USB_received[4] << 16) + ((int32)USB_received[3] << 8) + (int32)USB_received[2]; //Decode USB Steps
         
         {
+            Input_Position_X_Temp = Position_X_Requested;
             Position_X_Requested = (int)(Position_X_Requested / 4);
             Position_X_Requested = (int)Position_X_Requested * 12.8;
             Error = goTo_X(Position_X_Requested);
@@ -1453,6 +1457,7 @@ void Process_USB_Data()/* Process USB incoming data command. */
     else if (command == GotoXYZ_Vs)
     {
         Position_X_Requested = ((int32)USB_received[5] << 24) + ((int32)USB_received[4] << 16) + ((int32)USB_received[3] << 8) + (int32)USB_received[2];
+        Input_Position_X_Temp = Position_X_Requested;
         Position_Y_Requested = ((int32)USB_received[9] << 24) + ((int32)USB_received[8] << 16) + ((int32)USB_received[7] << 8) + (int32)USB_received[6];
         Position_Z_Requested = ((int32)USB_received[13] << 24) + ((int32)USB_received[12] << 16) + ((int32)USB_received[11] << 8) + (int32)USB_received[10];
         
@@ -1479,6 +1484,7 @@ void Process_USB_Data()/* Process USB incoming data command. */
         
         Error = goTo_XYZ(Position_X_Requested, Position_Y_Requested, Position_Z_Requested);
         CyDelay(100);
+         X_QuadPosition = Position_X_Requested;
         Send_Feedback_to_USB(Error);
     }
     else if (command == SetNoOfExecution)
@@ -1724,7 +1730,7 @@ void Send_Feedback_to_USB(int Error)//Send Feedback to USB if USB command execut
             }
         }
         
-        X_QuadPosition = (X_QuadPosition * 4);
+        //X_QuadPosition = (X_QuadPosition * 4);
         Y_QuadPosition = (Y_QuadPosition * 4);    
         T_QuadPosition = (int)(T_QuadPosition * 3.2); 
         USB_transmit[4] = (X_QuadPosition);

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccu400Ru.s 			page 1
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccyQYUue.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccu400Ru.s 			page 1
   28:Generated_Source\PSoC5/QuadDec_TZ_INT.c **** ********************************************************************************
   29:Generated_Source\PSoC5/QuadDec_TZ_INT.c **** *
   30:Generated_Source\PSoC5/QuadDec_TZ_INT.c **** * Summary:
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccu400Ru.s 			page 2
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccyQYUue.s 			page 2
 
 
   31:Generated_Source\PSoC5/QuadDec_TZ_INT.c **** *  Interrupt Service Routine for Quadrature Decoder Component.
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccu400Ru.s 			page 1
   64:Generated_Source\PSoC5/QuadDec_TZ_INT.c ****     }
   65:Generated_Source\PSoC5/QuadDec_TZ_INT.c ****     else if (0u != (QuadDec_TZ_swStatus & QuadDec_TZ_COUNTER_UNDERFLOW))
   49              		.loc 1 65 0
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccu400Ru.s 			page 3
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccyQYUue.s 			page 3
 
 
   50 001a 13F0020F 		tst	r3, #2
@@ -176,13 +176,13 @@ ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccu400Ru.s 			page 1
   91 0006 00000000 		.4byte	.Ldebug_abbrev0
   92 000a 04       		.byte	0x4
   93 000b 01       		.uleb128 0x1
-  94 000c 2A000000 		.4byte	.LASF17
+  94 000c 6E000000 		.4byte	.LASF17
   95 0010 0C       		.byte	0xc
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccu400Ru.s 			page 4
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccyQYUue.s 			page 4
 
 
   96 0011 C6010000 		.4byte	.LASF18
-  97 0015 79010000 		.4byte	.LASF19
+  97 0015 1B000000 		.4byte	.LASF19
   98 0019 00000000 		.4byte	.Ldebug_ranges0+0
   99 001d 00000000 		.4byte	0
  100 0021 00000000 		.4byte	.Ldebug_line0
@@ -201,35 +201,35 @@ ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccu400Ru.s 			page 1
  113 003a 03       		.uleb128 0x3
  114 003b 08       		.byte	0x8
  115 003c 04       		.byte	0x4
- 116 003d 63010000 		.4byte	.LASF2
+ 116 003d A2010000 		.4byte	.LASF2
  117 0041 03       		.uleb128 0x3
  118 0042 01       		.byte	0x1
  119 0043 06       		.byte	0x6
- 120 0044 57010000 		.4byte	.LASF3
+ 120 0044 96010000 		.4byte	.LASF3
  121 0048 03       		.uleb128 0x3
  122 0049 01       		.byte	0x1
  123 004a 08       		.byte	0x8
- 124 004b 06010000 		.4byte	.LASF4
+ 124 004b 45010000 		.4byte	.LASF4
  125 004f 03       		.uleb128 0x3
  126 0050 02       		.byte	0x2
  127 0051 05       		.byte	0x5
- 128 0052 6F010000 		.4byte	.LASF5
+ 128 0052 AE010000 		.4byte	.LASF5
  129 0056 03       		.uleb128 0x3
  130 0057 02       		.byte	0x2
  131 0058 07       		.byte	0x7
- 132 0059 44010000 		.4byte	.LASF6
+ 132 0059 83010000 		.4byte	.LASF6
  133 005d 03       		.uleb128 0x3
  134 005e 04       		.byte	0x4
  135 005f 05       		.byte	0x5
- 136 0060 34010000 		.4byte	.LASF7
+ 136 0060 73010000 		.4byte	.LASF7
  137 0064 03       		.uleb128 0x3
  138 0065 04       		.byte	0x4
  139 0066 07       		.byte	0x7
- 140 0067 C3000000 		.4byte	.LASF8
+ 140 0067 02010000 		.4byte	.LASF8
  141 006b 03       		.uleb128 0x3
  142 006c 08       		.byte	0x8
  143 006d 07       		.byte	0x7
- 144 006e D5000000 		.4byte	.LASF9
+ 144 006e 14010000 		.4byte	.LASF9
  145 0072 03       		.uleb128 0x3
  146 0073 04       		.byte	0x4
  147 0074 07       		.byte	0x7
@@ -237,12 +237,12 @@ ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccu400Ru.s 			page 1
  149 0079 03       		.uleb128 0x3
  150 007a 01       		.byte	0x1
  151 007b 08       		.byte	0x8
- 152 007c 14010000 		.4byte	.LASF11
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccu400Ru.s 			page 5
+ 152 007c 53010000 		.4byte	.LASF11
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccyQYUue.s 			page 5
 
 
  153 0080 04       		.uleb128 0x4
- 154 0081 BD000000 		.4byte	.LASF12
+ 154 0081 FC000000 		.4byte	.LASF12
  155 0085 02       		.byte	0x2
  156 0086 E401     		.2byte	0x1e4
  157 0088 48000000 		.4byte	0x48
@@ -254,20 +254,20 @@ ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccu400Ru.s 			page 1
  163 0098 03       		.uleb128 0x3
  164 0099 04       		.byte	0x4
  165 009a 04       		.byte	0x4
- 166 009b EC000000 		.4byte	.LASF14
+ 166 009b 2B010000 		.4byte	.LASF14
  167 009f 03       		.uleb128 0x3
  168 00a0 08       		.byte	0x8
  169 00a1 04       		.byte	0x4
- 170 00a2 3D010000 		.4byte	.LASF15
+ 170 00a2 7C010000 		.4byte	.LASF15
  171 00a6 04       		.uleb128 0x4
- 172 00a7 B8000000 		.4byte	.LASF16
+ 172 00a7 B8010000 		.4byte	.LASF16
  173 00ab 02       		.byte	0x2
  174 00ac 8E02     		.2byte	0x28e
  175 00ae B2000000 		.4byte	0xb2
  176 00b2 05       		.uleb128 0x5
  177 00b3 80000000 		.4byte	0x80
  178 00b7 06       		.uleb128 0x6
- 179 00b8 1B000000 		.4byte	.LASF20
+ 179 00b8 5F000000 		.4byte	.LASF20
  180 00bc 01       		.byte	0x1
  181 00bd 2E       		.byte	0x2e
  182 00be 00000000 		.4byte	.LFB0
@@ -276,14 +276,14 @@ ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccu400Ru.s 			page 1
  185 00c7 9C       		.byte	0x9c
  186 00c8 DC000000 		.4byte	0xdc
  187 00cc 07       		.uleb128 0x7
- 188 00cd F2000000 		.4byte	.LASF21
+ 188 00cd 31010000 		.4byte	.LASF21
  189 00d1 01       		.byte	0x1
  190 00d2 30       		.byte	0x30
  191 00d3 80000000 		.4byte	0x80
  192 00d7 00000000 		.4byte	.LLST0
  193 00db 00       		.byte	0
  194 00dc 08       		.uleb128 0x8
- 195 00dd 19010000 		.4byte	.LASF22
+ 195 00dd 58010000 		.4byte	.LASF22
  196 00e1 01       		.byte	0x1
  197 00e2 17       		.byte	0x17
  198 00e3 ED000000 		.4byte	0xed
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccu400Ru.s 			page 1
  207 0000 01       		.uleb128 0x1
  208 0001 11       		.uleb128 0x11
  209 0002 01       		.byte	0x1
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccu400Ru.s 			page 6
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccyQYUue.s 			page 6
 
 
  210 0003 25       		.uleb128 0x25
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccu400Ru.s 			page 1
  264 0039 49       		.uleb128 0x49
  265 003a 13       		.uleb128 0x13
  266 003b 00       		.byte	0
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccu400Ru.s 			page 7
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccyQYUue.s 			page 7
 
 
  267 003c 00       		.byte	0
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccu400Ru.s 			page 1
  321 0073 02       		.uleb128 0x2
  322 0074 18       		.uleb128 0x18
  323 0075 00       		.byte	0
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccu400Ru.s 			page 8
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccyQYUue.s 			page 8
 
 
  324 0076 00       		.byte	0
@@ -467,110 +467,110 @@ ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccu400Ru.s 			page 1
  359      676E6564 
  359      20696E74 
  359      00
- 360              	.LASF20:
- 361 001b 51756164 		.ascii	"QuadDec_TZ_ISR\000"
- 361      4465635F 
- 361      545A5F49 
- 361      535200
- 362              	.LASF17:
- 363 002a 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 363      43313120 
- 363      352E342E 
- 363      31203230 
- 363      31363036 
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccu400Ru.s 			page 9
+ 360              	.LASF19:
+ 361 001b 433A5C55 		.ascii	"C:\\Users\\Revanth\\Documents\\GitHub\\AS76_FFP\\AS"
+ 361      73657273 
+ 361      5C526576 
+ 361      616E7468 
+ 361      5C446F63 
+ 362 0048 37365F46 		.ascii	"76_FFP\\AS76_FFP6.cydsn\000"
+ 362      46505C41 
+ 362      5337365F 
+ 362      46465036 
+ 362      2E637964 
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccyQYUue.s 			page 9
 
 
- 364 005d 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
- 364      20726576 
- 364      6973696F 
- 364      6E203233 
- 364      37373135 
- 365 0090 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 365      66756E63 
- 365      74696F6E 
- 365      2D736563 
- 365      74696F6E 
- 366              	.LASF16:
- 367 00b8 72656738 		.ascii	"reg8\000"
- 367      00
- 368              	.LASF12:
- 369 00bd 75696E74 		.ascii	"uint8\000"
- 369      3800
- 370              	.LASF8:
- 371 00c3 6C6F6E67 		.ascii	"long unsigned int\000"
- 371      20756E73 
- 371      69676E65 
- 371      6420696E 
- 371      7400
- 372              	.LASF9:
- 373 00d5 6C6F6E67 		.ascii	"long long unsigned int\000"
- 373      206C6F6E 
- 373      6720756E 
- 373      7369676E 
- 373      65642069 
- 374              	.LASF14:
- 375 00ec 666C6F61 		.ascii	"float\000"
- 375      7400
- 376              	.LASF21:
- 377 00f2 51756164 		.ascii	"QuadDec_TZ_swStatus\000"
- 377      4465635F 
- 377      545A5F73 
- 377      77537461 
- 377      74757300 
- 378              	.LASF4:
- 379 0106 756E7369 		.ascii	"unsigned char\000"
- 379      676E6564 
- 379      20636861 
- 379      7200
- 380              	.LASF11:
- 381 0114 63686172 		.ascii	"char\000"
- 381      00
- 382              	.LASF22:
- 383 0119 51756164 		.ascii	"QuadDec_TZ_count32SoftPart\000"
- 383      4465635F 
- 383      545A5F63 
- 383      6F756E74 
- 383      3332536F 
- 384              	.LASF7:
- 385 0134 6C6F6E67 		.ascii	"long int\000"
- 385      20696E74 
- 385      00
- 386              	.LASF15:
- 387 013d 646F7562 		.ascii	"double\000"
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccu400Ru.s 			page 10
+ 363              	.LASF20:
+ 364 005f 51756164 		.ascii	"QuadDec_TZ_ISR\000"
+ 364      4465635F 
+ 364      545A5F49 
+ 364      535200
+ 365              	.LASF17:
+ 366 006e 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 366      43313120 
+ 366      352E342E 
+ 366      31203230 
+ 366      31363036 
+ 367 00a1 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 367      20726576 
+ 367      6973696F 
+ 367      6E203233 
+ 367      37373135 
+ 368 00d4 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 368      66756E63 
+ 368      74696F6E 
+ 368      2D736563 
+ 368      74696F6E 
+ 369              	.LASF12:
+ 370 00fc 75696E74 		.ascii	"uint8\000"
+ 370      3800
+ 371              	.LASF8:
+ 372 0102 6C6F6E67 		.ascii	"long unsigned int\000"
+ 372      20756E73 
+ 372      69676E65 
+ 372      6420696E 
+ 372      7400
+ 373              	.LASF9:
+ 374 0114 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 374      206C6F6E 
+ 374      6720756E 
+ 374      7369676E 
+ 374      65642069 
+ 375              	.LASF14:
+ 376 012b 666C6F61 		.ascii	"float\000"
+ 376      7400
+ 377              	.LASF21:
+ 378 0131 51756164 		.ascii	"QuadDec_TZ_swStatus\000"
+ 378      4465635F 
+ 378      545A5F73 
+ 378      77537461 
+ 378      74757300 
+ 379              	.LASF4:
+ 380 0145 756E7369 		.ascii	"unsigned char\000"
+ 380      676E6564 
+ 380      20636861 
+ 380      7200
+ 381              	.LASF11:
+ 382 0153 63686172 		.ascii	"char\000"
+ 382      00
+ 383              	.LASF22:
+ 384 0158 51756164 		.ascii	"QuadDec_TZ_count32SoftPart\000"
+ 384      4465635F 
+ 384      545A5F63 
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccyQYUue.s 			page 10
 
 
- 387      6C6500
- 388              	.LASF6:
- 389 0144 73686F72 		.ascii	"short unsigned int\000"
- 389      7420756E 
- 389      7369676E 
- 389      65642069 
- 389      6E7400
- 390              	.LASF3:
- 391 0157 7369676E 		.ascii	"signed char\000"
- 391      65642063 
- 391      68617200 
- 392              	.LASF2:
- 393 0163 6C6F6E67 		.ascii	"long double\000"
- 393      20646F75 
- 393      626C6500 
- 394              	.LASF5:
- 395 016f 73686F72 		.ascii	"short int\000"
- 395      7420696E 
- 395      7400
- 396              	.LASF19:
- 397 0179 433A5C55 		.ascii	"C:\\Users\\Revanth\\Documents\\GitHub\\AS76_FFP\\AS"
- 397      73657273 
- 397      5C526576 
- 397      616E7468 
- 397      5C446F63 
- 398 01a6 37365F46 		.ascii	"76_FFP\\AS76_FFP5.cydsn\000"
- 398      46505C41 
- 398      5337365F 
- 398      46465035 
- 398      2E637964 
+ 384      6F756E74 
+ 384      3332536F 
+ 385              	.LASF7:
+ 386 0173 6C6F6E67 		.ascii	"long int\000"
+ 386      20696E74 
+ 386      00
+ 387              	.LASF15:
+ 388 017c 646F7562 		.ascii	"double\000"
+ 388      6C6500
+ 389              	.LASF6:
+ 390 0183 73686F72 		.ascii	"short unsigned int\000"
+ 390      7420756E 
+ 390      7369676E 
+ 390      65642069 
+ 390      6E7400
+ 391              	.LASF3:
+ 392 0196 7369676E 		.ascii	"signed char\000"
+ 392      65642063 
+ 392      68617200 
+ 393              	.LASF2:
+ 394 01a2 6C6F6E67 		.ascii	"long double\000"
+ 394      20646F75 
+ 394      626C6500 
+ 395              	.LASF5:
+ 396 01ae 73686F72 		.ascii	"short int\000"
+ 396      7420696E 
+ 396      7400
+ 397              	.LASF16:
+ 398 01b8 72656738 		.ascii	"reg8\000"
+ 398      00
  399              	.LASF10:
  400 01bd 73697A65 		.ascii	"sizetype\000"
  400      74797065 
