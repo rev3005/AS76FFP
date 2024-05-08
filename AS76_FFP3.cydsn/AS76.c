@@ -164,6 +164,7 @@ Condition            : This Value must range from 0x00 to 0x04 since there are o
 
 void homeX(uint8_t Motor)
 {
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070503, TMC5160_nCS_MotorX );
     update_max_velocity((307200), Motor); // Set Motor to low speed
     Write_32bitSPI_DATA (0x20  , (int) 0x00000002, Motor ); // Move the motor to Left continuously
     CyDelayUs(200);
@@ -251,6 +252,12 @@ void homeX(uint8_t Motor)
     HomeX_done = true;
     HomeX_done_Buffer = true;
     Write_Debug_UART_Char("HomeX executed  \r\n");
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorY );
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorZ );
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorX );
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorT ); 
+    CyDelay(5);
+    
 
 }
 
@@ -291,6 +298,7 @@ Condition            : This Value must range from 0x00 to 0x04 since there are o
 
 void homeY(uint8_t Motor)
 {
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070203, TMC5160_nCS_MotorY );
     update_max_velocity((307200), Motor);
     Write_32bitSPI_DATA (0x20  , (int) 0x00000002, Motor );
     CyDelayUs(50);
@@ -377,7 +385,11 @@ void homeY(uint8_t Motor)
     HomeY_done = true;
     HomeY_done_Buffer = true;
     Write_Debug_UART_Char("HomeY executed  \r\n");
-
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorY );
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorZ );
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorX );
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorT );
+    CyDelay(5);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////
@@ -417,6 +429,7 @@ Condition            : This Value must range from 0x00 to 0x04 since there are o
 
 void homeZ(uint8_t Motor)
 {
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070203, TMC5160_nCS_MotorZ );
     update_max_velocity((53687*2), Motor);
     Enable_Encoder_Z(-Buffer_Z_QuadPosition);
     Write_32bitSPI_DATA (0x20  , (int) 0x00000002, Motor );
@@ -501,6 +514,11 @@ void homeZ(uint8_t Motor)
     HomeZ_done = true;
     HomeZ_done_Buffer = true;
     Write_Debug_UART_Char("HomeZ executed  \r\n");
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorY );
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorZ );
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorX );
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorT );
+    CyDelay(5);
 
 }
 
