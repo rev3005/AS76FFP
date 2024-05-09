@@ -18,7 +18,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="AS76_FFP2-000\AS76_FFP2\Source Files\AS76.c">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="AS76_FFP2-000\AS76_FFP2\Source Files\main.c">
 <ExpandedNodeIds>
 <v>AS76_FFP2-000</v>
 <v>AS76_FFP2-000\AS76_FFP2</v>
@@ -44,31 +44,7 @@
 <v>AS76_FFP2-000\AS76_FFP2\Source Files\main.c</v>
 <v>AS76_FFP2-000\AS76_FFP2\Generated_Source\PSoC5</v>
 </ExpandedNodeIds>
-<VisibleNodeIds>
-<v>AS76_FFP2-000</v>
-<v>AS76_FFP2-000\AS76_FFP2</v>
-<v>AS76_FFP2-000\AS76_FFP2\TopDesign</v>
-<v>AS76_FFP2-000\AS76_FFP2\AS76_FFP2.cydwr</v>
-<v>AS76_FFP2-000\AS76_FFP2\AS76_FFP2.cydwr\Pins</v>
-<v>AS76_FFP2-000\AS76_FFP2\AS76_FFP2.cydwr\Analog</v>
-<v>AS76_FFP2-000\AS76_FFP2\AS76_FFP2.cydwr\Clocks</v>
-<v>AS76_FFP2-000\AS76_FFP2\AS76_FFP2.cydwr\Interrupts</v>
-<v>AS76_FFP2-000\AS76_FFP2\AS76_FFP2.cydwr\DMA</v>
-<v>AS76_FFP2-000\AS76_FFP2\AS76_FFP2.cydwr\System</v>
-<v>AS76_FFP2-000\AS76_FFP2\AS76_FFP2.cydwr\Directives</v>
-<v>AS76_FFP2-000\AS76_FFP2\AS76_FFP2.cydwr\Flash Security</v>
-<v>AS76_FFP2-000\AS76_FFP2\AS76_FFP2.cydwr\EEPROM</v>
-<v>AS76_FFP2-000\AS76_FFP2\Header Files</v>
-<v>AS76_FFP2-000\AS76_FFP2\Header Files\AS76.h</v>
-<v>AS76_FFP2-000\AS76_FFP2\Header Files\configuration.h</v>
-<v>AS76_FFP2-000\AS76_FFP2\Header Files\cyapicallbacks.h</v>
-<v>AS76_FFP2-000\AS76_FFP2\Header Files\ReadMe.txt</v>
-<v>AS76_FFP2-000\AS76_FFP2\Header Files\variables.h</v>
-<v>AS76_FFP2-000\AS76_FFP2\Source Files</v>
-<v>AS76_FFP2-000\AS76_FFP2\Source Files\AS76.c</v>
-<v>AS76_FFP2-000\AS76_FFP2\Source Files\main.c</v>
-<v>AS76_FFP2-000\AS76_FFP2\Generated_Source</v>
-</VisibleNodeIds>
+<VisibleNodeIds />
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
 <ExpandedNodeIds>
@@ -78,13 +54,7 @@
 <v>AS76_FFP2-000\AS76_FFP2\TopDesign\TopDesign.cysch</v>
 <v>AS76_FFP2-000\AS76_FFP2\TopDesign\TopDesign.cysym</v>
 </ExpandedNodeIds>
-<VisibleNodeIds>
-<v>AS76_FFP2-000</v>
-<v>AS76_FFP2-000\AS76_FFP2</v>
-<v>AS76_FFP2-000\AS76_FFP2\TopDesign</v>
-<v>AS76_FFP2-000\AS76_FFP2\TopDesign\TopDesign.cysch</v>
-<v>AS76_FFP2-000\AS76_FFP2\TopDesign\TopDesign.cysym</v>
-</VisibleNodeIds>
+<VisibleNodeIds />
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
 <ExpandedNodeIds>
@@ -263,43 +233,7 @@
 <v>AS76_FFP2-000\AS76_FFP2\AS76_FFP2.rpt</v>
 <v>AS76_FFP2-000\AS76_FFP2\AS76_FFP2_timing.html</v>
 </ExpandedNodeIds>
-<VisibleNodeIds>
-<v>AS76_FFP2-000</v>
-<v>AS76_FFP2-000\AS76_FFP2</v>
-<v>AS76_FFP2-000\AS76_FFP2\CortexM3</v>
-<v>AS76_FFP2-000\AS76_FFP2\CortexM3\ARM_GCC_541</v>
-<v>AS76_FFP2-000\AS76_FFP2\CortexM3\ARM_GCC_541\Debug</v>
-<v>AS76_FFP2-000\AS76_FFP2\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
-<v>AS76_FFP2-000\AS76_FFP2\CortexM3\ARM_GCC_541\Debug\Listing Files\AS76.lst</v>
-<v>AS76_FFP2-000\AS76_FFP2\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_Encoder_24Mhz.lst</v>
-<v>AS76_FFP2-000\AS76_FFP2\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
-<v>AS76_FFP2-000\AS76_FFP2\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
-<v>AS76_FFP2-000\AS76_FFP2\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
-<v>AS76_FFP2-000\AS76_FFP2\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
-<v>AS76_FFP2-000\AS76_FFP2\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
-<v>AS76_FFP2-000\AS76_FFP2\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
-<v>AS76_FFP2-000\AS76_FFP2\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
-<v>AS76_FFP2-000\AS76_FFP2\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
-<v>AS76_FFP2-000\AS76_FFP2\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
-<v>AS76_FFP2-000\AS76_FFP2\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
-<v>AS76_FFP2-000\AS76_FFP2\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
-<v>AS76_FFP2-000\AS76_FFP2\CortexM3\ARM_GCC_541\Debug\Listing Files\Encoder_T_Z_Select.lst</v>
-<v>AS76_FFP2-000\AS76_FFP2\CortexM3\ARM_GCC_541\Debug\Listing Files\Encoder_T_Z_Select_PM.lst</v>
-<v>AS76_FFP2-000\AS76_FFP2\CortexM3\ARM_GCC_541\Debug\Listing Files\LED2.lst</v>
-<v>AS76_FFP2-000\AS76_FFP2\CortexM3\ARM_GCC_541\Debug\Listing Files\LED3.lst</v>
-<v>AS76_FFP2-000\AS76_FFP2\CortexM3\ARM_GCC_541\Debug\Listing Files\LIM_T_L.lst</v>
-<v>AS76_FFP2-000\AS76_FFP2\CortexM3\ARM_GCC_541\Debug\Listing Files\LIM_T_R.lst</v>
-<v>AS76_FFP2-000\AS76_FFP2\CortexM3\ARM_GCC_541\Debug\Listing Files\LIM_X_L.lst</v>
-<v>AS76_FFP2-000\AS76_FFP2\CortexM3\ARM_GCC_541\Debug\Listing Files\LIM_X_R.lst</v>
-<v>AS76_FFP2-000\AS76_FFP2\CortexM3\ARM_GCC_541\Debug\Listing Files\LIM_Y_L.lst</v>
-<v>AS76_FFP2-000\AS76_FFP2\CortexM3\ARM_GCC_541\Debug\Listing Files\LIM_Y_R.lst</v>
-<v>AS76_FFP2-000\AS76_FFP2\CortexM3\ARM_GCC_541\Debug\Listing Files\LIM_Z_L.lst</v>
-<v>AS76_FFP2-000\AS76_FFP2\CortexM3\ARM_GCC_541\Debug\Listing Files\LIM_Z_R.lst</v>
-<v>AS76_FFP2-000\AS76_FFP2\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
-<v>AS76_FFP2-000\AS76_FFP2\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_Backlight.lst</v>
-<v>AS76_FFP2-000\AS76_FFP2\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_BC_LED.lst</v>
-<v>AS76_FFP2-000\AS76_FFP2\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_Buzzer.lst</v>
-</VisibleNodeIds>
+<VisibleNodeIds />
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
 <TreeKeysV2>
@@ -334,33 +268,7 @@
 <v>AS76_FFP2-000\AS76_FFP2\USBFS_v3_20.pdf</v>
 <v>AS76_FFP2-000\AS76_FFP2\ZeroTerminal.pdf</v>
 </ExpandedNodeIds>
-<VisibleNodeIds>
-<v>AS76_FFP2-000</v>
-<v>AS76_FFP2-000\AS76_FFP2</v>
-<v>AS76_FFP2-000\AS76_FFP2\PSoC 5LP Architecture TRM</v>
-<v>AS76_FFP2-000\AS76_FFP2\CY8C52LP Family Datasheet</v>
-<v>AS76_FFP2-000\AS76_FFP2\System Reference Guides</v>
-<v>AS76_FFP2-000\AS76_FFP2\System Reference Guides\cy_boot_v5_70</v>
-<v>AS76_FFP2-000\AS76_FFP2\cy_clock_v2_20</v>
-<v>AS76_FFP2-000\AS76_FFP2\cy_clock_v2_20\cy_clock_v2_20.pdf</v>
-<v>AS76_FFP2-000\AS76_FFP2\cy_constant_v1_0</v>
-<v>AS76_FFP2-000\AS76_FFP2\cy_constant_v1_0\cy_constant_v1_0.pdf</v>
-<v>AS76_FFP2-000\AS76_FFP2\cy_isr_v1_70.pdf</v>
-<v>AS76_FFP2-000\AS76_FFP2\cy_pins_v2_20</v>
-<v>AS76_FFP2-000\AS76_FFP2\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
-<v>AS76_FFP2-000\AS76_FFP2\CyControlReg_v1_80.pdf</v>
-<v>AS76_FFP2-000\AS76_FFP2\mux_v1_10</v>
-<v>AS76_FFP2-000\AS76_FFP2\mux_v1_10\mux_v1_10.pdf</v>
-<v>AS76_FFP2-000\AS76_FFP2\PWM_v3_30</v>
-<v>AS76_FFP2-000\AS76_FFP2\PWM_v3_30\PWM_v3_30.pdf</v>
-<v>AS76_FFP2-000\AS76_FFP2\QuadDec_v3_0</v>
-<v>AS76_FFP2-000\AS76_FFP2\QuadDec_v3_0\QuadDec_v3_0.pdf</v>
-<v>AS76_FFP2-000\AS76_FFP2\SPI_Master_v2_50.pdf</v>
-<v>AS76_FFP2-000\AS76_FFP2\Timer_v2_80.pdf</v>
-<v>AS76_FFP2-000\AS76_FFP2\UART_v2_50.pdf</v>
-<v>AS76_FFP2-000\AS76_FFP2\USBFS_v3_20.pdf</v>
-<v>AS76_FFP2-000\AS76_FFP2\ZeroTerminal.pdf</v>
-</VisibleNodeIds>
+<VisibleNodeIds />
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>
 </CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
@@ -369,6 +277,7 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
+<name v=".\main.c" />
 <name v=".\AS76.c" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
@@ -377,7 +286,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1100, 487" SelectedTabbedMdiWindow="2978d416-5489-4f9d-8f69-e99860ccc278"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="f7e1abb3-0bd5-4fbb-a822-519e1e118b81" /><DocumentWindow Key="C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\AS76_FFP3.cydsn\AS76.c" Guid="2978d416-5489-4f9d-8f69-e99860ccc278" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1100, 487" SelectedTabbedMdiWindow="ad06f245-7394-4b9e-9143-b2c30cb9fe8e"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="f7e1abb3-0bd5-4fbb-a822-519e1e118b81" /><DocumentWindow Key="C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\AS76_FFP2.cydsn\main.c" Guid="70543334-4d5a-4adc-8ec5-31f14e4db2f9" /><DocumentWindow Key="C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\AS76_FFP2.cydsn\AS76.c" Guid="ad06f245-7394-4b9e-9143-b2c30cb9fe8e" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

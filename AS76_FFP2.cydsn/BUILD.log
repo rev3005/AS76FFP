@@ -1,4 +1,4 @@
---------------- Build Started: 05/08/2024 15:27:59 Project: AS76_FFP2, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+--------------- Build Started: 05/09/2024 12:55:06 Project: AS76_FFP2, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
 The code generation step is up to date.
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/AS76.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c AS76.c -o .\CortexM3\ARM_GCC_541\Debug\AS76.o
 In file included from AS76.c:14:0:
@@ -231,6 +231,6 @@ No ELF section .cychecksum found, creating one
 Application checksum calculated and stored in ELF section .cychecksum
 Checksum calculated and stored in ELF section .cymeta
 cyelftool.exe -S C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\AS76_FFP2.cydsn\CortexM3\ARM_GCC_541\Debug\AS76_FFP2.elf
-Flash used: 31760 of 262144 bytes (12.1%).
+Flash used: 32056 of 262144 bytes (12.2%).
 SRAM used: 3193 of 65536 bytes (4.9%). Stack: 2048 bytes. Heap: 128 bytes.
---------------- Build Succeeded: 05/08/2024 15:28:01 ---------------
+--------------- Build Succeeded: 05/09/2024 12:55:08 ---------------
