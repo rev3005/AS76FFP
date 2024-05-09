@@ -1308,11 +1308,20 @@ void Process_USB_Data()/* Process USB incoming data command. */
         Write_32bitSPI_DATA (0x10  , (int) 0x00070303, TMC5160_nCS_MotorT );
    
     }
-    else if ( command == Set_OilDispenser )
+  else if ( command == Set_OilDispenser )
     {
         int time_ms=0;
         uint8_t direction=0;
         time_ms = ((int32)USB_received[5] << 24) + ((int32)USB_received[4] << 16) + ((int32)USB_received[3] << 8) + (int32)USB_received[2];
+        if((USB_received[6] == 0x00) || (USB_received[6] == 0x01))
+        {
+            CyDelayUs(10);
+        }
+        else
+        {
+          USB_received[6] = 0x00;
+        }
+        
         direction = USB_received[6];
         run_pump (time_ms, direction);
         Send_Feedback_to_USB(Error);
@@ -2233,12 +2242,23 @@ int run_pump (int time_ms, uint8_t direction)
 {
     Write_32bitSPI_DATA (0x20  , (int) 0x00000000, TMC5160_nCS_MotorO );
     Write_32bitSPI_DATA (0x21  , (int) 0x00000000, TMC5160_nCS_MotorO );
+    
+    
     update_max_velocity(53687*2, TMC5160_nCS_MotorO);
     TMC5160_MotorO_EN_Write(0x00);
     CyDelay(15);
     if( (direction == 0x00) || (direction == 0x01))
     {
-    if(direction == 0x00)
+        CyDelay(1);
+    }
+    else
+    {
+      direction =0;  
+    }
+    
+    if( (direction == 0x00) || (direction == 0x01))
+    {
+if(direction == 0x00)
     {
         GotoPos(time_ms, TMC5160_nCS_MotorO);
         
