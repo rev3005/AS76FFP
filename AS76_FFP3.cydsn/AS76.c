@@ -1315,6 +1315,7 @@ void Process_USB_Data()/* Process USB incoming data command. */
     }
     else if (command == GotoZ)        
     {
+        update_max_velocity(53687*2, TMC5160_nCS_MotorZ);
         Position_Z_Requested = ((int32)USB_received[5] << 24) + ((int32)USB_received[4] << 16) + ((int32)USB_received[3] << 8) + (int32)USB_received[2]; //Decode USB Steps
         Position_Z_Requested = (Position_Z_Requested / 16);
         Position_Z_Requested = Position_Z_Requested * 51.2;
@@ -1456,8 +1457,8 @@ void Process_USB_Data()/* Process USB incoming data command. */
     Position_Z_Requested = (Position_Z_Requested / 16);
     Position_Z_Requested = Position_Z_Requested * 51.2;
     goTo_Z(Position_Z_Requested);
-    CyDelayUs(10);
-    update_max_velocity(53687*2, TMC5160_nCS_MotorZ);
+    //CyDelayUs(10);
+    //update_max_velocity(53687*2, TMC5160_nCS_MotorZ);
     Send_Feedback_to_USB(Error);
     }
     
