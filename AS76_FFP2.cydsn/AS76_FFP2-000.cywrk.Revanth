@@ -378,7 +378,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1100, 487" SelectedTabbedMdiWindow="ad06f245-7394-4b9e-9143-b2c30cb9fe8e"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="f7e1abb3-0bd5-4fbb-a822-519e1e118b81" /><DocumentWindow Key="C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\AS76_FFP2.cydsn\main.c" Guid="70543334-4d5a-4adc-8ec5-31f14e4db2f9" /><DocumentWindow Key="C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\AS76_FFP2.cydsn\AS76.c" Guid="ad06f245-7394-4b9e-9143-b2c30cb9fe8e" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1082, 487" SelectedTabbedMdiWindow="ad06f245-7394-4b9e-9143-b2c30cb9fe8e"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="f7e1abb3-0bd5-4fbb-a822-519e1e118b81" /><DocumentWindow Key="C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\AS76_FFP2.cydsn\main.c" Guid="70543334-4d5a-4adc-8ec5-31f14e4db2f9" /><DocumentWindow Key="C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\AS76_FFP2.cydsn\AS76.c" Guid="ad06f245-7394-4b9e-9143-b2c30cb9fe8e" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

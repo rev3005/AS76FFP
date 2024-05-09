@@ -253,7 +253,7 @@ void homeX(uint8_t Motor)
     HomeX_done_Buffer = true;
     Write_Debug_UART_Char("HomeX executed  \r\n");
     Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorY );
-    Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorZ );
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070101, TMC5160_nCS_MotorZ );
     Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorX );
     Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorT ); 
     CyDelay(5);
@@ -386,7 +386,7 @@ void homeY(uint8_t Motor)
     HomeY_done_Buffer = true;
     Write_Debug_UART_Char("HomeY executed  \r\n");
     Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorY );
-    Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorZ );
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070101, TMC5160_nCS_MotorZ );
     Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorX );
     Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorT );
     CyDelay(5);
@@ -515,7 +515,7 @@ void homeZ(uint8_t Motor)
     HomeZ_done_Buffer = true;
     Write_Debug_UART_Char("HomeZ executed  \r\n");
     Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorY );
-    Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorZ );
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070101, TMC5160_nCS_MotorZ );
     Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorX );
     Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorT );
     CyDelay(5);
@@ -1291,7 +1291,7 @@ void Process_USB_Data()/* Process USB incoming data command. */
         Write_32bitSPI_DATA (0x10  , (int) 0x0007010A, TMC5160_nCS_MotorX );
         CyDelay(10);
         Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorY );
-        Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorZ );
+        Write_32bitSPI_DATA (0x10  , (int) 0x00070102, TMC5160_nCS_MotorZ );
         Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorX );
         Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorT ); 
         Send_Feedback_to_USB(Error);
@@ -1376,7 +1376,7 @@ void Process_USB_Data()/* Process USB incoming data command. */
         Error = goTo_XYZ(Position_X_Requested, Position_Y_Requested, Position_Z_Requested);
         CyDelay(10);
         Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorY );
-        Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorZ );
+        Write_32bitSPI_DATA (0x10  , (int) 0x00070102, TMC5160_nCS_MotorZ );
         Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorX );
         Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorT );
         Send_Feedback_to_USB(Error);
