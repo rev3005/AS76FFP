@@ -818,7 +818,7 @@ int goTo_Z(int32 Position_Z_Requested)
 {
     Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorY );
     Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorX );
-    Write_32bitSPI_DATA (0x10  , (int) 0x00070106, TMC5160_nCS_MotorZ );
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070206, TMC5160_nCS_MotorZ );
     Position_Z_Requested =  Position_Z_Requested;
     Enable_Encoder_Z(-Buffer_Z_QuadPosition);
     if(if_all_homing_done())
@@ -1277,6 +1277,7 @@ void Process_USB_Data()/* Process USB incoming data command. */
     }
     else if (command == GotoX)                           
     {
+        update_max_velocity(381178, TMC5160_nCS_MotorX);
         Position_X_Requested = ((int32)USB_received[5] << 24) + ((int32)USB_received[4] << 16) + ((int32)USB_received[3] << 8) + (int32)USB_received[2]; //Decode USB Steps
         
         {
@@ -1300,6 +1301,7 @@ void Process_USB_Data()/* Process USB incoming data command. */
     }
     else if (command == GotoY)          
     {
+        update_max_velocity(381178, TMC5160_nCS_MotorY);
         Position_Y_Requested = ((int32)USB_received[5] << 24) + ((int32)USB_received[4] << 16) + ((int32)USB_received[3] << 8) + (int32)USB_received[2]; //Decode USB Steps
         Position_Y_Requested = (int)(Position_Y_Requested / 4);
         Position_Y_Requested = (int)(Position_Y_Requested * 12.8);
@@ -1354,6 +1356,9 @@ void Process_USB_Data()/* Process USB incoming data command. */
     
     else if (command == GotoXYZ)
     {
+        update_max_velocity(381178, TMC5160_nCS_MotorX);
+        update_max_velocity(381178, TMC5160_nCS_MotorY);
+        update_max_velocity(53687*2, TMC5160_nCS_MotorZ);
         Position_X_Requested = ((int32)USB_received[5] << 24) + ((int32)USB_received[4] << 16) + ((int32)USB_received[3] << 8) + (int32)USB_received[2];
         Position_Y_Requested = ((int32)USB_received[9] << 24) + ((int32)USB_received[8] << 16) + ((int32)USB_received[7] << 8) + (int32)USB_received[6];
         Position_Z_Requested = ((int32)USB_received[13] << 24) + ((int32)USB_received[12] << 16) + ((int32)USB_received[11] << 8) + (int32)USB_received[10];
