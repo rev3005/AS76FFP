@@ -46,14 +46,6 @@
 <v>AS76_FFP4-000\AS76_FFP4\Generated_Source\PSoC5</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
-<v>AS76_FFP4-000</v>
-<v>AS76_FFP4-000\AS76_FFP4</v>
-<v>AS76_FFP4-000\AS76_FFP4\TopDesign</v>
-<v>AS76_FFP4-000\AS76_FFP4\AS76_FFP4.cydwr</v>
-<v>AS76_FFP4-000\AS76_FFP4\AS76_FFP4.cydwr\Pins</v>
-<v>AS76_FFP4-000\AS76_FFP4\AS76_FFP4.cydwr\Analog</v>
-<v>AS76_FFP4-000\AS76_FFP4\AS76_FFP4.cydwr\Clocks</v>
-<v>AS76_FFP4-000\AS76_FFP4\AS76_FFP4.cydwr\Interrupts</v>
 <v>AS76_FFP4-000\AS76_FFP4\AS76_FFP4.cydwr\DMA</v>
 <v>AS76_FFP4-000\AS76_FFP4\AS76_FFP4.cydwr\System</v>
 <v>AS76_FFP4-000\AS76_FFP4\AS76_FFP4.cydwr\Directives</v>
@@ -81,6 +73,14 @@
 <v>AS76_FFP4-000\AS76_FFP4\Generated_Source\PSoC5\LIM_X_L</v>
 <v>AS76_FFP4-000\AS76_FFP4\Generated_Source\PSoC5\LIM_X_R</v>
 <v>AS76_FFP4-000\AS76_FFP4\Generated_Source\PSoC5\LIM_Y_L</v>
+<v>AS76_FFP4-000\AS76_FFP4\Generated_Source\PSoC5\LIM_Y_R</v>
+<v>AS76_FFP4-000\AS76_FFP4\Generated_Source\PSoC5\LIM_Z_L</v>
+<v>AS76_FFP4-000\AS76_FFP4\Generated_Source\PSoC5\LIM_Z_R</v>
+<v>AS76_FFP4-000\AS76_FFP4\Generated_Source\PSoC5\Pin_Backlight</v>
+<v>AS76_FFP4-000\AS76_FFP4\Generated_Source\PSoC5\Pin_BC_LED</v>
+<v>AS76_FFP4-000\AS76_FFP4\Generated_Source\PSoC5\Pin_Buzzer</v>
+<v>AS76_FFP4-000\AS76_FFP4\Generated_Source\PSoC5\Pin_CondenserLED</v>
+<v>AS76_FFP4-000\AS76_FFP4\Generated_Source\PSoC5\Pin_CSMotorO</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
