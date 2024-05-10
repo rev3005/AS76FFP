@@ -443,11 +443,11 @@ Condition            : This Value must range from 0x00 to 0x04 since there are o
 
 void homeZ(uint8_t Motor)
 {
-    TMC5160_MotorZ_EN_Write(0xFF);
+    TMC5160_MotorX_EN_Write(0xFF);
     CyDelayUs(500);
     TMC5160_MotorY_EN_Write(0xFF);
     CyDelayUs(500);
-    TMC5160_MotorX_EN_Write(0x00);
+    TMC5160_MotorZ_EN_Write(0x00);
     CyDelayUs(500);
     update_max_velocity((53687*2), Motor);
     Enable_Encoder_Z(-Buffer_Z_QuadPosition);
@@ -549,6 +549,13 @@ void homeZ(uint8_t Motor)
 
 void homeT(uint8_t Motor)
 {
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070401, TMC5160_nCS_MotorT );
+    TMC5160_MotorX_EN_Write(0xFF);
+    CyDelayUs(500);
+    TMC5160_MotorY_EN_Write(0xFF);
+    CyDelayUs(500);
+    TMC5160_MotorZ_EN_Write(0xFF);
+    CyDelayUs(500);
     TMC5160_MotorT_EN_Write(0x00);
     CyDelayUs(100);
     update_max_velocity(12800, Motor);
@@ -634,6 +641,11 @@ void homeT(uint8_t Motor)
     Write_Debug_UART_Char("HomeT executed  \r\n");
     TMC5160_MotorT_EN_Write(0xFF);
     CyDelayUs(100);
+    TMC5160_MotorX_EN_Write(0x00);
+    CyDelayUs(500);
+    TMC5160_MotorY_EN_Write(0x00);
+    CyDelayUs(500);
+    TMC5160_MotorZ_EN_Write(0x00);
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
