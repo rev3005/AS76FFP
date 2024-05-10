@@ -559,10 +559,10 @@ void homeT(uint8_t Motor)
     Write_32bitSPI_DATA (0x10  , (int) 0x00070101, TMC5160_nCS_MotorY );
     Write_32bitSPI_DATA (0x10  , (int) 0x00070101, TMC5160_nCS_MotorZ );
     Write_32bitSPI_DATA (0x10  , (int) 0x00070101, TMC5160_nCS_MotorX );
-    Write_32bitSPI_DATA (0x10  , (int) 0x00070401, TMC5160_nCS_MotorT );
-    CyDelay(10);
-    TMC5160_MotorT_EN_Write(0x00);
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070501, TMC5160_nCS_MotorT );
     CyDelayUs(100);
+    TMC5160_MotorT_EN_Write(0x00);
+    CyDelay(10);
     update_max_velocity(12800, Motor);
     Enable_Encoder_T(-Buffer_T_QuadPosition);
     Write_32bitSPI_DATA (0x20  , (int) 0x00000002, Motor );

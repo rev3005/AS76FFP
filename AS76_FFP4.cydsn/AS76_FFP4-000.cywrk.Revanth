@@ -46,6 +46,14 @@
 <v>AS76_FFP4-000\AS76_FFP4\Generated_Source\PSoC5</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
+<v>AS76_FFP4-000</v>
+<v>AS76_FFP4-000\AS76_FFP4</v>
+<v>AS76_FFP4-000\AS76_FFP4\TopDesign</v>
+<v>AS76_FFP4-000\AS76_FFP4\AS76_FFP4.cydwr</v>
+<v>AS76_FFP4-000\AS76_FFP4\AS76_FFP4.cydwr\Pins</v>
+<v>AS76_FFP4-000\AS76_FFP4\AS76_FFP4.cydwr\Analog</v>
+<v>AS76_FFP4-000\AS76_FFP4\AS76_FFP4.cydwr\Clocks</v>
+<v>AS76_FFP4-000\AS76_FFP4\AS76_FFP4.cydwr\Interrupts</v>
 <v>AS76_FFP4-000\AS76_FFP4\AS76_FFP4.cydwr\DMA</v>
 <v>AS76_FFP4-000\AS76_FFP4\AS76_FFP4.cydwr\System</v>
 <v>AS76_FFP4-000\AS76_FFP4\AS76_FFP4.cydwr\Directives</v>
@@ -73,14 +81,6 @@
 <v>AS76_FFP4-000\AS76_FFP4\Generated_Source\PSoC5\LIM_X_L</v>
 <v>AS76_FFP4-000\AS76_FFP4\Generated_Source\PSoC5\LIM_X_R</v>
 <v>AS76_FFP4-000\AS76_FFP4\Generated_Source\PSoC5\LIM_Y_L</v>
-<v>AS76_FFP4-000\AS76_FFP4\Generated_Source\PSoC5\LIM_Y_R</v>
-<v>AS76_FFP4-000\AS76_FFP4\Generated_Source\PSoC5\LIM_Z_L</v>
-<v>AS76_FFP4-000\AS76_FFP4\Generated_Source\PSoC5\LIM_Z_R</v>
-<v>AS76_FFP4-000\AS76_FFP4\Generated_Source\PSoC5\Pin_Backlight</v>
-<v>AS76_FFP4-000\AS76_FFP4\Generated_Source\PSoC5\Pin_BC_LED</v>
-<v>AS76_FFP4-000\AS76_FFP4\Generated_Source\PSoC5\Pin_Buzzer</v>
-<v>AS76_FFP4-000\AS76_FFP4\Generated_Source\PSoC5\Pin_CondenserLED</v>
-<v>AS76_FFP4-000\AS76_FFP4\Generated_Source\PSoC5\Pin_CSMotorO</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -279,39 +279,6 @@
 <VisibleNodeIds>
 <v>AS76_FFP4-000</v>
 <v>AS76_FFP4-000\AS76_FFP4</v>
-<v>AS76_FFP4-000\AS76_FFP4\CortexM3</v>
-<v>AS76_FFP4-000\AS76_FFP4\CortexM3\ARM_GCC_541</v>
-<v>AS76_FFP4-000\AS76_FFP4\CortexM3\ARM_GCC_541\Debug</v>
-<v>AS76_FFP4-000\AS76_FFP4\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
-<v>AS76_FFP4-000\AS76_FFP4\CortexM3\ARM_GCC_541\Debug\Listing Files\AS76.lst</v>
-<v>AS76_FFP4-000\AS76_FFP4\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_Encoder_24Mhz.lst</v>
-<v>AS76_FFP4-000\AS76_FFP4\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
-<v>AS76_FFP4-000\AS76_FFP4\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
-<v>AS76_FFP4-000\AS76_FFP4\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
-<v>AS76_FFP4-000\AS76_FFP4\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
-<v>AS76_FFP4-000\AS76_FFP4\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
-<v>AS76_FFP4-000\AS76_FFP4\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
-<v>AS76_FFP4-000\AS76_FFP4\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
-<v>AS76_FFP4-000\AS76_FFP4\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
-<v>AS76_FFP4-000\AS76_FFP4\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
-<v>AS76_FFP4-000\AS76_FFP4\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
-<v>AS76_FFP4-000\AS76_FFP4\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
-<v>AS76_FFP4-000\AS76_FFP4\CortexM3\ARM_GCC_541\Debug\Listing Files\Encoder_T_Z_Select.lst</v>
-<v>AS76_FFP4-000\AS76_FFP4\CortexM3\ARM_GCC_541\Debug\Listing Files\Encoder_T_Z_Select_PM.lst</v>
-<v>AS76_FFP4-000\AS76_FFP4\CortexM3\ARM_GCC_541\Debug\Listing Files\LED2.lst</v>
-<v>AS76_FFP4-000\AS76_FFP4\CortexM3\ARM_GCC_541\Debug\Listing Files\LED3.lst</v>
-<v>AS76_FFP4-000\AS76_FFP4\CortexM3\ARM_GCC_541\Debug\Listing Files\LIM_T_L.lst</v>
-<v>AS76_FFP4-000\AS76_FFP4\CortexM3\ARM_GCC_541\Debug\Listing Files\LIM_T_R.lst</v>
-<v>AS76_FFP4-000\AS76_FFP4\CortexM3\ARM_GCC_541\Debug\Listing Files\LIM_X_L.lst</v>
-<v>AS76_FFP4-000\AS76_FFP4\CortexM3\ARM_GCC_541\Debug\Listing Files\LIM_X_R.lst</v>
-<v>AS76_FFP4-000\AS76_FFP4\CortexM3\ARM_GCC_541\Debug\Listing Files\LIM_Y_L.lst</v>
-<v>AS76_FFP4-000\AS76_FFP4\CortexM3\ARM_GCC_541\Debug\Listing Files\LIM_Y_R.lst</v>
-<v>AS76_FFP4-000\AS76_FFP4\CortexM3\ARM_GCC_541\Debug\Listing Files\LIM_Z_L.lst</v>
-<v>AS76_FFP4-000\AS76_FFP4\CortexM3\ARM_GCC_541\Debug\Listing Files\LIM_Z_R.lst</v>
-<v>AS76_FFP4-000\AS76_FFP4\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
-<v>AS76_FFP4-000\AS76_FFP4\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_Backlight.lst</v>
-<v>AS76_FFP4-000\AS76_FFP4\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_BC_LED.lst</v>
-<v>AS76_FFP4-000\AS76_FFP4\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_Buzzer.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
