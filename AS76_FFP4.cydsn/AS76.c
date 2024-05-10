@@ -516,7 +516,7 @@ void homeZ(uint8_t Motor)
     Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorY );
     Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorZ );
     Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorX );
-    Write_32bitSPI_DATA (0x10  , (int) 0x00070503, TMC5160_nCS_MotorT );
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070101, TMC5160_nCS_MotorT );
     CyDelay(5);
 
 }
@@ -527,6 +527,11 @@ void homeZ(uint8_t Motor)
 
 void homeT(uint8_t Motor)
 {
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070101, TMC5160_nCS_MotorY );
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070101, TMC5160_nCS_MotorZ );
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070101, TMC5160_nCS_MotorX );
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070401, TMC5160_nCS_MotorT );
+    CyDelay(10);
     TMC5160_MotorT_EN_Write(0x00);
     CyDelayUs(100);
     update_max_velocity(12800, Motor);
@@ -910,7 +915,12 @@ int Step_correction_z(int32 steps)
 
 int goTo_T(int32 Position_T_Requested)
 {
-    Write_32bitSPI_DATA (0x10  , (int) 0x00070703, TMC5160_nCS_MotorT );
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070101, TMC5160_nCS_MotorY );
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070101, TMC5160_nCS_MotorZ );
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070101, TMC5160_nCS_MotorX );
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070401, TMC5160_nCS_MotorT );
+    CyDelay(10);
+    //Write_32bitSPI_DATA (0x10  , (int) 0x00070703, TMC5160_nCS_MotorT );
     TMC5160_MotorT_EN_Write(0x00);
     CyDelayUs(100);
     Enable_Encoder_T(-Buffer_T_QuadPosition);
@@ -1242,6 +1252,7 @@ void Process_USB_Data()/* Process USB incoming data command. */
 
     if (command == HomeX)                                          
     {
+        update_max_velocity(381178, TMC5160_nCS_MotorX);
         goTo_X(0);
         homeX(TMC5160_nCS_MotorX);   
         Send_Feedback_to_USB(Error);
@@ -1249,6 +1260,7 @@ void Process_USB_Data()/* Process USB incoming data command. */
     }
     else if (command == HomeY)                           
     {
+        update_max_velocity(381178, TMC5160_nCS_MotorY);
         goTo_Y(0);
         homeY(TMC5160_nCS_MotorY);
         Send_Feedback_to_USB(Error);
@@ -1272,6 +1284,7 @@ void Process_USB_Data()/* Process USB incoming data command. */
     }
     else if (command == GotoX)                           
     {
+        update_max_velocity(381178, TMC5160_nCS_MotorX);
         Position_X_Requested = ((int32)USB_received[5] << 24) + ((int32)USB_received[4] << 16) + ((int32)USB_received[3] << 8) + (int32)USB_received[2]; //Decode USB Steps
         
         {
@@ -1295,6 +1308,7 @@ void Process_USB_Data()/* Process USB incoming data command. */
     }
     else if (command == GotoY)          
     {
+        update_max_velocity(381178, TMC5160_nCS_MotorY);
         Position_Y_Requested = ((int32)USB_received[5] << 24) + ((int32)USB_received[4] << 16) + ((int32)USB_received[3] << 8) + (int32)USB_received[2]; //Decode USB Steps
         Position_Y_Requested = (int)(Position_Y_Requested / 4);
         Position_Y_Requested = (int)(Position_Y_Requested * 12.8);
@@ -1310,6 +1324,7 @@ void Process_USB_Data()/* Process USB incoming data command. */
     }
     else if (command == GotoZ)        
     {
+        update_max_velocity(53687*2, TMC5160_nCS_MotorZ);
         Position_Z_Requested = ((int32)USB_received[5] << 24) + ((int32)USB_received[4] << 16) + ((int32)USB_received[3] << 8) + (int32)USB_received[2]; //Decode USB Steps
         Position_Z_Requested = (Position_Z_Requested / 16);
         Position_Z_Requested = Position_Z_Requested * 51.2;
@@ -1348,6 +1363,9 @@ void Process_USB_Data()/* Process USB incoming data command. */
     
     else if (command == GotoXYZ)
     {
+        update_max_velocity(53687*2, TMC5160_nCS_MotorZ);
+        update_max_velocity(381178, TMC5160_nCS_MotorX);
+        update_max_velocity(381178, TMC5160_nCS_MotorY);
         Position_X_Requested = ((int32)USB_received[5] << 24) + ((int32)USB_received[4] << 16) + ((int32)USB_received[3] << 8) + (int32)USB_received[2];
         Position_Y_Requested = ((int32)USB_received[9] << 24) + ((int32)USB_received[8] << 16) + ((int32)USB_received[7] << 8) + (int32)USB_received[6];
         Position_Z_Requested = ((int32)USB_received[13] << 24) + ((int32)USB_received[12] << 16) + ((int32)USB_received[11] << 8) + (int32)USB_received[10];
