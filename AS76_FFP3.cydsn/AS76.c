@@ -164,7 +164,12 @@ Condition            : This Value must range from 0x00 to 0x04 since there are o
 
 void homeX(uint8_t Motor)
 {
-    Write_32bitSPI_DATA (0x10  , (int) 0x00070503, TMC5160_nCS_MotorX );
+    TMC5160_MotorZ_EN_Write(0xFF);
+    CyDelayUs(500);
+    TMC5160_MotorY_EN_Write(0xFF);
+    CyDelayUs(500);
+    TMC5160_MotorX_EN_Write(0x00);
+    CyDelayUs(500);
     update_max_velocity((307200), Motor); // Set Motor to low speed
     Write_32bitSPI_DATA (0x20  , (int) 0x00000002, Motor ); // Move the motor to Left continuously
     CyDelayUs(200);
@@ -252,12 +257,13 @@ void homeX(uint8_t Motor)
     HomeX_done = true;
     HomeX_done_Buffer = true;
     Write_Debug_UART_Char("HomeX executed  \r\n");
-    Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorY );
-    Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorZ );
-    Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorX );
-    Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorT ); 
-    CyDelay(5);
-    
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070101, TMC5160_nCS_MotorX );
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070101, TMC5160_nCS_MotorY );
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070101, TMC5160_nCS_MotorZ );
+    CyDelayUs(500);
+    TMC5160_MotorY_EN_Write(0x00);
+    CyDelayUs(500);
+    TMC5160_MotorZ_EN_Write(0x00);
 
 }
 
@@ -298,7 +304,12 @@ Condition            : This Value must range from 0x00 to 0x04 since there are o
 
 void homeY(uint8_t Motor)
 {
-    Write_32bitSPI_DATA (0x10  , (int) 0x00070203, TMC5160_nCS_MotorY );
+    TMC5160_MotorZ_EN_Write(0xFF);
+    CyDelayUs(500);
+    TMC5160_MotorX_EN_Write(0xFF);
+    CyDelayUs(500);
+    TMC5160_MotorY_EN_Write(0x00);
+    CyDelayUs(500);
     update_max_velocity((307200), Motor);
     Write_32bitSPI_DATA (0x20  , (int) 0x00000002, Motor );
     CyDelayUs(50);
@@ -366,7 +377,8 @@ void homeY(uint8_t Motor)
     HomeZ_done = true;
     HomeT_done = true;
     CyDelayUs(100);
-    goTo_Y((256*200)*1);
+    //goTo_Y((256*200)*1);
+    goTo_Y(19200);
     HomeX_done = HomeX_done_Buffer;
     HomeY_done = HomeY_done_Buffer;
     HomeZ_done = HomeZ_done_Buffer;
@@ -385,11 +397,14 @@ void homeY(uint8_t Motor)
     HomeY_done = true;
     HomeY_done_Buffer = true;
     Write_Debug_UART_Char("HomeY executed  \r\n");
-    Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorY );
-    Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorZ );
-    Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorX );
-    Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorT );
-    CyDelay(5);
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070101, TMC5160_nCS_MotorX );
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070101, TMC5160_nCS_MotorY );
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070101, TMC5160_nCS_MotorZ );
+    CyDelayUs(500);
+    TMC5160_MotorX_EN_Write(0x00);
+    CyDelayUs(500);
+    TMC5160_MotorZ_EN_Write(0x00);
+
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////
@@ -429,7 +444,12 @@ Condition            : This Value must range from 0x00 to 0x04 since there are o
 
 void homeZ(uint8_t Motor)
 {
-    Write_32bitSPI_DATA (0x10  , (int) 0x00070203, TMC5160_nCS_MotorZ );
+    TMC5160_MotorX_EN_Write(0xFF);
+    CyDelayUs(500);
+    TMC5160_MotorY_EN_Write(0xFF);
+    CyDelayUs(500);
+    TMC5160_MotorZ_EN_Write(0x00);
+    CyDelayUs(500);
     update_max_velocity((53687*2), Motor);
     Enable_Encoder_Z(-Buffer_Z_QuadPosition);
     Write_32bitSPI_DATA (0x20  , (int) 0x00000002, Motor );
@@ -514,22 +534,37 @@ void homeZ(uint8_t Motor)
     HomeZ_done = true;
     HomeZ_done_Buffer = true;
     Write_Debug_UART_Char("HomeZ executed  \r\n");
-    Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorY );
-    Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorZ );
-    Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorX );
-    Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorT );
-    CyDelay(5);
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070101, TMC5160_nCS_MotorX );
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070101, TMC5160_nCS_MotorY );
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070101, TMC5160_nCS_MotorZ );
+    CyDelayUs(500);
+    TMC5160_MotorY_EN_Write(0x00);
+    CyDelayUs(500);
+    TMC5160_MotorX_EN_Write(0x00);
 
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////
 
+
+
 /////////////////////////////////////Homing T//////////////////////////////////////////
 
 void homeT(uint8_t Motor)
 {
-    TMC5160_MotorT_EN_Write(0x00);
+    TMC5160_MotorX_EN_Write(0xFF);
+    CyDelayUs(500);
+    TMC5160_MotorY_EN_Write(0xFF);
+    CyDelayUs(500);
+    TMC5160_MotorZ_EN_Write(0xFF);
+    CyDelayUs(500);
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070101, TMC5160_nCS_MotorY );
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070101, TMC5160_nCS_MotorZ );
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070101, TMC5160_nCS_MotorX );
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070501, TMC5160_nCS_MotorT );
     CyDelayUs(100);
+    TMC5160_MotorT_EN_Write(0x00);
+    CyDelay(10);
     update_max_velocity(12800, Motor);
     Enable_Encoder_T(-Buffer_T_QuadPosition);
     Write_32bitSPI_DATA (0x20  , (int) 0x00000002, Motor );
@@ -612,8 +647,18 @@ void homeT(uint8_t Motor)
     HomeT_done_Buffer = true;
     Write_Debug_UART_Char("HomeT executed  \r\n");
     TMC5160_MotorT_EN_Write(0xFF);
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070101, TMC5160_nCS_MotorX );
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070101, TMC5160_nCS_MotorY );
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070101, TMC5160_nCS_MotorZ );
+    CyDelayUs(500);
+    TMC5160_MotorY_EN_Write(0x00);
+    CyDelayUs(500);
+    TMC5160_MotorX_EN_Write(0x00);
+    CyDelayUs(500);
+    TMC5160_MotorZ_EN_Write(0x00);
     CyDelayUs(100);
 }
+
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -914,6 +959,15 @@ int Step_correction_z(int32 steps)
 
 int goTo_T(int32 Position_T_Requested)
 {
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070101, TMC5160_nCS_MotorY );
+    CyDelayUs(100);
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070101, TMC5160_nCS_MotorZ );
+    CyDelayUs(100);
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070101, TMC5160_nCS_MotorX );
+    CyDelayUs(100);
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070501, TMC5160_nCS_MotorT );
+    CyDelay(10);
+    //Write_32bitSPI_DATA (0x10  , (int) 0x00070703, TMC5160_nCS_MotorT );
     TMC5160_MotorT_EN_Write(0x00);
     CyDelayUs(100);
     Enable_Encoder_T(-Buffer_T_QuadPosition);
@@ -1006,7 +1060,6 @@ int Step_correction_t(int32 steps)
     
     return Error;
 }
-
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////Go to Position in XYZ Axis//////////////////////////////////////////////
