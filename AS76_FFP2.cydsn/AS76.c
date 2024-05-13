@@ -179,7 +179,7 @@ void homeX(uint8_t Motor)
        CyDelayUs(100);
        if(exit_loop == 1)
        {
-        Error = 1;
+        Error = 4;
         Send_Feedback_to_USB(Error);
         wait_timer_Stop();
         Write_32bitSPI_DATA (0x20  , (int) 0x00000000, Motor );
@@ -234,6 +234,7 @@ void homeX(uint8_t Motor)
     HomeT_done = true;
     CyDelayUs(100);
     goTo_X((256*200)*1); // Move the motor 1 rotation with error corrction mechanism based on encoder feedback
+    Error=0;
     HomeX_done = HomeX_done_Buffer;
     HomeY_done = HomeY_done_Buffer;
     HomeZ_done = HomeZ_done_Buffer;
@@ -313,7 +314,7 @@ void homeY(uint8_t Motor)
        
         if(exit_loop == 1)
         {
-        Error = 8;
+        Error = 11;
         Send_Feedback_to_USB(Error);
         wait_timer_Stop();
         Write_32bitSPI_DATA (0x20  , (int) 0x00000000, Motor );
@@ -368,6 +369,7 @@ void homeY(uint8_t Motor)
     CyDelayUs(100);
     //goTo_Y((256*200)*1);
     goTo_Y(19200);
+    Error=0;
     HomeX_done = HomeX_done_Buffer;
     HomeY_done = HomeY_done_Buffer;
     HomeZ_done = HomeZ_done_Buffer;
@@ -445,7 +447,7 @@ void homeZ(uint8_t Motor)
        Read_32bitSPI_DATA(0x04, Motor, &status_z);
        if(exit_loop == 1)
             {
-            Error = 15;
+            Error = 18;
             Send_Feedback_to_USB(Error);
             wait_timer_Stop();
             Write_32bitSPI_DATA (0x20  , (int) 0x00000000, Motor );
@@ -500,6 +502,7 @@ void homeZ(uint8_t Motor)
     HomeT_done = true;
     CyDelayUs(100);
     goTo_Z(((256*200)*1));
+    Error=0;
     HomeX_done = HomeX_done_Buffer;
     HomeY_done = HomeY_done_Buffer;
     HomeZ_done = HomeZ_done_Buffer;
@@ -676,7 +679,7 @@ int Step_correction_x(int32 steps)
     
        
     //if((abs(encoder_error_value))>= X_max_error_After_Correction )
-    if((abs(encoder_error_value))>= 3 )
+    if((abs(encoder_error_value))>= 60 )
     {
       new_step = new_step+steps;     
       GotoPos(new_step, TMC5160_nCS_MotorX);
@@ -693,6 +696,7 @@ int Step_correction_x(int32 steps)
      {
         Write_Debug_UART_Char("Fail to reach X position \r\n");
         LED3_Write(0xFF);
+        //GotoPos((steps-1000),TMC5160_nCS_MotorX);
         Error=  1;
      }
     
@@ -769,7 +773,7 @@ int Step_correction_y(int32 steps)
         Error=  9;
         break;
     }
-    if((abs(encoder_error_value))>=3)
+    if((abs(encoder_error_value))>=60)
     {
       new_step = new_step+steps;     
       GotoPos(new_step, TMC5160_nCS_MotorY);
@@ -790,6 +794,7 @@ int Step_correction_y(int32 steps)
      {
         Write_Debug_UART_Char("Fail to reach Y position \r\n");
         LED3_Write(0xFF);
+        //GotoPos((steps-1000),TMC5160_nCS_MotorY);
         Error=  8;
      }
     
@@ -869,7 +874,7 @@ int Step_correction_z(int32 steps)
         Error=  16;
         break;
     }
-    if((abs(encoder_error_value))>=3)
+    if((abs(encoder_error_value))>=5)
     {
       new_step = new_step+steps;     
       GotoPos(new_step, TMC5160_nCS_MotorZ);
@@ -890,6 +895,7 @@ int Step_correction_z(int32 steps)
      {
         Write_Debug_UART_Char("Fail to reach Z position \r\n");
         LED2_Write(0xFF);
+        //GotoPos((steps-1000),TMC5160_nCS_MotorZ);
         Error = 15;
      }
     
@@ -1242,10 +1248,13 @@ void Process_USB_Data()/* Process USB incoming data command. */
     //Pin_USB_RX_TX_Indicator_LED_Write(1); /* turn ON LED as a indicator to start process the command. */
     Error = 0;
     command = ((unsigned int)USB_received[1] << 8) + USB_received[0];   /* Reading USB data. */
+    //Write_Debug_UART_Char()
+    //Write_Debug_UART_Int(command);
     /*Compare USB data and execute the command*/
 
     if (command == HomeX)                                          
     {
+        Write_Debug_UART_Char("Home X Starting \n");
         update_max_velocity(381178, TMC5160_nCS_MotorX);
         goTo_X(0);
         homeX(TMC5160_nCS_MotorX);   
@@ -1254,6 +1263,7 @@ void Process_USB_Data()/* Process USB incoming data command. */
     }
     else if (command == HomeY)                           
     {
+        Write_Debug_UART_Char("Home Y Starting \n");
         update_max_velocity(381178, TMC5160_nCS_MotorY);
         goTo_Y(0);
         homeY(TMC5160_nCS_MotorY);
@@ -1262,6 +1272,7 @@ void Process_USB_Data()/* Process USB incoming data command. */
     }
     else if (command == HomeZ)                           
     {
+        Write_Debug_UART_Char("Home Z Starting \n");
         update_max_velocity(53687*2, TMC5160_nCS_MotorZ);
         CyDelayUs(100);
         goTo_Z(0);
@@ -1278,12 +1289,16 @@ void Process_USB_Data()/* Process USB incoming data command. */
     }
     else if (command == GotoX)                           
     {
+        Write_Debug_UART_Char("Home X Starting \n");
         Position_X_Requested = ((int32)USB_received[5] << 24) + ((int32)USB_received[4] << 16) + ((int32)USB_received[3] << 8) + (int32)USB_received[2]; //Decode USB Steps
-        
+        Write_Debug_UART_Char("Requested Position :");
+        Write_Debug_UART_Int(Position_X_Requested);
+        Write_Debug_UART_Char("\n");
         {
             Position_X_Requested = (int)(Position_X_Requested / 4);
             Position_X_Requested = (int)Position_X_Requested * 12.8;
             Error = goTo_X(Position_X_Requested);
+            
         }
         
         
