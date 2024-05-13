@@ -1,4 +1,4 @@
---------------- Build Started: 05/13/2024 13:42:05 Project: AS76_FFP2, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+--------------- Build Started: 05/13/2024 17:26:46 Project: AS76_FFP2, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
 The code generation step is up to date.
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/AS76.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c AS76.c -o .\CortexM3\ARM_GCC_541\Debug\AS76.o
 In file included from AS76.c:14:0:
@@ -6,208 +6,208 @@ AS76.c: In function 'Send_Feedback_to_USB':
 variables.h:127:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define No_Error                                        0xFA00// Error No:- 0
                                                          ^
-AS76.c:1543:31: note: in expansion of macro 'No_Error'
+AS76.c:1640:31: note: in expansion of macro 'No_Error'
              USB_transmit[2] = No_Error;
                                ^
 variables.h:128:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define X_Motor_Not_Working                             0xFA01// Error No:- 1
                                                          ^
-AS76.c:1552:39: note: in expansion of macro 'X_Motor_Not_Working'
+AS76.c:1649:39: note: in expansion of macro 'X_Motor_Not_Working'
                      USB_transmit[2] = X_Motor_Not_Working;
                                        ^
 variables.h:129:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define X_Encoder_Not_Working                           0xFA02// Error No:- 2
                                                          ^
-AS76.c:1558:39: note: in expansion of macro 'X_Encoder_Not_Working'
+AS76.c:1655:39: note: in expansion of macro 'X_Encoder_Not_Working'
                      USB_transmit[2] = X_Encoder_Not_Working;
                                        ^
 variables.h:130:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define X_Switch_Not_Working                            0xFA17// Error No:- 3
                                                          ^
-AS76.c:1564:39: note: in expansion of macro 'X_Switch_Not_Working'
+AS76.c:1661:39: note: in expansion of macro 'X_Switch_Not_Working'
                      USB_transmit[2] = X_Switch_Not_Working;
                                        ^
 variables.h:131:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define X_Motor_Driver_Fault                            0xFA07// Error No:- 4
                                                          ^
-AS76.c:1570:39: note: in expansion of macro 'X_Motor_Driver_Fault'
+AS76.c:1667:39: note: in expansion of macro 'X_Motor_Driver_Fault'
                      USB_transmit[2] = X_Motor_Driver_Fault;
                                        ^
 variables.h:132:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define Requested_X_Step_Exceeding_The_Limit            0xFA11// Error No:- 5
                                                          ^
-AS76.c:1576:39: note: in expansion of macro 'Requested_X_Step_Exceeding_The_Limit'
+AS76.c:1673:39: note: in expansion of macro 'Requested_X_Step_Exceeding_The_Limit'
                      USB_transmit[2] = Requested_X_Step_Exceeding_The_Limit;
                                        ^
 variables.h:133:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define X_Homing_Not_Done_Yet                           0xFA1D// Error No:- 5
                                                          ^
-AS76.c:1582:39: note: in expansion of macro 'X_Homing_Not_Done_Yet'
+AS76.c:1679:39: note: in expansion of macro 'X_Homing_Not_Done_Yet'
                      USB_transmit[2] = X_Homing_Not_Done_Yet;
                                        ^
 variables.h:149:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define X_Motor_Busy                                    0xFA25// Error No:- 22
                                                          ^
-AS76.c:1588:39: note: in expansion of macro 'X_Motor_Busy'
+AS76.c:1685:39: note: in expansion of macro 'X_Motor_Busy'
                      USB_transmit[2] = X_Motor_Busy ;
                                        ^
 variables.h:134:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define Y_Motor_Not_Working                             0xFA03// Error No:- 7
                                                          ^
-AS76.c:1594:39: note: in expansion of macro 'Y_Motor_Not_Working'
+AS76.c:1691:39: note: in expansion of macro 'Y_Motor_Not_Working'
                      USB_transmit[2] = Y_Motor_Not_Working;
                                        ^
 variables.h:135:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define Y_Encoder_Not_Working                           0xFA04// Error No:- 8
                                                          ^
-AS76.c:1600:39: note: in expansion of macro 'Y_Encoder_Not_Working'
+AS76.c:1697:39: note: in expansion of macro 'Y_Encoder_Not_Working'
                      USB_transmit[2] = Y_Encoder_Not_Working;
                                        ^
 variables.h:136:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define Y_Switch_Not_Working                            0xFA18// Error No:- 9
                                                          ^
-AS76.c:1606:39: note: in expansion of macro 'Y_Switch_Not_Working'
+AS76.c:1703:39: note: in expansion of macro 'Y_Switch_Not_Working'
                      USB_transmit[2] = Y_Switch_Not_Working;
                                        ^
 variables.h:137:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define Y_Motor_Driver_Fault                            0xFA08// Error No:- 10 
                                                          ^
-AS76.c:1612:39: note: in expansion of macro 'Y_Motor_Driver_Fault'
+AS76.c:1709:39: note: in expansion of macro 'Y_Motor_Driver_Fault'
                      USB_transmit[2] = Y_Motor_Driver_Fault;
                                        ^
 variables.h:138:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define Requested_Y_Step_Exceeding_The_Limit            0xFA12// Error No:- 11
                                                          ^
-AS76.c:1618:39: note: in expansion of macro 'Requested_Y_Step_Exceeding_The_Limit'
+AS76.c:1715:39: note: in expansion of macro 'Requested_Y_Step_Exceeding_The_Limit'
                      USB_transmit[2] = Requested_Y_Step_Exceeding_The_Limit;
                                        ^
 variables.h:139:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define Y_Homing_Not_Done_Yet                           0xFA1E// Error No:- 12
                                                          ^
-AS76.c:1624:39: note: in expansion of macro 'Y_Homing_Not_Done_Yet'
+AS76.c:1721:39: note: in expansion of macro 'Y_Homing_Not_Done_Yet'
                      USB_transmit[2] = Y_Homing_Not_Done_Yet;
                                        ^
 variables.h:150:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define Y_Motor_Busy                                    0xFA26// Error No:- 23
                                                          ^
-AS76.c:1630:39: note: in expansion of macro 'Y_Motor_Busy'
+AS76.c:1727:39: note: in expansion of macro 'Y_Motor_Busy'
                      USB_transmit[2] = Y_Motor_Busy;
                                        ^
 variables.h:140:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define Z_Motor_Not_Working                             0xFA05// Error No:- 13
                                                          ^
-AS76.c:1636:39: note: in expansion of macro 'Z_Motor_Not_Working'
+AS76.c:1733:39: note: in expansion of macro 'Z_Motor_Not_Working'
                      USB_transmit[2] = Z_Motor_Not_Working ;
                                        ^
 variables.h:141:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define Z_Encoder_Not_Working                           0xFA06// Error No:- 14
                                                          ^
-AS76.c:1642:39: note: in expansion of macro 'Z_Encoder_Not_Working'
+AS76.c:1739:39: note: in expansion of macro 'Z_Encoder_Not_Working'
                      USB_transmit[2] = Z_Encoder_Not_Working ;
                                        ^
 variables.h:142:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define Z_Switch_Not_Working                            0xFA19// Error No:- 15          
                                                          ^
-AS76.c:1648:39: note: in expansion of macro 'Z_Switch_Not_Working'
+AS76.c:1745:39: note: in expansion of macro 'Z_Switch_Not_Working'
                      USB_transmit[2] = Z_Switch_Not_Working;
                                        ^
 variables.h:143:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define Z_Motor_Driver_Fault                            0xFA09// Error No:- 16 
                                                          ^
-AS76.c:1654:39: note: in expansion of macro 'Z_Motor_Driver_Fault'
+AS76.c:1751:39: note: in expansion of macro 'Z_Motor_Driver_Fault'
                      USB_transmit[2] = Z_Motor_Driver_Fault;
                                        ^
 variables.h:144:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define Requested_Z_Step_Exceeding_The_Limit            0xFA13// Error No:- 17
                                                          ^
-AS76.c:1660:39: note: in expansion of macro 'Requested_Z_Step_Exceeding_The_Limit'
+AS76.c:1757:39: note: in expansion of macro 'Requested_Z_Step_Exceeding_The_Limit'
                      USB_transmit[2] = Requested_Z_Step_Exceeding_The_Limit;
                                        ^
 variables.h:145:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define Z_Homing_Not_Done_Yet                           0xFA1F// Error No:- 18
                                                          ^
-AS76.c:1666:39: note: in expansion of macro 'Z_Homing_Not_Done_Yet'
+AS76.c:1763:39: note: in expansion of macro 'Z_Homing_Not_Done_Yet'
                      USB_transmit[2] = Z_Homing_Not_Done_Yet;
                                        ^
 variables.h:151:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define Z_Motor_Busy                                    0xFA27// Error No:- 24
                                                          ^
-AS76.c:1672:39: note: in expansion of macro 'Z_Motor_Busy'
+AS76.c:1769:39: note: in expansion of macro 'Z_Motor_Busy'
                      USB_transmit[2] = Z_Motor_Busy;
                                        ^
 variables.h:154:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define T_Motor_Not_Working                             0xFA2B// Error No:- 1
                                                          ^
-AS76.c:1678:39: note: in expansion of macro 'T_Motor_Not_Working'
+AS76.c:1775:39: note: in expansion of macro 'T_Motor_Not_Working'
                      USB_transmit[2] = T_Motor_Not_Working;
                                        ^
 variables.h:155:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define T_Encoder_Not_Working                           0xFA2C// Error No:- 2
                                                          ^
-AS76.c:1684:39: note: in expansion of macro 'T_Encoder_Not_Working'
+AS76.c:1781:39: note: in expansion of macro 'T_Encoder_Not_Working'
                      USB_transmit[2] = T_Encoder_Not_Working;
                                        ^
 variables.h:156:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define T_Switch_Not_Working                            0xFA2D// Error No:- 3
                                                          ^
-AS76.c:1690:39: note: in expansion of macro 'T_Switch_Not_Working'
+AS76.c:1787:39: note: in expansion of macro 'T_Switch_Not_Working'
                      USB_transmit[2] = T_Switch_Not_Working;
                                        ^
 variables.h:157:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define T_Motor_Driver_Fault                            0xFA2E// Error No:- 4
                                                          ^
-AS76.c:1697:39: note: in expansion of macro 'T_Motor_Driver_Fault'
+AS76.c:1794:39: note: in expansion of macro 'T_Motor_Driver_Fault'
                      USB_transmit[2] = T_Motor_Driver_Fault;
                                        ^
 variables.h:158:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define Requested_T_Step_Exceeding_The_Limit            0xFA2A// Error No:- 5
                                                          ^
-AS76.c:1703:39: note: in expansion of macro 'Requested_T_Step_Exceeding_The_Limit'
+AS76.c:1800:39: note: in expansion of macro 'Requested_T_Step_Exceeding_The_Limit'
                      USB_transmit[2] = Requested_T_Step_Exceeding_The_Limit;
                                        ^
 variables.h:159:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define T_Homing_Not_Done_Yet                           0xFA2F// Error No:- 5
                                                          ^
-AS76.c:1709:39: note: in expansion of macro 'T_Homing_Not_Done_Yet'
+AS76.c:1806:39: note: in expansion of macro 'T_Homing_Not_Done_Yet'
                      USB_transmit[2] = T_Homing_Not_Done_Yet;
                                        ^
 variables.h:152:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define T_Motor_Busy                                    0xFA28// Error No:- 24
                                                          ^
-AS76.c:1715:39: note: in expansion of macro 'T_Motor_Busy'
+AS76.c:1812:39: note: in expansion of macro 'T_Motor_Busy'
                      USB_transmit[2] = T_Motor_Busy;
                                        ^
 variables.h:146:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define Wrong_Command_Received                          0xFA22// Error No:- 19
                                                          ^
-AS76.c:1721:39: note: in expansion of macro 'Wrong_Command_Received'
+AS76.c:1818:39: note: in expansion of macro 'Wrong_Command_Received'
                      USB_transmit[2] = Wrong_Command_Received;
                                        ^
 variables.h:147:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define PCB_Paused                                      0xFA23// Error No:- 20
                                                          ^
-AS76.c:1727:39: note: in expansion of macro 'PCB_Paused'
+AS76.c:1824:39: note: in expansion of macro 'PCB_Paused'
                      USB_transmit[2] = PCB_Paused;
                                        ^
 variables.h:148:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define PCB_Busy                                        0xFA24// Error No:- 21
                                                          ^
-AS76.c:1733:39: note: in expansion of macro 'PCB_Busy'
+AS76.c:1830:39: note: in expansion of macro 'PCB_Busy'
                      USB_transmit[2] = PCB_Busy;
                                        ^
 variables.h:160:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define All_Motors_Homing_Not_Done                      0xFA29
                                                          ^
-AS76.c:1739:39: note: in expansion of macro 'All_Motors_Homing_Not_Done'
+AS76.c:1836:39: note: in expansion of macro 'All_Motors_Homing_Not_Done'
                      USB_transmit[2] = All_Motors_Homing_Not_Done;
                                        ^
 variables.h:161:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define O_Motor_Not_Working                             0xFA30// Error No:- 3
                                                          ^
-AS76.c:1746:39: note: in expansion of macro 'O_Motor_Not_Working'
+AS76.c:1843:39: note: in expansion of macro 'O_Motor_Not_Working'
                      USB_transmit[2] = O_Motor_Not_Working;
                                        ^
-AS76.c:1801:21: warning: pointer targets in passing argument 1 of 'USB_PutData' differ in signedness [-Wpointer-sign]
+AS76.c:1898:21: warning: pointer targets in passing argument 1 of 'USB_PutData' differ in signedness [-Wpointer-sign]
          USB_PutData(USB_transmit, 46);  //send data back to usb
                      ^
 In file included from Generated_Source\PSoC5/project.h:81:0,
@@ -217,10 +217,10 @@ Generated_Source\PSoC5/USB_cdc.h:35:10: note: expected 'const uint8 * {aka const
      void USB_PutData(const uint8* pData, uint16 length) ;
           ^
 AS76.c: In function 'Clear_USB_RX_Buffer':
-AS76.c:1843:25: warning: iteration 64u invokes undefined behavior [-Waggressive-loop-optimizations]
+AS76.c:1940:25: warning: iteration 64u invokes undefined behavior [-Waggressive-loop-optimizations]
          USB_received[i] = 0;   
                          ^
-AS76.c:1842:5: note: containing loop
+AS76.c:1939:5: note: containing loop
      for(i=0;i<65;i++)   //Initializing all bites to 0
      ^
 arm-none-eabi-ar.exe -rs .\CortexM3\ARM_GCC_541\Debug\AS76_FFP2.a .\CortexM3\ARM_GCC_541\Debug\Pin_CSMotorX.o .\CortexM3\ARM_GCC_541\Debug\Pin_CSMotorY.o .\CortexM3\ARM_GCC_541\Debug\Pin_CSMotorZ.o .\CortexM3\ARM_GCC_541\Debug\SPIM.o .\CortexM3\ARM_GCC_541\Debug\SPIM_PM.o .\CortexM3\ARM_GCC_541\Debug\SPIM_INT.o .\CortexM3\ARM_GCC_541\Debug\Pin_SDO.o .\CortexM3\ARM_GCC_541\Debug\Pin_SDI.o .\CortexM3\ARM_GCC_541\Debug\Pin_SCK.o .\CortexM3\ARM_GCC_541\Debug\CyDmac.o .\CortexM3\ARM_GCC_541\Debug\CyFlash.o .\CortexM3\ARM_GCC_541\Debug\CyLib.o .\CortexM3\ARM_GCC_541\Debug\cyPm.o .\CortexM3\ARM_GCC_541\Debug\CySpc.o .\CortexM3\ARM_GCC_541\Debug\cyutils.o .\CortexM3\ARM_GCC_541\Debug\USB.o .\CortexM3\ARM_GCC_541\Debug\USB_audio.o .\CortexM3\ARM_GCC_541\Debug\USB_boot.o .\CortexM3\ARM_GCC_541\Debug\USB_cdc.o .\CortexM3\ARM_GCC_541\Debug\USB_cls.o .\CortexM3\ARM_GCC_541\Debug\USB_descr.o .\CortexM3\ARM_GCC_541\Debug\USB_drv.o .\CortexM3\ARM_GCC_541\Debug\USB_episr.o .\CortexM3\ARM_GCC_541\Debug\USB_hid.o .\CortexM3\ARM_GCC_541\Debug\USB_pm.o .\CortexM3\ARM_GCC_541\Debug\USB_std.o .\CortexM3\ARM_GCC_541\Debug\USB_vnd.o .\CortexM3\ARM_GCC_541\Debug\USB_midi.o .\CortexM3\ARM_GCC_541\Debug\USB_msc.o .\CortexM3\ARM_GCC_541\Debug\USB_Dm.o .\CortexM3\ARM_GCC_541\Debug\USB_Dp.o .\CortexM3\ARM_GCC_541\Debug\PWM_CondenserLED.o .\CortexM3\ARM_GCC_541\Debug\PWM_CondenserLED_PM.o .\CortexM3\ARM_GCC_541\Debug\Pin_CondenserLED.o .\CortexM3\ARM_GCC_541\Debug\SPIM_IntClock.o .\CortexM3\ARM_GCC_541\Debug\cy_em_eeprom.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_X.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_X_INT.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_X_PM.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_X_isr.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_X_Cnt16.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_X_Cnt16_PM.o .\CortexM3\ARM_GCC_541\Debug\UART_PCB_LOG.o .\CortexM3\ARM_GCC_541\Debug\UART_PCB_LOG_PM.o .\CortexM3\ARM_GCC_541\Debug\UART_PCB_LOG_INT.o .\CortexM3\ARM_GCC_541\Debug\UART_PCB_LOG_BOOT.o .\CortexM3\ARM_GCC_541\Debug\UART_PCB_LOG_IntClock.o .\CortexM3\ARM_GCC_541\Debug\Clock_Encoder_24Mhz.o .\CortexM3\ARM_GCC_541\Debug\Pin_Buzzer.o .\CortexM3\ARM_GCC_541\Debug\Pin_Backlight.o .\CortexM3\ARM_GCC_541\Debug\Pin_OptDec_X_A.o .\CortexM3\ARM_GCC_541\Debug\LED2.o .\CortexM3\ARM_GCC_541\Debug\Pin_OptDec_Z_A.o .\CortexM3\ARM_GCC_541\Debug\Pin_OptDec_Z_B.o .\CortexM3\ARM_GCC_541\Debug\PWM_CLK.o .\CortexM3\ARM_GCC_541\Debug\Pin_CSMotorO.o .\CortexM3\ARM_GCC_541\Debug\Pin_CSMotorT.o .\CortexM3\ARM_GCC_541\Debug\Pin_BC_LED.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_TZ.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_TZ_INT.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_TZ_PM.o .\CortexM3\ARM_GCC_541\Debug\PWM_Buzzer.o .\CortexM3\ARM_GCC_541\Debug\PWM_Buzzer_PM.o .\CortexM3\ARM_GCC_541\Debug\Pin_OptDec_X_B.o .\CortexM3\ARM_GCC_541\Debug\Pin_OptDec_Y_A.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_Y.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_Y_INT.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_Y_PM.o .\CortexM3\ARM_GCC_541\Debug\PWM_BarcodeCondenser_LED.o .\CortexM3\ARM_GCC_541\Debug\PWM_BarcodeCondenser_LED_PM.o .\CortexM3\ARM_GCC_541\Debug\LED3.o .\CortexM3\ARM_GCC_541\Debug\Pin_Encoder_T_A.o .\CortexM3\ARM_GCC_541\Debug\Pin_Encoder_T_B.o .\CortexM3\ARM_GCC_541\Debug\Encoder_T_Z_Select.o .\CortexM3\ARM_GCC_541\Debug\Encoder_T_Z_Select_PM.o .\CortexM3\ARM_GCC_541\Debug\TMC5160_MotorX_EN.o .\CortexM3\ARM_GCC_541\Debug\TMC5160_MotorY_EN.o .\CortexM3\ARM_GCC_541\Debug\TMC5160_MotorZ_EN.o .\CortexM3\ARM_GCC_541\Debug\TMC5160_MotorT_EN.o .\CortexM3\ARM_GCC_541\Debug\TMC5160_MotorO_EN.o .\CortexM3\ARM_GCC_541\Debug\Pin_OptDec_Y_B.o .\CortexM3\ARM_GCC_541\Debug\LIM_X_L.o .\CortexM3\ARM_GCC_541\Debug\LIM_X_R.o .\CortexM3\ARM_GCC_541\Debug\LIM_Y_L.o .\CortexM3\ARM_GCC_541\Debug\LIM_Y_R.o .\CortexM3\ARM_GCC_541\Debug\LIM_Z_L.o .\CortexM3\ARM_GCC_541\Debug\LIM_Z_R.o .\CortexM3\ARM_GCC_541\Debug\LIM_T_L.o .\CortexM3\ARM_GCC_541\Debug\LIM_T_R.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_TZ_isr.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_TZ_Cnt16.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_TZ_Cnt16_PM.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_Y_isr.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_Y_Cnt16.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_Y_Cnt16_PM.o .\CortexM3\ARM_GCC_541\Debug\timer_clock.o .\CortexM3\ARM_GCC_541\Debug\wait_timer.o .\CortexM3\ARM_GCC_541\Debug\wait_timer_PM.o .\CortexM3\ARM_GCC_541\Debug\wait_interrupt.o .\CortexM3\ARM_GCC_541\Debug\CyBootAsmGnu.o
@@ -231,6 +231,6 @@ No ELF section .cychecksum found, creating one
 Application checksum calculated and stored in ELF section .cychecksum
 Checksum calculated and stored in ELF section .cymeta
 cyelftool.exe -S C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\AS76_FFP2.cydsn\CortexM3\ARM_GCC_541\Debug\AS76_FFP2.elf
-Flash used: 32080 of 262144 bytes (12.2%).
+Flash used: 33752 of 262144 bytes (12.9%).
 SRAM used: 3193 of 65536 bytes (4.9%). Stack: 2048 bytes. Heap: 128 bytes.
---------------- Build Succeeded: 05/13/2024 13:42:07 ---------------
+--------------- Build Succeeded: 05/13/2024 17:26:49 ---------------
