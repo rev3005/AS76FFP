@@ -496,6 +496,7 @@ void homeZ(uint8_t Motor)
     HomeT_done = true;
     CyDelayUs(100);
     goTo_Z(((256*200)*1));
+    Error =0;
     HomeX_done = HomeX_done_Buffer;
     HomeY_done = HomeY_done_Buffer;
     HomeZ_done = HomeZ_done_Buffer;
