@@ -164,12 +164,7 @@ Condition            : This Value must range from 0x00 to 0x04 since there are o
 
 void homeX(uint8_t Motor)
 {
-    TMC5160_MotorZ_EN_Write(0xFF);
-    CyDelayUs(500);
-    TMC5160_MotorY_EN_Write(0xFF);
-    CyDelayUs(500);
-    TMC5160_MotorX_EN_Write(0x00);
-    CyDelayUs(500);
+
     update_max_velocity((307200), Motor); // Set Motor to low speed
     Write_32bitSPI_DATA (0x20  , (int) 0x00000002, Motor ); // Move the motor to Left continuously
     CyDelayUs(200);
@@ -672,7 +667,7 @@ int goTo_X(int32 Position_X_Requested)
     {
         Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorY );
         Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorZ );
-        Write_32bitSPI_DATA (0x10  , (int) 0x0007030A, TMC5160_nCS_MotorX );
+        Write_32bitSPI_DATA (0x10  , (int) 0x00070305, TMC5160_nCS_MotorX );
         //Position_X_Move = Position_X_Move + Position_X_Requested;
         Error = 0;
         Read_All_Optical_Encoder();
@@ -720,7 +715,7 @@ int Step_correction_x(int32 steps)
     
        
     //if((abs(encoder_error_value))>= X_max_error_After_Correction )
-    if((abs(encoder_error_value))>= 3 )
+    if((abs(encoder_error_value))>5 )
     {
       new_step = new_step+steps;     
       GotoPos(new_step, TMC5160_nCS_MotorX);
@@ -733,7 +728,7 @@ int Step_correction_x(int32 steps)
     encoder_error_value = Encoder_Position_X_Requested - X_QuadPosition;
     if((temp>5))
     {
-     if(((abs(encoder_error_value))>= 3 ) && ((abs(encoder_error_value))<2000))
+     if(((abs(encoder_error_value))> 7 ) && ((abs(encoder_error_value))<2000))
      {
         Write_Debug_UART_Char("Fail to reach X position \r\n");
         LED3_Write(0xFF);
@@ -769,7 +764,7 @@ int goTo_Y(int32 Position_Y_Requested)
     {
         Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorX );
         Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorZ );
-        Write_32bitSPI_DATA (0x10  , (int) 0x0007010A, TMC5160_nCS_MotorY );
+        Write_32bitSPI_DATA (0x10  , (int) 0x00070205, TMC5160_nCS_MotorY );
         
         //Position_Y_Move = Position_Y_Move + Position_Y_Requested;
         Error = 0;
@@ -813,7 +808,7 @@ int Step_correction_y(int32 steps)
         Error=  9;
         break;
     }
-    if((abs(encoder_error_value))>=3)
+    if((abs(encoder_error_value))>5)
     {
       new_step = new_step+steps;     
       GotoPos(new_step, TMC5160_nCS_MotorY);
@@ -830,7 +825,7 @@ int Step_correction_y(int32 steps)
     
     if(temp>=4)
     {
-     if(((abs(encoder_error_value))>=3) && ((abs(encoder_error_value))<4000) )
+     if(((abs(encoder_error_value))>6) && ((abs(encoder_error_value))<4000) )
      {
         Write_Debug_UART_Char("Fail to reach Y position \r\n");
         LED3_Write(0xFF);
@@ -863,7 +858,7 @@ int goTo_Z(int32 Position_Z_Requested)
 {
     Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorY );
     Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorX );
-    Write_32bitSPI_DATA (0x10  , (int) 0x00070206, TMC5160_nCS_MotorZ );
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070202, TMC5160_nCS_MotorZ );
     Position_Z_Requested =  Position_Z_Requested;
     Enable_Encoder_Z(-Buffer_Z_QuadPosition);
     if(if_all_homing_done())
@@ -913,7 +908,7 @@ int Step_correction_z(int32 steps)
         Error=  16;
         break;
     }
-    if((abs(encoder_error_value))>=3)
+    if((abs(encoder_error_value))>=5)
     {
       new_step = new_step+steps;     
       GotoPos(new_step, TMC5160_nCS_MotorZ);
@@ -930,7 +925,7 @@ int Step_correction_z(int32 steps)
     
     if(temp>=4)
     {
-     if(((abs(encoder_error_value))>=5) && ((abs(encoder_error_value))<4000) )
+     if(((abs(encoder_error_value))>7) && ((abs(encoder_error_value))<4000) )
      {
         Write_Debug_UART_Char("Fail to reach Z position \r\n");
         LED2_Write(0xFF);
@@ -1298,6 +1293,13 @@ void Process_USB_Data()/* Process USB incoming data command. */
 
     if (command == HomeX)                                          
     {
+            TMC5160_MotorZ_EN_Write(0xFF);
+            CyDelayUs(500);
+            TMC5160_MotorY_EN_Write(0xFF);
+            CyDelayUs(500);
+            TMC5160_MotorX_EN_Write(0x00);
+            CyDelay(1);
+            
         update_max_velocity(381178, TMC5160_nCS_MotorX);
         goTo_X(0);
         homeX(TMC5160_nCS_MotorX);   
@@ -1306,6 +1308,13 @@ void Process_USB_Data()/* Process USB incoming data command. */
     }
     else if (command == HomeY)                           
     {
+            TMC5160_MotorZ_EN_Write(0xFF);
+            CyDelayUs(500);
+            TMC5160_MotorX_EN_Write(0xFF);
+            CyDelayUs(500);
+            TMC5160_MotorY_EN_Write(0x00);
+            CyDelay(1);
+            
         update_max_velocity(381178, TMC5160_nCS_MotorY);
         goTo_Y(0);
         homeY(TMC5160_nCS_MotorY);
@@ -1314,6 +1323,13 @@ void Process_USB_Data()/* Process USB incoming data command. */
     }
     else if (command == HomeZ)                           
     {
+            TMC5160_MotorX_EN_Write(0xFF);
+            CyDelayUs(500);
+            TMC5160_MotorY_EN_Write(0xFF);
+            CyDelayUs(500);
+            TMC5160_MotorZ_EN_Write(0x00);
+            CyDelay(1);
+            
         update_max_velocity(53687*2, TMC5160_nCS_MotorZ);
         CyDelayUs(100);
         goTo_Z(0);
@@ -1342,7 +1358,7 @@ void Process_USB_Data()/* Process USB incoming data command. */
         
         
         
-        Write_32bitSPI_DATA (0x10  , (int) 0x0007010A, TMC5160_nCS_MotorX );
+        Write_32bitSPI_DATA (0x10  , (int) 0x00070105, TMC5160_nCS_MotorX );
         CyDelay(10);
         Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorY );
         Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorZ );
@@ -1360,7 +1376,7 @@ void Process_USB_Data()/* Process USB incoming data command. */
         Position_Y_Requested = (int)(Position_Y_Requested * 12.8);
         Error = goTo_Y(Position_Y_Requested);
                
-        Write_32bitSPI_DATA (0x10  , (int) 0x0007010A, TMC5160_nCS_MotorY );
+        Write_32bitSPI_DATA (0x10  , (int) 0x00070105, TMC5160_nCS_MotorY );
         CyDelay(10);        
         Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorY );
         Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorZ );
