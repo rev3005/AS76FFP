@@ -52,16 +52,16 @@ int main(void)
     // API for Homing X,Y,Z,T
     TMC5160_MotorZ_EN_Write(0x00);
     CyDelay(100);
-    //homeZ(TMC5160_nCS_MotorZ);
-    TMC5160_MotorX_EN_Write(0x00);
-    CyDelay(100);
+    homeZ(TMC5160_nCS_MotorZ);
+    //TMC5160_MotorX_EN_Write(0x00);
+    //CyDelay(100);
     //homeX(TMC5160_nCS_MotorX);
-    TMC5160_MotorY_EN_Write(0x00);
-    CyDelay(100);
+    //TMC5160_MotorY_EN_Write(0x00);
+    //CyDelay(100);
     //homeY(TMC5160_nCS_MotorY);
     
-    //TMC5160_MotorT_EN_Write(0x00);
-    //homeT(TMC5160_nCS_MotorT);
+    TMC5160_MotorT_EN_Write(0x00);
+    homeT(TMC5160_nCS_MotorT);
     //TMC5160_MotorT_EN_Write(0xFF); 
     //TMC5160_MotorO_EN_Write(0x00);
     update_max_velocity(6200, TMC5160_nCS_MotorO);
