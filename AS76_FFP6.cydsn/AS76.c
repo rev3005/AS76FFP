@@ -231,14 +231,14 @@ void homeX(uint8_t Motor)
     Write_32bitSPI_DATA (0x21  , (int) 0x0000000, Motor);
     //X_last_position = 0;
     QuadDec_X_SetCounter(0);
-    Input_Position_X_Temp = 0;
+    //Input_Position_X_Temp = 0;
     HomeX_done = true;
     HomeY_done = true;
     HomeZ_done = true;
     HomeT_done = true;
     CyDelayUs(100);
     goTo_X((256*200)*1); // Move the motor 1 rotation with error corrction mechanism based on encoder feedback
-    Input_Position_X_Temp = 0;
+    //Input_Position_X_Temp = 0;
     Write_Debug_UART_Char("Error in Home X Before Goto home pos : ");
     Write_Debug_UART_Int(Error);
     Write_Debug_UART_Char("\n");
@@ -256,8 +256,8 @@ void homeX(uint8_t Motor)
 
 
     QuadDec_X_SetCounter(0); //set the encoder counter value as 0
-    X_QuadPosition =0 ; // set the encoder variable to 0
-    Input_Position_X_Temp = 0;
+    //X_QuadPosition =0 ; // set the encoder variable to 0
+    //Input_Position_X_Temp = 0;
     HomeX_done = true;
     HomeX_done_Buffer = true;
     Write_Debug_UART_Char("HomeX executed  \r\n");
@@ -657,7 +657,7 @@ int goTo_X(int32 Position_X_Requested)
         //GotoPos(Position_X_Move, TMC5160_nCS_MotorX); // If provided value is steps to move and not the actual position
         //Write_Debug_UART_Int(Position_X_Requested);
         Write_Debug_UART_Char("  \r\n");
-        //Step_correction_x(Position_X_Requested);
+        Step_correction_x(Position_X_Requested);
         return Error;
     }
     else
@@ -699,7 +699,7 @@ int Step_correction_x(int32 steps)
     new_step= encoder_error_value* X_Pitchfactor ;
     
        
-    if((abs(encoder_error_value))>= 10 )
+    if((abs(encoder_error_value))>= 5 )
     {
       Write_Debug_UART_Char("X Loop Error difference: ");
       Write_Debug_UART_Int(encoder_error_value);
@@ -715,7 +715,7 @@ int Step_correction_x(int32 steps)
     encoder_error_value = Encoder_Position_X_Requested - X_QuadPosition;
     if((temp>5))
     {
-     if(((abs(encoder_error_value))>= 12 ) && ((abs(encoder_error_value))<2000))
+     if(((abs(encoder_error_value))> 7 ) && ((abs(encoder_error_value))<2000))
      {
         Write_Debug_UART_Char("Fail to reach X position, Error difference: ");
         Write_Debug_UART_Int(encoder_error_value);
@@ -807,7 +807,7 @@ int Step_correction_y(int32 steps)
         Error=  9;
         break;
     }
-    if((abs(encoder_error_value))>=10)
+    if((abs(encoder_error_value))>=5)
     {
       Write_Debug_UART_Char("Y Loop Error difference: ");
       Write_Debug_UART_Int(encoder_error_value);
@@ -827,7 +827,7 @@ int Step_correction_y(int32 steps)
     
     if(temp>=4)
     {
-     if(((abs(encoder_error_value))>12) && ((abs(encoder_error_value))<2000) )
+     if(((abs(encoder_error_value))>7) && ((abs(encoder_error_value))<2000) )
      {
         Write_Debug_UART_Char("Fail to reach Y position, Error difference: ");
         Write_Debug_UART_Int(encoder_error_value);
@@ -1290,8 +1290,8 @@ void Read_All_Optical_Encoder()//Read all optical encoder value and update XYZ v
         T_QuadPosition = Buffer_T_QuadPosition;
         Z_QuadPosition = -QuadDec_TZ_GetCounter();
     }
-    X_QuadPosition =  Input_Position_X_Temp ;
-    //X_QuadPosition = -QuadDec_X_GetCounter();
+    //X_QuadPosition =  Input_Position_X_Temp ;
+    X_QuadPosition = -QuadDec_X_GetCounter();
     Y_QuadPosition = -QuadDec_Y_GetCounter();
 }    
 //Optical Decoder Functions Stop-------------------------------------------------------
@@ -1400,7 +1400,7 @@ void Process_USB_Data()/* Process USB incoming data command. */
         Write_Debug_UART_Int(Position_X_Requested);
         Write_Debug_UART_Char("\n");
         
-        Input_Position_X_Temp = Position_X_Requested;
+        //Input_Position_X_Temp = Position_X_Requested;
         
         {
             Position_X_Requested = (int)(Position_X_Requested / 4);
@@ -1443,6 +1443,7 @@ void Process_USB_Data()/* Process USB incoming data command. */
     else if (command == GotoZ)        
     {
         Write_Debug_UART_Char("\n\n\n\n\nGoto Z Starting \n");
+        update_max_velocity(107374,TMC5160_nCS_MotorZ);
         Position_Z_Requested = ((int32)USB_received[5] << 24) + ((int32)USB_received[4] << 16) + ((int32)USB_received[3] << 8) + (int32)USB_received[2]; //Decode USB Steps
         Write_Debug_UART_Char("Requested Position :");
         Write_Debug_UART_Int(Position_Z_Requested);
@@ -1490,7 +1491,7 @@ void Process_USB_Data()/* Process USB incoming data command. */
         Position_X_Requested = ((int32)USB_received[5] << 24) + ((int32)USB_received[4] << 16) + ((int32)USB_received[3] << 8) + (int32)USB_received[2];
         Position_Y_Requested = ((int32)USB_received[9] << 24) + ((int32)USB_received[8] << 16) + ((int32)USB_received[7] << 8) + (int32)USB_received[6];
         Position_Z_Requested = ((int32)USB_received[13] << 24) + ((int32)USB_received[12] << 16) + ((int32)USB_received[11] << 8) + (int32)USB_received[10];
-        Input_Position_X_Temp = Position_X_Requested;
+        //Input_Position_X_Temp = Position_X_Requested;
         
         if(Position_X_Requested >= 0)
         {        
@@ -1889,7 +1890,7 @@ void Send_Feedback_to_USB(int Error)//Send Feedback to USB if USB command execut
             }
         }
         
-        //X_QuadPosition = (X_QuadPosition * 4);
+        X_QuadPosition = (X_QuadPosition * 4);
         Y_QuadPosition = (Y_QuadPosition * 4);    
         T_QuadPosition = (int)(T_QuadPosition * 3.2); 
         USB_transmit[4] = (X_QuadPosition);
