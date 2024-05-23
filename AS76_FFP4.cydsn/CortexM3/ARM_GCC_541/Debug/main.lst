@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccn33xJO.s 			page 1
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\cc7BHccw.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccn33xJO.s 			page 1
   29              		.cfi_startproc
   30              		@ Volatile: function does not return.
   31              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccn33xJO.s 			page 2
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\cc7BHccw.s 			page 2
 
 
   32              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -101,7 +101,7 @@ ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccn33xJO.s 			page 1
   60              	.LVL4:
   36:main.c        ****     Write_Debug_UART_Char("PCB On/PCB RESET**********  \r\n");
   61              		.loc 1 36 0
-  62 001c 3048     		ldr	r0, .L5
+  62 001c 2948     		ldr	r0, .L5
   63 001e FFF7FEFF 		bl	Write_Debug_UART_Char
   64              	.LVL5:
   37:main.c        ****     Initialize_USB();                                   /* Start USB to communicate with motherbord
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccn33xJO.s 			page 1
   73              	.LVL8:
   40:main.c        ****     Initialize_Motor(TMC5160_nCS_MotorX);
   74              		.loc 1 40 0
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccn33xJO.s 			page 3
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\cc7BHccw.s 			page 3
 
 
   75 002e 0020     		movs	r0, #0
@@ -172,75 +172,52 @@ ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccn33xJO.s 			page 1
   50:main.c        **** 
   51:main.c        ****  
   52:main.c        ****     // API for Homing X,Y,Z,T
-  53:main.c        ****     TMC5160_MotorZ_EN_Write(0x00);
- 114              		.loc 1 53 0
- 115 006a 0020     		movs	r0, #0
- 116 006c FFF7FEFF 		bl	TMC5160_MotorZ_EN_Write
- 117              	.LVL19:
-  54:main.c        ****     CyDelay(100);
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccn33xJO.s 			page 4
-
-
- 118              		.loc 1 54 0
- 119 0070 6420     		movs	r0, #100
- 120 0072 FFF7FEFF 		bl	CyDelay
- 121              	.LVL20:
-  55:main.c        ****     homeZ(TMC5160_nCS_MotorZ);
- 122              		.loc 1 55 0
- 123 0076 0220     		movs	r0, #2
- 124 0078 FFF7FEFF 		bl	homeZ
- 125              	.LVL21:
+  53:main.c        ****     //TMC5160_MotorZ_EN_Write(0x00);
+  54:main.c        ****     //CyDelay(100);
+  55:main.c        ****     //homeZ(TMC5160_nCS_MotorZ);
   56:main.c        ****     //TMC5160_MotorX_EN_Write(0x00);
   57:main.c        ****     //CyDelay(100);
   58:main.c        ****     //homeX(TMC5160_nCS_MotorX);
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\cc7BHccw.s 			page 4
+
+
   59:main.c        ****     //TMC5160_MotorY_EN_Write(0x00);
   60:main.c        ****     //CyDelay(100);
   61:main.c        ****     //homeY(TMC5160_nCS_MotorY);
   62:main.c        ****     
-  63:main.c        ****     TMC5160_MotorT_EN_Write(0x00);
- 126              		.loc 1 63 0
- 127 007c 0020     		movs	r0, #0
- 128 007e FFF7FEFF 		bl	TMC5160_MotorT_EN_Write
- 129              	.LVL22:
-  64:main.c        ****     homeT(TMC5160_nCS_MotorT);
- 130              		.loc 1 64 0
- 131 0082 0320     		movs	r0, #3
- 132 0084 FFF7FEFF 		bl	homeT
- 133              	.LVL23:
+  63:main.c        ****     //TMC5160_MotorT_EN_Write(0x00);
+  64:main.c        ****     //homeT(TMC5160_nCS_MotorT);
   65:main.c        ****     //TMC5160_MotorT_EN_Write(0xFF); 
   66:main.c        ****     //TMC5160_MotorO_EN_Write(0x00);
   67:main.c        ****     update_max_velocity(6200, TMC5160_nCS_MotorO);
- 134              		.loc 1 67 0
- 135 0088 0421     		movs	r1, #4
- 136 008a 41F63800 		movw	r0, #6200
- 137 008e FFF7FEFF 		bl	update_max_velocity
- 138              	.LVL24:
+ 114              		.loc 1 67 0
+ 115 006a 0421     		movs	r1, #4
+ 116 006c 41F63800 		movw	r0, #6200
+ 117 0070 FFF7FEFF 		bl	update_max_velocity
+ 118              	.LVL19:
   68:main.c        ****     
   69:main.c        ****     QuadDec_X_SetCounter(0x00) ;
- 139              		.loc 1 69 0
- 140 0092 0020     		movs	r0, #0
- 141 0094 FFF7FEFF 		bl	QuadDec_X_SetCounter
- 142              	.LVL25:
+ 119              		.loc 1 69 0
+ 120 0074 0020     		movs	r0, #0
+ 121 0076 FFF7FEFF 		bl	QuadDec_X_SetCounter
+ 122              	.LVL20:
   70:main.c        ****     QuadDec_Y_SetCounter(0x00) ;  
- 143              		.loc 1 70 0
- 144 0098 0020     		movs	r0, #0
- 145 009a FFF7FEFF 		bl	QuadDec_Y_SetCounter
- 146              	.LVL26:
+ 123              		.loc 1 70 0
+ 124 007a 0020     		movs	r0, #0
+ 125 007c FFF7FEFF 		bl	QuadDec_Y_SetCounter
+ 126              	.LVL21:
   71:main.c        ****     
   72:main.c        ****     LED3_Write(0x00);
- 147              		.loc 1 72 0
- 148 009e 0020     		movs	r0, #0
- 149 00a0 FFF7FEFF 		bl	LED3_Write
- 150              	.LVL27:
+ 127              		.loc 1 72 0
+ 128 0080 0020     		movs	r0, #0
+ 129 0082 FFF7FEFF 		bl	LED3_Write
+ 130              	.LVL22:
   73:main.c        ****     LED2_Write(0x00);
- 151              		.loc 1 73 0
- 152 00a4 0020     		movs	r0, #0
- 153 00a6 FFF7FEFF 		bl	LED2_Write
- 154              	.LVL28:
- 155              	.L3:
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccn33xJO.s 			page 5
-
-
+ 131              		.loc 1 73 0
+ 132 0086 0020     		movs	r0, #0
+ 133 0088 FFF7FEFF 		bl	LED2_Write
+ 134              	.LVL23:
+ 135              	.L3:
   74:main.c        ****     
   75:main.c        ****    
   76:main.c        ****         
@@ -249,47 +226,50 @@ ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccn33xJO.s 			page 1
   79:main.c        ****     for (;;)  
   80:main.c        ****     {    
   81:main.c        ****         Is_USB_Unpluged();                              /* Reset MCU if USB unplugged or plugged. *
- 156              		.loc 1 81 0
- 157 00aa FFF7FEFF 		bl	Is_USB_Unpluged
- 158              	.LVL29:
+ 136              		.loc 1 81 0
+ 137 008c FFF7FEFF 		bl	Is_USB_Unpluged
+ 138              	.LVL24:
   82:main.c        ****         if (0 != USB_DataIsReady())                     /* Check for input data from host. */
- 159              		.loc 1 82 0
- 160 00ae FFF7FEFF 		bl	USB_DataIsReady
- 161              	.LVL30:
- 162 00b2 88B1     		cbz	r0, .L2
+ 139              		.loc 1 82 0
+ 140 0090 FFF7FEFF 		bl	USB_DataIsReady
+ 141              	.LVL25:
+ 142 0094 88B1     		cbz	r0, .L2
   83:main.c        ****         {       
   84:main.c        ****             count = USB_GetAll(USB_received);           /* Read received data and re-enable OUT end
- 163              		.loc 1 84 0
- 164 00b4 0B48     		ldr	r0, .L5+4
- 165 00b6 FFF7FEFF 		bl	USB_GetAll
- 166              	.LVL31:
- 167 00ba 0B4B     		ldr	r3, .L5+8
- 168 00bc 1880     		strh	r0, [r3]	@ movhi
+ 143              		.loc 1 84 0
+ 144 0096 0C48     		ldr	r0, .L5+4
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\cc7BHccw.s 			page 5
+
+
+ 145 0098 FFF7FEFF 		bl	USB_GetAll
+ 146              	.LVL26:
+ 147 009c 0B4B     		ldr	r3, .L5+8
+ 148 009e 1880     		strh	r0, [r3]	@ movhi
   85:main.c        ****             if(count >= 2)                              /* Check if data id more then 2 bytes. */
- 169              		.loc 1 85 0
- 170 00be 0128     		cmp	r0, #1
- 171 00c0 0AD9     		bls	.L2
+ 149              		.loc 1 85 0
+ 150 00a0 0128     		cmp	r0, #1
+ 151 00a2 0AD9     		bls	.L2
   86:main.c        ****             {
   87:main.c        ****                 Write_Debug_UART_Char("DATA RECEIVED  \r\n");
- 172              		.loc 1 87 0
- 173 00c2 0A48     		ldr	r0, .L5+12
- 174 00c4 FFF7FEFF 		bl	Write_Debug_UART_Char
- 175              	.LVL32:
+ 152              		.loc 1 87 0
+ 153 00a4 0A48     		ldr	r0, .L5+12
+ 154 00a6 FFF7FEFF 		bl	Write_Debug_UART_Char
+ 155              	.LVL27:
   88:main.c        ****                 LED2_Write(0xFF);
- 176              		.loc 1 88 0
- 177 00c8 FF20     		movs	r0, #255
- 178 00ca FFF7FEFF 		bl	LED2_Write
- 179              	.LVL33:
+ 156              		.loc 1 88 0
+ 157 00aa FF20     		movs	r0, #255
+ 158 00ac FFF7FEFF 		bl	LED2_Write
+ 159              	.LVL28:
   89:main.c        ****                 Process_USB_Data();
- 180              		.loc 1 89 0
- 181 00ce FFF7FEFF 		bl	Process_USB_Data
- 182              	.LVL34:
+ 160              		.loc 1 89 0
+ 161 00b0 FFF7FEFF 		bl	Process_USB_Data
+ 162              	.LVL29:
   90:main.c        ****                 LED2_Write(0x00);
- 183              		.loc 1 90 0
- 184 00d2 0020     		movs	r0, #0
- 185 00d4 FFF7FEFF 		bl	LED2_Write
- 186              	.LVL35:
- 187              	.L2:
+ 163              		.loc 1 90 0
+ 164 00b4 0020     		movs	r0, #0
+ 165 00b6 FFF7FEFF 		bl	LED2_Write
+ 166              	.LVL30:
+ 167              	.L2:
   91:main.c        ****                   /* Process The USB incoming data. */
   92:main.c        ****                 
   93:main.c        **** 
@@ -298,9 +278,6 @@ ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccn33xJO.s 			page 1
   96:main.c        ****     
   97:main.c        ****            
   98:main.c        ****    
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccn33xJO.s 			page 6
-
-
   99:main.c        ****         
  100:main.c        ****       
  101:main.c        ****     // Test API for Movement Check with error correction 
@@ -315,1311 +292,1206 @@ ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccn33xJO.s 			page 1
  110:main.c        ****     //CyDelayUs(50);  
  111:main.c        **** 
  112:main.c        ****     CyDelayUs(100);
- 188              		.loc 1 112 0
- 189 00d8 6420     		movs	r0, #100
- 190 00da FFF7FEFF 		bl	CyDelayUs
- 191              	.LVL36:
+ 168              		.loc 1 112 0
+ 169 00ba 6420     		movs	r0, #100
+ 170 00bc FFF7FEFF 		bl	CyDelayUs
+ 171              	.LVL31:
  113:main.c        **** 
  114:main.c        ****         
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\cc7BHccw.s 			page 6
+
+
  115:main.c        ****         }    
- 192              		.loc 1 115 0
- 193 00de E4E7     		b	.L3
- 194              	.L6:
- 195              		.align	2
- 196              	.L5:
- 197 00e0 00000000 		.word	.LC0
- 198 00e4 00000000 		.word	USB_received
- 199 00e8 00000000 		.word	count
- 200 00ec 20000000 		.word	.LC1
- 201              		.cfi_endproc
- 202              	.LFE64:
- 203              		.size	main, .-main
- 204              		.global	status_t
- 205              		.global	status_z
- 206              		.global	status_y
- 207              		.global	status_x
- 208              		.comm	USB_transmit,58,4
- 209              		.comm	USB_received,64,4
- 210              		.comm	count,2,2
- 211              		.comm	Is_Slide_On_Gripper,1,1
- 212              		.data
- 213              		.type	status_t, %object
- 214              		.size	status_t, 1
- 215              	status_t:
- 216 0000 FF       		.byte	-1
- 217              		.type	status_z, %object
- 218              		.size	status_z, 1
- 219              	status_z:
- 220 0001 FF       		.byte	-1
- 221              		.type	status_y, %object
- 222              		.size	status_y, 1
- 223              	status_y:
- 224 0002 FF       		.byte	-1
- 225              		.type	status_x, %object
- 226              		.size	status_x, 1
- 227              	status_x:
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccn33xJO.s 			page 7
+ 172              		.loc 1 115 0
+ 173 00c0 E4E7     		b	.L3
+ 174              	.L6:
+ 175 00c2 00BF     		.align	2
+ 176              	.L5:
+ 177 00c4 00000000 		.word	.LC0
+ 178 00c8 00000000 		.word	USB_received
+ 179 00cc 00000000 		.word	count
+ 180 00d0 20000000 		.word	.LC1
+ 181              		.cfi_endproc
+ 182              	.LFE64:
+ 183              		.size	main, .-main
+ 184              		.global	status_t
+ 185              		.global	status_z
+ 186              		.global	status_y
+ 187              		.global	status_x
+ 188              		.comm	USB_transmit,58,4
+ 189              		.comm	USB_received,64,4
+ 190              		.comm	count,2,2
+ 191              		.comm	Is_Slide_On_Gripper,1,1
+ 192              		.data
+ 193              		.type	status_t, %object
+ 194              		.size	status_t, 1
+ 195              	status_t:
+ 196 0000 FF       		.byte	-1
+ 197              		.type	status_z, %object
+ 198              		.size	status_z, 1
+ 199              	status_z:
+ 200 0001 FF       		.byte	-1
+ 201              		.type	status_y, %object
+ 202              		.size	status_y, 1
+ 203              	status_y:
+ 204 0002 FF       		.byte	-1
+ 205              		.type	status_x, %object
+ 206              		.size	status_x, 1
+ 207              	status_x:
+ 208 0003 FF       		.byte	-1
+ 209              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 210              		.align	2
+ 211              	.LC0:
+ 212 0000 50434220 		.ascii	"PCB On/PCB RESET**********  \015\012\000"
+ 212      4F6E2F50 
+ 212      43422052 
+ 212      45534554 
+ 212      2A2A2A2A 
+ 213 001f 00       		.space	1
+ 214              	.LC1:
+ 215 0020 44415441 		.ascii	"DATA RECEIVED  \015\012\000"
+ 215      20524543 
+ 215      45495645 
+ 215      4420200D 
+ 215      0A00
+ 216              		.text
+ 217              	.Letext0:
+ 218              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 219              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\cc7BHccw.s 			page 7
 
 
- 228 0003 FF       		.byte	-1
- 229              		.section	.rodata.str1.4,"aMS",%progbits,1
- 230              		.align	2
- 231              	.LC0:
- 232 0000 50434220 		.ascii	"PCB On/PCB RESET**********  \015\012\000"
- 232      4F6E2F50 
- 232      43422052 
- 232      45534554 
- 232      2A2A2A2A 
- 233 001f 00       		.space	1
- 234              	.LC1:
- 235 0020 44415441 		.ascii	"DATA RECEIVED  \015\012\000"
- 235      20524543 
- 235      45495645 
- 235      4420200D 
- 235      0A00
- 236              		.text
- 237              	.Letext0:
- 238              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
- 239              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
- 240              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
- 241              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
- 242              		.file 6 "variables.h"
- 243              		.file 7 "Generated_Source\\PSoC5/wait_timer.h"
- 244              		.file 8 "Generated_Source\\PSoC5/LED3.h"
- 245              		.file 9 "Generated_Source\\PSoC5/LED2.h"
- 246              		.file 10 "Generated_Source\\PSoC5/UART_PCB_LOG.h"
- 247              		.file 11 "Generated_Source\\PSoC5/SPIM.h"
- 248              		.file 12 "Generated_Source\\PSoC5/CyLib.h"
- 249              		.file 13 "Generated_Source\\PSoC5/TMC5160_MotorZ_EN.h"
- 250              		.file 14 "AS76.h"
- 251              		.file 15 "Generated_Source\\PSoC5/TMC5160_MotorT_EN.h"
- 252              		.file 16 "Generated_Source\\PSoC5/QuadDec_X.h"
- 253              		.file 17 "Generated_Source\\PSoC5/QuadDec_Y.h"
- 254              		.file 18 "Generated_Source\\PSoC5/USB_cdc.h"
- 255              		.section	.debug_info,"",%progbits
- 256              	.Ldebug_info0:
- 257 0000 30050000 		.4byte	0x530
- 258 0004 0400     		.2byte	0x4
- 259 0006 00000000 		.4byte	.Ldebug_abbrev0
- 260 000a 04       		.byte	0x4
- 261 000b 01       		.uleb128 0x1
- 262 000c F1000000 		.4byte	.LASF54
- 263 0010 0C       		.byte	0xc
- 264 0011 A4020000 		.4byte	.LASF55
- 265 0015 20030000 		.4byte	.LASF56
- 266 0019 00000000 		.4byte	.Ldebug_ranges0+0
- 267 001d 00000000 		.4byte	0
- 268 0021 00000000 		.4byte	.Ldebug_line0
- 269 0025 02       		.uleb128 0x2
- 270 0026 01       		.byte	0x1
- 271 0027 06       		.byte	0x6
- 272 0028 5A020000 		.4byte	.LASF0
- 273 002c 03       		.uleb128 0x3
- 274 002d 00000000 		.4byte	.LASF4
- 275 0031 02       		.byte	0x2
- 276 0032 1D       		.byte	0x1d
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccn33xJO.s 			page 8
+ 220              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 221              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
+ 222              		.file 6 "variables.h"
+ 223              		.file 7 "Generated_Source\\PSoC5/wait_timer.h"
+ 224              		.file 8 "Generated_Source\\PSoC5/LED3.h"
+ 225              		.file 9 "Generated_Source\\PSoC5/LED2.h"
+ 226              		.file 10 "Generated_Source\\PSoC5/UART_PCB_LOG.h"
+ 227              		.file 11 "Generated_Source\\PSoC5/SPIM.h"
+ 228              		.file 12 "Generated_Source\\PSoC5/CyLib.h"
+ 229              		.file 13 "AS76.h"
+ 230              		.file 14 "Generated_Source\\PSoC5/QuadDec_X.h"
+ 231              		.file 15 "Generated_Source\\PSoC5/QuadDec_Y.h"
+ 232              		.file 16 "Generated_Source\\PSoC5/USB_cdc.h"
+ 233              		.section	.debug_info,"",%progbits
+ 234              	.Ldebug_info0:
+ 235 0000 99040000 		.4byte	0x499
+ 236 0004 0400     		.2byte	0x4
+ 237 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 238 000a 04       		.byte	0x4
+ 239 000b 01       		.uleb128 0x1
+ 240 000c CE000000 		.4byte	.LASF49
+ 241 0010 0C       		.byte	0xc
+ 242 0011 69020000 		.4byte	.LASF50
+ 243 0015 EA020000 		.4byte	.LASF51
+ 244 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 245 001d 00000000 		.4byte	0
+ 246 0021 00000000 		.4byte	.Ldebug_line0
+ 247 0025 02       		.uleb128 0x2
+ 248 0026 01       		.byte	0x1
+ 249 0027 06       		.byte	0x6
+ 250 0028 1F020000 		.4byte	.LASF0
+ 251 002c 03       		.uleb128 0x3
+ 252 002d 00000000 		.4byte	.LASF4
+ 253 0031 02       		.byte	0x2
+ 254 0032 1D       		.byte	0x1d
+ 255 0033 37000000 		.4byte	0x37
+ 256 0037 02       		.uleb128 0x2
+ 257 0038 01       		.byte	0x1
+ 258 0039 08       		.byte	0x8
+ 259 003a C0000000 		.4byte	.LASF1
+ 260 003e 02       		.uleb128 0x2
+ 261 003f 02       		.byte	0x2
+ 262 0040 05       		.byte	0x5
+ 263 0041 94020000 		.4byte	.LASF2
+ 264 0045 02       		.uleb128 0x2
+ 265 0046 02       		.byte	0x2
+ 266 0047 07       		.byte	0x7
+ 267 0048 6E010000 		.4byte	.LASF3
+ 268 004c 03       		.uleb128 0x3
+ 269 004d 28000000 		.4byte	.LASF5
+ 270 0051 02       		.byte	0x2
+ 271 0052 3F       		.byte	0x3f
+ 272 0053 57000000 		.4byte	0x57
+ 273 0057 02       		.uleb128 0x2
+ 274 0058 04       		.byte	0x4
+ 275 0059 05       		.byte	0x5
+ 276 005a D5020000 		.4byte	.LASF6
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\cc7BHccw.s 			page 8
 
 
- 277 0033 37000000 		.4byte	0x37
- 278 0037 02       		.uleb128 0x2
- 279 0038 01       		.byte	0x1
- 280 0039 08       		.byte	0x8
- 281 003a E3000000 		.4byte	.LASF1
- 282 003e 02       		.uleb128 0x2
- 283 003f 02       		.byte	0x2
- 284 0040 05       		.byte	0x5
- 285 0041 CF020000 		.4byte	.LASF2
- 286 0045 02       		.uleb128 0x2
- 287 0046 02       		.byte	0x2
- 288 0047 07       		.byte	0x7
- 289 0048 91010000 		.4byte	.LASF3
- 290 004c 03       		.uleb128 0x3
- 291 004d 33000000 		.4byte	.LASF5
- 292 0051 02       		.byte	0x2
- 293 0052 3F       		.byte	0x3f
- 294 0053 57000000 		.4byte	0x57
- 295 0057 02       		.uleb128 0x2
- 296 0058 04       		.byte	0x4
- 297 0059 05       		.byte	0x5
- 298 005a 0B030000 		.4byte	.LASF6
- 299 005e 02       		.uleb128 0x2
- 300 005f 04       		.byte	0x4
- 301 0060 07       		.byte	0x7
- 302 0061 7F010000 		.4byte	.LASF7
- 303 0065 02       		.uleb128 0x2
- 304 0066 08       		.byte	0x8
- 305 0067 05       		.byte	0x5
- 306 0068 96020000 		.4byte	.LASF8
- 307 006c 02       		.uleb128 0x2
- 308 006d 08       		.byte	0x8
- 309 006e 07       		.byte	0x7
- 310 006f 30020000 		.4byte	.LASF9
- 311 0073 04       		.uleb128 0x4
- 312 0074 04       		.byte	0x4
- 313 0075 05       		.byte	0x5
- 314 0076 696E7400 		.ascii	"int\000"
- 315 007a 02       		.uleb128 0x2
- 316 007b 04       		.byte	0x4
- 317 007c 07       		.byte	0x7
- 318 007d 23020000 		.4byte	.LASF10
- 319 0081 03       		.uleb128 0x3
- 320 0082 47020000 		.4byte	.LASF11
- 321 0086 03       		.byte	0x3
- 322 0087 18       		.byte	0x18
- 323 0088 2C000000 		.4byte	0x2c
- 324 008c 03       		.uleb128 0x3
- 325 008d 66020000 		.4byte	.LASF12
- 326 0091 03       		.byte	0x3
- 327 0092 2C       		.byte	0x2c
- 328 0093 4C000000 		.4byte	0x4c
- 329 0097 05       		.uleb128 0x5
- 330 0098 D9020000 		.4byte	.LASF13
- 331 009c 04       		.byte	0x4
- 332 009d E401     		.2byte	0x1e4
- 333 009f 37000000 		.4byte	0x37
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccn33xJO.s 			page 9
+ 277 005e 02       		.uleb128 0x2
+ 278 005f 04       		.byte	0x4
+ 279 0060 07       		.byte	0x7
+ 280 0061 5C010000 		.4byte	.LASF7
+ 281 0065 02       		.uleb128 0x2
+ 282 0066 08       		.byte	0x8
+ 283 0067 05       		.byte	0x5
+ 284 0068 5B020000 		.4byte	.LASF8
+ 285 006c 02       		.uleb128 0x2
+ 286 006d 08       		.byte	0x8
+ 287 006e 07       		.byte	0x7
+ 288 006f F5010000 		.4byte	.LASF9
+ 289 0073 04       		.uleb128 0x4
+ 290 0074 04       		.byte	0x4
+ 291 0075 05       		.byte	0x5
+ 292 0076 696E7400 		.ascii	"int\000"
+ 293 007a 02       		.uleb128 0x2
+ 294 007b 04       		.byte	0x4
+ 295 007c 07       		.byte	0x7
+ 296 007d E8010000 		.4byte	.LASF10
+ 297 0081 03       		.uleb128 0x3
+ 298 0082 0C020000 		.4byte	.LASF11
+ 299 0086 03       		.byte	0x3
+ 300 0087 18       		.byte	0x18
+ 301 0088 2C000000 		.4byte	0x2c
+ 302 008c 03       		.uleb128 0x3
+ 303 008d 2B020000 		.4byte	.LASF12
+ 304 0091 03       		.byte	0x3
+ 305 0092 2C       		.byte	0x2c
+ 306 0093 4C000000 		.4byte	0x4c
+ 307 0097 05       		.uleb128 0x5
+ 308 0098 9E020000 		.4byte	.LASF13
+ 309 009c 04       		.byte	0x4
+ 310 009d E401     		.2byte	0x1e4
+ 311 009f 37000000 		.4byte	0x37
+ 312 00a3 05       		.uleb128 0x5
+ 313 00a4 8E010000 		.4byte	.LASF14
+ 314 00a8 04       		.byte	0x4
+ 315 00a9 E501     		.2byte	0x1e5
+ 316 00ab 45000000 		.4byte	0x45
+ 317 00af 05       		.uleb128 0x5
+ 318 00b0 D3010000 		.4byte	.LASF15
+ 319 00b4 04       		.byte	0x4
+ 320 00b5 E701     		.2byte	0x1e7
+ 321 00b7 25000000 		.4byte	0x25
+ 322 00bb 02       		.uleb128 0x2
+ 323 00bc 04       		.byte	0x4
+ 324 00bd 04       		.byte	0x4
+ 325 00be AA000000 		.4byte	.LASF16
+ 326 00c2 02       		.uleb128 0x2
+ 327 00c3 08       		.byte	0x8
+ 328 00c4 04       		.byte	0x4
+ 329 00c5 2E030000 		.4byte	.LASF17
+ 330 00c9 02       		.uleb128 0x2
+ 331 00ca 01       		.byte	0x1
+ 332 00cb 08       		.byte	0x8
+ 333 00cc 70020000 		.4byte	.LASF18
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\cc7BHccw.s 			page 9
 
 
- 334 00a3 05       		.uleb128 0x5
- 335 00a4 B1010000 		.4byte	.LASF14
- 336 00a8 04       		.byte	0x4
- 337 00a9 E501     		.2byte	0x1e5
- 338 00ab 45000000 		.4byte	0x45
- 339 00af 05       		.uleb128 0x5
- 340 00b0 0E020000 		.4byte	.LASF15
- 341 00b4 04       		.byte	0x4
- 342 00b5 E701     		.2byte	0x1e7
- 343 00b7 25000000 		.4byte	0x25
- 344 00bb 02       		.uleb128 0x2
- 345 00bc 04       		.byte	0x4
- 346 00bd 04       		.byte	0x4
- 347 00be CD000000 		.4byte	.LASF16
- 348 00c2 02       		.uleb128 0x2
- 349 00c3 08       		.byte	0x8
- 350 00c4 04       		.byte	0x4
- 351 00c5 64030000 		.4byte	.LASF17
- 352 00c9 02       		.uleb128 0x2
- 353 00ca 01       		.byte	0x1
- 354 00cb 08       		.byte	0x8
- 355 00cc AB020000 		.4byte	.LASF18
- 356 00d0 02       		.uleb128 0x2
- 357 00d1 08       		.byte	0x8
- 358 00d2 04       		.byte	0x4
- 359 00d3 14030000 		.4byte	.LASF19
- 360 00d7 02       		.uleb128 0x2
- 361 00d8 04       		.byte	0x4
- 362 00d9 07       		.byte	0x7
- 363 00da 6E020000 		.4byte	.LASF20
- 364 00de 06       		.uleb128 0x6
- 365 00df F0010000 		.4byte	.LASF57
- 366 00e3 01       		.byte	0x1
- 367 00e4 19       		.byte	0x19
- 368 00e5 73000000 		.4byte	0x73
- 369 00e9 00000000 		.4byte	.LFB64
- 370 00ed F0000000 		.4byte	.LFE64-.LFB64
- 371 00f1 01       		.uleb128 0x1
- 372 00f2 9C       		.byte	0x9c
- 373 00f3 76030000 		.4byte	0x376
- 374 00f7 07       		.uleb128 0x7
- 375 00f8 08000000 		.4byte	.LVL0
- 376 00fc 36040000 		.4byte	0x436
- 377 0100 08       		.uleb128 0x8
- 378 0101 0E000000 		.4byte	.LVL1
- 379 0105 41040000 		.4byte	0x441
- 380 0109 14010000 		.4byte	0x114
- 381 010d 09       		.uleb128 0x9
- 382 010e 01       		.uleb128 0x1
- 383 010f 50       		.byte	0x50
- 384 0110 02       		.uleb128 0x2
- 385 0111 09       		.byte	0x9
- 386 0112 FF       		.byte	0xff
- 387 0113 00       		.byte	0
- 388 0114 08       		.uleb128 0x8
- 389 0115 14000000 		.4byte	.LVL2
- 390 0119 4C040000 		.4byte	0x44c
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccn33xJO.s 			page 10
+ 334 00d0 02       		.uleb128 0x2
+ 335 00d1 08       		.byte	0x8
+ 336 00d2 04       		.byte	0x4
+ 337 00d3 DE020000 		.4byte	.LASF19
+ 338 00d7 02       		.uleb128 0x2
+ 339 00d8 04       		.byte	0x4
+ 340 00d9 07       		.byte	0x7
+ 341 00da 33020000 		.4byte	.LASF20
+ 342 00de 06       		.uleb128 0x6
+ 343 00df B5010000 		.4byte	.LASF52
+ 344 00e3 01       		.byte	0x1
+ 345 00e4 19       		.byte	0x19
+ 346 00e5 73000000 		.4byte	0x73
+ 347 00e9 00000000 		.4byte	.LFB64
+ 348 00ed D4000000 		.4byte	.LFE64-.LFB64
+ 349 00f1 01       		.uleb128 0x1
+ 350 00f2 9C       		.byte	0x9c
+ 351 00f3 16030000 		.4byte	0x316
+ 352 00f7 07       		.uleb128 0x7
+ 353 00f8 08000000 		.4byte	.LVL0
+ 354 00fc D6030000 		.4byte	0x3d6
+ 355 0100 08       		.uleb128 0x8
+ 356 0101 0E000000 		.4byte	.LVL1
+ 357 0105 E1030000 		.4byte	0x3e1
+ 358 0109 14010000 		.4byte	0x114
+ 359 010d 09       		.uleb128 0x9
+ 360 010e 01       		.uleb128 0x1
+ 361 010f 50       		.byte	0x50
+ 362 0110 02       		.uleb128 0x2
+ 363 0111 09       		.byte	0x9
+ 364 0112 FF       		.byte	0xff
+ 365 0113 00       		.byte	0
+ 366 0114 08       		.uleb128 0x8
+ 367 0115 14000000 		.4byte	.LVL2
+ 368 0119 EC030000 		.4byte	0x3ec
+ 369 011d 28010000 		.4byte	0x128
+ 370 0121 09       		.uleb128 0x9
+ 371 0122 01       		.uleb128 0x1
+ 372 0123 50       		.byte	0x50
+ 373 0124 02       		.uleb128 0x2
+ 374 0125 09       		.byte	0x9
+ 375 0126 FF       		.byte	0xff
+ 376 0127 00       		.byte	0
+ 377 0128 07       		.uleb128 0x7
+ 378 0129 18000000 		.4byte	.LVL3
+ 379 012d F7030000 		.4byte	0x3f7
+ 380 0131 07       		.uleb128 0x7
+ 381 0132 1C000000 		.4byte	.LVL4
+ 382 0136 02040000 		.4byte	0x402
+ 383 013a 08       		.uleb128 0x8
+ 384 013b 22000000 		.4byte	.LVL5
+ 385 013f 0D040000 		.4byte	0x40d
+ 386 0143 51010000 		.4byte	0x151
+ 387 0147 09       		.uleb128 0x9
+ 388 0148 01       		.uleb128 0x1
+ 389 0149 50       		.byte	0x50
+ 390 014a 05       		.uleb128 0x5
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\cc7BHccw.s 			page 10
 
 
- 391 011d 28010000 		.4byte	0x128
- 392 0121 09       		.uleb128 0x9
- 393 0122 01       		.uleb128 0x1
- 394 0123 50       		.byte	0x50
- 395 0124 02       		.uleb128 0x2
- 396 0125 09       		.byte	0x9
- 397 0126 FF       		.byte	0xff
- 398 0127 00       		.byte	0
- 399 0128 07       		.uleb128 0x7
- 400 0129 18000000 		.4byte	.LVL3
- 401 012d 57040000 		.4byte	0x457
- 402 0131 07       		.uleb128 0x7
- 403 0132 1C000000 		.4byte	.LVL4
- 404 0136 62040000 		.4byte	0x462
- 405 013a 08       		.uleb128 0x8
- 406 013b 22000000 		.4byte	.LVL5
- 407 013f 6D040000 		.4byte	0x46d
- 408 0143 51010000 		.4byte	0x151
- 409 0147 09       		.uleb128 0x9
- 410 0148 01       		.uleb128 0x1
- 411 0149 50       		.byte	0x50
- 412 014a 05       		.uleb128 0x5
- 413 014b 03       		.byte	0x3
- 414 014c 00000000 		.4byte	.LC0
- 415 0150 00       		.byte	0
- 416 0151 07       		.uleb128 0x7
- 417 0152 26000000 		.4byte	.LVL6
- 418 0156 78040000 		.4byte	0x478
- 419 015a 07       		.uleb128 0x7
- 420 015b 2A000000 		.4byte	.LVL7
- 421 015f 83040000 		.4byte	0x483
- 422 0163 07       		.uleb128 0x7
- 423 0164 2E000000 		.4byte	.LVL8
- 424 0168 8E040000 		.4byte	0x48e
- 425 016c 08       		.uleb128 0x8
- 426 016d 34000000 		.4byte	.LVL9
- 427 0171 99040000 		.4byte	0x499
- 428 0175 7F010000 		.4byte	0x17f
- 429 0179 09       		.uleb128 0x9
- 430 017a 01       		.uleb128 0x1
- 431 017b 50       		.byte	0x50
- 432 017c 01       		.uleb128 0x1
- 433 017d 30       		.byte	0x30
- 434 017e 00       		.byte	0
- 435 017f 08       		.uleb128 0x8
- 436 0180 3A000000 		.4byte	.LVL10
- 437 0184 A4040000 		.4byte	0x4a4
- 438 0188 93010000 		.4byte	0x193
- 439 018c 09       		.uleb128 0x9
- 440 018d 01       		.uleb128 0x1
- 441 018e 50       		.byte	0x50
- 442 018f 02       		.uleb128 0x2
- 443 0190 08       		.byte	0x8
- 444 0191 64       		.byte	0x64
- 445 0192 00       		.byte	0
- 446 0193 08       		.uleb128 0x8
- 447 0194 40000000 		.4byte	.LVL11
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccn33xJO.s 			page 11
+ 391 014b 03       		.byte	0x3
+ 392 014c 00000000 		.4byte	.LC0
+ 393 0150 00       		.byte	0
+ 394 0151 07       		.uleb128 0x7
+ 395 0152 26000000 		.4byte	.LVL6
+ 396 0156 18040000 		.4byte	0x418
+ 397 015a 07       		.uleb128 0x7
+ 398 015b 2A000000 		.4byte	.LVL7
+ 399 015f 23040000 		.4byte	0x423
+ 400 0163 07       		.uleb128 0x7
+ 401 0164 2E000000 		.4byte	.LVL8
+ 402 0168 2E040000 		.4byte	0x42e
+ 403 016c 08       		.uleb128 0x8
+ 404 016d 34000000 		.4byte	.LVL9
+ 405 0171 39040000 		.4byte	0x439
+ 406 0175 7F010000 		.4byte	0x17f
+ 407 0179 09       		.uleb128 0x9
+ 408 017a 01       		.uleb128 0x1
+ 409 017b 50       		.byte	0x50
+ 410 017c 01       		.uleb128 0x1
+ 411 017d 30       		.byte	0x30
+ 412 017e 00       		.byte	0
+ 413 017f 08       		.uleb128 0x8
+ 414 0180 3A000000 		.4byte	.LVL10
+ 415 0184 44040000 		.4byte	0x444
+ 416 0188 93010000 		.4byte	0x193
+ 417 018c 09       		.uleb128 0x9
+ 418 018d 01       		.uleb128 0x1
+ 419 018e 50       		.byte	0x50
+ 420 018f 02       		.uleb128 0x2
+ 421 0190 08       		.byte	0x8
+ 422 0191 64       		.byte	0x64
+ 423 0192 00       		.byte	0
+ 424 0193 08       		.uleb128 0x8
+ 425 0194 40000000 		.4byte	.LVL11
+ 426 0198 39040000 		.4byte	0x439
+ 427 019c A6010000 		.4byte	0x1a6
+ 428 01a0 09       		.uleb128 0x9
+ 429 01a1 01       		.uleb128 0x1
+ 430 01a2 50       		.byte	0x50
+ 431 01a3 01       		.uleb128 0x1
+ 432 01a4 31       		.byte	0x31
+ 433 01a5 00       		.byte	0
+ 434 01a6 08       		.uleb128 0x8
+ 435 01a7 46000000 		.4byte	.LVL12
+ 436 01ab 44040000 		.4byte	0x444
+ 437 01af BA010000 		.4byte	0x1ba
+ 438 01b3 09       		.uleb128 0x9
+ 439 01b4 01       		.uleb128 0x1
+ 440 01b5 50       		.byte	0x50
+ 441 01b6 02       		.uleb128 0x2
+ 442 01b7 08       		.byte	0x8
+ 443 01b8 64       		.byte	0x64
+ 444 01b9 00       		.byte	0
+ 445 01ba 08       		.uleb128 0x8
+ 446 01bb 4C000000 		.4byte	.LVL13
+ 447 01bf 39040000 		.4byte	0x439
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\cc7BHccw.s 			page 11
 
 
- 448 0198 99040000 		.4byte	0x499
- 449 019c A6010000 		.4byte	0x1a6
- 450 01a0 09       		.uleb128 0x9
- 451 01a1 01       		.uleb128 0x1
- 452 01a2 50       		.byte	0x50
- 453 01a3 01       		.uleb128 0x1
- 454 01a4 31       		.byte	0x31
- 455 01a5 00       		.byte	0
- 456 01a6 08       		.uleb128 0x8
- 457 01a7 46000000 		.4byte	.LVL12
- 458 01ab A4040000 		.4byte	0x4a4
- 459 01af BA010000 		.4byte	0x1ba
- 460 01b3 09       		.uleb128 0x9
- 461 01b4 01       		.uleb128 0x1
- 462 01b5 50       		.byte	0x50
- 463 01b6 02       		.uleb128 0x2
- 464 01b7 08       		.byte	0x8
- 465 01b8 64       		.byte	0x64
- 466 01b9 00       		.byte	0
- 467 01ba 08       		.uleb128 0x8
- 468 01bb 4C000000 		.4byte	.LVL13
- 469 01bf 99040000 		.4byte	0x499
- 470 01c3 CD010000 		.4byte	0x1cd
- 471 01c7 09       		.uleb128 0x9
- 472 01c8 01       		.uleb128 0x1
- 473 01c9 50       		.byte	0x50
- 474 01ca 01       		.uleb128 0x1
- 475 01cb 32       		.byte	0x32
- 476 01cc 00       		.byte	0
- 477 01cd 08       		.uleb128 0x8
- 478 01ce 52000000 		.4byte	.LVL14
- 479 01d2 A4040000 		.4byte	0x4a4
- 480 01d6 E1010000 		.4byte	0x1e1
- 481 01da 09       		.uleb128 0x9
- 482 01db 01       		.uleb128 0x1
- 483 01dc 50       		.byte	0x50
- 484 01dd 02       		.uleb128 0x2
- 485 01de 08       		.byte	0x8
- 486 01df 64       		.byte	0x64
- 487 01e0 00       		.byte	0
- 488 01e1 08       		.uleb128 0x8
- 489 01e2 58000000 		.4byte	.LVL15
- 490 01e6 99040000 		.4byte	0x499
- 491 01ea F4010000 		.4byte	0x1f4
- 492 01ee 09       		.uleb128 0x9
- 493 01ef 01       		.uleb128 0x1
- 494 01f0 50       		.byte	0x50
- 495 01f1 01       		.uleb128 0x1
- 496 01f2 33       		.byte	0x33
- 497 01f3 00       		.byte	0
- 498 01f4 08       		.uleb128 0x8
- 499 01f5 5E000000 		.4byte	.LVL16
- 500 01f9 A4040000 		.4byte	0x4a4
- 501 01fd 08020000 		.4byte	0x208
- 502 0201 09       		.uleb128 0x9
- 503 0202 01       		.uleb128 0x1
- 504 0203 50       		.byte	0x50
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccn33xJO.s 			page 12
+ 448 01c3 CD010000 		.4byte	0x1cd
+ 449 01c7 09       		.uleb128 0x9
+ 450 01c8 01       		.uleb128 0x1
+ 451 01c9 50       		.byte	0x50
+ 452 01ca 01       		.uleb128 0x1
+ 453 01cb 32       		.byte	0x32
+ 454 01cc 00       		.byte	0
+ 455 01cd 08       		.uleb128 0x8
+ 456 01ce 52000000 		.4byte	.LVL14
+ 457 01d2 44040000 		.4byte	0x444
+ 458 01d6 E1010000 		.4byte	0x1e1
+ 459 01da 09       		.uleb128 0x9
+ 460 01db 01       		.uleb128 0x1
+ 461 01dc 50       		.byte	0x50
+ 462 01dd 02       		.uleb128 0x2
+ 463 01de 08       		.byte	0x8
+ 464 01df 64       		.byte	0x64
+ 465 01e0 00       		.byte	0
+ 466 01e1 08       		.uleb128 0x8
+ 467 01e2 58000000 		.4byte	.LVL15
+ 468 01e6 39040000 		.4byte	0x439
+ 469 01ea F4010000 		.4byte	0x1f4
+ 470 01ee 09       		.uleb128 0x9
+ 471 01ef 01       		.uleb128 0x1
+ 472 01f0 50       		.byte	0x50
+ 473 01f1 01       		.uleb128 0x1
+ 474 01f2 33       		.byte	0x33
+ 475 01f3 00       		.byte	0
+ 476 01f4 08       		.uleb128 0x8
+ 477 01f5 5E000000 		.4byte	.LVL16
+ 478 01f9 44040000 		.4byte	0x444
+ 479 01fd 08020000 		.4byte	0x208
+ 480 0201 09       		.uleb128 0x9
+ 481 0202 01       		.uleb128 0x1
+ 482 0203 50       		.byte	0x50
+ 483 0204 02       		.uleb128 0x2
+ 484 0205 08       		.byte	0x8
+ 485 0206 64       		.byte	0x64
+ 486 0207 00       		.byte	0
+ 487 0208 08       		.uleb128 0x8
+ 488 0209 64000000 		.4byte	.LVL17
+ 489 020d 39040000 		.4byte	0x439
+ 490 0211 1B020000 		.4byte	0x21b
+ 491 0215 09       		.uleb128 0x9
+ 492 0216 01       		.uleb128 0x1
+ 493 0217 50       		.byte	0x50
+ 494 0218 01       		.uleb128 0x1
+ 495 0219 34       		.byte	0x34
+ 496 021a 00       		.byte	0
+ 497 021b 08       		.uleb128 0x8
+ 498 021c 6A000000 		.4byte	.LVL18
+ 499 0220 44040000 		.4byte	0x444
+ 500 0224 2F020000 		.4byte	0x22f
+ 501 0228 09       		.uleb128 0x9
+ 502 0229 01       		.uleb128 0x1
+ 503 022a 50       		.byte	0x50
+ 504 022b 02       		.uleb128 0x2
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\cc7BHccw.s 			page 12
 
 
- 505 0204 02       		.uleb128 0x2
- 506 0205 08       		.byte	0x8
- 507 0206 64       		.byte	0x64
- 508 0207 00       		.byte	0
- 509 0208 08       		.uleb128 0x8
- 510 0209 64000000 		.4byte	.LVL17
- 511 020d 99040000 		.4byte	0x499
- 512 0211 1B020000 		.4byte	0x21b
- 513 0215 09       		.uleb128 0x9
- 514 0216 01       		.uleb128 0x1
- 515 0217 50       		.byte	0x50
- 516 0218 01       		.uleb128 0x1
- 517 0219 34       		.byte	0x34
- 518 021a 00       		.byte	0
- 519 021b 08       		.uleb128 0x8
- 520 021c 6A000000 		.4byte	.LVL18
- 521 0220 A4040000 		.4byte	0x4a4
- 522 0224 2F020000 		.4byte	0x22f
- 523 0228 09       		.uleb128 0x9
- 524 0229 01       		.uleb128 0x1
- 525 022a 50       		.byte	0x50
- 526 022b 02       		.uleb128 0x2
- 527 022c 08       		.byte	0x8
- 528 022d 64       		.byte	0x64
- 529 022e 00       		.byte	0
- 530 022f 08       		.uleb128 0x8
- 531 0230 70000000 		.4byte	.LVL19
- 532 0234 AF040000 		.4byte	0x4af
- 533 0238 42020000 		.4byte	0x242
- 534 023c 09       		.uleb128 0x9
- 535 023d 01       		.uleb128 0x1
- 536 023e 50       		.byte	0x50
- 537 023f 01       		.uleb128 0x1
- 538 0240 30       		.byte	0x30
- 539 0241 00       		.byte	0
- 540 0242 08       		.uleb128 0x8
- 541 0243 76000000 		.4byte	.LVL20
- 542 0247 BA040000 		.4byte	0x4ba
- 543 024b 56020000 		.4byte	0x256
- 544 024f 09       		.uleb128 0x9
- 545 0250 01       		.uleb128 0x1
- 546 0251 50       		.byte	0x50
- 547 0252 02       		.uleb128 0x2
- 548 0253 08       		.byte	0x8
- 549 0254 64       		.byte	0x64
- 550 0255 00       		.byte	0
- 551 0256 08       		.uleb128 0x8
- 552 0257 7C000000 		.4byte	.LVL21
- 553 025b C5040000 		.4byte	0x4c5
- 554 025f 69020000 		.4byte	0x269
- 555 0263 09       		.uleb128 0x9
- 556 0264 01       		.uleb128 0x1
- 557 0265 50       		.byte	0x50
- 558 0266 01       		.uleb128 0x1
- 559 0267 32       		.byte	0x32
- 560 0268 00       		.byte	0
- 561 0269 08       		.uleb128 0x8
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccn33xJO.s 			page 13
+ 505 022c 08       		.byte	0x8
+ 506 022d 64       		.byte	0x64
+ 507 022e 00       		.byte	0
+ 508 022f 08       		.uleb128 0x8
+ 509 0230 74000000 		.4byte	.LVL19
+ 510 0234 4F040000 		.4byte	0x44f
+ 511 0238 49020000 		.4byte	0x249
+ 512 023c 09       		.uleb128 0x9
+ 513 023d 01       		.uleb128 0x1
+ 514 023e 50       		.byte	0x50
+ 515 023f 03       		.uleb128 0x3
+ 516 0240 0A       		.byte	0xa
+ 517 0241 3818     		.2byte	0x1838
+ 518 0243 09       		.uleb128 0x9
+ 519 0244 01       		.uleb128 0x1
+ 520 0245 51       		.byte	0x51
+ 521 0246 01       		.uleb128 0x1
+ 522 0247 34       		.byte	0x34
+ 523 0248 00       		.byte	0
+ 524 0249 08       		.uleb128 0x8
+ 525 024a 7A000000 		.4byte	.LVL20
+ 526 024e 5A040000 		.4byte	0x45a
+ 527 0252 5C020000 		.4byte	0x25c
+ 528 0256 09       		.uleb128 0x9
+ 529 0257 01       		.uleb128 0x1
+ 530 0258 50       		.byte	0x50
+ 531 0259 01       		.uleb128 0x1
+ 532 025a 30       		.byte	0x30
+ 533 025b 00       		.byte	0
+ 534 025c 08       		.uleb128 0x8
+ 535 025d 80000000 		.4byte	.LVL21
+ 536 0261 65040000 		.4byte	0x465
+ 537 0265 6F020000 		.4byte	0x26f
+ 538 0269 09       		.uleb128 0x9
+ 539 026a 01       		.uleb128 0x1
+ 540 026b 50       		.byte	0x50
+ 541 026c 01       		.uleb128 0x1
+ 542 026d 30       		.byte	0x30
+ 543 026e 00       		.byte	0
+ 544 026f 08       		.uleb128 0x8
+ 545 0270 86000000 		.4byte	.LVL22
+ 546 0274 E1030000 		.4byte	0x3e1
+ 547 0278 82020000 		.4byte	0x282
+ 548 027c 09       		.uleb128 0x9
+ 549 027d 01       		.uleb128 0x1
+ 550 027e 50       		.byte	0x50
+ 551 027f 01       		.uleb128 0x1
+ 552 0280 30       		.byte	0x30
+ 553 0281 00       		.byte	0
+ 554 0282 08       		.uleb128 0x8
+ 555 0283 8C000000 		.4byte	.LVL23
+ 556 0287 EC030000 		.4byte	0x3ec
+ 557 028b 95020000 		.4byte	0x295
+ 558 028f 09       		.uleb128 0x9
+ 559 0290 01       		.uleb128 0x1
+ 560 0291 50       		.byte	0x50
+ 561 0292 01       		.uleb128 0x1
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\cc7BHccw.s 			page 13
 
 
- 562 026a 82000000 		.4byte	.LVL22
- 563 026e D0040000 		.4byte	0x4d0
- 564 0272 7C020000 		.4byte	0x27c
- 565 0276 09       		.uleb128 0x9
- 566 0277 01       		.uleb128 0x1
- 567 0278 50       		.byte	0x50
- 568 0279 01       		.uleb128 0x1
- 569 027a 30       		.byte	0x30
- 570 027b 00       		.byte	0
- 571 027c 08       		.uleb128 0x8
- 572 027d 88000000 		.4byte	.LVL23
- 573 0281 DB040000 		.4byte	0x4db
- 574 0285 8F020000 		.4byte	0x28f
- 575 0289 09       		.uleb128 0x9
- 576 028a 01       		.uleb128 0x1
- 577 028b 50       		.byte	0x50
- 578 028c 01       		.uleb128 0x1
- 579 028d 33       		.byte	0x33
- 580 028e 00       		.byte	0
- 581 028f 08       		.uleb128 0x8
- 582 0290 92000000 		.4byte	.LVL24
- 583 0294 E6040000 		.4byte	0x4e6
- 584 0298 A9020000 		.4byte	0x2a9
- 585 029c 09       		.uleb128 0x9
- 586 029d 01       		.uleb128 0x1
- 587 029e 50       		.byte	0x50
- 588 029f 03       		.uleb128 0x3
- 589 02a0 0A       		.byte	0xa
- 590 02a1 3818     		.2byte	0x1838
- 591 02a3 09       		.uleb128 0x9
- 592 02a4 01       		.uleb128 0x1
- 593 02a5 51       		.byte	0x51
- 594 02a6 01       		.uleb128 0x1
- 595 02a7 34       		.byte	0x34
- 596 02a8 00       		.byte	0
- 597 02a9 08       		.uleb128 0x8
- 598 02aa 98000000 		.4byte	.LVL25
- 599 02ae F1040000 		.4byte	0x4f1
- 600 02b2 BC020000 		.4byte	0x2bc
- 601 02b6 09       		.uleb128 0x9
- 602 02b7 01       		.uleb128 0x1
- 603 02b8 50       		.byte	0x50
- 604 02b9 01       		.uleb128 0x1
- 605 02ba 30       		.byte	0x30
- 606 02bb 00       		.byte	0
- 607 02bc 08       		.uleb128 0x8
- 608 02bd 9E000000 		.4byte	.LVL26
- 609 02c1 FC040000 		.4byte	0x4fc
- 610 02c5 CF020000 		.4byte	0x2cf
- 611 02c9 09       		.uleb128 0x9
- 612 02ca 01       		.uleb128 0x1
- 613 02cb 50       		.byte	0x50
- 614 02cc 01       		.uleb128 0x1
- 615 02cd 30       		.byte	0x30
- 616 02ce 00       		.byte	0
- 617 02cf 08       		.uleb128 0x8
- 618 02d0 A4000000 		.4byte	.LVL27
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccn33xJO.s 			page 14
+ 562 0293 30       		.byte	0x30
+ 563 0294 00       		.byte	0
+ 564 0295 07       		.uleb128 0x7
+ 565 0296 90000000 		.4byte	.LVL24
+ 566 029a 70040000 		.4byte	0x470
+ 567 029e 07       		.uleb128 0x7
+ 568 029f 94000000 		.4byte	.LVL25
+ 569 02a3 7B040000 		.4byte	0x47b
+ 570 02a7 08       		.uleb128 0x8
+ 571 02a8 9C000000 		.4byte	.LVL26
+ 572 02ac 86040000 		.4byte	0x486
+ 573 02b0 BE020000 		.4byte	0x2be
+ 574 02b4 09       		.uleb128 0x9
+ 575 02b5 01       		.uleb128 0x1
+ 576 02b6 50       		.byte	0x50
+ 577 02b7 05       		.uleb128 0x5
+ 578 02b8 03       		.byte	0x3
+ 579 02b9 00000000 		.4byte	USB_received
+ 580 02bd 00       		.byte	0
+ 581 02be 08       		.uleb128 0x8
+ 582 02bf AA000000 		.4byte	.LVL27
+ 583 02c3 0D040000 		.4byte	0x40d
+ 584 02c7 D5020000 		.4byte	0x2d5
+ 585 02cb 09       		.uleb128 0x9
+ 586 02cc 01       		.uleb128 0x1
+ 587 02cd 50       		.byte	0x50
+ 588 02ce 05       		.uleb128 0x5
+ 589 02cf 03       		.byte	0x3
+ 590 02d0 20000000 		.4byte	.LC1
+ 591 02d4 00       		.byte	0
+ 592 02d5 08       		.uleb128 0x8
+ 593 02d6 B0000000 		.4byte	.LVL28
+ 594 02da EC030000 		.4byte	0x3ec
+ 595 02de E9020000 		.4byte	0x2e9
+ 596 02e2 09       		.uleb128 0x9
+ 597 02e3 01       		.uleb128 0x1
+ 598 02e4 50       		.byte	0x50
+ 599 02e5 02       		.uleb128 0x2
+ 600 02e6 09       		.byte	0x9
+ 601 02e7 FF       		.byte	0xff
+ 602 02e8 00       		.byte	0
+ 603 02e9 07       		.uleb128 0x7
+ 604 02ea B4000000 		.4byte	.LVL29
+ 605 02ee 91040000 		.4byte	0x491
+ 606 02f2 08       		.uleb128 0x8
+ 607 02f3 BA000000 		.4byte	.LVL30
+ 608 02f7 EC030000 		.4byte	0x3ec
+ 609 02fb 05030000 		.4byte	0x305
+ 610 02ff 09       		.uleb128 0x9
+ 611 0300 01       		.uleb128 0x1
+ 612 0301 50       		.byte	0x50
+ 613 0302 01       		.uleb128 0x1
+ 614 0303 30       		.byte	0x30
+ 615 0304 00       		.byte	0
+ 616 0305 0A       		.uleb128 0xa
+ 617 0306 C0000000 		.4byte	.LVL31
+ 618 030a 44040000 		.4byte	0x444
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\cc7BHccw.s 			page 14
 
 
- 619 02d4 41040000 		.4byte	0x441
- 620 02d8 E2020000 		.4byte	0x2e2
- 621 02dc 09       		.uleb128 0x9
- 622 02dd 01       		.uleb128 0x1
- 623 02de 50       		.byte	0x50
- 624 02df 01       		.uleb128 0x1
- 625 02e0 30       		.byte	0x30
- 626 02e1 00       		.byte	0
- 627 02e2 08       		.uleb128 0x8
- 628 02e3 AA000000 		.4byte	.LVL28
- 629 02e7 4C040000 		.4byte	0x44c
- 630 02eb F5020000 		.4byte	0x2f5
- 631 02ef 09       		.uleb128 0x9
- 632 02f0 01       		.uleb128 0x1
- 633 02f1 50       		.byte	0x50
- 634 02f2 01       		.uleb128 0x1
- 635 02f3 30       		.byte	0x30
- 636 02f4 00       		.byte	0
- 637 02f5 07       		.uleb128 0x7
- 638 02f6 AE000000 		.4byte	.LVL29
- 639 02fa 07050000 		.4byte	0x507
- 640 02fe 07       		.uleb128 0x7
- 641 02ff B2000000 		.4byte	.LVL30
- 642 0303 12050000 		.4byte	0x512
- 643 0307 08       		.uleb128 0x8
- 644 0308 BA000000 		.4byte	.LVL31
- 645 030c 1D050000 		.4byte	0x51d
- 646 0310 1E030000 		.4byte	0x31e
- 647 0314 09       		.uleb128 0x9
- 648 0315 01       		.uleb128 0x1
- 649 0316 50       		.byte	0x50
- 650 0317 05       		.uleb128 0x5
- 651 0318 03       		.byte	0x3
- 652 0319 00000000 		.4byte	USB_received
- 653 031d 00       		.byte	0
- 654 031e 08       		.uleb128 0x8
- 655 031f C8000000 		.4byte	.LVL32
- 656 0323 6D040000 		.4byte	0x46d
- 657 0327 35030000 		.4byte	0x335
- 658 032b 09       		.uleb128 0x9
- 659 032c 01       		.uleb128 0x1
- 660 032d 50       		.byte	0x50
- 661 032e 05       		.uleb128 0x5
- 662 032f 03       		.byte	0x3
- 663 0330 20000000 		.4byte	.LC1
- 664 0334 00       		.byte	0
- 665 0335 08       		.uleb128 0x8
- 666 0336 CE000000 		.4byte	.LVL33
- 667 033a 4C040000 		.4byte	0x44c
- 668 033e 49030000 		.4byte	0x349
- 669 0342 09       		.uleb128 0x9
- 670 0343 01       		.uleb128 0x1
- 671 0344 50       		.byte	0x50
- 672 0345 02       		.uleb128 0x2
- 673 0346 09       		.byte	0x9
- 674 0347 FF       		.byte	0xff
- 675 0348 00       		.byte	0
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccn33xJO.s 			page 15
+ 619 030e 09       		.uleb128 0x9
+ 620 030f 01       		.uleb128 0x1
+ 621 0310 50       		.byte	0x50
+ 622 0311 02       		.uleb128 0x2
+ 623 0312 08       		.byte	0x8
+ 624 0313 64       		.byte	0x64
+ 625 0314 00       		.byte	0
+ 626 0315 00       		.byte	0
+ 627 0316 0B       		.uleb128 0xb
+ 628 0317 81010000 		.4byte	.LASF21
+ 629 031b 05       		.byte	0x5
+ 630 031c 1207     		.2byte	0x712
+ 631 031e 22030000 		.4byte	0x322
+ 632 0322 0C       		.uleb128 0xc
+ 633 0323 8C000000 		.4byte	0x8c
+ 634 0327 0D       		.uleb128 0xd
+ 635 0328 51000000 		.4byte	.LASF22
+ 636 032c 06       		.byte	0x6
+ 637 032d 16       		.byte	0x16
+ 638 032e 38030000 		.4byte	0x338
+ 639 0332 05       		.uleb128 0x5
+ 640 0333 03       		.byte	0x3
+ 641 0334 00000000 		.4byte	Is_Slide_On_Gripper
+ 642 0338 02       		.uleb128 0x2
+ 643 0339 01       		.byte	0x1
+ 644 033a 02       		.byte	0x2
+ 645 033b 35030000 		.4byte	.LASF23
+ 646 033f 0D       		.uleb128 0xd
+ 647 0340 7E020000 		.4byte	.LASF24
+ 648 0344 06       		.byte	0x6
+ 649 0345 17       		.byte	0x17
+ 650 0346 A3000000 		.4byte	0xa3
+ 651 034a 05       		.uleb128 0x5
+ 652 034b 03       		.byte	0x3
+ 653 034c 00000000 		.4byte	count
+ 654 0350 0E       		.uleb128 0xe
+ 655 0351 97000000 		.4byte	0x97
+ 656 0355 60030000 		.4byte	0x360
+ 657 0359 0F       		.uleb128 0xf
+ 658 035a D7000000 		.4byte	0xd7
+ 659 035e 3F       		.byte	0x3f
+ 660 035f 00       		.byte	0
+ 661 0360 0D       		.uleb128 0xd
+ 662 0361 A8010000 		.4byte	.LASF25
+ 663 0365 06       		.byte	0x6
+ 664 0366 18       		.byte	0x18
+ 665 0367 50030000 		.4byte	0x350
+ 666 036b 05       		.uleb128 0x5
+ 667 036c 03       		.byte	0x3
+ 668 036d 00000000 		.4byte	USB_received
+ 669 0371 0E       		.uleb128 0xe
+ 670 0372 AF000000 		.4byte	0xaf
+ 671 0376 81030000 		.4byte	0x381
+ 672 037a 0F       		.uleb128 0xf
+ 673 037b D7000000 		.4byte	0xd7
+ 674 037f 39       		.byte	0x39
+ 675 0380 00       		.byte	0
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\cc7BHccw.s 			page 15
 
 
- 676 0349 07       		.uleb128 0x7
- 677 034a D2000000 		.4byte	.LVL34
- 678 034e 28050000 		.4byte	0x528
- 679 0352 08       		.uleb128 0x8
- 680 0353 D8000000 		.4byte	.LVL35
- 681 0357 4C040000 		.4byte	0x44c
- 682 035b 65030000 		.4byte	0x365
- 683 035f 09       		.uleb128 0x9
- 684 0360 01       		.uleb128 0x1
- 685 0361 50       		.byte	0x50
- 686 0362 01       		.uleb128 0x1
- 687 0363 30       		.byte	0x30
- 688 0364 00       		.byte	0
- 689 0365 0A       		.uleb128 0xa
- 690 0366 DE000000 		.4byte	.LVL36
- 691 036a A4040000 		.4byte	0x4a4
- 692 036e 09       		.uleb128 0x9
- 693 036f 01       		.uleb128 0x1
- 694 0370 50       		.byte	0x50
- 695 0371 02       		.uleb128 0x2
- 696 0372 08       		.byte	0x8
- 697 0373 64       		.byte	0x64
- 698 0374 00       		.byte	0
- 699 0375 00       		.byte	0
- 700 0376 0B       		.uleb128 0xb
- 701 0377 A4010000 		.4byte	.LASF21
- 702 037b 05       		.byte	0x5
- 703 037c 1207     		.2byte	0x712
- 704 037e 82030000 		.4byte	0x382
- 705 0382 0C       		.uleb128 0xc
- 706 0383 8C000000 		.4byte	0x8c
- 707 0387 0D       		.uleb128 0xd
- 708 0388 5C000000 		.4byte	.LASF22
- 709 038c 06       		.byte	0x6
- 710 038d 16       		.byte	0x16
- 711 038e 98030000 		.4byte	0x398
- 712 0392 05       		.uleb128 0x5
- 713 0393 03       		.byte	0x3
- 714 0394 00000000 		.4byte	Is_Slide_On_Gripper
- 715 0398 02       		.uleb128 0x2
- 716 0399 01       		.byte	0x1
- 717 039a 02       		.byte	0x2
- 718 039b 6B030000 		.4byte	.LASF23
- 719 039f 0D       		.uleb128 0xd
- 720 03a0 B9020000 		.4byte	.LASF24
- 721 03a4 06       		.byte	0x6
- 722 03a5 17       		.byte	0x17
- 723 03a6 A3000000 		.4byte	0xa3
- 724 03aa 05       		.uleb128 0x5
- 725 03ab 03       		.byte	0x3
- 726 03ac 00000000 		.4byte	count
- 727 03b0 0E       		.uleb128 0xe
- 728 03b1 97000000 		.4byte	0x97
- 729 03b5 C0030000 		.4byte	0x3c0
- 730 03b9 0F       		.uleb128 0xf
- 731 03ba D7000000 		.4byte	0xd7
- 732 03be 3F       		.byte	0x3f
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccn33xJO.s 			page 16
+ 676 0381 0D       		.uleb128 0xd
+ 677 0382 1B000000 		.4byte	.LASF26
+ 678 0386 06       		.byte	0x6
+ 679 0387 19       		.byte	0x19
+ 680 0388 71030000 		.4byte	0x371
+ 681 038c 05       		.uleb128 0x5
+ 682 038d 03       		.byte	0x3
+ 683 038e 00000000 		.4byte	USB_transmit
+ 684 0392 0D       		.uleb128 0xd
+ 685 0393 4A030000 		.4byte	.LASF27
+ 686 0397 01       		.byte	0x1
+ 687 0398 12       		.byte	0x12
+ 688 0399 81000000 		.4byte	0x81
+ 689 039d 05       		.uleb128 0x5
+ 690 039e 03       		.byte	0x3
+ 691 039f 00000000 		.4byte	status_x
+ 692 03a3 0D       		.uleb128 0xd
+ 693 03a4 53030000 		.4byte	.LASF28
+ 694 03a8 01       		.byte	0x1
+ 695 03a9 13       		.byte	0x13
+ 696 03aa 81000000 		.4byte	0x81
+ 697 03ae 05       		.uleb128 0x5
+ 698 03af 03       		.byte	0x3
+ 699 03b0 00000000 		.4byte	status_y
+ 700 03b4 0D       		.uleb128 0xd
+ 701 03b5 75020000 		.4byte	.LASF29
+ 702 03b9 01       		.byte	0x1
+ 703 03ba 14       		.byte	0x14
+ 704 03bb 81000000 		.4byte	0x81
+ 705 03bf 05       		.uleb128 0x5
+ 706 03c0 03       		.byte	0x3
+ 707 03c1 00000000 		.4byte	status_z
+ 708 03c5 0D       		.uleb128 0xd
+ 709 03c6 3C020000 		.4byte	.LASF30
+ 710 03ca 01       		.byte	0x1
+ 711 03cb 15       		.byte	0x15
+ 712 03cc 81000000 		.4byte	0x81
+ 713 03d0 05       		.uleb128 0x5
+ 714 03d1 03       		.byte	0x3
+ 715 03d2 00000000 		.4byte	status_t
+ 716 03d6 10       		.uleb128 0x10
+ 717 03d7 B0000000 		.4byte	.LASF31
+ 718 03db B0000000 		.4byte	.LASF31
+ 719 03df 07       		.byte	0x7
+ 720 03e0 8A       		.byte	0x8a
+ 721 03e1 10       		.uleb128 0x10
+ 722 03e2 8A000000 		.4byte	.LASF32
+ 723 03e6 8A000000 		.4byte	.LASF32
+ 724 03ea 08       		.byte	0x8
+ 725 03eb 26       		.byte	0x26
+ 726 03ec 10       		.uleb128 0x10
+ 727 03ed 32000000 		.4byte	.LASF33
+ 728 03f1 32000000 		.4byte	.LASF33
+ 729 03f5 09       		.byte	0x9
+ 730 03f6 26       		.byte	0x26
+ 731 03f7 10       		.uleb128 0x10
+ 732 03f8 3B030000 		.4byte	.LASF34
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\cc7BHccw.s 			page 16
 
 
- 733 03bf 00       		.byte	0
- 734 03c0 0D       		.uleb128 0xd
- 735 03c1 E3010000 		.4byte	.LASF25
- 736 03c5 06       		.byte	0x6
- 737 03c6 18       		.byte	0x18
- 738 03c7 B0030000 		.4byte	0x3b0
- 739 03cb 05       		.uleb128 0x5
- 740 03cc 03       		.byte	0x3
- 741 03cd 00000000 		.4byte	USB_received
- 742 03d1 0E       		.uleb128 0xe
- 743 03d2 AF000000 		.4byte	0xaf
- 744 03d6 E1030000 		.4byte	0x3e1
- 745 03da 0F       		.uleb128 0xf
- 746 03db D7000000 		.4byte	0xd7
- 747 03df 39       		.byte	0x39
- 748 03e0 00       		.byte	0
- 749 03e1 0D       		.uleb128 0xd
- 750 03e2 1B000000 		.4byte	.LASF26
- 751 03e6 06       		.byte	0x6
- 752 03e7 19       		.byte	0x19
- 753 03e8 D1030000 		.4byte	0x3d1
- 754 03ec 05       		.uleb128 0x5
- 755 03ed 03       		.byte	0x3
- 756 03ee 00000000 		.4byte	USB_transmit
- 757 03f2 0D       		.uleb128 0xd
- 758 03f3 88030000 		.4byte	.LASF27
- 759 03f7 01       		.byte	0x1
- 760 03f8 12       		.byte	0x12
- 761 03f9 81000000 		.4byte	0x81
- 762 03fd 05       		.uleb128 0x5
- 763 03fe 03       		.byte	0x3
- 764 03ff 00000000 		.4byte	status_x
- 765 0403 0D       		.uleb128 0xd
- 766 0404 97030000 		.4byte	.LASF28
- 767 0408 01       		.byte	0x1
- 768 0409 13       		.byte	0x13
- 769 040a 81000000 		.4byte	0x81
- 770 040e 05       		.uleb128 0x5
- 771 040f 03       		.byte	0x3
- 772 0410 00000000 		.4byte	status_y
- 773 0414 0D       		.uleb128 0xd
- 774 0415 B0020000 		.4byte	.LASF29
- 775 0419 01       		.byte	0x1
- 776 041a 14       		.byte	0x14
- 777 041b 81000000 		.4byte	0x81
- 778 041f 05       		.uleb128 0x5
- 779 0420 03       		.byte	0x3
- 780 0421 00000000 		.4byte	status_z
- 781 0425 0D       		.uleb128 0xd
- 782 0426 77020000 		.4byte	.LASF30
- 783 042a 01       		.byte	0x1
- 784 042b 15       		.byte	0x15
- 785 042c 81000000 		.4byte	0x81
- 786 0430 05       		.uleb128 0x5
- 787 0431 03       		.byte	0x3
- 788 0432 00000000 		.4byte	status_t
- 789 0436 10       		.uleb128 0x10
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccn33xJO.s 			page 17
+ 733 03fc 3B030000 		.4byte	.LASF34
+ 734 0400 06       		.byte	0x6
+ 735 0401 2B       		.byte	0x2b
+ 736 0402 10       		.uleb128 0x10
+ 737 0403 95010000 		.4byte	.LASF35
+ 738 0407 95010000 		.4byte	.LASF35
+ 739 040b 0A       		.byte	0xa
+ 740 040c 54       		.byte	0x54
+ 741 040d 10       		.uleb128 0x10
+ 742 040e 45020000 		.4byte	.LASF36
+ 743 0412 45020000 		.4byte	.LASF36
+ 744 0416 06       		.byte	0x6
+ 745 0417 3E       		.byte	0x3e
+ 746 0418 10       		.uleb128 0x10
+ 747 0419 BA010000 		.4byte	.LASF37
+ 748 041d BA010000 		.4byte	.LASF37
+ 749 0421 06       		.byte	0x6
+ 750 0422 3A       		.byte	0x3a
+ 751 0423 10       		.uleb128 0x10
+ 752 0424 65000000 		.4byte	.LASF38
+ 753 0428 65000000 		.4byte	.LASF38
+ 754 042c 06       		.byte	0x6
+ 755 042d 20       		.byte	0x20
+ 756 042e 10       		.uleb128 0x10
+ 757 042f 14020000 		.4byte	.LASF39
+ 758 0433 14020000 		.4byte	.LASF39
+ 759 0437 0B       		.byte	0xb
+ 760 0438 4D       		.byte	0x4d
+ 761 0439 10       		.uleb128 0x10
+ 762 043a C4020000 		.4byte	.LASF40
+ 763 043e C4020000 		.4byte	.LASF40
+ 764 0442 06       		.byte	0x6
+ 765 0443 1F       		.byte	0x1f
+ 766 0444 10       		.uleb128 0x10
+ 767 0445 C9010000 		.4byte	.LASF41
+ 768 0449 C9010000 		.4byte	.LASF41
+ 769 044d 0C       		.byte	0xc
+ 770 044e 77       		.byte	0x77
+ 771 044f 10       		.uleb128 0x10
+ 772 0450 3D000000 		.4byte	.LASF42
+ 773 0454 3D000000 		.4byte	.LASF42
+ 774 0458 0D       		.byte	0xd
+ 775 0459 2D       		.byte	0x2d
+ 776 045a 10       		.uleb128 0x10
+ 777 045b A4020000 		.4byte	.LASF43
+ 778 045f A4020000 		.4byte	.LASF43
+ 779 0463 0E       		.byte	0xe
+ 780 0464 4F       		.byte	0x4f
+ 781 0465 10       		.uleb128 0x10
+ 782 0466 95000000 		.4byte	.LASF44
+ 783 046a 95000000 		.4byte	.LASF44
+ 784 046e 0F       		.byte	0xf
+ 785 046f 4F       		.byte	0x4f
+ 786 0470 10       		.uleb128 0x10
+ 787 0471 D8010000 		.4byte	.LASF45
+ 788 0475 D8010000 		.4byte	.LASF45
+ 789 0479 06       		.byte	0x6
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\cc7BHccw.s 			page 17
 
 
- 790 0437 D3000000 		.4byte	.LASF31
- 791 043b D3000000 		.4byte	.LASF31
- 792 043f 07       		.byte	0x7
- 793 0440 8A       		.byte	0x8a
- 794 0441 10       		.uleb128 0x10
- 795 0442 AD000000 		.4byte	.LASF32
- 796 0446 AD000000 		.4byte	.LASF32
- 797 044a 08       		.byte	0x8
- 798 044b 26       		.byte	0x26
- 799 044c 10       		.uleb128 0x10
- 800 044d 3D000000 		.4byte	.LASF33
- 801 0451 3D000000 		.4byte	.LASF33
- 802 0455 09       		.byte	0x9
- 803 0456 26       		.byte	0x26
- 804 0457 10       		.uleb128 0x10
- 805 0458 71030000 		.4byte	.LASF34
- 806 045c 71030000 		.4byte	.LASF34
- 807 0460 06       		.byte	0x6
- 808 0461 2B       		.byte	0x2b
- 809 0462 10       		.uleb128 0x10
- 810 0463 D0010000 		.4byte	.LASF35
- 811 0467 D0010000 		.4byte	.LASF35
- 812 046b 0A       		.byte	0xa
- 813 046c 54       		.byte	0x54
- 814 046d 10       		.uleb128 0x10
- 815 046e 80020000 		.4byte	.LASF36
- 816 0472 80020000 		.4byte	.LASF36
- 817 0476 06       		.byte	0x6
- 818 0477 3E       		.byte	0x3e
- 819 0478 10       		.uleb128 0x10
- 820 0479 F5010000 		.4byte	.LASF37
- 821 047d F5010000 		.4byte	.LASF37
- 822 0481 06       		.byte	0x6
- 823 0482 3A       		.byte	0x3a
- 824 0483 10       		.uleb128 0x10
- 825 0484 88000000 		.4byte	.LASF38
- 826 0488 88000000 		.4byte	.LASF38
- 827 048c 06       		.byte	0x6
- 828 048d 20       		.byte	0x20
- 829 048e 10       		.uleb128 0x10
- 830 048f 4F020000 		.4byte	.LASF39
- 831 0493 4F020000 		.4byte	.LASF39
- 832 0497 0B       		.byte	0xb
- 833 0498 4D       		.byte	0x4d
- 834 0499 10       		.uleb128 0x10
- 835 049a FA020000 		.4byte	.LASF40
- 836 049e FA020000 		.4byte	.LASF40
- 837 04a2 06       		.byte	0x6
- 838 04a3 1F       		.byte	0x1f
- 839 04a4 10       		.uleb128 0x10
- 840 04a5 04020000 		.4byte	.LASF41
- 841 04a9 04020000 		.4byte	.LASF41
- 842 04ad 0C       		.byte	0xc
- 843 04ae 77       		.byte	0x77
- 844 04af 10       		.uleb128 0x10
- 845 04b0 70000000 		.4byte	.LASF42
- 846 04b4 70000000 		.4byte	.LASF42
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccn33xJO.s 			page 18
+ 790 047a 38       		.byte	0x38
+ 791 047b 10       		.uleb128 0x10
+ 792 047c 84020000 		.4byte	.LASF46
+ 793 0480 84020000 		.4byte	.LASF46
+ 794 0484 10       		.byte	0x10
+ 795 0485 29       		.byte	0x29
+ 796 0486 10       		.uleb128 0x10
+ 797 0487 B9020000 		.4byte	.LASF47
+ 798 048b B9020000 		.4byte	.LASF47
+ 799 048f 10       		.byte	0x10
+ 800 0490 2B       		.byte	0x2b
+ 801 0491 10       		.uleb128 0x10
+ 802 0492 0A000000 		.4byte	.LASF48
+ 803 0496 0A000000 		.4byte	.LASF48
+ 804 049a 06       		.byte	0x6
+ 805 049b 36       		.byte	0x36
+ 806 049c 00       		.byte	0
+ 807              		.section	.debug_abbrev,"",%progbits
+ 808              	.Ldebug_abbrev0:
+ 809 0000 01       		.uleb128 0x1
+ 810 0001 11       		.uleb128 0x11
+ 811 0002 01       		.byte	0x1
+ 812 0003 25       		.uleb128 0x25
+ 813 0004 0E       		.uleb128 0xe
+ 814 0005 13       		.uleb128 0x13
+ 815 0006 0B       		.uleb128 0xb
+ 816 0007 03       		.uleb128 0x3
+ 817 0008 0E       		.uleb128 0xe
+ 818 0009 1B       		.uleb128 0x1b
+ 819 000a 0E       		.uleb128 0xe
+ 820 000b 55       		.uleb128 0x55
+ 821 000c 17       		.uleb128 0x17
+ 822 000d 11       		.uleb128 0x11
+ 823 000e 01       		.uleb128 0x1
+ 824 000f 10       		.uleb128 0x10
+ 825 0010 17       		.uleb128 0x17
+ 826 0011 00       		.byte	0
+ 827 0012 00       		.byte	0
+ 828 0013 02       		.uleb128 0x2
+ 829 0014 24       		.uleb128 0x24
+ 830 0015 00       		.byte	0
+ 831 0016 0B       		.uleb128 0xb
+ 832 0017 0B       		.uleb128 0xb
+ 833 0018 3E       		.uleb128 0x3e
+ 834 0019 0B       		.uleb128 0xb
+ 835 001a 03       		.uleb128 0x3
+ 836 001b 0E       		.uleb128 0xe
+ 837 001c 00       		.byte	0
+ 838 001d 00       		.byte	0
+ 839 001e 03       		.uleb128 0x3
+ 840 001f 16       		.uleb128 0x16
+ 841 0020 00       		.byte	0
+ 842 0021 03       		.uleb128 0x3
+ 843 0022 0E       		.uleb128 0xe
+ 844 0023 3A       		.uleb128 0x3a
+ 845 0024 0B       		.uleb128 0xb
+ 846 0025 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\cc7BHccw.s 			page 18
 
 
- 847 04b8 0D       		.byte	0xd
- 848 04b9 26       		.byte	0x26
- 849 04ba 10       		.uleb128 0x10
- 850 04bb 80030000 		.4byte	.LASF43
- 851 04bf 80030000 		.4byte	.LASF43
- 852 04c3 0C       		.byte	0xc
- 853 04c4 76       		.byte	0x76
- 854 04c5 10       		.uleb128 0x10
- 855 04c6 91030000 		.4byte	.LASF44
- 856 04ca 91030000 		.4byte	.LASF44
- 857 04ce 0E       		.byte	0xe
- 858 04cf 2B       		.byte	0x2b
- 859 04d0 10       		.uleb128 0x10
- 860 04d1 B8010000 		.4byte	.LASF45
- 861 04d5 B8010000 		.4byte	.LASF45
- 862 04d9 0F       		.byte	0xf
- 863 04da 26       		.byte	0x26
- 864 04db 10       		.uleb128 0x10
- 865 04dc F4020000 		.4byte	.LASF46
- 866 04e0 F4020000 		.4byte	.LASF46
- 867 04e4 0E       		.byte	0xe
- 868 04e5 2C       		.byte	0x2c
- 869 04e6 10       		.uleb128 0x10
- 870 04e7 48000000 		.4byte	.LASF47
- 871 04eb 48000000 		.4byte	.LASF47
- 872 04ef 0E       		.byte	0xe
- 873 04f0 2D       		.byte	0x2d
- 874 04f1 10       		.uleb128 0x10
- 875 04f2 DF020000 		.4byte	.LASF48
- 876 04f6 DF020000 		.4byte	.LASF48
- 877 04fa 10       		.byte	0x10
- 878 04fb 4F       		.byte	0x4f
- 879 04fc 10       		.uleb128 0x10
- 880 04fd B8000000 		.4byte	.LASF49
- 881 0501 B8000000 		.4byte	.LASF49
- 882 0505 11       		.byte	0x11
- 883 0506 4F       		.byte	0x4f
- 884 0507 10       		.uleb128 0x10
- 885 0508 13020000 		.4byte	.LASF50
- 886 050c 13020000 		.4byte	.LASF50
- 887 0510 06       		.byte	0x6
- 888 0511 38       		.byte	0x38
- 889 0512 10       		.uleb128 0x10
- 890 0513 BF020000 		.4byte	.LASF51
- 891 0517 BF020000 		.4byte	.LASF51
- 892 051b 12       		.byte	0x12
- 893 051c 29       		.byte	0x29
- 894 051d 10       		.uleb128 0x10
- 895 051e 28000000 		.4byte	.LASF52
- 896 0522 28000000 		.4byte	.LASF52
- 897 0526 12       		.byte	0x12
- 898 0527 2B       		.byte	0x2b
- 899 0528 10       		.uleb128 0x10
- 900 0529 0A000000 		.4byte	.LASF53
- 901 052d 0A000000 		.4byte	.LASF53
- 902 0531 06       		.byte	0x6
- 903 0532 36       		.byte	0x36
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccn33xJO.s 			page 19
+ 847 0026 0B       		.uleb128 0xb
+ 848 0027 49       		.uleb128 0x49
+ 849 0028 13       		.uleb128 0x13
+ 850 0029 00       		.byte	0
+ 851 002a 00       		.byte	0
+ 852 002b 04       		.uleb128 0x4
+ 853 002c 24       		.uleb128 0x24
+ 854 002d 00       		.byte	0
+ 855 002e 0B       		.uleb128 0xb
+ 856 002f 0B       		.uleb128 0xb
+ 857 0030 3E       		.uleb128 0x3e
+ 858 0031 0B       		.uleb128 0xb
+ 859 0032 03       		.uleb128 0x3
+ 860 0033 08       		.uleb128 0x8
+ 861 0034 00       		.byte	0
+ 862 0035 00       		.byte	0
+ 863 0036 05       		.uleb128 0x5
+ 864 0037 16       		.uleb128 0x16
+ 865 0038 00       		.byte	0
+ 866 0039 03       		.uleb128 0x3
+ 867 003a 0E       		.uleb128 0xe
+ 868 003b 3A       		.uleb128 0x3a
+ 869 003c 0B       		.uleb128 0xb
+ 870 003d 3B       		.uleb128 0x3b
+ 871 003e 05       		.uleb128 0x5
+ 872 003f 49       		.uleb128 0x49
+ 873 0040 13       		.uleb128 0x13
+ 874 0041 00       		.byte	0
+ 875 0042 00       		.byte	0
+ 876 0043 06       		.uleb128 0x6
+ 877 0044 2E       		.uleb128 0x2e
+ 878 0045 01       		.byte	0x1
+ 879 0046 3F       		.uleb128 0x3f
+ 880 0047 19       		.uleb128 0x19
+ 881 0048 03       		.uleb128 0x3
+ 882 0049 0E       		.uleb128 0xe
+ 883 004a 3A       		.uleb128 0x3a
+ 884 004b 0B       		.uleb128 0xb
+ 885 004c 3B       		.uleb128 0x3b
+ 886 004d 0B       		.uleb128 0xb
+ 887 004e 27       		.uleb128 0x27
+ 888 004f 19       		.uleb128 0x19
+ 889 0050 49       		.uleb128 0x49
+ 890 0051 13       		.uleb128 0x13
+ 891 0052 8701     		.uleb128 0x87
+ 892 0054 19       		.uleb128 0x19
+ 893 0055 11       		.uleb128 0x11
+ 894 0056 01       		.uleb128 0x1
+ 895 0057 12       		.uleb128 0x12
+ 896 0058 06       		.uleb128 0x6
+ 897 0059 40       		.uleb128 0x40
+ 898 005a 18       		.uleb128 0x18
+ 899 005b 9742     		.uleb128 0x2117
+ 900 005d 19       		.uleb128 0x19
+ 901 005e 01       		.uleb128 0x1
+ 902 005f 13       		.uleb128 0x13
+ 903 0060 00       		.byte	0
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\cc7BHccw.s 			page 19
 
 
- 904 0533 00       		.byte	0
- 905              		.section	.debug_abbrev,"",%progbits
- 906              	.Ldebug_abbrev0:
- 907 0000 01       		.uleb128 0x1
- 908 0001 11       		.uleb128 0x11
- 909 0002 01       		.byte	0x1
- 910 0003 25       		.uleb128 0x25
- 911 0004 0E       		.uleb128 0xe
- 912 0005 13       		.uleb128 0x13
- 913 0006 0B       		.uleb128 0xb
- 914 0007 03       		.uleb128 0x3
- 915 0008 0E       		.uleb128 0xe
- 916 0009 1B       		.uleb128 0x1b
- 917 000a 0E       		.uleb128 0xe
- 918 000b 55       		.uleb128 0x55
- 919 000c 17       		.uleb128 0x17
- 920 000d 11       		.uleb128 0x11
- 921 000e 01       		.uleb128 0x1
- 922 000f 10       		.uleb128 0x10
- 923 0010 17       		.uleb128 0x17
- 924 0011 00       		.byte	0
- 925 0012 00       		.byte	0
- 926 0013 02       		.uleb128 0x2
- 927 0014 24       		.uleb128 0x24
- 928 0015 00       		.byte	0
- 929 0016 0B       		.uleb128 0xb
- 930 0017 0B       		.uleb128 0xb
- 931 0018 3E       		.uleb128 0x3e
- 932 0019 0B       		.uleb128 0xb
- 933 001a 03       		.uleb128 0x3
- 934 001b 0E       		.uleb128 0xe
- 935 001c 00       		.byte	0
- 936 001d 00       		.byte	0
- 937 001e 03       		.uleb128 0x3
- 938 001f 16       		.uleb128 0x16
- 939 0020 00       		.byte	0
- 940 0021 03       		.uleb128 0x3
- 941 0022 0E       		.uleb128 0xe
- 942 0023 3A       		.uleb128 0x3a
- 943 0024 0B       		.uleb128 0xb
- 944 0025 3B       		.uleb128 0x3b
- 945 0026 0B       		.uleb128 0xb
- 946 0027 49       		.uleb128 0x49
- 947 0028 13       		.uleb128 0x13
- 948 0029 00       		.byte	0
- 949 002a 00       		.byte	0
- 950 002b 04       		.uleb128 0x4
- 951 002c 24       		.uleb128 0x24
- 952 002d 00       		.byte	0
- 953 002e 0B       		.uleb128 0xb
- 954 002f 0B       		.uleb128 0xb
- 955 0030 3E       		.uleb128 0x3e
- 956 0031 0B       		.uleb128 0xb
- 957 0032 03       		.uleb128 0x3
- 958 0033 08       		.uleb128 0x8
- 959 0034 00       		.byte	0
- 960 0035 00       		.byte	0
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccn33xJO.s 			page 20
+ 904 0061 00       		.byte	0
+ 905 0062 07       		.uleb128 0x7
+ 906 0063 898201   		.uleb128 0x4109
+ 907 0066 00       		.byte	0
+ 908 0067 11       		.uleb128 0x11
+ 909 0068 01       		.uleb128 0x1
+ 910 0069 31       		.uleb128 0x31
+ 911 006a 13       		.uleb128 0x13
+ 912 006b 00       		.byte	0
+ 913 006c 00       		.byte	0
+ 914 006d 08       		.uleb128 0x8
+ 915 006e 898201   		.uleb128 0x4109
+ 916 0071 01       		.byte	0x1
+ 917 0072 11       		.uleb128 0x11
+ 918 0073 01       		.uleb128 0x1
+ 919 0074 31       		.uleb128 0x31
+ 920 0075 13       		.uleb128 0x13
+ 921 0076 01       		.uleb128 0x1
+ 922 0077 13       		.uleb128 0x13
+ 923 0078 00       		.byte	0
+ 924 0079 00       		.byte	0
+ 925 007a 09       		.uleb128 0x9
+ 926 007b 8A8201   		.uleb128 0x410a
+ 927 007e 00       		.byte	0
+ 928 007f 02       		.uleb128 0x2
+ 929 0080 18       		.uleb128 0x18
+ 930 0081 9142     		.uleb128 0x2111
+ 931 0083 18       		.uleb128 0x18
+ 932 0084 00       		.byte	0
+ 933 0085 00       		.byte	0
+ 934 0086 0A       		.uleb128 0xa
+ 935 0087 898201   		.uleb128 0x4109
+ 936 008a 01       		.byte	0x1
+ 937 008b 11       		.uleb128 0x11
+ 938 008c 01       		.uleb128 0x1
+ 939 008d 31       		.uleb128 0x31
+ 940 008e 13       		.uleb128 0x13
+ 941 008f 00       		.byte	0
+ 942 0090 00       		.byte	0
+ 943 0091 0B       		.uleb128 0xb
+ 944 0092 34       		.uleb128 0x34
+ 945 0093 00       		.byte	0
+ 946 0094 03       		.uleb128 0x3
+ 947 0095 0E       		.uleb128 0xe
+ 948 0096 3A       		.uleb128 0x3a
+ 949 0097 0B       		.uleb128 0xb
+ 950 0098 3B       		.uleb128 0x3b
+ 951 0099 05       		.uleb128 0x5
+ 952 009a 49       		.uleb128 0x49
+ 953 009b 13       		.uleb128 0x13
+ 954 009c 3F       		.uleb128 0x3f
+ 955 009d 19       		.uleb128 0x19
+ 956 009e 3C       		.uleb128 0x3c
+ 957 009f 19       		.uleb128 0x19
+ 958 00a0 00       		.byte	0
+ 959 00a1 00       		.byte	0
+ 960 00a2 0C       		.uleb128 0xc
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\cc7BHccw.s 			page 20
 
 
- 961 0036 05       		.uleb128 0x5
- 962 0037 16       		.uleb128 0x16
- 963 0038 00       		.byte	0
- 964 0039 03       		.uleb128 0x3
- 965 003a 0E       		.uleb128 0xe
- 966 003b 3A       		.uleb128 0x3a
- 967 003c 0B       		.uleb128 0xb
- 968 003d 3B       		.uleb128 0x3b
- 969 003e 05       		.uleb128 0x5
- 970 003f 49       		.uleb128 0x49
- 971 0040 13       		.uleb128 0x13
- 972 0041 00       		.byte	0
- 973 0042 00       		.byte	0
- 974 0043 06       		.uleb128 0x6
- 975 0044 2E       		.uleb128 0x2e
- 976 0045 01       		.byte	0x1
- 977 0046 3F       		.uleb128 0x3f
- 978 0047 19       		.uleb128 0x19
- 979 0048 03       		.uleb128 0x3
- 980 0049 0E       		.uleb128 0xe
- 981 004a 3A       		.uleb128 0x3a
- 982 004b 0B       		.uleb128 0xb
- 983 004c 3B       		.uleb128 0x3b
- 984 004d 0B       		.uleb128 0xb
- 985 004e 27       		.uleb128 0x27
- 986 004f 19       		.uleb128 0x19
- 987 0050 49       		.uleb128 0x49
- 988 0051 13       		.uleb128 0x13
- 989 0052 8701     		.uleb128 0x87
- 990 0054 19       		.uleb128 0x19
- 991 0055 11       		.uleb128 0x11
- 992 0056 01       		.uleb128 0x1
- 993 0057 12       		.uleb128 0x12
- 994 0058 06       		.uleb128 0x6
- 995 0059 40       		.uleb128 0x40
- 996 005a 18       		.uleb128 0x18
- 997 005b 9742     		.uleb128 0x2117
- 998 005d 19       		.uleb128 0x19
- 999 005e 01       		.uleb128 0x1
- 1000 005f 13       		.uleb128 0x13
- 1001 0060 00       		.byte	0
- 1002 0061 00       		.byte	0
- 1003 0062 07       		.uleb128 0x7
- 1004 0063 898201   		.uleb128 0x4109
- 1005 0066 00       		.byte	0
- 1006 0067 11       		.uleb128 0x11
- 1007 0068 01       		.uleb128 0x1
- 1008 0069 31       		.uleb128 0x31
- 1009 006a 13       		.uleb128 0x13
- 1010 006b 00       		.byte	0
- 1011 006c 00       		.byte	0
- 1012 006d 08       		.uleb128 0x8
- 1013 006e 898201   		.uleb128 0x4109
- 1014 0071 01       		.byte	0x1
- 1015 0072 11       		.uleb128 0x11
- 1016 0073 01       		.uleb128 0x1
- 1017 0074 31       		.uleb128 0x31
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccn33xJO.s 			page 21
+ 961 00a3 35       		.uleb128 0x35
+ 962 00a4 00       		.byte	0
+ 963 00a5 49       		.uleb128 0x49
+ 964 00a6 13       		.uleb128 0x13
+ 965 00a7 00       		.byte	0
+ 966 00a8 00       		.byte	0
+ 967 00a9 0D       		.uleb128 0xd
+ 968 00aa 34       		.uleb128 0x34
+ 969 00ab 00       		.byte	0
+ 970 00ac 03       		.uleb128 0x3
+ 971 00ad 0E       		.uleb128 0xe
+ 972 00ae 3A       		.uleb128 0x3a
+ 973 00af 0B       		.uleb128 0xb
+ 974 00b0 3B       		.uleb128 0x3b
+ 975 00b1 0B       		.uleb128 0xb
+ 976 00b2 49       		.uleb128 0x49
+ 977 00b3 13       		.uleb128 0x13
+ 978 00b4 3F       		.uleb128 0x3f
+ 979 00b5 19       		.uleb128 0x19
+ 980 00b6 02       		.uleb128 0x2
+ 981 00b7 18       		.uleb128 0x18
+ 982 00b8 00       		.byte	0
+ 983 00b9 00       		.byte	0
+ 984 00ba 0E       		.uleb128 0xe
+ 985 00bb 01       		.uleb128 0x1
+ 986 00bc 01       		.byte	0x1
+ 987 00bd 49       		.uleb128 0x49
+ 988 00be 13       		.uleb128 0x13
+ 989 00bf 01       		.uleb128 0x1
+ 990 00c0 13       		.uleb128 0x13
+ 991 00c1 00       		.byte	0
+ 992 00c2 00       		.byte	0
+ 993 00c3 0F       		.uleb128 0xf
+ 994 00c4 21       		.uleb128 0x21
+ 995 00c5 00       		.byte	0
+ 996 00c6 49       		.uleb128 0x49
+ 997 00c7 13       		.uleb128 0x13
+ 998 00c8 2F       		.uleb128 0x2f
+ 999 00c9 0B       		.uleb128 0xb
+ 1000 00ca 00       		.byte	0
+ 1001 00cb 00       		.byte	0
+ 1002 00cc 10       		.uleb128 0x10
+ 1003 00cd 2E       		.uleb128 0x2e
+ 1004 00ce 00       		.byte	0
+ 1005 00cf 3F       		.uleb128 0x3f
+ 1006 00d0 19       		.uleb128 0x19
+ 1007 00d1 3C       		.uleb128 0x3c
+ 1008 00d2 19       		.uleb128 0x19
+ 1009 00d3 6E       		.uleb128 0x6e
+ 1010 00d4 0E       		.uleb128 0xe
+ 1011 00d5 03       		.uleb128 0x3
+ 1012 00d6 0E       		.uleb128 0xe
+ 1013 00d7 3A       		.uleb128 0x3a
+ 1014 00d8 0B       		.uleb128 0xb
+ 1015 00d9 3B       		.uleb128 0x3b
+ 1016 00da 0B       		.uleb128 0xb
+ 1017 00db 00       		.byte	0
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\cc7BHccw.s 			page 21
 
 
- 1018 0075 13       		.uleb128 0x13
- 1019 0076 01       		.uleb128 0x1
- 1020 0077 13       		.uleb128 0x13
- 1021 0078 00       		.byte	0
- 1022 0079 00       		.byte	0
- 1023 007a 09       		.uleb128 0x9
- 1024 007b 8A8201   		.uleb128 0x410a
- 1025 007e 00       		.byte	0
- 1026 007f 02       		.uleb128 0x2
- 1027 0080 18       		.uleb128 0x18
- 1028 0081 9142     		.uleb128 0x2111
- 1029 0083 18       		.uleb128 0x18
- 1030 0084 00       		.byte	0
- 1031 0085 00       		.byte	0
- 1032 0086 0A       		.uleb128 0xa
- 1033 0087 898201   		.uleb128 0x4109
- 1034 008a 01       		.byte	0x1
- 1035 008b 11       		.uleb128 0x11
- 1036 008c 01       		.uleb128 0x1
- 1037 008d 31       		.uleb128 0x31
- 1038 008e 13       		.uleb128 0x13
- 1039 008f 00       		.byte	0
- 1040 0090 00       		.byte	0
- 1041 0091 0B       		.uleb128 0xb
- 1042 0092 34       		.uleb128 0x34
- 1043 0093 00       		.byte	0
- 1044 0094 03       		.uleb128 0x3
- 1045 0095 0E       		.uleb128 0xe
- 1046 0096 3A       		.uleb128 0x3a
- 1047 0097 0B       		.uleb128 0xb
- 1048 0098 3B       		.uleb128 0x3b
- 1049 0099 05       		.uleb128 0x5
- 1050 009a 49       		.uleb128 0x49
- 1051 009b 13       		.uleb128 0x13
- 1052 009c 3F       		.uleb128 0x3f
- 1053 009d 19       		.uleb128 0x19
- 1054 009e 3C       		.uleb128 0x3c
- 1055 009f 19       		.uleb128 0x19
- 1056 00a0 00       		.byte	0
- 1057 00a1 00       		.byte	0
- 1058 00a2 0C       		.uleb128 0xc
- 1059 00a3 35       		.uleb128 0x35
- 1060 00a4 00       		.byte	0
- 1061 00a5 49       		.uleb128 0x49
- 1062 00a6 13       		.uleb128 0x13
- 1063 00a7 00       		.byte	0
- 1064 00a8 00       		.byte	0
- 1065 00a9 0D       		.uleb128 0xd
- 1066 00aa 34       		.uleb128 0x34
- 1067 00ab 00       		.byte	0
- 1068 00ac 03       		.uleb128 0x3
- 1069 00ad 0E       		.uleb128 0xe
- 1070 00ae 3A       		.uleb128 0x3a
- 1071 00af 0B       		.uleb128 0xb
- 1072 00b0 3B       		.uleb128 0x3b
- 1073 00b1 0B       		.uleb128 0xb
- 1074 00b2 49       		.uleb128 0x49
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccn33xJO.s 			page 22
+ 1018 00dc 00       		.byte	0
+ 1019 00dd 00       		.byte	0
+ 1020              		.section	.debug_aranges,"",%progbits
+ 1021 0000 1C000000 		.4byte	0x1c
+ 1022 0004 0200     		.2byte	0x2
+ 1023 0006 00000000 		.4byte	.Ldebug_info0
+ 1024 000a 04       		.byte	0x4
+ 1025 000b 00       		.byte	0
+ 1026 000c 0000     		.2byte	0
+ 1027 000e 0000     		.2byte	0
+ 1028 0010 00000000 		.4byte	.LFB64
+ 1029 0014 D4000000 		.4byte	.LFE64-.LFB64
+ 1030 0018 00000000 		.4byte	0
+ 1031 001c 00000000 		.4byte	0
+ 1032              		.section	.debug_ranges,"",%progbits
+ 1033              	.Ldebug_ranges0:
+ 1034 0000 00000000 		.4byte	.LFB64
+ 1035 0004 D4000000 		.4byte	.LFE64
+ 1036 0008 00000000 		.4byte	0
+ 1037 000c 00000000 		.4byte	0
+ 1038              		.section	.debug_line,"",%progbits
+ 1039              	.Ldebug_line0:
+ 1040 0000 17020000 		.section	.debug_str,"MS",%progbits,1
+ 1040      0200DB01 
+ 1040      00000201 
+ 1040      FB0E0D00 
+ 1040      01010101 
+ 1041              	.LASF4:
+ 1042 0000 5F5F7569 		.ascii	"__uint8_t\000"
+ 1042      6E74385F 
+ 1042      7400
+ 1043              	.LASF48:
+ 1044 000a 50726F63 		.ascii	"Process_USB_Data\000"
+ 1044      6573735F 
+ 1044      5553425F 
+ 1044      44617461 
+ 1044      00
+ 1045              	.LASF26:
+ 1046 001b 5553425F 		.ascii	"USB_transmit\000"
+ 1046      7472616E 
+ 1046      736D6974 
+ 1046      00
+ 1047              	.LASF5:
+ 1048 0028 5F5F696E 		.ascii	"__int32_t\000"
+ 1048      7433325F 
+ 1048      7400
+ 1049              	.LASF33:
+ 1050 0032 4C454432 		.ascii	"LED2_Write\000"
+ 1050      5F577269 
+ 1050      746500
+ 1051              	.LASF42:
+ 1052 003d 75706461 		.ascii	"update_max_velocity\000"
+ 1052      74655F6D 
+ 1052      61785F76 
+ 1052      656C6F63 
+ 1052      69747900 
+ 1053              	.LASF22:
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\cc7BHccw.s 			page 22
 
 
- 1075 00b3 13       		.uleb128 0x13
- 1076 00b4 3F       		.uleb128 0x3f
- 1077 00b5 19       		.uleb128 0x19
- 1078 00b6 02       		.uleb128 0x2
- 1079 00b7 18       		.uleb128 0x18
- 1080 00b8 00       		.byte	0
- 1081 00b9 00       		.byte	0
- 1082 00ba 0E       		.uleb128 0xe
- 1083 00bb 01       		.uleb128 0x1
- 1084 00bc 01       		.byte	0x1
- 1085 00bd 49       		.uleb128 0x49
- 1086 00be 13       		.uleb128 0x13
- 1087 00bf 01       		.uleb128 0x1
- 1088 00c0 13       		.uleb128 0x13
- 1089 00c1 00       		.byte	0
- 1090 00c2 00       		.byte	0
- 1091 00c3 0F       		.uleb128 0xf
- 1092 00c4 21       		.uleb128 0x21
- 1093 00c5 00       		.byte	0
- 1094 00c6 49       		.uleb128 0x49
- 1095 00c7 13       		.uleb128 0x13
- 1096 00c8 2F       		.uleb128 0x2f
- 1097 00c9 0B       		.uleb128 0xb
- 1098 00ca 00       		.byte	0
- 1099 00cb 00       		.byte	0
- 1100 00cc 10       		.uleb128 0x10
- 1101 00cd 2E       		.uleb128 0x2e
- 1102 00ce 00       		.byte	0
- 1103 00cf 3F       		.uleb128 0x3f
- 1104 00d0 19       		.uleb128 0x19
- 1105 00d1 3C       		.uleb128 0x3c
- 1106 00d2 19       		.uleb128 0x19
- 1107 00d3 6E       		.uleb128 0x6e
- 1108 00d4 0E       		.uleb128 0xe
- 1109 00d5 03       		.uleb128 0x3
- 1110 00d6 0E       		.uleb128 0xe
- 1111 00d7 3A       		.uleb128 0x3a
- 1112 00d8 0B       		.uleb128 0xb
- 1113 00d9 3B       		.uleb128 0x3b
- 1114 00da 0B       		.uleb128 0xb
- 1115 00db 00       		.byte	0
- 1116 00dc 00       		.byte	0
- 1117 00dd 00       		.byte	0
- 1118              		.section	.debug_aranges,"",%progbits
- 1119 0000 1C000000 		.4byte	0x1c
- 1120 0004 0200     		.2byte	0x2
- 1121 0006 00000000 		.4byte	.Ldebug_info0
- 1122 000a 04       		.byte	0x4
- 1123 000b 00       		.byte	0
- 1124 000c 0000     		.2byte	0
- 1125 000e 0000     		.2byte	0
- 1126 0010 00000000 		.4byte	.LFB64
- 1127 0014 F0000000 		.4byte	.LFE64-.LFB64
- 1128 0018 00000000 		.4byte	0
- 1129 001c 00000000 		.4byte	0
- 1130              		.section	.debug_ranges,"",%progbits
- 1131              	.Ldebug_ranges0:
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccn33xJO.s 			page 23
+ 1054 0051 49735F53 		.ascii	"Is_Slide_On_Gripper\000"
+ 1054      6C696465 
+ 1054      5F4F6E5F 
+ 1054      47726970 
+ 1054      70657200 
+ 1055              	.LASF38:
+ 1056 0065 496E6974 		.ascii	"Initialize_And_Start_All_Opt_Encoder\000"
+ 1056      69616C69 
+ 1056      7A655F41 
+ 1056      6E645F53 
+ 1056      74617274 
+ 1057              	.LASF32:
+ 1058 008a 4C454433 		.ascii	"LED3_Write\000"
+ 1058      5F577269 
+ 1058      746500
+ 1059              	.LASF44:
+ 1060 0095 51756164 		.ascii	"QuadDec_Y_SetCounter\000"
+ 1060      4465635F 
+ 1060      595F5365 
+ 1060      74436F75 
+ 1060      6E746572 
+ 1061              	.LASF16:
+ 1062 00aa 666C6F61 		.ascii	"float\000"
+ 1062      7400
+ 1063              	.LASF31:
+ 1064 00b0 77616974 		.ascii	"wait_timer_Init\000"
+ 1064      5F74696D 
+ 1064      65725F49 
+ 1064      6E697400 
+ 1065              	.LASF1:
+ 1066 00c0 756E7369 		.ascii	"unsigned char\000"
+ 1066      676E6564 
+ 1066      20636861 
+ 1066      7200
+ 1067              	.LASF49:
+ 1068 00ce 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1068      43313120 
+ 1068      352E342E 
+ 1068      31203230 
+ 1068      31363036 
+ 1069 0101 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1069      20726576 
+ 1069      6973696F 
+ 1069      6E203233 
+ 1069      37373135 
+ 1070 0134 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1070      66756E63 
+ 1070      74696F6E 
+ 1070      2D736563 
+ 1070      74696F6E 
+ 1071              	.LASF7:
+ 1072 015c 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1072      20756E73 
+ 1072      69676E65 
+ 1072      6420696E 
+ 1072      7400
+ 1073              	.LASF3:
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\cc7BHccw.s 			page 23
 
 
- 1132 0000 00000000 		.4byte	.LFB64
- 1133 0004 F0000000 		.4byte	.LFE64
- 1134 0008 00000000 		.4byte	0
- 1135 000c 00000000 		.4byte	0
- 1136              		.section	.debug_line,"",%progbits
- 1137              	.Ldebug_line0:
- 1138 0000 48020000 		.section	.debug_str,"MS",%progbits,1
- 1138      02000902 
- 1138      00000201 
- 1138      FB0E0D00 
- 1138      01010101 
- 1139              	.LASF4:
- 1140 0000 5F5F7569 		.ascii	"__uint8_t\000"
- 1140      6E74385F 
- 1140      7400
- 1141              	.LASF53:
- 1142 000a 50726F63 		.ascii	"Process_USB_Data\000"
- 1142      6573735F 
- 1142      5553425F 
- 1142      44617461 
- 1142      00
- 1143              	.LASF26:
- 1144 001b 5553425F 		.ascii	"USB_transmit\000"
- 1144      7472616E 
- 1144      736D6974 
- 1144      00
- 1145              	.LASF52:
- 1146 0028 5553425F 		.ascii	"USB_GetAll\000"
- 1146      47657441 
- 1146      6C6C00
- 1147              	.LASF5:
- 1148 0033 5F5F696E 		.ascii	"__int32_t\000"
- 1148      7433325F 
- 1148      7400
- 1149              	.LASF33:
- 1150 003d 4C454432 		.ascii	"LED2_Write\000"
- 1150      5F577269 
- 1150      746500
- 1151              	.LASF47:
- 1152 0048 75706461 		.ascii	"update_max_velocity\000"
- 1152      74655F6D 
- 1152      61785F76 
- 1152      656C6F63 
- 1152      69747900 
- 1153              	.LASF22:
- 1154 005c 49735F53 		.ascii	"Is_Slide_On_Gripper\000"
- 1154      6C696465 
- 1154      5F4F6E5F 
- 1154      47726970 
- 1154      70657200 
- 1155              	.LASF42:
- 1156 0070 544D4335 		.ascii	"TMC5160_MotorZ_EN_Write\000"
- 1156      3136305F 
- 1156      4D6F746F 
- 1156      725A5F45 
- 1156      4E5F5772 
- 1157              	.LASF38:
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccn33xJO.s 			page 24
+ 1074 016e 73686F72 		.ascii	"short unsigned int\000"
+ 1074      7420756E 
+ 1074      7369676E 
+ 1074      65642069 
+ 1074      6E7400
+ 1075              	.LASF21:
+ 1076 0181 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 1076      52784275 
+ 1076      66666572 
+ 1076      00
+ 1077              	.LASF14:
+ 1078 018e 75696E74 		.ascii	"uint16\000"
+ 1078      313600
+ 1079              	.LASF35:
+ 1080 0195 55415254 		.ascii	"UART_PCB_LOG_Start\000"
+ 1080      5F504342 
+ 1080      5F4C4F47 
+ 1080      5F537461 
+ 1080      727400
+ 1081              	.LASF25:
+ 1082 01a8 5553425F 		.ascii	"USB_received\000"
+ 1082      72656365 
+ 1082      69766564 
+ 1082      00
+ 1083              	.LASF52:
+ 1084 01b5 6D61696E 		.ascii	"main\000"
+ 1084      00
+ 1085              	.LASF37:
+ 1086 01ba 496E6974 		.ascii	"Initialize_USB\000"
+ 1086      69616C69 
+ 1086      7A655F55 
+ 1086      534200
+ 1087              	.LASF41:
+ 1088 01c9 43794465 		.ascii	"CyDelayUs\000"
+ 1088      6C617955 
+ 1088      7300
+ 1089              	.LASF15:
+ 1090 01d3 696E7438 		.ascii	"int8\000"
+ 1090      00
+ 1091              	.LASF45:
+ 1092 01d8 49735F55 		.ascii	"Is_USB_Unpluged\000"
+ 1092      53425F55 
+ 1092      6E706C75 
+ 1092      67656400 
+ 1093              	.LASF10:
+ 1094 01e8 756E7369 		.ascii	"unsigned int\000"
+ 1094      676E6564 
+ 1094      20696E74 
+ 1094      00
+ 1095              	.LASF9:
+ 1096 01f5 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1096      206C6F6E 
+ 1096      6720756E 
+ 1096      7369676E 
+ 1096      65642069 
+ 1097              	.LASF11:
+ 1098 020c 75696E74 		.ascii	"uint8_t\000"
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\cc7BHccw.s 			page 24
 
 
- 1158 0088 496E6974 		.ascii	"Initialize_And_Start_All_Opt_Encoder\000"
- 1158      69616C69 
- 1158      7A655F41 
- 1158      6E645F53 
- 1158      74617274 
- 1159              	.LASF32:
- 1160 00ad 4C454433 		.ascii	"LED3_Write\000"
- 1160      5F577269 
- 1160      746500
- 1161              	.LASF49:
- 1162 00b8 51756164 		.ascii	"QuadDec_Y_SetCounter\000"
- 1162      4465635F 
- 1162      595F5365 
- 1162      74436F75 
- 1162      6E746572 
- 1163              	.LASF16:
- 1164 00cd 666C6F61 		.ascii	"float\000"
- 1164      7400
- 1165              	.LASF31:
- 1166 00d3 77616974 		.ascii	"wait_timer_Init\000"
- 1166      5F74696D 
- 1166      65725F49 
- 1166      6E697400 
- 1167              	.LASF1:
- 1168 00e3 756E7369 		.ascii	"unsigned char\000"
- 1168      676E6564 
- 1168      20636861 
- 1168      7200
- 1169              	.LASF54:
- 1170 00f1 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 1170      43313120 
- 1170      352E342E 
- 1170      31203230 
- 1170      31363036 
- 1171 0124 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
- 1171      20726576 
- 1171      6973696F 
- 1171      6E203233 
- 1171      37373135 
- 1172 0157 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 1172      66756E63 
- 1172      74696F6E 
- 1172      2D736563 
- 1172      74696F6E 
- 1173              	.LASF7:
- 1174 017f 6C6F6E67 		.ascii	"long unsigned int\000"
- 1174      20756E73 
- 1174      69676E65 
- 1174      6420696E 
- 1174      7400
- 1175              	.LASF3:
- 1176 0191 73686F72 		.ascii	"short unsigned int\000"
- 1176      7420756E 
- 1176      7369676E 
- 1176      65642069 
- 1176      6E7400
- 1177              	.LASF21:
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccn33xJO.s 			page 25
+ 1098      385F7400 
+ 1099              	.LASF39:
+ 1100 0214 5350494D 		.ascii	"SPIM_Start\000"
+ 1100      5F537461 
+ 1100      727400
+ 1101              	.LASF0:
+ 1102 021f 7369676E 		.ascii	"signed char\000"
+ 1102      65642063 
+ 1102      68617200 
+ 1103              	.LASF12:
+ 1104 022b 696E7433 		.ascii	"int32_t\000"
+ 1104      325F7400 
+ 1105              	.LASF20:
+ 1106 0233 73697A65 		.ascii	"sizetype\000"
+ 1106      74797065 
+ 1106      00
+ 1107              	.LASF30:
+ 1108 023c 73746174 		.ascii	"status_t\000"
+ 1108      75735F74 
+ 1108      00
+ 1109              	.LASF36:
+ 1110 0245 57726974 		.ascii	"Write_Debug_UART_Char\000"
+ 1110      655F4465 
+ 1110      6275675F 
+ 1110      55415254 
+ 1110      5F436861 
+ 1111              	.LASF8:
+ 1112 025b 6C6F6E67 		.ascii	"long long int\000"
+ 1112      206C6F6E 
+ 1112      6720696E 
+ 1112      7400
+ 1113              	.LASF50:
+ 1114 0269 6D61696E 		.ascii	"main.c\000"
+ 1114      2E6300
+ 1115              	.LASF18:
+ 1116 0270 63686172 		.ascii	"char\000"
+ 1116      00
+ 1117              	.LASF29:
+ 1118 0275 73746174 		.ascii	"status_z\000"
+ 1118      75735F7A 
+ 1118      00
+ 1119              	.LASF24:
+ 1120 027e 636F756E 		.ascii	"count\000"
+ 1120      7400
+ 1121              	.LASF46:
+ 1122 0284 5553425F 		.ascii	"USB_DataIsReady\000"
+ 1122      44617461 
+ 1122      49735265 
+ 1122      61647900 
+ 1123              	.LASF2:
+ 1124 0294 73686F72 		.ascii	"short int\000"
+ 1124      7420696E 
+ 1124      7400
+ 1125              	.LASF13:
+ 1126 029e 75696E74 		.ascii	"uint8\000"
+ 1126      3800
+ 1127              	.LASF43:
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\cc7BHccw.s 			page 25
 
 
- 1178 01a4 49544D5F 		.ascii	"ITM_RxBuffer\000"
- 1178      52784275 
- 1178      66666572 
- 1178      00
- 1179              	.LASF14:
- 1180 01b1 75696E74 		.ascii	"uint16\000"
- 1180      313600
- 1181              	.LASF45:
- 1182 01b8 544D4335 		.ascii	"TMC5160_MotorT_EN_Write\000"
- 1182      3136305F 
- 1182      4D6F746F 
- 1182      72545F45 
- 1182      4E5F5772 
- 1183              	.LASF35:
- 1184 01d0 55415254 		.ascii	"UART_PCB_LOG_Start\000"
- 1184      5F504342 
- 1184      5F4C4F47 
- 1184      5F537461 
- 1184      727400
- 1185              	.LASF25:
- 1186 01e3 5553425F 		.ascii	"USB_received\000"
- 1186      72656365 
- 1186      69766564 
- 1186      00
- 1187              	.LASF57:
- 1188 01f0 6D61696E 		.ascii	"main\000"
- 1188      00
- 1189              	.LASF37:
- 1190 01f5 496E6974 		.ascii	"Initialize_USB\000"
- 1190      69616C69 
- 1190      7A655F55 
- 1190      534200
- 1191              	.LASF41:
- 1192 0204 43794465 		.ascii	"CyDelayUs\000"
- 1192      6C617955 
- 1192      7300
- 1193              	.LASF15:
- 1194 020e 696E7438 		.ascii	"int8\000"
- 1194      00
- 1195              	.LASF50:
- 1196 0213 49735F55 		.ascii	"Is_USB_Unpluged\000"
- 1196      53425F55 
- 1196      6E706C75 
- 1196      67656400 
- 1197              	.LASF10:
- 1198 0223 756E7369 		.ascii	"unsigned int\000"
- 1198      676E6564 
- 1198      20696E74 
- 1198      00
- 1199              	.LASF9:
- 1200 0230 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1200      206C6F6E 
- 1200      6720756E 
- 1200      7369676E 
- 1200      65642069 
- 1201              	.LASF11:
- 1202 0247 75696E74 		.ascii	"uint8_t\000"
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccn33xJO.s 			page 26
-
-
- 1202      385F7400 
- 1203              	.LASF39:
- 1204 024f 5350494D 		.ascii	"SPIM_Start\000"
- 1204      5F537461 
- 1204      727400
- 1205              	.LASF0:
- 1206 025a 7369676E 		.ascii	"signed char\000"
- 1206      65642063 
- 1206      68617200 
- 1207              	.LASF12:
- 1208 0266 696E7433 		.ascii	"int32_t\000"
- 1208      325F7400 
- 1209              	.LASF20:
- 1210 026e 73697A65 		.ascii	"sizetype\000"
- 1210      74797065 
- 1210      00
- 1211              	.LASF30:
- 1212 0277 73746174 		.ascii	"status_t\000"
- 1212      75735F74 
- 1212      00
- 1213              	.LASF36:
- 1214 0280 57726974 		.ascii	"Write_Debug_UART_Char\000"
- 1214      655F4465 
- 1214      6275675F 
- 1214      55415254 
- 1214      5F436861 
- 1215              	.LASF8:
- 1216 0296 6C6F6E67 		.ascii	"long long int\000"
- 1216      206C6F6E 
- 1216      6720696E 
- 1216      7400
- 1217              	.LASF55:
- 1218 02a4 6D61696E 		.ascii	"main.c\000"
- 1218      2E6300
- 1219              	.LASF18:
- 1220 02ab 63686172 		.ascii	"char\000"
- 1220      00
- 1221              	.LASF29:
- 1222 02b0 73746174 		.ascii	"status_z\000"
- 1222      75735F7A 
- 1222      00
- 1223              	.LASF24:
- 1224 02b9 636F756E 		.ascii	"count\000"
- 1224      7400
- 1225              	.LASF51:
- 1226 02bf 5553425F 		.ascii	"USB_DataIsReady\000"
- 1226      44617461 
- 1226      49735265 
- 1226      61647900 
- 1227              	.LASF2:
- 1228 02cf 73686F72 		.ascii	"short int\000"
- 1228      7420696E 
- 1228      7400
- 1229              	.LASF13:
- 1230 02d9 75696E74 		.ascii	"uint8\000"
- 1230      3800
- 1231              	.LASF48:
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccn33xJO.s 			page 27
-
-
- 1232 02df 51756164 		.ascii	"QuadDec_X_SetCounter\000"
- 1232      4465635F 
- 1232      585F5365 
- 1232      74436F75 
- 1232      6E746572 
- 1233              	.LASF46:
- 1234 02f4 686F6D65 		.ascii	"homeT\000"
- 1234      5400
- 1235              	.LASF40:
- 1236 02fa 496E6974 		.ascii	"Initialize_Motor\000"
- 1236      69616C69 
- 1236      7A655F4D 
- 1236      6F746F72 
- 1236      00
- 1237              	.LASF6:
- 1238 030b 6C6F6E67 		.ascii	"long int\000"
- 1238      20696E74 
- 1238      00
- 1239              	.LASF19:
- 1240 0314 6C6F6E67 		.ascii	"long double\000"
- 1240      20646F75 
- 1240      626C6500 
- 1241              	.LASF56:
- 1242 0320 433A5C55 		.ascii	"C:\\Users\\Revanth\\Documents\\GitHub\\AS76_FFP\\AS"
- 1242      73657273 
- 1242      5C526576 
- 1242      616E7468 
- 1242      5C446F63 
- 1243 034d 37365F46 		.ascii	"76_FFP\\AS76_FFP4.cydsn\000"
- 1243      46505C41 
- 1243      5337365F 
- 1243      46465034 
- 1243      2E637964 
- 1244              	.LASF17:
- 1245 0364 646F7562 		.ascii	"double\000"
- 1245      6C6500
- 1246              	.LASF23:
- 1247 036b 5F426F6F 		.ascii	"_Bool\000"
- 1247      6C00
- 1248              	.LASF34:
- 1249 0371 496E6974 		.ascii	"Initialize_PWM\000"
- 1249      69616C69 
- 1249      7A655F50 
- 1249      574D00
- 1250              	.LASF43:
- 1251 0380 43794465 		.ascii	"CyDelay\000"
- 1251      6C617900 
- 1252              	.LASF27:
- 1253 0388 73746174 		.ascii	"status_x\000"
- 1253      75735F78 
- 1253      00
- 1254              	.LASF44:
- 1255 0391 686F6D65 		.ascii	"homeZ\000"
- 1255      5A00
- 1256              	.LASF28:
- 1257 0397 73746174 		.ascii	"status_y\000"
- 1257      75735F79 
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccn33xJO.s 			page 28
-
-
- 1257      00
- 1258              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ 1128 02a4 51756164 		.ascii	"QuadDec_X_SetCounter\000"
+ 1128      4465635F 
+ 1128      585F5365 
+ 1128      74436F75 
+ 1128      6E746572 
+ 1129              	.LASF47:
+ 1130 02b9 5553425F 		.ascii	"USB_GetAll\000"
+ 1130      47657441 
+ 1130      6C6C00
+ 1131              	.LASF40:
+ 1132 02c4 496E6974 		.ascii	"Initialize_Motor\000"
+ 1132      69616C69 
+ 1132      7A655F4D 
+ 1132      6F746F72 
+ 1132      00
+ 1133              	.LASF6:
+ 1134 02d5 6C6F6E67 		.ascii	"long int\000"
+ 1134      20696E74 
+ 1134      00
+ 1135              	.LASF19:
+ 1136 02de 6C6F6E67 		.ascii	"long double\000"
+ 1136      20646F75 
+ 1136      626C6500 
+ 1137              	.LASF51:
+ 1138 02ea 433A5C55 		.ascii	"C:\\Users\\Revanth\\Documents\\GitHub\\AS76_FFP\\AS"
+ 1138      73657273 
+ 1138      5C526576 
+ 1138      616E7468 
+ 1138      5C446F63 
+ 1139 0317 37365F46 		.ascii	"76_FFP\\AS76_FFP4.cydsn\000"
+ 1139      46505C41 
+ 1139      5337365F 
+ 1139      46465034 
+ 1139      2E637964 
+ 1140              	.LASF17:
+ 1141 032e 646F7562 		.ascii	"double\000"
+ 1141      6C6500
+ 1142              	.LASF23:
+ 1143 0335 5F426F6F 		.ascii	"_Bool\000"
+ 1143      6C00
+ 1144              	.LASF34:
+ 1145 033b 496E6974 		.ascii	"Initialize_PWM\000"
+ 1145      69616C69 
+ 1145      7A655F50 
+ 1145      574D00
+ 1146              	.LASF27:
+ 1147 034a 73746174 		.ascii	"status_x\000"
+ 1147      75735F78 
+ 1147      00
+ 1148              	.LASF28:
+ 1149 0353 73746174 		.ascii	"status_y\000"
+ 1149      75735F79 
+ 1149      00
+ 1150              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
