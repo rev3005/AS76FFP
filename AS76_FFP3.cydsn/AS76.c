@@ -1406,9 +1406,15 @@ void Process_USB_Data()/* Process USB incoming data command. */
     }
     else if ( command == Set_OilDispenser )
     {
+        Write_Debug_UART_Char("\n\n\n\n Oil Dispense Command Received");
+        Write_Debug_UART_Char("\nSteps");
         int time_ms=0;
         uint8_t direction=0;
         time_ms = ((int32)USB_received[5] << 24) + ((int32)USB_received[4] << 16) + ((int32)USB_received[3] << 8) + (int32)USB_received[2];
+        Write_Debug_UART_Int(time_ms);
+        Write_Debug_UART_Char("\nReceived Direction ");
+        Write_Debug_UART_Int((USB_received[6]));
+        Write_Debug_UART_Char("\n");
         if((USB_received[6] == 0x00) || (USB_received[6] == 0x01))
         {
             CyDelayUs(10);
@@ -1416,11 +1422,15 @@ void Process_USB_Data()/* Process USB incoming data command. */
         else
         {
           USB_received[6] = 0x00;
+          
         }
         
         direction = USB_received[6];
+        Write_Debug_UART_Char("\nAssumed Direction ");
+        Write_Debug_UART_Int(direction);
         run_pump (time_ms, direction);
         Send_Feedback_to_USB(Error);
+         
     }
     
     else if (command == GotoXYZ)
@@ -2356,65 +2366,15 @@ if(direction == 0x00)
     {
         GotoPos(time_ms, TMC5160_nCS_MotorO);
         
-        Read_32bitSPI_DATA(0x04, TMC5160_nCS_MotorO, &status_x); // Read the status register of TMC5160
-        CyDelayUs(500);
-        Read_32bitSPI_DATA(0x04, TMC5160_nCS_MotorO, &status_x); // Read the status register of TMC5160
-        while ( (status_x & 0x20) == 0x00) // Check if target position is reached or not
-            {
-             wait_timer_Start();
-             wait_interrupt_StartEx(wait_interrupt_Handler);
-             Read_32bitSPI_DATA(0x04, TMC5160_nCS_MotorO, &status_x); // Read the status register of TMC5160
-             if(exit_loop == 1)
-                {
-                Send_Feedback_to_USB(X_Homing_Not_Done_Yet);
-                wait_timer_Stop();
-                Write_32bitSPI_DATA (0x20  , (int) 0x00000000, TMC5160_nCS_MotorO );
-                Write_32bitSPI_DATA (0x21  , (int) 0x0000000, TMC5160_nCS_MotorO); // Mark the current postion as 0
-                Write_32bitSPI_DATA (0x2D  , 0x00000000, TMC5160_nCS_MotorO ); // Set thye target position as 0
-                exit_loop = 0;
-                Error = 33;
-                TMC5160_MotorO_EN_Write(0xFF);
-                return Error;
-                //break;
-                }
-             CyDelayUs(100);       
-            }
-            wait_timer_Stop();
-            exit_loop =0;
-        //WaitTillPositionReached(TMC5160_nCS_MotorO);
+        WaitTillPositionReached(TMC5160_nCS_MotorO);
         //Write_32bitSPI_DATA (0x20  , (int) 0x00000001, TMC5160_nCS_MotorO );
     }
     else
     {
     time_ms = 0-time_ms;
     GotoPos(time_ms, TMC5160_nCS_MotorO);
-    Read_32bitSPI_DATA(0x04, TMC5160_nCS_MotorO, &status_x); // Read the status register of TMC5160
-    CyDelayUs(500);
-    Read_32bitSPI_DATA(0x04, TMC5160_nCS_MotorO, &status_x); // Read the status register of TMC5160
-    while ( (status_x & 0x20) == 0x00) // Check if target position is reached or not
-        {
-         wait_timer_Start();
-         wait_interrupt_StartEx(wait_interrupt_Handler);
-         Read_32bitSPI_DATA(0x04, TMC5160_nCS_MotorO, &status_x); // Read the status register of TMC5160
-         if(exit_loop == 1)
-            {
-            Send_Feedback_to_USB(X_Homing_Not_Done_Yet);
-            wait_timer_Stop();
-            Write_32bitSPI_DATA (0x20  , (int) 0x00000000, TMC5160_nCS_MotorO );
-            Write_32bitSPI_DATA (0x21  , (int) 0x0000000, TMC5160_nCS_MotorO); // Mark the current postion as 0
-            Write_32bitSPI_DATA (0x2D  , 0x00000000, TMC5160_nCS_MotorO ); // Set thye target position as 0
-            exit_loop = 0;
-            Error = 33;
-            TMC5160_MotorO_EN_Write(0xFF);
-            return Error;
-            //break;
-            }
-         CyDelayUs(100);       
-        }
-        wait_timer_Stop();
-        exit_loop =0;
-    
-    //WaitTillPositionReached(TMC5160_nCS_MotorO);
+
+    WaitTillPositionReached(TMC5160_nCS_MotorO);
     //Write_32bitSPI_DATA (0x20  , (int) 0x00000002, TMC5160_nCS_MotorO );
     }
     }
