@@ -49,10 +49,10 @@ unsigned int Motor_Speed_X = (51200*6); //Default_X_Motor_Speed - 6 Rotations pe
 unsigned int Motor_Speed_Y = (51200*6); //Default_Y_Motor_Speed - 6 Rotations per second;
 unsigned int Motor_Speed_Z = (51200*6); //Default_Z_Motor_Speed - 3 Rotations per second;
 
-bool HomeX_done = true; //Variable to indicate if Homing procedure done  or not in X Motor, intial value is set true for algorithm logic
-bool HomeY_done = true; //Variable to indicate if Homing procedure done  or not in Y Motor, intial value is set true for algorithm logic
-bool HomeZ_done = true; //Variable to indicate if Homing procedure done  or not in Z Motor, intial value is set true for algorithm logic
-bool HomeT_done = true; //Variable to indicate if Homing procedure done  or not in T Motor, intial value is set true for algorithm logic
+bool HomeX_done = false; //Variable to indicate if Homing procedure done  or not in X Motor, intial value is set true for algorithm logic
+bool HomeY_done = false; //Variable to indicate if Homing procedure done  or not in Y Motor, intial value is set true for algorithm logic
+bool HomeZ_done = false; //Variable to indicate if Homing procedure done  or not in Z Motor, intial value is set true for algorithm logic
+bool HomeT_done = false; //Variable to indicate if Homing procedure done  or not in T Motor, intial value is set true for algorithm logic
 
 bool HomeX_done_Buffer = false; //Variable to indicate if Homing procedure done  or not in X Motor, intial value is set true for algorithm logic
 bool HomeY_done_Buffer = false; //Variable to indicate if Homing procedure done  or not in Y Motor, intial value is set true for algorithm logic
