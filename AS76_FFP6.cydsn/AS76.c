@@ -901,7 +901,7 @@ int Step_correction_z(int32 steps)
     int32 Encoder_Position_Z_Requested =0;
     //int32 diff_encoder_value=0;
     int32 encoder_error_value = 0;
-    Encoder_Position_Z_Requested = steps/3.2;
+      Encoder_Position_Z_Requested = steps/12.8;
       Read_All_Optical_Encoder();
       Write_Debug_UART_Char("Initial Error Z Quadposition: ");
       Write_Debug_UART_Int(Z_QuadPosition);
@@ -921,7 +921,7 @@ int Step_correction_z(int32 steps)
         Error=  16;
         break;
     }
-    if((abs(encoder_error_value))>5)
+    if((abs(encoder_error_value))>3)
     {
       Write_Debug_UART_Char("Y Loop Error difference: ");
       Write_Debug_UART_Int(encoder_error_value);
@@ -1891,7 +1891,8 @@ void Send_Feedback_to_USB(int Error)//Send Feedback to USB if USB command execut
         }
         
         X_QuadPosition = (X_QuadPosition * 4);
-        Y_QuadPosition = (Y_QuadPosition * 4);    
+        Y_QuadPosition = (Y_QuadPosition * 4);  
+        Z_QuadPosition = (Z_QuadPosition * 4); 
         T_QuadPosition = (int)(T_QuadPosition * 3.2); 
         USB_transmit[4] = (X_QuadPosition);
         USB_transmit[5] = (X_QuadPosition) >> 8;
