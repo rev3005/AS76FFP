@@ -896,12 +896,12 @@ int Step_correction_z(int32 steps)
     int32 Encoder_Position_Z_Requested =0;
     //int32 diff_encoder_value=0;
     int32 encoder_error_value = 0;
-    Encoder_Position_Z_Requested = steps/3.2;
+      Encoder_Position_Z_Requested = steps/12.8;
       Read_All_Optical_Encoder();
       Write_Debug_UART_Char("Initial Error Z Quadposition: ");
       Write_Debug_UART_Int(Z_QuadPosition);
       Write_Debug_UART_Char("\n");
-    
+   
     for(temp=0; temp<=5; temp++)
     {
     Write_Debug_UART_Char("Z Loop Count: ");
@@ -916,24 +916,24 @@ int Step_correction_z(int32 steps)
         Error=  16;
         break;
     }
-    if((abs(encoder_error_value))>5)
+    if((abs(encoder_error_value))>3)
     {
       Write_Debug_UART_Char("Y Loop Error difference: ");
       Write_Debug_UART_Int(encoder_error_value);
       Write_Debug_UART_Char("\n");
-      new_step = new_step+steps;     
+      new_step = new_step+steps;    
       GotoPos(new_step, TMC5160_nCS_MotorZ);
       WaitTillPositionReached (TMC5160_nCS_MotorZ);
       CyDelayUs(50);
       Write_32bitSPI_DATA (0x21  , steps, TMC5160_nCS_MotorZ );
     }
-    
+   
     }
-    
-    
+   
+   
     Read_All_Optical_Encoder();
     encoder_error_value = Encoder_Position_Z_Requested - Z_QuadPosition;
-    
+   
     if(temp>=4)
     {
      if(((abs(encoder_error_value))>7) && ((abs(encoder_error_value))<4000) )
@@ -947,22 +947,22 @@ int Step_correction_z(int32 steps)
         LED2_Write(0xFF);
         Error = 15;
      }
-    
+   
      else if ( ((abs(encoder_error_value))>4000))
      {
-       Write_Debug_UART_Char("Z Encoder or Z Motor Might Not be Working \r\n"); 
+       Write_Debug_UART_Char("Z Encoder or Z Motor Might Not be Working \r\n");
        Error = 16;
      }
-    
+   
      else
      {
        Write_Debug_UART_Char("Z position Reached");
        Error = 0;
-        
+       
      }
-    
+   
     }
-    
+   
     return Error;
 }
 
@@ -1433,8 +1433,8 @@ void Process_USB_Data()/* Process USB incoming data command. */
     }
     else if (command == GotoZ)        
     {
-        update_max_velocity(107374,TMC5160_nCS_MotorZ);  
         Write_Debug_UART_Char("\n\n\n\n\nGoto Z Starting \n");
+        update_max_velocity(107374,TMC5160_nCS_MotorZ);
         Position_Z_Requested = ((int32)USB_received[5] << 24) + ((int32)USB_received[4] << 16) + ((int32)USB_received[3] << 8) + (int32)USB_received[2]; //Decode USB Steps
         Write_Debug_UART_Char("Requested Position :");
         Write_Debug_UART_Int(Position_Z_Requested);
@@ -1482,6 +1482,7 @@ void Process_USB_Data()/* Process USB incoming data command. */
         Position_X_Requested = ((int32)USB_received[5] << 24) + ((int32)USB_received[4] << 16) + ((int32)USB_received[3] << 8) + (int32)USB_received[2];
         Position_Y_Requested = ((int32)USB_received[9] << 24) + ((int32)USB_received[8] << 16) + ((int32)USB_received[7] << 8) + (int32)USB_received[6];
         Position_Z_Requested = ((int32)USB_received[13] << 24) + ((int32)USB_received[12] << 16) + ((int32)USB_received[11] << 8) + (int32)USB_received[10];
+        //Input_Position_X_Temp = Position_X_Requested;
         
         if(Position_X_Requested >= 0)
         {        
@@ -1577,7 +1578,7 @@ void Process_USB_Data()/* Process USB incoming data command. */
         Send_Feedback_to_USB(Error);
     }
     
-    else if(command == GotoZ_Vs)
+     else if(command == GotoZ_Vs)
     {
     Write_Debug_UART_Char("\n\n\n\n\nGoto Z Vs Starting \n");
     Position_Z_Requested = ((int32)USB_received[5] << 24) + ((int32)USB_received[4] << 16) + ((int32)USB_received[3] << 8) + (int32)USB_received[2];   
@@ -1880,7 +1881,8 @@ void Send_Feedback_to_USB(int Error)//Send Feedback to USB if USB command execut
         }
         
         X_QuadPosition = (X_QuadPosition * 4);
-        Y_QuadPosition = (Y_QuadPosition * 4);    
+        Y_QuadPosition = (Y_QuadPosition * 4);   
+        Z_QuadPosition = (Z_QuadPosition * 4);
         T_QuadPosition = (int)(T_QuadPosition * 3.2); 
         USB_transmit[4] = (X_QuadPosition);
         USB_transmit[5] = (X_QuadPosition) >> 8;
