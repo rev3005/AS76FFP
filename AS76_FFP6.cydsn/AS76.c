@@ -16,6 +16,7 @@
 #include "math.h"
 #include "configuration.h"
 #include <stdlib.h>
+#include "APA102.h"
 
 bool Time_Out_Error = true;
 unsigned int command;
@@ -548,7 +549,7 @@ void homeZ(uint8_t Motor)
 void homeT(uint8_t Motor)
 {
     TMC5160_MotorT_EN_Write(0x00);
-    CyDelayUs(100);
+    CyDelayUs(1000);
     update_max_velocity(12800, Motor);
     Enable_Encoder_T(-Buffer_T_QuadPosition);
     Write_32bitSPI_DATA (0x20  , (int) 0x00000002, Motor );
@@ -630,7 +631,7 @@ void homeT(uint8_t Motor)
     HomeT_done = true;
     HomeT_done_Buffer = true;
     Write_Debug_UART_Char("HomeT executed  \r\n");
-    TMC5160_MotorT_EN_Write(0xFF);
+    //TMC5160_MotorT_EN_Write(0xFF);
     CyDelayUs(100);
 }
 
@@ -976,7 +977,7 @@ int Step_correction_z(int32 steps)
 int goTo_T(int32 Position_T_Requested)
 {
     TMC5160_MotorT_EN_Write(0x00);
-    CyDelayUs(100);
+    CyDelayUs(1000);
     Enable_Encoder_T(-Buffer_T_QuadPosition);
     if(if_all_homing_done())
     {
@@ -992,7 +993,7 @@ int goTo_T(int32 Position_T_Requested)
         Step_correction_t(Position_T_Requested);
         Read_All_Optical_Encoder();
         Buffer_T_QuadPosition = T_QuadPosition;
-        TMC5160_MotorT_EN_Write(0xFF);
+        //TMC5160_MotorT_EN_Write(0xFF);
         CyDelayUs (100);
         return Error;
     }
@@ -1000,7 +1001,7 @@ int goTo_T(int32 Position_T_Requested)
     {
         Write_Debug_UART_Char("Homing Not Done");
         Error = 32;
-         TMC5160_MotorT_EN_Write(0xFF);
+         //TMC5160_MotorT_EN_Write(0xFF);
         CyDelayUs(100);
         return Error;
     }
@@ -1044,7 +1045,7 @@ int Step_correction_t(int32 steps)
     
     if(temp>=4)
     {
-     if(((abs(encoder_error_value))>=5) && ((abs(encoder_error_value))<4000) )
+     if(((abs(encoder_error_value))>=10) && ((abs(encoder_error_value))<4000) )
      {
         Write_Debug_UART_Char("Fail to reach T position \r\n");
         Error = 22;
@@ -1386,10 +1387,27 @@ void Process_USB_Data()/* Process USB incoming data command. */
     }
     else if (command == HomeT)                           
     {
-        Write_32bitSPI_DATA (0x10  , (int) 0x00070503, TMC5160_nCS_MotorT ); 
+        TMC5160_MotorZ_EN_Write(0xFF);
+        CyDelayUs(500);
+        TMC5160_MotorY_EN_Write(0xFF);
+        CyDelayUs(500);
+        TMC5160_MotorX_EN_Write(0xFF);
+        CyDelayUs(500);
+        Write_32bitSPI_DATA (0x10  , (int) 0x00070501, TMC5160_nCS_MotorT ); 
+        CyDelayUs(500);
+        TMC5160_MotorT_EN_Write(0x00);
         CyDelay(10);
         goTo_T(0);
         homeT(TMC5160_nCS_MotorT);
+        CyDelayUs(1000);
+        TMC5160_MotorT_EN_Write(0xFF);
+        CyDelayUs(1000);
+        TMC5160_MotorZ_EN_Write(0x00);
+        CyDelayUs(1000);
+        TMC5160_MotorY_EN_Write(0x00);
+        CyDelayUs(1000);
+        TMC5160_MotorX_EN_Write(0x00);
+        CyDelayUs(1000);
         Send_Feedback_to_USB(Error);
     }
     else if (command == GotoX)                           
@@ -1456,13 +1474,31 @@ void Process_USB_Data()/* Process USB incoming data command. */
     else if (command == GotoT)        
     {
         Write_Debug_UART_Char("\n\n\n\n\nGoto T Starting \n");
-        Write_32bitSPI_DATA (0x10  , (int) 0x00070503, TMC5160_nCS_MotorT ); 
+        TMC5160_MotorZ_EN_Write(0xFF);
+        CyDelayUs(500);
+        TMC5160_MotorY_EN_Write(0xFF);
+        CyDelayUs(500);
+        TMC5160_MotorX_EN_Write(0xFF);
+        CyDelayUs(500);
+        Write_32bitSPI_DATA (0x10  , (int) 0x00070501, TMC5160_nCS_MotorT ); 
+        CyDelayUs(500);
+        TMC5160_MotorT_EN_Write(0x00);
+        CyDelay(10); 
         Position_T_Requested = ((int32)USB_received[5] << 24) + ((int32)USB_received[4] << 16) + ((int32)USB_received[3] << 8) + (int32)USB_received[2]; //Decode USB Steps
         Position_T_Requested = (Position_T_Requested / 1);
         Position_T_Requested = Position_T_Requested * 1;
         Error = goTo_T(Position_T_Requested);
+         CyDelayUs(1000);
+        TMC5160_MotorT_EN_Write(0xFF);
+        CyDelayUs(1000);
+        TMC5160_MotorZ_EN_Write(0x00);
+        CyDelayUs(1000);
+        TMC5160_MotorY_EN_Write(0x00);
+        CyDelayUs(1000);
+        TMC5160_MotorX_EN_Write(0x00);
+        CyDelayUs(1000);
         Send_Feedback_to_USB(Error);
-        Write_32bitSPI_DATA (0x10  , (int) 0x00070303, TMC5160_nCS_MotorT );
+        //Write_32bitSPI_DATA (0x10  , (int) 0x00070303, TMC5160_nCS_MotorT );
    
     }
     else if ( command == Set_OilDispenser )

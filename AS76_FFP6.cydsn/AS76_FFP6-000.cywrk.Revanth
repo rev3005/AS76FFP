@@ -18,7 +18,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="AS76_FFP6-000\AS76_FFP6\Source Files\AS76.c">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="AS76_FFP6-000\AS76_FFP6\Source Files\APA102.c">
 <ExpandedNodeIds>
 <v>AS76_FFP6-000</v>
 <v>AS76_FFP6-000\AS76_FFP6</v>
@@ -34,12 +34,14 @@
 <v>AS76_FFP6-000\AS76_FFP6\AS76_FFP6.cydwr\Flash Security</v>
 <v>AS76_FFP6-000\AS76_FFP6\AS76_FFP6.cydwr\EEPROM</v>
 <v>AS76_FFP6-000\AS76_FFP6\Header Files</v>
+<v>AS76_FFP6-000\AS76_FFP6\Header Files\APA102.h</v>
 <v>AS76_FFP6-000\AS76_FFP6\Header Files\AS76.h</v>
 <v>AS76_FFP6-000\AS76_FFP6\Header Files\configuration.h</v>
 <v>AS76_FFP6-000\AS76_FFP6\Header Files\cyapicallbacks.h</v>
 <v>AS76_FFP6-000\AS76_FFP6\Header Files\ReadMe.txt</v>
 <v>AS76_FFP6-000\AS76_FFP6\Header Files\variables.h</v>
 <v>AS76_FFP6-000\AS76_FFP6\Source Files</v>
+<v>AS76_FFP6-000\AS76_FFP6\Source Files\APA102.c</v>
 <v>AS76_FFP6-000\AS76_FFP6\Source Files\AS76.c</v>
 <v>AS76_FFP6-000\AS76_FFP6\Source Files\main.c</v>
 </ExpandedNodeIds>
@@ -58,12 +60,14 @@
 <v>AS76_FFP6-000\AS76_FFP6\AS76_FFP6.cydwr\Flash Security</v>
 <v>AS76_FFP6-000\AS76_FFP6\AS76_FFP6.cydwr\EEPROM</v>
 <v>AS76_FFP6-000\AS76_FFP6\Header Files</v>
+<v>AS76_FFP6-000\AS76_FFP6\Header Files\APA102.h</v>
 <v>AS76_FFP6-000\AS76_FFP6\Header Files\AS76.h</v>
 <v>AS76_FFP6-000\AS76_FFP6\Header Files\configuration.h</v>
 <v>AS76_FFP6-000\AS76_FFP6\Header Files\cyapicallbacks.h</v>
 <v>AS76_FFP6-000\AS76_FFP6\Header Files\ReadMe.txt</v>
 <v>AS76_FFP6-000\AS76_FFP6\Header Files\variables.h</v>
 <v>AS76_FFP6-000\AS76_FFP6\Source Files</v>
+<v>AS76_FFP6-000\AS76_FFP6\Source Files\APA102.c</v>
 <v>AS76_FFP6-000\AS76_FFP6\Source Files\AS76.c</v>
 <v>AS76_FFP6-000\AS76_FFP6\Source Files\main.c</v>
 <v>AS76_FFP6-000\AS76_FFP6\Generated_Source</v>
@@ -93,6 +97,7 @@
 <v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541</v>
 <v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug</v>
 <v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files\APA102.lst</v>
 <v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files\AS76.lst</v>
 <v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_Encoder_24Mhz.lst</v>
 <v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
@@ -122,6 +127,7 @@
 <v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_Backlight.lst</v>
 <v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_BC_LED.lst</v>
 <v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_Buzzer.lst</v>
+<v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_Clock_RGB.lst</v>
 <v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_CondenserLED.lst</v>
 <v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_CSMotorO.lst</v>
 <v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_CSMotorT.lst</v>
@@ -139,6 +145,7 @@
 <v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_SCK.lst</v>
 <v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_SDI.lst</v>
 <v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_SDO.lst</v>
+<v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_SDO_RGB.lst</v>
 <v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files\PWM_BarcodeCondenser_LED.lst</v>
 <v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files\PWM_BarcodeCondenser_LED_PM.lst</v>
 <v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files\PWM_Buzzer.lst</v>
@@ -265,39 +272,6 @@
 <VisibleNodeIds>
 <v>AS76_FFP6-000</v>
 <v>AS76_FFP6-000\AS76_FFP6</v>
-<v>AS76_FFP6-000\AS76_FFP6\CortexM3</v>
-<v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541</v>
-<v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug</v>
-<v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
-<v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files\AS76.lst</v>
-<v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_Encoder_24Mhz.lst</v>
-<v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
-<v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
-<v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
-<v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
-<v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
-<v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
-<v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
-<v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
-<v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
-<v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
-<v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
-<v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files\Encoder_T_Z_Select.lst</v>
-<v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files\Encoder_T_Z_Select_PM.lst</v>
-<v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files\LED2.lst</v>
-<v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files\LED3.lst</v>
-<v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files\LIM_T_L.lst</v>
-<v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files\LIM_T_R.lst</v>
-<v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files\LIM_X_L.lst</v>
-<v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files\LIM_X_R.lst</v>
-<v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files\LIM_Y_L.lst</v>
-<v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files\LIM_Y_R.lst</v>
-<v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files\LIM_Z_L.lst</v>
-<v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files\LIM_Z_R.lst</v>
-<v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
-<v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_Backlight.lst</v>
-<v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_BC_LED.lst</v>
-<v>AS76_FFP6-000\AS76_FFP6\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_Buzzer.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -368,8 +342,14 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
-<name v=".\AS76.c" />
 <name v=".\main.c" />
+<name v=".\variables.h" />
+<name v=".\AS76.c" />
+<name v=".\APA102.c" />
+<name v=".\TopDesign\TopDesign.cysch" />
+<name v=".\AS76_FFP6.cydwr" />
+<name v=".\APA102.h" />
+<name v=".\AS76.h" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -377,7 +357,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1082, 487" SelectedTabbedMdiWindow="044c60d1-1cab-4ba2-b385-c9546f8bfbf7"><DocumentWindow Key="C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\AS76_FFP6.cydsn\AS76.c" Guid="044c60d1-1cab-4ba2-b385-c9546f8bfbf7" /><DocumentWindow Key="C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\AS76_FFP6.cydsn\main.c" Guid="b5933ba4-d850-455b-89d4-7999f7e284f4" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="f7e1abb3-0bd5-4fbb-a822-519e1e118b81" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1082, 433" SelectedTabbedMdiWindow="82c61dc5-0817-4650-b8ef-4ab1c0278d30"><DocumentWindow Key="C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\AS76_FFP6.cydsn\main.c" Guid="b5933ba4-d850-455b-89d4-7999f7e284f4" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="f7e1abb3-0bd5-4fbb-a822-519e1e118b81" /><DocumentWindow Key="C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\AS76_FFP6.cydsn\variables.h" Guid="89dc8ec0-4307-4817-ad18-bb57e560b583" /><DocumentWindow Key="C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\AS76_FFP6.cydsn\AS76.c" Guid="3f8c292e-a722-489a-bb0b-4d4197c12233" /><DocumentWindow Key="C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\AS76_FFP6.cydsn\APA102.c" Guid="82c61dc5-0817-4650-b8ef-4ab1c0278d30" /><DocumentWindow Key="C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\AS76_FFP6.cydsn\TopDesign\TopDesign.cysch" Guid="f887e85e-022d-438c-aaba-3bf0933d9d72" /><DocumentWindow Key="C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\AS76_FFP6.cydsn\AS76_FFP6.cydwr" Guid="82ab8cbb-a2b7-4274-86b5-22c15a4d8d20" /><DocumentWindow Key="C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\AS76_FFP6.cydsn\APA102.h" Guid="17ec189a-68e6-42f5-8a45-844edf1ced45" /><DocumentWindow Key="C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\AS76_FFP6.cydsn\AS76.h" Guid="c6f27ded-d851-479a-8333-3b0edf1d0048" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

@@ -226,6 +226,8 @@ set_io "TMC5160_MotorY_EN(0)" iocell 5 3
 set_io "TMC5160_MotorZ_EN(0)" iocell 5 4
 set_io "TMC5160_MotorT_EN(0)" iocell 5 5
 set_io "TMC5160_MotorO_EN(0)" iocell 5 6
+set_io "Pin_SDO_RGB(0)" iocell 6 3
+set_io "Pin_Clock_RGB(0)" iocell 6 2
 set_location "wait_interrupt" interrupt -1 -1 9
 set_io "Pin_OptDec_Z_B(0)" iocell 3 6
 # Note: port 15 is the logical name for port 8

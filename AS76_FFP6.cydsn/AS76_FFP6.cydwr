@@ -647,6 +647,7 @@
       <Data key="95e7091a-ac91-4506-9b9c-cc36e0d0eb02" value="Pin_SDI" />
       <Data key="99d7f12b-afd7-4724-9924-cd3dd052f253" value="Pin_GotoY_2" />
       <Data key="0176f56c-ec3d-497e-b889-32d45c789e50" value="TMC5160_MotorY_EN" />
+      <Data key="202fde77-fdb2-4ab8-9a1d-3c308fdf66e1" value="Pin_SDO_RGB" />
       <Data key="206b9eaa-fc8a-4613-b092-466b943c58f9" value="Pin_HomeY" />
       <Data key="223e3059-dd41-4be5-b5aa-f4bffe6254f0" value="Pin_ProxiSensZ" />
       <Data key="346b164a-b2c0-4f5e-b240-b34cc8963e51" value="Pin_Collision_Sens_X_22" />
@@ -689,6 +690,7 @@
       <Data key="bd9874c3-5ad8-466a-80cb-0ebd11c51e05" value="Pin_McuStatusLedGreen" />
       <Data key="beca5e2d-f70f-4900-a4db-7eca1ed3126e/8b77a6c4-10a0-4390-971c-672353e2a49c" value="USB_Dm" />
       <Data key="beca5e2d-f70f-4900-a4db-7eca1ed3126e/618a72fc-5ddd-4df5-958f-a3d55102db42" value="USB_Dp" />
+      <Data key="c87fa6e7-3f7a-4526-a95e-c1a93e75cf4b" value="Pin_Clock_RGB" />
       <Data key="caefc48c-a70a-42bb-9d45-ec19ba946375" value="EN_X" />
       <Data key="cb243612-cdcf-4d04-a104-bd425f6847fb" value="Pin_ResetMotorLens" />
       <Data key="cbf13a0c-7510-4278-9d15-2cc6101e2a70" value="Pin_CollisionSensY11" />
@@ -4201,6 +4203,11 @@
         <Data key="Port Format" value="5,3" />
       </Group>
     </Group>
+    <Group key="202fde77-fdb2-4ab8-9a1d-3c308fdf66e1">
+      <Group key="0">
+        <Data key="Port Format" value="6,3" />
+      </Group>
+    </Group>
     <Group key="206b9eaa-fc8a-4613-b092-466b943c58f9">
       <Group key="0">
         <Data key="Port Format" value="12,5" />
@@ -4394,6 +4401,11 @@
     <Group key="beca5e2d-f70f-4900-a4db-7eca1ed3126e/618a72fc-5ddd-4df5-958f-a3d55102db42">
       <Group key="0">
         <Data key="Port Format" value="15,6" />
+      </Group>
+    </Group>
+    <Group key="c87fa6e7-3f7a-4526-a95e-c1a93e75cf4b">
+      <Group key="0">
+        <Data key="Port Format" value="6,2" />
       </Group>
     </Group>
     <Group key="caefc48c-a70a-42bb-9d45-ec19ba946375">

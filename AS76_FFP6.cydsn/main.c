@@ -12,6 +12,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "AS76.h"
+
 #include "variables.h"
 
 
@@ -60,9 +61,12 @@ int main(void)
     CyDelay(100);
     //homeY(TMC5160_nCS_MotorY);
     
-    //TMC5160_MotorT_EN_Write(0x00);
+    TMC5160_MotorT_EN_Write(0x00);
     //homeT(TMC5160_nCS_MotorT);
-    //TMC5160_MotorT_EN_Write(0xFF); 
+    //GotoPos(42000, TMC5160_nCS_MotorT);
+    //WaitTillPositionReached(TMC5160_nCS_MotorT);
+    CyDelay(100);
+    TMC5160_MotorT_EN_Write(0xFF); 
     //TMC5160_MotorO_EN_Write(0x00);
     update_max_velocity(6200, TMC5160_nCS_MotorO);
     
