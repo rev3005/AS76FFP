@@ -76,13 +76,15 @@ int main(void)
     LED3_Write(0x00);
     LED2_Write(0x00);
     
-   
+    Ring(0,0xFF,0x00,0x00,0x03);
         
 ////////////////////////////////////////// LOOP ///////////////////////////////////////////////////         
         
     for (;;)  
     {    
         Is_USB_Unpluged();                              /* Reset MCU if USB unplugged or plugged. */
+        //LED3_Write(0xFF);
+       // goTo_X(100);
         if (0 != USB_DataIsReady())                     /* Check for input data from host. */
         {       
             count = USB_GetAll(USB_received);           /* Read received data and re-enable OUT endpoint. */
@@ -93,25 +95,12 @@ int main(void)
                 Process_USB_Data();
                 LED2_Write(0x00);
                   /* Process The USB incoming data. */
-                
+             
 
             }
         }            
     
-           
-   
-        
-      
-    // Test API for Movement Check with error correction 
-    //goTo_XYZ(1656000,556000,0); 
-    //goTo_XYZ(2560000,800000,60000);
-    //CyDelayUs(50);;
-    //goTo_XYZ((51200*40),(51200*6),(51200*7)); 
-    //CyDelayUs(50); 
-    //goTo_XYZ((51200*60),(51200*15),(51200*10)); 
-    //CyDelayUs(50);    
-    //goTo_XYZ(0,0,0); 
-    //CyDelayUs(50);  
+    
 
     CyDelayUs(100);
 

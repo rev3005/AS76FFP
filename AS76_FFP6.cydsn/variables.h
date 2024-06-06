@@ -119,6 +119,7 @@ void UART_print_all_values();
 #define Stop_All_Motor                     0x0080
 #define Pause                              0x0081
 #define Resume                             0x0082
+#define Strip_LED                          0x3373
 
 
 

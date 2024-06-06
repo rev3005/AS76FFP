@@ -1,5 +1,5 @@
 -- Project:   C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\AS76_FFP6.cydsn\AS76_FFP6.cyprj
--- Generated: 06/05/2024 14:05:48
+-- Generated: 06/05/2024 15:09:15
 -- PSoC Creator  4.4
 
 ENTITY AS76_FFP6 IS
@@ -625,9 +625,9 @@ ARCHITECTURE __DEFAULT__ OF AS76_FFP6 IS
     ATTRIBUTE lib_model OF LIM_T_R(0) : LABEL IS "iocell39";
     ATTRIBUTE Location OF LIM_T_R(0) : LABEL IS "P3[1]";
     ATTRIBUTE lib_model OF Pin_SDO_RGB(0) : LABEL IS "iocell40";
-    ATTRIBUTE Location OF Pin_SDO_RGB(0) : LABEL IS "P6[3]";
+    ATTRIBUTE Location OF Pin_SDO_RGB(0) : LABEL IS "P12[3]";
     ATTRIBUTE lib_model OF Pin_Clock_RGB(0) : LABEL IS "iocell41";
-    ATTRIBUTE Location OF Pin_Clock_RGB(0) : LABEL IS "P6[2]";
+    ATTRIBUTE Location OF Pin_Clock_RGB(0) : LABEL IS "P6[5]";
     ATTRIBUTE lib_model OF \QuadDec_TZ:Cnt16:CounterUDB:reload\ : LABEL IS "macrocell2";
     ATTRIBUTE Location OF \QuadDec_TZ:Cnt16:CounterUDB:reload\ : LABEL IS "U(2,2)";
     ATTRIBUTE lib_model OF \QuadDec_TZ:Cnt16:CounterUDB:status_0\ : LABEL IS "macrocell3";

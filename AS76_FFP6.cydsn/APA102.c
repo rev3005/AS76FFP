@@ -78,7 +78,7 @@ void LedFrame(uint8_t MB,uint8_t r,uint8_t g,uint8_t b)
 void Ring(uint8_t RngCnt,uint8_t RngR,uint8_t RngG,uint8_t RngB,uint8_t RngMB)
 {   
     StartFrame
-    for(i=1;i<=67;i++ )
+    for(i=1;i<=52;i++ )
     {    
 
         RGB_Byte_TxOp(0xE0);
@@ -91,43 +91,65 @@ void Ring(uint8_t RngCnt,uint8_t RngR,uint8_t RngG,uint8_t RngB,uint8_t RngMB)
 
     switch (RngCnt)  
     {
+        case 0:
+            StartFrame
+            BF2(45,0,0,0,0);
+            BF2(0,0,0,0,0xE0);
+            EndFrame
+            break;
         case 1:
             StartFrame
-            BF2(1,RngR,RngG,RngB,RngMB);
-            BF2(66,0,0,0,0xE0);
+            BF2(45,RngR,RngG,RngB,RngMB);
+            BF2(0,0,0,0,0xE0);
             EndFrame
             break;
                 
         case 2:
             StartFrame        
-            BF2(1,0,0,0,0xE0);
-            BF2(6,RngR,RngG,RngB,RngMB);
-            BF2(60,0,0,0,0xE0);
+            //BF2(45,0,0,0,0xE0);
+            BF2(7,RngR,RngG,RngB,RngMB);
+            BF2(0,0,0,0,0xE0);
             EndFrame
             break;
             
         case 3:    
             StartFrame        
-            BF2(7,0,0,0,0xE0);
-            BF2(12,RngR,RngG,RngB,RngMB);
-            BF2(48,0,0,0,0xE0);
+            //BF2(45,0,0,0,0xE0);
+            BF2(15,RngR,RngG,RngB,RngMB);
+            BF2(0,0,0,0,0xE0);
             EndFrame
             break;
         
         case 4:    
-            StartFrame        
-            BF2(19,0,0,0,0xE0);
-            BF2(18,RngR,RngG,RngB,RngMB); 
-            BF2(30,0,0,0,0xE0); 
+             StartFrame        
+            //BF2(14,0,0,0,0xE0);
+            BF2(23,RngR,RngG,RngB,RngMB);
+            BF2(0,0,0,0,0xE0);
             EndFrame
             break;
         
         case 5:    
-            StartFrame        
-            BF2(37,0,0,0,0xE0);
-            BF2(31,RngR,RngG,RngB,RngMB); 
+             StartFrame        
+            //BF2(14,0,0,0,0xE0);
+            BF2(30,RngR,RngG,RngB,RngMB);
+            BF2(0,0,0,0,0xE0);
             EndFrame
             break;
+            
+        case 6:    
+             StartFrame        
+            //BF2(14,0,0,0,0xE0);
+            BF2(38,RngR,RngG,RngB,RngMB);
+            BF2(0,0,0,0,0xE0);
+            EndFrame
+            break;   
+        case 7:    
+             StartFrame        
+            //BF2(14,0,0,0,0xE0);
+            BF2(45,RngR,RngG,RngB,RngMB);
+            BF2(0,0,0,0,0xE0);
+            EndFrame
+            break;     
     }
 }
 

@@ -663,6 +663,7 @@ int goTo_X(int32 Position_X_Requested)
     }
     else
     {
+        Ring(1,0XFF,0x00,0x00,0x10);
         Write_Debug_UART_Char("Homing Not Done");
         Error = 32;
         return Error;
@@ -1697,6 +1698,23 @@ void Process_USB_Data()/* Process USB incoming data command. */
         Send_Feedback_to_USB(0);
         LED3_Write(0x00);
     }
+     else if (command == Strip_LED)                          
+    {
+        uint8_t Pattern=0;
+        uint8_t Red_Intensity=0;
+        uint8_t Green_Intensity=0;
+        uint8_t Blue_Intensity=0;
+        uint8_t Strip_Brightness=0;
+        Pattern            = USB_received[2];
+        Red_Intensity      = USB_received[4];
+        Green_Intensity    = USB_received[6];
+        Blue_Intensity     = USB_received[8];
+        Strip_Brightness   = USB_received[10];
+        Ring(Pattern,Red_Intensity,Green_Intensity,Blue_Intensity,Strip_Brightness);
+        Send_Feedback_to_USB(0);
+    }
+    
+    
     else
     {
         Error = 19;//Wrong_Command_Received

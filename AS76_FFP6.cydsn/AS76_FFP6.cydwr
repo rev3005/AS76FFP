@@ -4205,7 +4205,7 @@
     </Group>
     <Group key="202fde77-fdb2-4ab8-9a1d-3c308fdf66e1">
       <Group key="0">
-        <Data key="Port Format" value="6,3" />
+        <Data key="Port Format" value="12,3" />
       </Group>
     </Group>
     <Group key="206b9eaa-fc8a-4613-b092-466b943c58f9">
@@ -4405,7 +4405,7 @@
     </Group>
     <Group key="c87fa6e7-3f7a-4526-a95e-c1a93e75cf4b">
       <Group key="0">
-        <Data key="Port Format" value="6,2" />
+        <Data key="Port Format" value="6,5" />
       </Group>
     </Group>
     <Group key="caefc48c-a70a-42bb-9d45-ec19ba946375">
