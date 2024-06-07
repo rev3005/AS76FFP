@@ -90,7 +90,7 @@ int main(void)
             count = USB_GetAll(USB_received);           /* Read received data and re-enable OUT endpoint. */
             if(count >= 2)                              /* Check if data id more then 2 bytes. */
             {
-                Write_Debug_UART_Char("DATA RECEIVED  \r\n");
+                Write_Debug_UART_Char("\n\nDATA RECEIVED  \r\n");
                 LED2_Write(0xFF);
                 Process_USB_Data();
                 LED2_Write(0x00);

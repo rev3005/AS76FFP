@@ -348,10 +348,6 @@ void cyfitter_cfg(void)
 	static const uint8 CYCODE BS_IOPINS0_0_VAL[] = {
 		0x03u, 0x00u, 0x20u, 0xC3u, 0xC3u, 0x00u, 0xC3u, 0x00u, 0x00u, 0x00u};
 
-	/* IOPINS0_7 Address: CYREG_PRT12_DM0 Size (bytes): 8 */
-	static const uint8 CYCODE BS_IOPINS0_7_VAL[] = {
-		0x00u, 0x08u, 0x08u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u};
-
 	/* IOPINS0_8 Address: CYREG_PRT15_DR Size (bytes): 10 */
 	static const uint8 CYCODE BS_IOPINS0_8_VAL[] = {
 		0x78u, 0x00u, 0x10u, 0x2Cu, 0x2Cu, 0x00u, 0x28u, 0x00u, 0xC0u, 0x00u};
@@ -378,7 +374,7 @@ void cyfitter_cfg(void)
 
 	/* IOPINS0_6 Address: CYREG_PRT6_DM0 Size (bytes): 8 */
 	static const uint8 CYCODE BS_IOPINS0_6_VAL[] = {
-		0x00u, 0x20u, 0x20u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u};
+		0x00u, 0x60u, 0x60u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u};
 
 #ifdef CYGlobalIntDisable
 	/* Disable interrupts by default. Let user enable if/when they want. */
@@ -2306,6 +2302,7 @@ void cyfitter_cfg(void)
 		static const cfg_memset_t CYCODE cfg_memset_list[] = {
 			/* address, size */
 			{(void CYFAR *)(CYREG_TMR0_CFG0), 48u},
+			{(void CYFAR *)(CYREG_PRT12_DR), 16u},
 			{(void CYFAR *)(CYDEV_UCFG_B0_P0_U0_BASE), 2688u},
 			{(void CYFAR *)(CYDEV_UCFG_B0_P5_ROUTE_BASE), 1280u},
 			{(void CYFAR *)(CYDEV_UCFG_B1_P2_U0_BASE), 2048u},
@@ -2372,7 +2369,6 @@ void cyfitter_cfg(void)
 
 	/* Perform second pass device configuration. These items must be configured in specific order after the regular configuration is done. */
 	CYCONFIGCPYCODE((void CYFAR *)(CYREG_PRT0_DR), (const void CYCODE *)(BS_IOPINS0_0_VAL), 10u);
-	CYCONFIGCPYCODE((void CYFAR *)(CYREG_PRT12_DM0), (const void CYCODE *)(BS_IOPINS0_7_VAL), 8u);
 	CYCONFIGCPYCODE((void CYFAR *)(CYREG_PRT15_DR), (const void CYCODE *)(BS_IOPINS0_8_VAL), 10u);
 	CYCONFIGCPYCODE((void CYFAR *)(CYREG_PRT1_DM0), (const void CYCODE *)(BS_IOPINS0_1_VAL), 8u);
 	CYCONFIGCPYCODE((void CYFAR *)(CYREG_PRT2_DR), (const void CYCODE *)(BS_IOPINS0_2_VAL), 10u);

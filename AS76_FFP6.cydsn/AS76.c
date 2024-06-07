@@ -1774,9 +1774,20 @@ void Send_Feedback_to_USB(int Error)//Send Feedback to USB if USB command execut
             USB_transmit[1] = (command >> 8);
             USB_transmit[2] = No_Error;
             USB_transmit[3] = No_Error >> 8;
+            Write_Debug_UART_Char("\nCommand Sent :");
+            Write_Debug_UART_Int(USB_transmit[0]);
+            Write_Debug_UART_Int(USB_transmit[1]);
+            
+            //command =0;
         }
         else
         {
+            USB_transmit[0] = command;
+            USB_transmit[1] = (command >> 8);
+            Write_Debug_UART_Char("\nCommand Sent :");
+            Write_Debug_UART_Int(USB_transmit[0]);
+            Write_Debug_UART_Int(USB_transmit[1]);
+            //command=0;
             switch(Error)
             {
                 case 1:
@@ -2033,7 +2044,7 @@ void Send_Feedback_to_USB(int Error)//Send Feedback to USB if USB command execut
         
         
         
-        Write_Debug_UART_Char("Feedback Sent to Motherboard  \r\n");
+        Write_Debug_UART_Char("\nFeedback Sent to Motherboard  \r\n");
         USB_PutData(USB_transmit, 46);  //send data back to usb
     
 }

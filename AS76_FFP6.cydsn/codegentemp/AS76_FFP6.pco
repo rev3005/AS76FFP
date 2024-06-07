@@ -1,5 +1,5 @@
 # AS76_FFP6
-# 2024-06-05 09:39:12Z
+# 2024-06-07 12:31:45Z
 
 # IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
 dont_use_io iocell 1 0
@@ -65,7 +65,7 @@ set_io "LIM_Z_L(0)" iocell 4 1
 set_io "LIM_Z_R(0)" iocell 4 0
 set_io "LIM_T_L(0)" iocell 3 0
 set_io "LIM_T_R(0)" iocell 3 1
-set_io "Pin_SDO_RGB(0)" iocell 12 3
+set_io "Pin_SDO_RGB(0)" iocell 6 6
 set_io "Pin_Clock_RGB(0)" iocell 6 5
 set_location "\QuadDec_TZ:Cnt16:CounterUDB:reload\" 2 2 1 0
 set_location "\QuadDec_TZ:Cnt16:CounterUDB:status_0\" 3 2 0 2
