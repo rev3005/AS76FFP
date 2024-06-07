@@ -27,6 +27,10 @@ int32 Position_X_Requested = 0; // Variable to hold position of Motor X in uStep
 int32 Position_Z_Requested = 0; // Variable to hold position of Motor X in uSteps 51200 uSteps = 1 rotation of the motor
 int32 Position_T_Requested = 0; // Variable to hold position of Motor X in uSteps 51200 uSteps = 1 rotation of the motor
 
+int32 Previous_X_Position = 0;
+int32 Previous_Y_Position = 0;
+int32 Previous_Z_Position = 0;
+
 int32 Input_Position_X_Temp =0;
 
 int32 time_ms   = 0;
@@ -663,7 +667,7 @@ int goTo_X(int32 Position_X_Requested)
     }
     else
     {
-        Ring(1,0XFF,0x00,0x00,0x10);
+        //Ring(1,0XFF,0x00,0x00,0x10);
         Write_Debug_UART_Char("Homing Not Done");
         Error = 32;
         return Error;
@@ -1333,6 +1337,7 @@ void Process_USB_Data()/* Process USB incoming data command. */
         CyDelay(50);
         TMC5160_MotorY_EN_Write(0x00);
         CyDelayUs(500);
+        Previous_X_Position = 0;  
         Send_Feedback_to_USB(Error);
     
     }
@@ -1359,6 +1364,7 @@ void Process_USB_Data()/* Process USB incoming data command. */
         CyDelay(50);
         TMC5160_MotorX_EN_Write(0x00);
         CyDelay(50);
+        Previous_Y_Position = 0;  
         Send_Feedback_to_USB(Error);
         
     }
@@ -1383,6 +1389,8 @@ void Process_USB_Data()/* Process USB incoming data command. */
         TMC5160_MotorY_EN_Write(0x00);
         CyDelay(50);
         TMC5160_MotorX_EN_Write(0x00);
+        CyDelay(50);
+        Previous_X_Position = 0;  
         //Write_32bitSPI_DATA (0x26  , (int) 0x0000FFFF, TMC5160_nCS_MotorZ );
         Send_Feedback_to_USB(Error);
     }
@@ -1418,10 +1426,11 @@ void Process_USB_Data()/* Process USB incoming data command. */
         Write_Debug_UART_Char("Requested Position :");
         Write_Debug_UART_Int(Position_X_Requested);
         Write_Debug_UART_Char("\n");
-        
-        //Input_Position_X_Temp = Position_X_Requested;
+        if(Previous_X_Position != Position_X_Requested)
+        {
         
         {
+            Previous_X_Position = Position_X_Requested;
             Position_X_Requested = (int)(Position_X_Requested / 4);
             Position_X_Requested = (int)Position_X_Requested * 12.8;
             Error = goTo_X(Position_X_Requested);
@@ -1436,6 +1445,7 @@ void Process_USB_Data()/* Process USB incoming data command. */
         Write_32bitSPI_DATA (0x10  , (int) 0x00070102, TMC5160_nCS_MotorZ );
         Write_32bitSPI_DATA (0x10  , (int) 0x00070102, TMC5160_nCS_MotorX );
         Write_32bitSPI_DATA (0x10  , (int) 0x00070102, TMC5160_nCS_MotorT ); 
+        }
         Send_Feedback_to_USB(Error);
         
         
@@ -1447,6 +1457,9 @@ void Process_USB_Data()/* Process USB incoming data command. */
         Write_Debug_UART_Char("Requested Position :");
         Write_Debug_UART_Int(Position_Y_Requested);
         Write_Debug_UART_Char("\n");
+        if(Previous_Y_Position != Position_Y_Requested)
+        {
+        Previous_Y_Position = Position_Y_Requested;
         Position_Y_Requested = (int)(Position_Y_Requested / 4);
         Position_Y_Requested = (int)(Position_Y_Requested * 12.8);
         Error = goTo_Y(Position_Y_Requested);
@@ -1457,6 +1470,7 @@ void Process_USB_Data()/* Process USB incoming data command. */
         Write_32bitSPI_DATA (0x10  , (int) 0x00070102, TMC5160_nCS_MotorZ );
         Write_32bitSPI_DATA (0x10  , (int) 0x00070102, TMC5160_nCS_MotorX );
         Write_32bitSPI_DATA (0x10  , (int) 0x00070102, TMC5160_nCS_MotorT ); 
+        }
         Send_Feedback_to_USB(Error);
     }
     else if (command == GotoZ)        
@@ -1467,9 +1481,13 @@ void Process_USB_Data()/* Process USB incoming data command. */
         Write_Debug_UART_Char("Requested Position :");
         Write_Debug_UART_Int(Position_Z_Requested);
         Write_Debug_UART_Char("\n");
+        if(Previous_Y_Position != Position_Y_Requested)
+        {
+        Previous_Z_Position = Position_Z_Requested;
         Position_Z_Requested = (Position_Z_Requested / 16);
         Position_Z_Requested = Position_Z_Requested * 51.2;
         Error = goTo_Z(Position_Z_Requested);
+        }
         Send_Feedback_to_USB(Error);
     }
     else if (command == GotoT)        
@@ -1530,18 +1548,34 @@ void Process_USB_Data()/* Process USB incoming data command. */
         Position_Z_Requested = ((int32)USB_received[13] << 24) + ((int32)USB_received[12] << 16) + ((int32)USB_received[11] << 8) + (int32)USB_received[10];
         //Input_Position_X_Temp = Position_X_Requested;
         
+        if(Previous_X_Position == Position_X_Requested)
+        {
+          Position_X_Requested = -1  ;
+        }
+        if(Previous_Y_Position == Position_Y_Requested)
+        {
+          Position_Y_Requested = -1  ;
+        }
+        if(Previous_Z_Position == Position_Z_Requested)
+        {
+          Position_Z_Requested = -1  ;
+        }
+        
         if(Position_X_Requested >= 0)
-        {        
+        {
+        Previous_X_Position = Position_X_Requested;
         Position_X_Requested = (Position_X_Requested / 4);
         Position_X_Requested = Position_X_Requested * 12.8;
         }
         if(Position_Y_Requested >= 0)
         { 
+        Previous_Y_Position = Position_Y_Requested;    
         Position_Y_Requested = (Position_Y_Requested / 4);
         Position_Y_Requested = Position_Y_Requested * 12.8;
         }
         if(Position_Z_Requested >= 0)
-        { 
+        {
+        Previous_Z_Position = Position_Z_Requested;    
         Position_Z_Requested = (Position_Z_Requested / 16);
         Position_Z_Requested = Position_Z_Requested * 51.2;
         }
@@ -1628,17 +1662,21 @@ void Process_USB_Data()/* Process USB incoming data command. */
     {
     Write_Debug_UART_Char("\n\n\n\n\nGoto Z Vs Starting \n");
     Position_Z_Requested = ((int32)USB_received[5] << 24) + ((int32)USB_received[4] << 16) + ((int32)USB_received[3] << 8) + (int32)USB_received[2];   
-        Write_Debug_UART_Char("Requested Position :");
-        Write_Debug_UART_Int(Position_Z_Requested);
-        Write_Debug_UART_Char("\n");
-    Motor_Speed_Z = ((int32)USB_received[9] << 24) + ((int32)USB_received[8] << 16) + ((int32)USB_received[7] << 8) + (int32)USB_received[6]; 
+    Write_Debug_UART_Char("Requested Position :");
+    Write_Debug_UART_Int(Position_Z_Requested);
+    Write_Debug_UART_Char("\n");
+        if(Previous_Z_Position != Position_Z_Requested)
+        {
+        Previous_Z_Position = Position_Z_Requested;    
+        Motor_Speed_Z = ((int32)USB_received[9] << 24) + ((int32)USB_received[8] << 16) + ((int32)USB_received[7] << 8) + (int32)USB_received[6]; 
         Write_Debug_UART_Char("Requested Speed :");
         Write_Debug_UART_Int(Motor_Speed_Z);
         Write_Debug_UART_Char("\n");
-    update_max_velocity(Motor_Speed_Z,TMC5160_nCS_MotorZ);    
-    Position_Z_Requested = (Position_Z_Requested / 16);
-    Position_Z_Requested = Position_Z_Requested * 51.2;
-    goTo_Z(Position_Z_Requested);
+        update_max_velocity(Motor_Speed_Z,TMC5160_nCS_MotorZ);    
+        Position_Z_Requested = (Position_Z_Requested / 16);
+        Position_Z_Requested = Position_Z_Requested * 51.2;
+        goTo_Z(Position_Z_Requested);
+        }
     Send_Feedback_to_USB(Error);
     }
     
