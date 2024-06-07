@@ -910,7 +910,7 @@ int Step_correction_z(int32 steps)
     Read_All_Optical_Encoder();
     //diff_encoder_value = (X_QuadPosition - X_last_position);
     encoder_error_value = Encoder_Position_Z_Requested - Z_QuadPosition;
-    new_step= encoder_error_value*3.2;
+    new_step= encoder_error_value*12.8;
     if(encoder_error_value >= 4000)
     {
         Error=  16;
@@ -1578,21 +1578,16 @@ void Process_USB_Data()/* Process USB incoming data command. */
         Send_Feedback_to_USB(Error);
     }
     
-     else if(command == GotoZ_Vs)
+    else if(command == GotoZ_Vs)
     {
-    Write_Debug_UART_Char("\n\n\n\n\nGoto Z Vs Starting \n");
     Position_Z_Requested = ((int32)USB_received[5] << 24) + ((int32)USB_received[4] << 16) + ((int32)USB_received[3] << 8) + (int32)USB_received[2];   
-        Write_Debug_UART_Char("Requested Position :");
-        Write_Debug_UART_Int(Position_Z_Requested);
-        Write_Debug_UART_Char("\n");
     Motor_Speed_Z = ((int32)USB_received[9] << 24) + ((int32)USB_received[8] << 16) + ((int32)USB_received[7] << 8) + (int32)USB_received[6]; 
-        Write_Debug_UART_Char("Requested Speed :");
-        Write_Debug_UART_Int(Motor_Speed_Z);
-        Write_Debug_UART_Char("\n");
     update_max_velocity(Motor_Speed_Z,TMC5160_nCS_MotorZ);    
     Position_Z_Requested = (Position_Z_Requested / 16);
     Position_Z_Requested = Position_Z_Requested * 51.2;
     goTo_Z(Position_Z_Requested);
+    //CyDelayUs(10);
+    //update_max_velocity(53687*2, TMC5160_nCS_MotorZ);
     Send_Feedback_to_USB(Error);
     }
     
