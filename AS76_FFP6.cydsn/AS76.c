@@ -921,7 +921,7 @@ int Step_correction_z(int32 steps)
     Read_All_Optical_Encoder();
     //diff_encoder_value = (X_QuadPosition - X_last_position);
     encoder_error_value = Encoder_Position_Z_Requested - Z_QuadPosition;
-    new_step= encoder_error_value*3.2;
+    new_step= encoder_error_value*12.8;
     if(encoder_error_value >= 4000)
     {
         Error=  16;
