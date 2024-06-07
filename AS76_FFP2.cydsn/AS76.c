@@ -179,14 +179,14 @@ void homeX(uint8_t Motor)
        CyDelayUs(100);
        if(exit_loop == 1)
        {
-        Error = 1;
+        Error = 4;
         Send_Feedback_to_USB(Error);
         wait_timer_Stop();
         Write_32bitSPI_DATA (0x20  , (int) 0x00000000, Motor );
         Write_32bitSPI_DATA (0x21  , (int) 0x0000000, Motor); // Mark the current postion as 0
         Write_32bitSPI_DATA (0x2D  , 0x00000000, Motor ); // Set thye target position as 0
         exit_loop = 0;
-        Error =0;
+        Error =4;
         return;        
     }
     }    
@@ -319,14 +319,14 @@ void homeY(uint8_t Motor)
        
         if(exit_loop == 1)
         {
-        Error = 8;
+        Error = 11;
         Send_Feedback_to_USB(Error);
         wait_timer_Stop();
         Write_32bitSPI_DATA (0x20  , (int) 0x00000000, Motor );
         Write_32bitSPI_DATA (0x21  , (int) 0x0000000, Motor); // Mark the current postion as 0
         Write_32bitSPI_DATA (0x2D  , 0x00000000, Motor ); // Set thye target position as 0
         exit_loop = 0;
-        Error = 0;
+        Error = 11;
         return;
         }
     CyDelayUs(100);
@@ -459,13 +459,13 @@ void homeZ(uint8_t Motor)
        Read_32bitSPI_DATA(0x04, Motor, &status_z);
        if(exit_loop == 1)
             {
-            Error = 15;
+            Error = 18;
             Send_Feedback_to_USB(Error);
             wait_timer_Stop();
             Write_32bitSPI_DATA (0x20  , (int) 0x00000000, Motor );
             Write_32bitSPI_DATA (0x21  , (int) 0x0000000, Motor); // Mark the current postion as 0
             Write_32bitSPI_DATA (0x2D  , 0x00000000, Motor ); // Set thye target position as 0
-            exit_loop = 0;
+            exit_loop = 18;
             return;
             //break;
             }
@@ -581,7 +581,7 @@ void homeT(uint8_t Motor)
             Write_32bitSPI_DATA (0x21  , (int) 0x0000000, Motor); // Mark the current postion as 0
             Write_32bitSPI_DATA (0x2D  , 0x00000000, Motor ); // Set thye target position as 0
             exit_loop = 0;
-            Error =0;
+            Error =22;
             return;
             //break;
             }
@@ -1615,6 +1615,9 @@ void Send_Feedback_to_USB(int Error)//Send Feedback to USB if USB command execut
         }
         else
         {
+            USB_transmit[0] = command;
+            USB_transmit[1] = (command >> 8);
+            
             switch(Error)
             {
                 case 1:
