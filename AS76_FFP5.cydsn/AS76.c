@@ -1070,10 +1070,15 @@ int Step_correction_t(int32 steps)
 int goTo_XYZ(int32 Position_X_Requested,int32 Position_Y_Requested,int32 Position_Z_Requested)
 {
     Read_All_Optical_Encoder();
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070201, TMC5160_nCS_MotorY );
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070301, TMC5160_nCS_MotorX );
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070202, TMC5160_nCS_MotorZ );
+    CyDelayUs(200);
     //X_last_position = X_QuadPosition;
     Write_Debug_UART_Char("GotoX Command Recived--->");
     if(Position_X_Requested >= 0)
     { 
+        
     GotoPos(Position_X_Requested, TMC5160_nCS_MotorX); // If provided value is position and not the steps to move
     }
     if(Position_Y_Requested >= 0)
