@@ -1478,6 +1478,7 @@ void Process_USB_Data()/* Process USB incoming data command. */
     
     else if (command == GotoXYZ)
     {
+        update_max_velocity(107374,TMC5160_nCS_MotorZ);
         Write_Debug_UART_Char("\n\n\n\n\nGoto XYZ Starting \n");
         Position_X_Requested = ((int32)USB_received[5] << 24) + ((int32)USB_received[4] << 16) + ((int32)USB_received[3] << 8) + (int32)USB_received[2];
         Position_Y_Requested = ((int32)USB_received[9] << 24) + ((int32)USB_received[8] << 16) + ((int32)USB_received[7] << 8) + (int32)USB_received[6];
