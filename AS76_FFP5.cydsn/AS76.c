@@ -1123,7 +1123,7 @@ int goTo_XYZ(int32 Position_X_Requested,int32 Position_Y_Requested,int32 Positio
     Buffer_Z_QuadPosition = Z_QuadPosition;
     }
     Read_All_Optical_Encoder();
-    Send_Feedback_to_USB(Error);
+    
     
     CyDelayUs(50);
     return 0;  
@@ -1513,6 +1513,7 @@ void Process_USB_Data()/* Process USB incoming data command. */
         Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorX );
         Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorT );
         Send_Feedback_to_USB(Error);
+        
     }
     
     else if (command == Set_LED_voltage)
@@ -1588,7 +1589,8 @@ void Process_USB_Data()/* Process USB incoming data command. */
     {
     Position_Z_Requested = ((int32)USB_received[5] << 24) + ((int32)USB_received[4] << 16) + ((int32)USB_received[3] << 8) + (int32)USB_received[2];   
     Motor_Speed_Z = ((int32)USB_received[9] << 24) + ((int32)USB_received[8] << 16) + ((int32)USB_received[7] << 8) + (int32)USB_received[6]; 
-    update_max_velocity(Motor_Speed_Z,TMC5160_nCS_MotorZ);    
+    update_max_velocity(Motor_Speed_Z,TMC5160_nCS_MotorZ);
+    CyDelayUs(200);
     Position_Z_Requested = (Position_Z_Requested / 16);
     Position_Z_Requested = Position_Z_Requested * 51.2;
     goTo_Z(Position_Z_Requested);
