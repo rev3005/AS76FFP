@@ -1,5 +1,5 @@
 -- Project:   AS76_FFP5
--- Generated: 06/08/2024 13:43:29
+-- Generated: 06/11/2024 14:53:11
 -- PSoC Creator  4.4
 
 ENTITY AS76_FFP5 IS
@@ -40,7 +40,9 @@ ENTITY AS76_FFP5 IS
         LIM_Z_L(0)_PAD : IN std_ulogic;
         LIM_Z_R(0)_PAD : IN std_ulogic;
         LIM_T_L(0)_PAD : IN std_ulogic;
-        LIM_T_R(0)_PAD : IN std_ulogic);
+        LIM_T_R(0)_PAD : IN std_ulogic;
+        Pin_SDO_RGB(0)_PAD : OUT std_ulogic;
+        Pin_Clock_RGB(0)_PAD : OUT std_ulogic);
     ATTRIBUTE voltage_VDDABUF OF __DEFAULT__ : ENTITY IS 5e0;
     ATTRIBUTE voltage_VDDA OF __DEFAULT__ : ENTITY IS 5e0;
     ATTRIBUTE voltage_VUSB OF __DEFAULT__ : ENTITY IS 5e0;
@@ -121,6 +123,7 @@ ARCHITECTURE __DEFAULT__ OF AS76_FFP5 IS
     SIGNAL Pin_CSMotorX(0)__PA : bit;
     SIGNAL Pin_CSMotorY(0)__PA : bit;
     SIGNAL Pin_CSMotorZ(0)__PA : bit;
+    SIGNAL Pin_Clock_RGB(0)__PA : bit;
     SIGNAL Pin_CondenserLED(0)__PA : bit;
     SIGNAL Pin_Encoder_T_A(0)__PA : bit;
     SIGNAL Pin_Encoder_T_B(0)__PA : bit;
@@ -133,6 +136,7 @@ ARCHITECTURE __DEFAULT__ OF AS76_FFP5 IS
     SIGNAL Pin_SCK(0)__PA : bit;
     SIGNAL Pin_SDI(0)__PA : bit;
     SIGNAL Pin_SDO(0)__PA : bit;
+    SIGNAL Pin_SDO_RGB(0)__PA : bit;
     SIGNAL TMC5160_MotorO_EN(0)__PA : bit;
     SIGNAL TMC5160_MotorT_EN(0)__PA : bit;
     SIGNAL TMC5160_MotorX_EN(0)__PA : bit;
@@ -496,6 +500,10 @@ ARCHITECTURE __DEFAULT__ OF AS76_FFP5 IS
     ATTRIBUTE Location OF LIM_T_L(0) : LABEL IS "P3[0]";
     ATTRIBUTE lib_model OF LIM_T_R(0) : LABEL IS "iocell39";
     ATTRIBUTE Location OF LIM_T_R(0) : LABEL IS "P3[1]";
+    ATTRIBUTE lib_model OF Pin_SDO_RGB(0) : LABEL IS "iocell40";
+    ATTRIBUTE Location OF Pin_SDO_RGB(0) : LABEL IS "P6[6]";
+    ATTRIBUTE lib_model OF Pin_Clock_RGB(0) : LABEL IS "iocell41";
+    ATTRIBUTE Location OF Pin_Clock_RGB(0) : LABEL IS "P6[5]";
     ATTRIBUTE lib_model OF \QuadDec_TZ:Cnt16:CounterUDB:reload\ : LABEL IS "macrocell2";
     ATTRIBUTE lib_model OF \QuadDec_TZ:Cnt16:CounterUDB:status_0\ : LABEL IS "macrocell3";
     ATTRIBUTE lib_model OF \QuadDec_TZ:Cnt16:CounterUDB:status_2\ : LABEL IS "macrocell4";
@@ -4584,6 +4592,186 @@ BEGIN
             pa_out => LIM_T_R(0)__PA,
             oe => open,
             pad_in => LIM_T_R(0)_PAD,
+            in_clock => open,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    Pin_SDO_RGB:logicalport
+        GENERIC MAP(
+            drive_mode => "110",
+            ibuf_enabled => "1",
+            id => "16580bd1-e2a3-4ba1-bd52-912145491237",
+            init_dr_st => "0",
+            input_buffer_sel => "00",
+            input_clk_en => 0,
+            input_sync => "1",
+            input_sync_mode => "0",
+            intr_mode => "00",
+            invert_in_clock => 0,
+            invert_in_clock_en => 0,
+            invert_in_reset => 0,
+            invert_out_clock => 0,
+            invert_out_clock_en => 0,
+            invert_out_reset => 0,
+            io_voltage => "",
+            layout_mode => "CONTIGUOUS",
+            oe_conn => "0",
+            oe_reset => 0,
+            oe_sync => "0",
+            output_clk_en => 0,
+            output_clock_mode => "0",
+            output_conn => "0",
+            output_mode => "0",
+            output_reset => 0,
+            output_sync => "0",
+            ovt_hyst_trim => "0",
+            ovt_needed => "0",
+            ovt_slew_control => "00",
+            pa_in_clock => -1,
+            pa_in_clock_en => -1,
+            pa_in_reset => -1,
+            pa_out_clock => -1,
+            pa_out_clock_en => -1,
+            pa_out_reset => -1,
+            pin_aliases => "",
+            pin_mode => "O",
+            por_state => 4,
+            port_alias_group => "",
+            port_alias_required => 0,
+            sio_group_cnt => 0,
+            sio_hifreq => "00000000",
+            sio_hyst => "1",
+            sio_ibuf => "00000000",
+            sio_info => "00",
+            sio_obuf => "00000000",
+            sio_refsel => "00000000",
+            sio_vohsel => "00000000",
+            sio_vtrip => "00000000",
+            slew_rate => "0",
+            spanning => 0,
+            sw_only => 0,
+            use_annotation => "0",
+            vtrip => "10",
+            width => 1,
+            in_clk_inv => 0,
+            in_clken_inv => 0,
+            in_clken_mode => 1,
+            in_rst_inv => 0,
+            out_clk_inv => 0,
+            out_clken_inv => 0,
+            out_clken_mode => 1,
+            out_rst_inv => 0)
+        PORT MAP(
+            in_clock_en => open,
+            in_reset => open,
+            out_clock_en => open,
+            out_reset => open);
+
+    Pin_SDO_RGB(0):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "Pin_SDO_RGB",
+            logicalport_pin_id => 0,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000001")
+        PORT MAP(
+            pa_out => Pin_SDO_RGB(0)__PA,
+            oe => open,
+            pad_in => Pin_SDO_RGB(0)_PAD,
+            in_clock => open,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    Pin_Clock_RGB:logicalport
+        GENERIC MAP(
+            drive_mode => "110",
+            ibuf_enabled => "1",
+            id => "60f3efe0-94a6-4412-bead-dc33ecc2af90",
+            init_dr_st => "0",
+            input_buffer_sel => "00",
+            input_clk_en => 0,
+            input_sync => "1",
+            input_sync_mode => "0",
+            intr_mode => "00",
+            invert_in_clock => 0,
+            invert_in_clock_en => 0,
+            invert_in_reset => 0,
+            invert_out_clock => 0,
+            invert_out_clock_en => 0,
+            invert_out_reset => 0,
+            io_voltage => "",
+            layout_mode => "CONTIGUOUS",
+            oe_conn => "0",
+            oe_reset => 0,
+            oe_sync => "0",
+            output_clk_en => 0,
+            output_clock_mode => "0",
+            output_conn => "0",
+            output_mode => "0",
+            output_reset => 0,
+            output_sync => "0",
+            ovt_hyst_trim => "0",
+            ovt_needed => "0",
+            ovt_slew_control => "00",
+            pa_in_clock => -1,
+            pa_in_clock_en => -1,
+            pa_in_reset => -1,
+            pa_out_clock => -1,
+            pa_out_clock_en => -1,
+            pa_out_reset => -1,
+            pin_aliases => "",
+            pin_mode => "O",
+            por_state => 4,
+            port_alias_group => "",
+            port_alias_required => 0,
+            sio_group_cnt => 0,
+            sio_hifreq => "00000000",
+            sio_hyst => "1",
+            sio_ibuf => "00000000",
+            sio_info => "00",
+            sio_obuf => "00000000",
+            sio_refsel => "00000000",
+            sio_vohsel => "00000000",
+            sio_vtrip => "00000000",
+            slew_rate => "0",
+            spanning => 0,
+            sw_only => 0,
+            use_annotation => "0",
+            vtrip => "10",
+            width => 1,
+            in_clk_inv => 0,
+            in_clken_inv => 0,
+            in_clken_mode => 1,
+            in_rst_inv => 0,
+            out_clk_inv => 0,
+            out_clken_inv => 0,
+            out_clken_mode => 1,
+            out_rst_inv => 0)
+        PORT MAP(
+            in_clock_en => open,
+            in_reset => open,
+            out_clock_en => open,
+            out_reset => open);
+
+    Pin_Clock_RGB(0):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "Pin_Clock_RGB",
+            logicalport_pin_id => 0,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000001")
+        PORT MAP(
+            pa_out => Pin_Clock_RGB(0)__PA,
+            oe => open,
+            pad_in => Pin_Clock_RGB(0)_PAD,
             in_clock => open,
             in_clock_en => '1',
             in_reset => '0',

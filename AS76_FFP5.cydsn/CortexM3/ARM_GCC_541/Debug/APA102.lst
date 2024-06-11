@@ -1,0 +1,4308 @@
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"APA102.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.LedFrame,"ax",%progbits
+  20              		.align	2
+  21              		.global	LedFrame
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	LedFrame, %function
+  25              	LedFrame:
+  26              	.LFB64:
+  27              		.file 1 "APA102.c"
+   1:APA102.c      **** /* ========================================
+   2:APA102.c      ****  *
+   3:APA102.c      ****  * Copyright YOUR COMPANY, THE YEAR
+   4:APA102.c      ****  * All Rights Reserved
+   5:APA102.c      ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:APA102.c      ****  *
+   7:APA102.c      ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:APA102.c      ****  * WHICH IS THE PROPERTY OF your company.
+   9:APA102.c      ****  *
+  10:APA102.c      ****  * ========================================
+  11:APA102.c      **** */
+  12:APA102.c      **** 
+  13:APA102.c      **** /* [] END OF FILE */
+  14:APA102.c      **** 
+  15:APA102.c      **** #include "APA102.h"
+  16:APA102.c      **** 
+  17:APA102.c      **** uint8 i,j =0;
+  18:APA102.c      **** uint8_t R,G,B = 0;
+  19:APA102.c      **** uint8_t MaxB = 0;
+  20:APA102.c      **** uint16_t BnB = 0;
+  21:APA102.c      **** uint16_t GnR = 0;
+  22:APA102.c      **** uint8_t LedCnt = 0;
+  23:APA102.c      **** 
+  24:APA102.c      **** 
+  25:APA102.c      **** uint8_t STFB[4] = {0x00,0x00,0x00,0x00};
+  26:APA102.c      **** uint8_t ENFB[4] = {0xFF,0xFF,0xFF,0xFF};
+  27:APA102.c      **** 
+  28:APA102.c      **** 
+  29:APA102.c      **** uint8_t SPI_RGB_DATA[4];
+  30:APA102.c      **** 
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 2
+
+
+  31:APA102.c      **** void BF(uint8_t LedCnt, uint8_t R,uint8_t G,uint8_t B,uint8_t MaxB)
+  32:APA102.c      **** {
+  33:APA102.c      ****     
+  34:APA102.c      ****     StartFrame
+  35:APA102.c      ****     for(i=1;i<=170;i++ )
+  36:APA102.c      ****     {    
+  37:APA102.c      **** 
+  38:APA102.c      ****         RGB_Byte_TxOp(0xE0);
+  39:APA102.c      ****         RGB_Byte_TxOp(0x00);
+  40:APA102.c      ****         RGB_Byte_TxOp(0x00);
+  41:APA102.c      ****         RGB_Byte_TxOp(0x00);
+  42:APA102.c      ****               
+  43:APA102.c      ****     }
+  44:APA102.c      ****     EndFrame
+  45:APA102.c      ****     
+  46:APA102.c      ****     LedFrame(MaxB,R,G,B);
+  47:APA102.c      ****     StartFrame
+  48:APA102.c      ****     for(i=1;i<=LedCnt;i++ )
+  49:APA102.c      ****     {    
+  50:APA102.c      **** //        SPIM_WriteTxData((BnB >> 8)&0xff);
+  51:APA102.c      **** //        SPIM_WriteTxData(BnB&0xff);
+  52:APA102.c      **** //        SPIM_WriteTxData((GnR >> 8)&0xff);
+  53:APA102.c      **** //        SPIM_WriteTxData(GnR&0xff);
+  54:APA102.c      ****         
+  55:APA102.c      ****         RGB_Byte_TxOp((BnB >> 8)&0xff);
+  56:APA102.c      ****         RGB_Byte_TxOp(BnB&0xff);
+  57:APA102.c      ****         RGB_Byte_TxOp((GnR >> 8)&0xff);
+  58:APA102.c      ****         RGB_Byte_TxOp(GnR&0xff);
+  59:APA102.c      ****               
+  60:APA102.c      ****         //SPIM_WriteTxData(BnB);
+  61:APA102.c      ****         //SPIM_WriteTxData(GnR);
+  62:APA102.c      ****          //SPIM_PutArray(SPI_RGB_DATA,4);
+  63:APA102.c      ****     }
+  64:APA102.c      ****     EndFrame
+  65:APA102.c      ****     i=0;
+  66:APA102.c      **** }
+  67:APA102.c      **** 
+  68:APA102.c      **** void LedFrame(uint8_t MB,uint8_t r,uint8_t g,uint8_t b)
+  69:APA102.c      **** {
+  28              		.loc 1 69 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
+  34 0000 10B4     		push	{r4}
+  35              		.cfi_def_cfa_offset 4
+  36              		.cfi_offset 4, -4
+  70:APA102.c      ****     //SPI_RGB_DATA[0] = (((MB & 0b00011111)| 0b11100000)<<8);
+  71:APA102.c      ****     //SPI_RGB_DATA[1] = b;
+  72:APA102.c      ****     //SPI_RGB_DATA[2] = g;
+  73:APA102.c      ****     //SPI_RGB_DATA[3] = r;
+  74:APA102.c      ****     BnB = ((((MB & 0b00011111)| 0b11100000)<<8) | b);
+  37              		.loc 1 74 0
+  38 0002 40F0E000 		orr	r0, r0, #224
+  39              	.LVL1:
+  40 0006 044C     		ldr	r4, .L3
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 3
+
+
+  41 0008 43EA0023 		orr	r3, r3, r0, lsl #8
+  42              	.LVL2:
+  43 000c 2380     		strh	r3, [r4]	@ movhi
+  75:APA102.c      ****     GnR = ((g<<8) | r); 
+  44              		.loc 1 75 0
+  45 000e 41EA0222 		orr	r2, r1, r2, lsl #8
+  46              	.LVL3:
+  47 0012 6280     		strh	r2, [r4, #2]	@ movhi
+  76:APA102.c      **** }
+  48              		.loc 1 76 0
+  49 0014 10BC     		pop	{r4}
+  50              		.cfi_restore 4
+  51              		.cfi_def_cfa_offset 0
+  52 0016 7047     		bx	lr
+  53              	.L4:
+  54              		.align	2
+  55              	.L3:
+  56 0018 00000000 		.word	.LANCHOR0
+  57              		.cfi_endproc
+  58              	.LFE64:
+  59              		.size	LedFrame, .-LedFrame
+  60              		.section	.text.RGB_Byte_TxOp,"ax",%progbits
+  61              		.align	2
+  62              		.global	RGB_Byte_TxOp
+  63              		.thumb
+  64              		.thumb_func
+  65              		.type	RGB_Byte_TxOp, %function
+  66              	RGB_Byte_TxOp:
+  67              	.LFB67:
+  77:APA102.c      **** 
+  78:APA102.c      **** void Ring(uint8_t RngCnt,uint8_t RngR,uint8_t RngG,uint8_t RngB,uint8_t RngMB)
+  79:APA102.c      **** {   
+  80:APA102.c      ****     StartFrame
+  81:APA102.c      ****     for(i=1;i<=52;i++ )
+  82:APA102.c      ****     {    
+  83:APA102.c      **** 
+  84:APA102.c      ****         RGB_Byte_TxOp(0xE0);
+  85:APA102.c      ****         RGB_Byte_TxOp(0x00);
+  86:APA102.c      ****         RGB_Byte_TxOp(0x00);
+  87:APA102.c      ****         RGB_Byte_TxOp(0x00);
+  88:APA102.c      ****               
+  89:APA102.c      ****     }
+  90:APA102.c      ****     EndFrame
+  91:APA102.c      **** 
+  92:APA102.c      ****     switch (RngCnt)  
+  93:APA102.c      ****     {
+  94:APA102.c      ****         case 0:
+  95:APA102.c      ****             StartFrame
+  96:APA102.c      ****             BF2(45,0,0,0,0);
+  97:APA102.c      ****             BF2(0,0,0,0,0xE0);
+  98:APA102.c      ****             EndFrame
+  99:APA102.c      ****             break;
+ 100:APA102.c      ****         case 1:
+ 101:APA102.c      ****             StartFrame
+ 102:APA102.c      ****             BF2(45,RngR,RngG,RngB,RngMB);
+ 103:APA102.c      ****             BF2(0,0,0,0,0xE0);
+ 104:APA102.c      ****             EndFrame
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 4
+
+
+ 105:APA102.c      ****             break;
+ 106:APA102.c      ****                 
+ 107:APA102.c      ****         case 2:
+ 108:APA102.c      ****             StartFrame        
+ 109:APA102.c      ****             //BF2(45,0,0,0,0xE0);
+ 110:APA102.c      ****             BF2(7,RngR,RngG,RngB,RngMB);
+ 111:APA102.c      ****             BF2(0,0,0,0,0xE0);
+ 112:APA102.c      ****             EndFrame
+ 113:APA102.c      ****             break;
+ 114:APA102.c      ****             
+ 115:APA102.c      ****         case 3:    
+ 116:APA102.c      ****             StartFrame        
+ 117:APA102.c      ****             //BF2(45,0,0,0,0xE0);
+ 118:APA102.c      ****             BF2(15,RngR,RngG,RngB,RngMB);
+ 119:APA102.c      ****             BF2(0,0,0,0,0xE0);
+ 120:APA102.c      ****             EndFrame
+ 121:APA102.c      ****             break;
+ 122:APA102.c      ****         
+ 123:APA102.c      ****         case 4:    
+ 124:APA102.c      ****              StartFrame        
+ 125:APA102.c      ****             //BF2(14,0,0,0,0xE0);
+ 126:APA102.c      ****             BF2(23,RngR,RngG,RngB,RngMB);
+ 127:APA102.c      ****             BF2(0,0,0,0,0xE0);
+ 128:APA102.c      ****             EndFrame
+ 129:APA102.c      ****             break;
+ 130:APA102.c      ****         
+ 131:APA102.c      ****         case 5:    
+ 132:APA102.c      ****              StartFrame        
+ 133:APA102.c      ****             //BF2(14,0,0,0,0xE0);
+ 134:APA102.c      ****             BF2(30,RngR,RngG,RngB,RngMB);
+ 135:APA102.c      ****             BF2(0,0,0,0,0xE0);
+ 136:APA102.c      ****             EndFrame
+ 137:APA102.c      ****             break;
+ 138:APA102.c      ****             
+ 139:APA102.c      ****         case 6:    
+ 140:APA102.c      ****              StartFrame        
+ 141:APA102.c      ****             //BF2(14,0,0,0,0xE0);
+ 142:APA102.c      ****             BF2(38,RngR,RngG,RngB,RngMB);
+ 143:APA102.c      ****             BF2(0,0,0,0,0xE0);
+ 144:APA102.c      ****             EndFrame
+ 145:APA102.c      ****             break;   
+ 146:APA102.c      ****         case 7:    
+ 147:APA102.c      ****              StartFrame        
+ 148:APA102.c      ****             //BF2(14,0,0,0,0xE0);
+ 149:APA102.c      ****             BF2(45,RngR,RngG,RngB,RngMB);
+ 150:APA102.c      ****             BF2(0,0,0,0,0xE0);
+ 151:APA102.c      ****             EndFrame
+ 152:APA102.c      ****             break;     
+ 153:APA102.c      ****     }
+ 154:APA102.c      **** }
+ 155:APA102.c      **** 
+ 156:APA102.c      **** void BF2(uint8_t LedCnt, uint8_t R,uint8_t G,uint8_t B,uint8_t MaxB)
+ 157:APA102.c      **** {
+ 158:APA102.c      ****     LedFrame(MaxB,R,G,B);
+ 159:APA102.c      ****     for(i=1;i<=LedCnt;i++ )
+ 160:APA102.c      ****     {
+ 161:APA102.c      ****          
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 5
+
+
+ 162:APA102.c      **** //        SPIM_WriteTxData((BnB >> 8)&0xff);
+ 163:APA102.c      **** //        SPIM_WriteTxData(BnB&0xff);
+ 164:APA102.c      **** //        SPIM_WriteTxData((GnR >> 8)&0xff);
+ 165:APA102.c      **** //        SPIM_WriteTxData(GnR&0xff);
+ 166:APA102.c      ****         
+ 167:APA102.c      ****         RGB_Byte_TxOp((BnB >> 8)&0xff);
+ 168:APA102.c      ****         RGB_Byte_TxOp(BnB&0xff);
+ 169:APA102.c      ****         RGB_Byte_TxOp((GnR >> 8)&0xff);
+ 170:APA102.c      ****         RGB_Byte_TxOp(GnR&0xff);
+ 171:APA102.c      ****         
+ 172:APA102.c      ****        
+ 173:APA102.c      ****         
+ 174:APA102.c      ****         //SPIM_WriteTxData(BnB);
+ 175:APA102.c      ****         //SPIM_WriteTxData(GnR);
+ 176:APA102.c      ****         //SPIM_PutArray(SPI_RGB_DATA,4);
+ 177:APA102.c      ****     }
+ 178:APA102.c      ****     i=0;
+ 179:APA102.c      **** }
+ 180:APA102.c      **** 
+ 181:APA102.c      **** 
+ 182:APA102.c      **** 
+ 183:APA102.c      **** 
+ 184:APA102.c      **** void RGB_Byte_TxOp(uint8_t RGB_TxByte)
+ 185:APA102.c      **** {
+  68              		.loc 1 185 0
+  69              		.cfi_startproc
+  70              		@ args = 0, pretend = 0, frame = 0
+  71              		@ frame_needed = 0, uses_anonymous_args = 0
+  72              	.LVL4:
+  73 0000 38B5     		push	{r3, r4, r5, lr}
+  74              		.cfi_def_cfa_offset 16
+  75              		.cfi_offset 3, -16
+  76              		.cfi_offset 4, -12
+  77              		.cfi_offset 5, -8
+  78              		.cfi_offset 14, -4
+  79 0002 0546     		mov	r5, r0
+  80              	.LVL5:
+ 186:APA102.c      ****   uint8_t i=0;
+ 187:APA102.c      ****     for(i=8;i>0;i--)
+  81              		.loc 1 187 0
+  82 0004 0823     		movs	r3, #8
+  83 0006 13E0     		b	.L6
+  84              	.LVL6:
+  85              	.L7:
+ 188:APA102.c      ****     {
+ 189:APA102.c      ****       
+ 190:APA102.c      ****       Pin_SDO_RGB_Write((RGB_TxByte >> (i-1))&0x01);
+  86              		.loc 1 190 0 discriminator 3
+  87 0008 5C1E     		subs	r4, r3, #1
+  88 000a 45FA04F0 		asr	r0, r5, r4
+  89 000e 00F00100 		and	r0, r0, #1
+  90 0012 FFF7FEFF 		bl	Pin_SDO_RGB_Write
+  91              	.LVL7:
+ 191:APA102.c      ****       Pin_Clock_RGB_Write(0);
+  92              		.loc 1 191 0 discriminator 3
+  93 0016 0020     		movs	r0, #0
+  94 0018 FFF7FEFF 		bl	Pin_Clock_RGB_Write
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 6
+
+
+  95              	.LVL8:
+ 192:APA102.c      ****       CyDelayUs(1);
+  96              		.loc 1 192 0 discriminator 3
+  97 001c 0120     		movs	r0, #1
+  98 001e FFF7FEFF 		bl	CyDelayUs
+  99              	.LVL9:
+ 193:APA102.c      ****       Pin_Clock_RGB_Write(1);
+ 100              		.loc 1 193 0 discriminator 3
+ 101 0022 0120     		movs	r0, #1
+ 102 0024 FFF7FEFF 		bl	Pin_Clock_RGB_Write
+ 103              	.LVL10:
+ 194:APA102.c      ****       CyDelayUs(1);
+ 104              		.loc 1 194 0 discriminator 3
+ 105 0028 0120     		movs	r0, #1
+ 106 002a FFF7FEFF 		bl	CyDelayUs
+ 107              	.LVL11:
+ 187:APA102.c      ****     {
+ 108              		.loc 1 187 0 discriminator 3
+ 109 002e E3B2     		uxtb	r3, r4
+ 110              	.LVL12:
+ 111              	.L6:
+ 187:APA102.c      ****     {
+ 112              		.loc 1 187 0 is_stmt 0 discriminator 1
+ 113 0030 002B     		cmp	r3, #0
+ 114 0032 E9D1     		bne	.L7
+ 195:APA102.c      ****       
+ 196:APA102.c      ****     }
+ 197:APA102.c      **** 
+ 198:APA102.c      **** }...
+ 115              		.loc 1 198 0 is_stmt 1
+ 116 0034 38BD     		pop	{r3, r4, r5, pc}
+ 117              		.cfi_endproc
+ 118              	.LFE67:
+ 119              		.size	RGB_Byte_TxOp, .-RGB_Byte_TxOp
+ 120 0036 00BF     		.section	.text.BF,"ax",%progbits
+ 121              		.align	2
+ 122              		.global	BF
+ 123              		.thumb
+ 124              		.thumb_func
+ 125              		.type	BF, %function
+ 126              	BF:
+ 127              	.LFB63:
+  32:APA102.c      **** {
+ 128              		.loc 1 32 0
+ 129              		.cfi_startproc
+ 130              		@ args = 4, pretend = 0, frame = 0
+ 131              		@ frame_needed = 0, uses_anonymous_args = 0
+ 132              	.LVL13:
+ 133 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 134              		.cfi_def_cfa_offset 24
+ 135              		.cfi_offset 3, -24
+ 136              		.cfi_offset 4, -20
+ 137              		.cfi_offset 5, -16
+ 138              		.cfi_offset 6, -12
+ 139              		.cfi_offset 7, -8
+ 140              		.cfi_offset 14, -4
+ 141 0002 0546     		mov	r5, r0
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 7
+
+
+ 142 0004 0C46     		mov	r4, r1
+ 143 0006 1646     		mov	r6, r2
+ 144 0008 1F46     		mov	r7, r3
+  34:APA102.c      ****     StartFrame
+ 145              		.loc 1 34 0
+ 146 000a 0020     		movs	r0, #0
+ 147              	.LVL14:
+ 148 000c FFF7FEFF 		bl	RGB_Byte_TxOp
+ 149              	.LVL15:
+ 150 0010 0020     		movs	r0, #0
+ 151 0012 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 152              	.LVL16:
+ 153 0016 0020     		movs	r0, #0
+ 154 0018 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 155              	.LVL17:
+ 156 001c 0020     		movs	r0, #0
+ 157 001e FFF7FEFF 		bl	RGB_Byte_TxOp
+ 158              	.LVL18:
+  35:APA102.c      ****     for(i=1;i<=170;i++ )
+ 159              		.loc 1 35 0
+ 160 0022 0122     		movs	r2, #1
+ 161 0024 304B     		ldr	r3, .L15
+ 162 0026 1A70     		strb	r2, [r3]
+ 163 0028 0FE0     		b	.L10
+ 164              	.L11:
+  38:APA102.c      ****         RGB_Byte_TxOp(0xE0);
+ 165              		.loc 1 38 0 discriminator 3
+ 166 002a E020     		movs	r0, #224
+ 167 002c FFF7FEFF 		bl	RGB_Byte_TxOp
+ 168              	.LVL19:
+  39:APA102.c      ****         RGB_Byte_TxOp(0x00);
+ 169              		.loc 1 39 0 discriminator 3
+ 170 0030 0020     		movs	r0, #0
+ 171 0032 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 172              	.LVL20:
+  40:APA102.c      ****         RGB_Byte_TxOp(0x00);
+ 173              		.loc 1 40 0 discriminator 3
+ 174 0036 0020     		movs	r0, #0
+ 175 0038 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 176              	.LVL21:
+  41:APA102.c      ****         RGB_Byte_TxOp(0x00);
+ 177              		.loc 1 41 0 discriminator 3
+ 178 003c 0020     		movs	r0, #0
+ 179 003e FFF7FEFF 		bl	RGB_Byte_TxOp
+ 180              	.LVL22:
+  35:APA102.c      ****     for(i=1;i<=170;i++ )
+ 181              		.loc 1 35 0 discriminator 3
+ 182 0042 294A     		ldr	r2, .L15
+ 183 0044 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 184 0046 0133     		adds	r3, r3, #1
+ 185 0048 1370     		strb	r3, [r2]
+ 186              	.L10:
+  35:APA102.c      ****     for(i=1;i<=170;i++ )
+ 187              		.loc 1 35 0 is_stmt 0 discriminator 1
+ 188 004a 274B     		ldr	r3, .L15
+ 189 004c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 190 004e AA2B     		cmp	r3, #170
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 8
+
+
+ 191 0050 EBD9     		bls	.L11
+  44:APA102.c      ****     EndFrame
+ 192              		.loc 1 44 0 is_stmt 1
+ 193 0052 FF20     		movs	r0, #255
+ 194 0054 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 195              	.LVL23:
+ 196 0058 FF20     		movs	r0, #255
+ 197 005a FFF7FEFF 		bl	RGB_Byte_TxOp
+ 198              	.LVL24:
+ 199 005e FF20     		movs	r0, #255
+ 200 0060 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 201              	.LVL25:
+ 202 0064 FF20     		movs	r0, #255
+ 203 0066 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 204              	.LVL26:
+  46:APA102.c      ****     LedFrame(MaxB,R,G,B);
+ 205              		.loc 1 46 0
+ 206 006a 3B46     		mov	r3, r7
+ 207 006c 3246     		mov	r2, r6
+ 208 006e 2146     		mov	r1, r4
+ 209 0070 9DF81800 		ldrb	r0, [sp, #24]	@ zero_extendqisi2
+ 210 0074 FFF7FEFF 		bl	LedFrame
+ 211              	.LVL27:
+  47:APA102.c      ****     StartFrame
+ 212              		.loc 1 47 0
+ 213 0078 0020     		movs	r0, #0
+ 214 007a FFF7FEFF 		bl	RGB_Byte_TxOp
+ 215              	.LVL28:
+ 216 007e 0020     		movs	r0, #0
+ 217 0080 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 218              	.LVL29:
+ 219 0084 0020     		movs	r0, #0
+ 220 0086 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 221              	.LVL30:
+ 222 008a 0020     		movs	r0, #0
+ 223 008c FFF7FEFF 		bl	RGB_Byte_TxOp
+ 224              	.LVL31:
+  48:APA102.c      ****     for(i=1;i<=LedCnt;i++ )
+ 225              		.loc 1 48 0
+ 226 0090 0122     		movs	r2, #1
+ 227 0092 154B     		ldr	r3, .L15
+ 228 0094 1A70     		strb	r2, [r3]
+ 229 0096 12E0     		b	.L12
+ 230              	.L13:
+  55:APA102.c      ****         RGB_Byte_TxOp((BnB >> 8)&0xff);
+ 231              		.loc 1 55 0 discriminator 3
+ 232 0098 144C     		ldr	r4, .L15+4
+ 233 009a 2088     		ldrh	r0, [r4]
+ 234 009c 000A     		lsrs	r0, r0, #8
+ 235 009e FFF7FEFF 		bl	RGB_Byte_TxOp
+ 236              	.LVL32:
+  56:APA102.c      ****         RGB_Byte_TxOp(BnB&0xff);
+ 237              		.loc 1 56 0 discriminator 3
+ 238 00a2 2078     		ldrb	r0, [r4]	@ zero_extendqisi2
+ 239 00a4 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 240              	.LVL33:
+  57:APA102.c      ****         RGB_Byte_TxOp((GnR >> 8)&0xff);
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 9
+
+
+ 241              		.loc 1 57 0 discriminator 3
+ 242 00a8 6088     		ldrh	r0, [r4, #2]
+ 243 00aa 000A     		lsrs	r0, r0, #8
+ 244 00ac FFF7FEFF 		bl	RGB_Byte_TxOp
+ 245              	.LVL34:
+  58:APA102.c      ****         RGB_Byte_TxOp(GnR&0xff);
+ 246              		.loc 1 58 0 discriminator 3
+ 247 00b0 A078     		ldrb	r0, [r4, #2]	@ zero_extendqisi2
+ 248 00b2 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 249              	.LVL35:
+  48:APA102.c      ****     for(i=1;i<=LedCnt;i++ )
+ 250              		.loc 1 48 0 discriminator 3
+ 251 00b6 0C4A     		ldr	r2, .L15
+ 252 00b8 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 253 00ba 0133     		adds	r3, r3, #1
+ 254 00bc 1370     		strb	r3, [r2]
+ 255              	.L12:
+  48:APA102.c      ****     for(i=1;i<=LedCnt;i++ )
+ 256              		.loc 1 48 0 is_stmt 0 discriminator 1
+ 257 00be 0A4B     		ldr	r3, .L15
+ 258 00c0 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 259 00c2 AB42     		cmp	r3, r5
+ 260 00c4 E8D9     		bls	.L13
+  64:APA102.c      ****     EndFrame
+ 261              		.loc 1 64 0 is_stmt 1
+ 262 00c6 FF20     		movs	r0, #255
+ 263 00c8 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 264              	.LVL36:
+ 265 00cc FF20     		movs	r0, #255
+ 266 00ce FFF7FEFF 		bl	RGB_Byte_TxOp
+ 267              	.LVL37:
+ 268 00d2 FF20     		movs	r0, #255
+ 269 00d4 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 270              	.LVL38:
+ 271 00d8 FF20     		movs	r0, #255
+ 272 00da FFF7FEFF 		bl	RGB_Byte_TxOp
+ 273              	.LVL39:
+  65:APA102.c      ****     i=0;
+ 274              		.loc 1 65 0
+ 275 00de 0022     		movs	r2, #0
+ 276 00e0 014B     		ldr	r3, .L15
+ 277 00e2 1A70     		strb	r2, [r3]
+ 278 00e4 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 279              	.LVL40:
+ 280              	.L16:
+ 281 00e6 00BF     		.align	2
+ 282              	.L15:
+ 283 00e8 00000000 		.word	i
+ 284 00ec 00000000 		.word	.LANCHOR0
+ 285              		.cfi_endproc
+ 286              	.LFE63:
+ 287              		.size	BF, .-BF
+ 288              		.section	.text.BF2,"ax",%progbits
+ 289              		.align	2
+ 290              		.global	BF2
+ 291              		.thumb
+ 292              		.thumb_func
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 10
+
+
+ 293              		.type	BF2, %function
+ 294              	BF2:
+ 295              	.LFB66:
+ 157:APA102.c      **** {
+ 296              		.loc 1 157 0
+ 297              		.cfi_startproc
+ 298              		@ args = 4, pretend = 0, frame = 0
+ 299              		@ frame_needed = 0, uses_anonymous_args = 0
+ 300              	.LVL41:
+ 301 0000 38B5     		push	{r3, r4, r5, lr}
+ 302              		.cfi_def_cfa_offset 16
+ 303              		.cfi_offset 3, -16
+ 304              		.cfi_offset 4, -12
+ 305              		.cfi_offset 5, -8
+ 306              		.cfi_offset 14, -4
+ 307 0002 0546     		mov	r5, r0
+ 158:APA102.c      ****     LedFrame(MaxB,R,G,B);
+ 308              		.loc 1 158 0
+ 309 0004 9DF81000 		ldrb	r0, [sp, #16]	@ zero_extendqisi2
+ 310              	.LVL42:
+ 311 0008 FFF7FEFF 		bl	LedFrame
+ 312              	.LVL43:
+ 159:APA102.c      ****     for(i=1;i<=LedCnt;i++ )
+ 313              		.loc 1 159 0
+ 314 000c 0122     		movs	r2, #1
+ 315 000e 0F4B     		ldr	r3, .L21
+ 316 0010 1A70     		strb	r2, [r3]
+ 317 0012 12E0     		b	.L18
+ 318              	.L19:
+ 167:APA102.c      ****         RGB_Byte_TxOp((BnB >> 8)&0xff);
+ 319              		.loc 1 167 0 discriminator 3
+ 320 0014 0E4C     		ldr	r4, .L21+4
+ 321 0016 2088     		ldrh	r0, [r4]
+ 322 0018 000A     		lsrs	r0, r0, #8
+ 323 001a FFF7FEFF 		bl	RGB_Byte_TxOp
+ 324              	.LVL44:
+ 168:APA102.c      ****         RGB_Byte_TxOp(BnB&0xff);
+ 325              		.loc 1 168 0 discriminator 3
+ 326 001e 2078     		ldrb	r0, [r4]	@ zero_extendqisi2
+ 327 0020 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 328              	.LVL45:
+ 169:APA102.c      ****         RGB_Byte_TxOp((GnR >> 8)&0xff);
+ 329              		.loc 1 169 0 discriminator 3
+ 330 0024 6088     		ldrh	r0, [r4, #2]
+ 331 0026 000A     		lsrs	r0, r0, #8
+ 332 0028 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 333              	.LVL46:
+ 170:APA102.c      ****         RGB_Byte_TxOp(GnR&0xff);
+ 334              		.loc 1 170 0 discriminator 3
+ 335 002c A078     		ldrb	r0, [r4, #2]	@ zero_extendqisi2
+ 336 002e FFF7FEFF 		bl	RGB_Byte_TxOp
+ 337              	.LVL47:
+ 159:APA102.c      ****     for(i=1;i<=LedCnt;i++ )
+ 338              		.loc 1 159 0 discriminator 3
+ 339 0032 064A     		ldr	r2, .L21
+ 340 0034 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 341 0036 0133     		adds	r3, r3, #1
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 11
+
+
+ 342 0038 1370     		strb	r3, [r2]
+ 343              	.L18:
+ 159:APA102.c      ****     for(i=1;i<=LedCnt;i++ )
+ 344              		.loc 1 159 0 is_stmt 0 discriminator 1
+ 345 003a 044B     		ldr	r3, .L21
+ 346 003c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 347 003e AB42     		cmp	r3, r5
+ 348 0040 E8D9     		bls	.L19
+ 178:APA102.c      ****     i=0;
+ 349              		.loc 1 178 0 is_stmt 1
+ 350 0042 0022     		movs	r2, #0
+ 351 0044 014B     		ldr	r3, .L21
+ 352 0046 1A70     		strb	r2, [r3]
+ 353 0048 38BD     		pop	{r3, r4, r5, pc}
+ 354              	.LVL48:
+ 355              	.L22:
+ 356 004a 00BF     		.align	2
+ 357              	.L21:
+ 358 004c 00000000 		.word	i
+ 359 0050 00000000 		.word	.LANCHOR0
+ 360              		.cfi_endproc
+ 361              	.LFE66:
+ 362              		.size	BF2, .-BF2
+ 363              		.section	.text.Ring,"ax",%progbits
+ 364              		.align	2
+ 365              		.global	Ring
+ 366              		.thumb
+ 367              		.thumb_func
+ 368              		.type	Ring, %function
+ 369              	Ring:
+ 370              	.LFB65:
+  79:APA102.c      **** {   
+ 371              		.loc 1 79 0
+ 372              		.cfi_startproc
+ 373              		@ args = 4, pretend = 0, frame = 0
+ 374              		@ frame_needed = 0, uses_anonymous_args = 0
+ 375              	.LVL49:
+ 376 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 377              		.cfi_def_cfa_offset 24
+ 378              		.cfi_offset 4, -24
+ 379              		.cfi_offset 5, -20
+ 380              		.cfi_offset 6, -16
+ 381              		.cfi_offset 7, -12
+ 382              		.cfi_offset 8, -8
+ 383              		.cfi_offset 14, -4
+ 384 0004 82B0     		sub	sp, sp, #8
+ 385              		.cfi_def_cfa_offset 32
+ 386 0006 0446     		mov	r4, r0
+ 387 0008 0D46     		mov	r5, r1
+ 388 000a 1646     		mov	r6, r2
+ 389 000c 1F46     		mov	r7, r3
+ 390 000e 9DF82080 		ldrb	r8, [sp, #32]	@ zero_extendqisi2
+  80:APA102.c      ****     StartFrame
+ 391              		.loc 1 80 0
+ 392 0012 0020     		movs	r0, #0
+ 393              	.LVL50:
+ 394 0014 FFF7FEFF 		bl	RGB_Byte_TxOp
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 12
+
+
+ 395              	.LVL51:
+ 396 0018 0020     		movs	r0, #0
+ 397 001a FFF7FEFF 		bl	RGB_Byte_TxOp
+ 398              	.LVL52:
+ 399 001e 0020     		movs	r0, #0
+ 400 0020 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 401              	.LVL53:
+ 402 0024 0020     		movs	r0, #0
+ 403 0026 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 404              	.LVL54:
+  81:APA102.c      ****     for(i=1;i<=52;i++ )
+ 405              		.loc 1 81 0
+ 406 002a 0122     		movs	r2, #1
+ 407 002c BC4B     		ldr	r3, .L37
+ 408 002e 1A70     		strb	r2, [r3]
+ 409 0030 0FE0     		b	.L24
+ 410              	.L25:
+  84:APA102.c      ****         RGB_Byte_TxOp(0xE0);
+ 411              		.loc 1 84 0 discriminator 3
+ 412 0032 E020     		movs	r0, #224
+ 413 0034 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 414              	.LVL55:
+  85:APA102.c      ****         RGB_Byte_TxOp(0x00);
+ 415              		.loc 1 85 0 discriminator 3
+ 416 0038 0020     		movs	r0, #0
+ 417 003a FFF7FEFF 		bl	RGB_Byte_TxOp
+ 418              	.LVL56:
+  86:APA102.c      ****         RGB_Byte_TxOp(0x00);
+ 419              		.loc 1 86 0 discriminator 3
+ 420 003e 0020     		movs	r0, #0
+ 421 0040 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 422              	.LVL57:
+  87:APA102.c      ****         RGB_Byte_TxOp(0x00);
+ 423              		.loc 1 87 0 discriminator 3
+ 424 0044 0020     		movs	r0, #0
+ 425 0046 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 426              	.LVL58:
+  81:APA102.c      ****     for(i=1;i<=52;i++ )
+ 427              		.loc 1 81 0 discriminator 3
+ 428 004a B54A     		ldr	r2, .L37
+ 429 004c 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 430 004e 0133     		adds	r3, r3, #1
+ 431 0050 1370     		strb	r3, [r2]
+ 432              	.L24:
+  81:APA102.c      ****     for(i=1;i<=52;i++ )
+ 433              		.loc 1 81 0 is_stmt 0 discriminator 1
+ 434 0052 B34B     		ldr	r3, .L37
+ 435 0054 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 436 0056 342B     		cmp	r3, #52
+ 437 0058 EBD9     		bls	.L25
+  90:APA102.c      ****     EndFrame
+ 438              		.loc 1 90 0 is_stmt 1
+ 439 005a FF20     		movs	r0, #255
+ 440 005c FFF7FEFF 		bl	RGB_Byte_TxOp
+ 441              	.LVL59:
+ 442 0060 FF20     		movs	r0, #255
+ 443 0062 FFF7FEFF 		bl	RGB_Byte_TxOp
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 13
+
+
+ 444              	.LVL60:
+ 445 0066 FF20     		movs	r0, #255
+ 446 0068 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 447              	.LVL61:
+ 448 006c FF20     		movs	r0, #255
+ 449 006e FFF7FEFF 		bl	RGB_Byte_TxOp
+ 450              	.LVL62:
+  92:APA102.c      ****     switch (RngCnt)  
+ 451              		.loc 1 92 0
+ 452 0072 072C     		cmp	r4, #7
+ 453 0074 00F25181 		bhi	.L23
+ 454 0078 DFE814F0 		tbh	[pc, r4, lsl #1]
+ 455              	.L28:
+ 456 007c 0800     		.2byte	(.L27-.L28)/2
+ 457 007e 3100     		.2byte	(.L29-.L28)/2
+ 458 0080 5A00     		.2byte	(.L30-.L28)/2
+ 459 0082 8300     		.2byte	(.L31-.L28)/2
+ 460 0084 AC00     		.2byte	(.L32-.L28)/2
+ 461 0086 D500     		.2byte	(.L33-.L28)/2
+ 462 0088 FE00     		.2byte	(.L34-.L28)/2
+ 463 008a 2701     		.2byte	(.L35-.L28)/2
+ 464              		.p2align 1
+ 465              	.L27:
+  95:APA102.c      ****             StartFrame
+ 466              		.loc 1 95 0
+ 467 008c 0020     		movs	r0, #0
+ 468 008e FFF7FEFF 		bl	RGB_Byte_TxOp
+ 469              	.LVL63:
+ 470 0092 0020     		movs	r0, #0
+ 471 0094 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 472              	.LVL64:
+ 473 0098 0020     		movs	r0, #0
+ 474 009a FFF7FEFF 		bl	RGB_Byte_TxOp
+ 475              	.LVL65:
+ 476 009e 0020     		movs	r0, #0
+ 477 00a0 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 478              	.LVL66:
+  96:APA102.c      ****             BF2(45,0,0,0,0);
+ 479              		.loc 1 96 0
+ 480 00a4 0024     		movs	r4, #0
+ 481 00a6 0094     		str	r4, [sp]
+ 482 00a8 2346     		mov	r3, r4
+ 483 00aa 2246     		mov	r2, r4
+ 484 00ac 2146     		mov	r1, r4
+ 485 00ae 2D20     		movs	r0, #45
+ 486 00b0 FFF7FEFF 		bl	BF2
+ 487              	.LVL67:
+  97:APA102.c      ****             BF2(0,0,0,0,0xE0);
+ 488              		.loc 1 97 0
+ 489 00b4 E023     		movs	r3, #224
+ 490 00b6 0093     		str	r3, [sp]
+ 491 00b8 2346     		mov	r3, r4
+ 492 00ba 2246     		mov	r2, r4
+ 493 00bc 2146     		mov	r1, r4
+ 494 00be 2046     		mov	r0, r4
+ 495 00c0 FFF7FEFF 		bl	BF2
+ 496              	.LVL68:
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 14
+
+
+  98:APA102.c      ****             EndFrame
+ 497              		.loc 1 98 0
+ 498 00c4 FF20     		movs	r0, #255
+ 499 00c6 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 500              	.LVL69:
+ 501 00ca FF20     		movs	r0, #255
+ 502 00cc FFF7FEFF 		bl	RGB_Byte_TxOp
+ 503              	.LVL70:
+ 504 00d0 FF20     		movs	r0, #255
+ 505 00d2 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 506              	.LVL71:
+ 507 00d6 FF20     		movs	r0, #255
+ 508 00d8 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 509              	.LVL72:
+  99:APA102.c      ****             break;
+ 510              		.loc 1 99 0
+ 511 00dc 1DE1     		b	.L23
+ 512              	.L29:
+ 101:APA102.c      ****             StartFrame
+ 513              		.loc 1 101 0
+ 514 00de 0020     		movs	r0, #0
+ 515 00e0 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 516              	.LVL73:
+ 517 00e4 0020     		movs	r0, #0
+ 518 00e6 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 519              	.LVL74:
+ 520 00ea 0020     		movs	r0, #0
+ 521 00ec FFF7FEFF 		bl	RGB_Byte_TxOp
+ 522              	.LVL75:
+ 523 00f0 0020     		movs	r0, #0
+ 524 00f2 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 525              	.LVL76:
+ 102:APA102.c      ****             BF2(45,RngR,RngG,RngB,RngMB);
+ 526              		.loc 1 102 0
+ 527 00f6 CDF80080 		str	r8, [sp]
+ 528 00fa 3B46     		mov	r3, r7
+ 529 00fc 3246     		mov	r2, r6
+ 530 00fe 2946     		mov	r1, r5
+ 531 0100 2D20     		movs	r0, #45
+ 532 0102 FFF7FEFF 		bl	BF2
+ 533              	.LVL77:
+ 103:APA102.c      ****             BF2(0,0,0,0,0xE0);
+ 534              		.loc 1 103 0
+ 535 0106 E023     		movs	r3, #224
+ 536 0108 0093     		str	r3, [sp]
+ 537 010a 0023     		movs	r3, #0
+ 538 010c 1A46     		mov	r2, r3
+ 539 010e 1946     		mov	r1, r3
+ 540 0110 1846     		mov	r0, r3
+ 541 0112 FFF7FEFF 		bl	BF2
+ 542              	.LVL78:
+ 104:APA102.c      ****             EndFrame
+ 543              		.loc 1 104 0
+ 544 0116 FF20     		movs	r0, #255
+ 545 0118 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 546              	.LVL79:
+ 547 011c FF20     		movs	r0, #255
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 15
+
+
+ 548 011e FFF7FEFF 		bl	RGB_Byte_TxOp
+ 549              	.LVL80:
+ 550 0122 FF20     		movs	r0, #255
+ 551 0124 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 552              	.LVL81:
+ 553 0128 FF20     		movs	r0, #255
+ 554 012a FFF7FEFF 		bl	RGB_Byte_TxOp
+ 555              	.LVL82:
+ 105:APA102.c      ****             break;
+ 556              		.loc 1 105 0
+ 557 012e F4E0     		b	.L23
+ 558              	.L30:
+ 108:APA102.c      ****             StartFrame        
+ 559              		.loc 1 108 0
+ 560 0130 0020     		movs	r0, #0
+ 561 0132 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 562              	.LVL83:
+ 563 0136 0020     		movs	r0, #0
+ 564 0138 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 565              	.LVL84:
+ 566 013c 0020     		movs	r0, #0
+ 567 013e FFF7FEFF 		bl	RGB_Byte_TxOp
+ 568              	.LVL85:
+ 569 0142 0020     		movs	r0, #0
+ 570 0144 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 571              	.LVL86:
+ 110:APA102.c      ****             BF2(7,RngR,RngG,RngB,RngMB);
+ 572              		.loc 1 110 0
+ 573 0148 CDF80080 		str	r8, [sp]
+ 574 014c 3B46     		mov	r3, r7
+ 575 014e 3246     		mov	r2, r6
+ 576 0150 2946     		mov	r1, r5
+ 577 0152 0720     		movs	r0, #7
+ 578 0154 FFF7FEFF 		bl	BF2
+ 579              	.LVL87:
+ 111:APA102.c      ****             BF2(0,0,0,0,0xE0);
+ 580              		.loc 1 111 0
+ 581 0158 E023     		movs	r3, #224
+ 582 015a 0093     		str	r3, [sp]
+ 583 015c 0023     		movs	r3, #0
+ 584 015e 1A46     		mov	r2, r3
+ 585 0160 1946     		mov	r1, r3
+ 586 0162 1846     		mov	r0, r3
+ 587 0164 FFF7FEFF 		bl	BF2
+ 588              	.LVL88:
+ 112:APA102.c      ****             EndFrame
+ 589              		.loc 1 112 0
+ 590 0168 FF20     		movs	r0, #255
+ 591 016a FFF7FEFF 		bl	RGB_Byte_TxOp
+ 592              	.LVL89:
+ 593 016e FF20     		movs	r0, #255
+ 594 0170 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 595              	.LVL90:
+ 596 0174 FF20     		movs	r0, #255
+ 597 0176 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 598              	.LVL91:
+ 599 017a FF20     		movs	r0, #255
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 16
+
+
+ 600 017c FFF7FEFF 		bl	RGB_Byte_TxOp
+ 601              	.LVL92:
+ 113:APA102.c      ****             break;
+ 602              		.loc 1 113 0
+ 603 0180 CBE0     		b	.L23
+ 604              	.L31:
+ 116:APA102.c      ****             StartFrame        
+ 605              		.loc 1 116 0
+ 606 0182 0020     		movs	r0, #0
+ 607 0184 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 608              	.LVL93:
+ 609 0188 0020     		movs	r0, #0
+ 610 018a FFF7FEFF 		bl	RGB_Byte_TxOp
+ 611              	.LVL94:
+ 612 018e 0020     		movs	r0, #0
+ 613 0190 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 614              	.LVL95:
+ 615 0194 0020     		movs	r0, #0
+ 616 0196 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 617              	.LVL96:
+ 118:APA102.c      ****             BF2(15,RngR,RngG,RngB,RngMB);
+ 618              		.loc 1 118 0
+ 619 019a CDF80080 		str	r8, [sp]
+ 620 019e 3B46     		mov	r3, r7
+ 621 01a0 3246     		mov	r2, r6
+ 622 01a2 2946     		mov	r1, r5
+ 623 01a4 0F20     		movs	r0, #15
+ 624 01a6 FFF7FEFF 		bl	BF2
+ 625              	.LVL97:
+ 119:APA102.c      ****             BF2(0,0,0,0,0xE0);
+ 626              		.loc 1 119 0
+ 627 01aa E023     		movs	r3, #224
+ 628 01ac 0093     		str	r3, [sp]
+ 629 01ae 0023     		movs	r3, #0
+ 630 01b0 1A46     		mov	r2, r3
+ 631 01b2 1946     		mov	r1, r3
+ 632 01b4 1846     		mov	r0, r3
+ 633 01b6 FFF7FEFF 		bl	BF2
+ 634              	.LVL98:
+ 120:APA102.c      ****             EndFrame
+ 635              		.loc 1 120 0
+ 636 01ba FF20     		movs	r0, #255
+ 637 01bc FFF7FEFF 		bl	RGB_Byte_TxOp
+ 638              	.LVL99:
+ 639 01c0 FF20     		movs	r0, #255
+ 640 01c2 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 641              	.LVL100:
+ 642 01c6 FF20     		movs	r0, #255
+ 643 01c8 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 644              	.LVL101:
+ 645 01cc FF20     		movs	r0, #255
+ 646 01ce FFF7FEFF 		bl	RGB_Byte_TxOp
+ 647              	.LVL102:
+ 121:APA102.c      ****             break;
+ 648              		.loc 1 121 0
+ 649 01d2 A2E0     		b	.L23
+ 650              	.L32:
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 17
+
+
+ 124:APA102.c      ****              StartFrame        
+ 651              		.loc 1 124 0
+ 652 01d4 0020     		movs	r0, #0
+ 653 01d6 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 654              	.LVL103:
+ 655 01da 0020     		movs	r0, #0
+ 656 01dc FFF7FEFF 		bl	RGB_Byte_TxOp
+ 657              	.LVL104:
+ 658 01e0 0020     		movs	r0, #0
+ 659 01e2 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 660              	.LVL105:
+ 661 01e6 0020     		movs	r0, #0
+ 662 01e8 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 663              	.LVL106:
+ 126:APA102.c      ****             BF2(23,RngR,RngG,RngB,RngMB);
+ 664              		.loc 1 126 0
+ 665 01ec CDF80080 		str	r8, [sp]
+ 666 01f0 3B46     		mov	r3, r7
+ 667 01f2 3246     		mov	r2, r6
+ 668 01f4 2946     		mov	r1, r5
+ 669 01f6 1720     		movs	r0, #23
+ 670 01f8 FFF7FEFF 		bl	BF2
+ 671              	.LVL107:
+ 127:APA102.c      ****             BF2(0,0,0,0,0xE0);
+ 672              		.loc 1 127 0
+ 673 01fc E023     		movs	r3, #224
+ 674 01fe 0093     		str	r3, [sp]
+ 675 0200 0023     		movs	r3, #0
+ 676 0202 1A46     		mov	r2, r3
+ 677 0204 1946     		mov	r1, r3
+ 678 0206 1846     		mov	r0, r3
+ 679 0208 FFF7FEFF 		bl	BF2
+ 680              	.LVL108:
+ 128:APA102.c      ****             EndFrame
+ 681              		.loc 1 128 0
+ 682 020c FF20     		movs	r0, #255
+ 683 020e FFF7FEFF 		bl	RGB_Byte_TxOp
+ 684              	.LVL109:
+ 685 0212 FF20     		movs	r0, #255
+ 686 0214 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 687              	.LVL110:
+ 688 0218 FF20     		movs	r0, #255
+ 689 021a FFF7FEFF 		bl	RGB_Byte_TxOp
+ 690              	.LVL111:
+ 691 021e FF20     		movs	r0, #255
+ 692 0220 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 693              	.LVL112:
+ 129:APA102.c      ****             break;
+ 694              		.loc 1 129 0
+ 695 0224 79E0     		b	.L23
+ 696              	.L33:
+ 132:APA102.c      ****              StartFrame        
+ 697              		.loc 1 132 0
+ 698 0226 0020     		movs	r0, #0
+ 699 0228 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 700              	.LVL113:
+ 701 022c 0020     		movs	r0, #0
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 18
+
+
+ 702 022e FFF7FEFF 		bl	RGB_Byte_TxOp
+ 703              	.LVL114:
+ 704 0232 0020     		movs	r0, #0
+ 705 0234 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 706              	.LVL115:
+ 707 0238 0020     		movs	r0, #0
+ 708 023a FFF7FEFF 		bl	RGB_Byte_TxOp
+ 709              	.LVL116:
+ 134:APA102.c      ****             BF2(30,RngR,RngG,RngB,RngMB);
+ 710              		.loc 1 134 0
+ 711 023e CDF80080 		str	r8, [sp]
+ 712 0242 3B46     		mov	r3, r7
+ 713 0244 3246     		mov	r2, r6
+ 714 0246 2946     		mov	r1, r5
+ 715 0248 1E20     		movs	r0, #30
+ 716 024a FFF7FEFF 		bl	BF2
+ 717              	.LVL117:
+ 135:APA102.c      ****             BF2(0,0,0,0,0xE0);
+ 718              		.loc 1 135 0
+ 719 024e E023     		movs	r3, #224
+ 720 0250 0093     		str	r3, [sp]
+ 721 0252 0023     		movs	r3, #0
+ 722 0254 1A46     		mov	r2, r3
+ 723 0256 1946     		mov	r1, r3
+ 724 0258 1846     		mov	r0, r3
+ 725 025a FFF7FEFF 		bl	BF2
+ 726              	.LVL118:
+ 136:APA102.c      ****             EndFrame
+ 727              		.loc 1 136 0
+ 728 025e FF20     		movs	r0, #255
+ 729 0260 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 730              	.LVL119:
+ 731 0264 FF20     		movs	r0, #255
+ 732 0266 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 733              	.LVL120:
+ 734 026a FF20     		movs	r0, #255
+ 735 026c FFF7FEFF 		bl	RGB_Byte_TxOp
+ 736              	.LVL121:
+ 737 0270 FF20     		movs	r0, #255
+ 738 0272 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 739              	.LVL122:
+ 137:APA102.c      ****             break;
+ 740              		.loc 1 137 0
+ 741 0276 50E0     		b	.L23
+ 742              	.L34:
+ 140:APA102.c      ****              StartFrame        
+ 743              		.loc 1 140 0
+ 744 0278 0020     		movs	r0, #0
+ 745 027a FFF7FEFF 		bl	RGB_Byte_TxOp
+ 746              	.LVL123:
+ 747 027e 0020     		movs	r0, #0
+ 748 0280 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 749              	.LVL124:
+ 750 0284 0020     		movs	r0, #0
+ 751 0286 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 752              	.LVL125:
+ 753 028a 0020     		movs	r0, #0
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 19
+
+
+ 754 028c FFF7FEFF 		bl	RGB_Byte_TxOp
+ 755              	.LVL126:
+ 142:APA102.c      ****             BF2(38,RngR,RngG,RngB,RngMB);
+ 756              		.loc 1 142 0
+ 757 0290 CDF80080 		str	r8, [sp]
+ 758 0294 3B46     		mov	r3, r7
+ 759 0296 3246     		mov	r2, r6
+ 760 0298 2946     		mov	r1, r5
+ 761 029a 2620     		movs	r0, #38
+ 762 029c FFF7FEFF 		bl	BF2
+ 763              	.LVL127:
+ 143:APA102.c      ****             BF2(0,0,0,0,0xE0);
+ 764              		.loc 1 143 0
+ 765 02a0 E023     		movs	r3, #224
+ 766 02a2 0093     		str	r3, [sp]
+ 767 02a4 0023     		movs	r3, #0
+ 768 02a6 1A46     		mov	r2, r3
+ 769 02a8 1946     		mov	r1, r3
+ 770 02aa 1846     		mov	r0, r3
+ 771 02ac FFF7FEFF 		bl	BF2
+ 772              	.LVL128:
+ 144:APA102.c      ****             EndFrame
+ 773              		.loc 1 144 0
+ 774 02b0 FF20     		movs	r0, #255
+ 775 02b2 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 776              	.LVL129:
+ 777 02b6 FF20     		movs	r0, #255
+ 778 02b8 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 779              	.LVL130:
+ 780 02bc FF20     		movs	r0, #255
+ 781 02be FFF7FEFF 		bl	RGB_Byte_TxOp
+ 782              	.LVL131:
+ 783 02c2 FF20     		movs	r0, #255
+ 784 02c4 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 785              	.LVL132:
+ 145:APA102.c      ****             break;   
+ 786              		.loc 1 145 0
+ 787 02c8 27E0     		b	.L23
+ 788              	.L35:
+ 147:APA102.c      ****              StartFrame        
+ 789              		.loc 1 147 0
+ 790 02ca 0020     		movs	r0, #0
+ 791 02cc FFF7FEFF 		bl	RGB_Byte_TxOp
+ 792              	.LVL133:
+ 793 02d0 0020     		movs	r0, #0
+ 794 02d2 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 795              	.LVL134:
+ 796 02d6 0020     		movs	r0, #0
+ 797 02d8 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 798              	.LVL135:
+ 799 02dc 0020     		movs	r0, #0
+ 800 02de FFF7FEFF 		bl	RGB_Byte_TxOp
+ 801              	.LVL136:
+ 149:APA102.c      ****             BF2(45,RngR,RngG,RngB,RngMB);
+ 802              		.loc 1 149 0
+ 803 02e2 CDF80080 		str	r8, [sp]
+ 804 02e6 3B46     		mov	r3, r7
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 20
+
+
+ 805 02e8 3246     		mov	r2, r6
+ 806 02ea 2946     		mov	r1, r5
+ 807 02ec 2D20     		movs	r0, #45
+ 808 02ee FFF7FEFF 		bl	BF2
+ 809              	.LVL137:
+ 150:APA102.c      ****             BF2(0,0,0,0,0xE0);
+ 810              		.loc 1 150 0
+ 811 02f2 E023     		movs	r3, #224
+ 812 02f4 0093     		str	r3, [sp]
+ 813 02f6 0023     		movs	r3, #0
+ 814 02f8 1A46     		mov	r2, r3
+ 815 02fa 1946     		mov	r1, r3
+ 816 02fc 1846     		mov	r0, r3
+ 817 02fe FFF7FEFF 		bl	BF2
+ 818              	.LVL138:
+ 151:APA102.c      ****             EndFrame
+ 819              		.loc 1 151 0
+ 820 0302 FF20     		movs	r0, #255
+ 821 0304 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 822              	.LVL139:
+ 823 0308 FF20     		movs	r0, #255
+ 824 030a FFF7FEFF 		bl	RGB_Byte_TxOp
+ 825              	.LVL140:
+ 826 030e FF20     		movs	r0, #255
+ 827 0310 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 828              	.LVL141:
+ 829 0314 FF20     		movs	r0, #255
+ 830 0316 FFF7FEFF 		bl	RGB_Byte_TxOp
+ 831              	.LVL142:
+ 832              	.L23:
+ 154:APA102.c      **** }
+ 833              		.loc 1 154 0
+ 834 031a 02B0     		add	sp, sp, #8
+ 835              		.cfi_def_cfa_offset 24
+ 836              		@ sp needed
+ 837 031c BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 838              	.LVL143:
+ 839              	.L38:
+ 840              		.align	2
+ 841              	.L37:
+ 842 0320 00000000 		.word	i
+ 843              		.cfi_endproc
+ 844              	.LFE65:
+ 845              		.size	Ring, .-Ring
+ 846              		.comm	SPI_RGB_DATA,4,4
+ 847              		.global	ENFB
+ 848              		.global	STFB
+ 849              		.global	LedCnt
+ 850              		.global	GnR
+ 851              		.global	BnB
+ 852              		.global	MaxB
+ 853              		.global	B
+ 854              		.comm	G,1,1
+ 855              		.comm	R,1,1
+ 856              		.global	j
+ 857              		.comm	i,1,1
+ 858              		.data
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 21
+
+
+ 859              		.align	2
+ 860              		.type	ENFB, %object
+ 861              		.size	ENFB, 4
+ 862              	ENFB:
+ 863 0000 FF       		.byte	-1
+ 864 0001 FF       		.byte	-1
+ 865 0002 FF       		.byte	-1
+ 866 0003 FF       		.byte	-1
+ 867              		.bss
+ 868              		.align	2
+ 869              		.set	.LANCHOR0,. + 0
+ 870              		.type	BnB, %object
+ 871              		.size	BnB, 2
+ 872              	BnB:
+ 873 0000 0000     		.space	2
+ 874              		.type	GnR, %object
+ 875              		.size	GnR, 2
+ 876              	GnR:
+ 877 0002 0000     		.space	2
+ 878              		.type	STFB, %object
+ 879              		.size	STFB, 4
+ 880              	STFB:
+ 881 0004 00000000 		.space	4
+ 882              		.type	LedCnt, %object
+ 883              		.size	LedCnt, 1
+ 884              	LedCnt:
+ 885 0008 00       		.space	1
+ 886              		.type	MaxB, %object
+ 887              		.size	MaxB, 1
+ 888              	MaxB:
+ 889 0009 00       		.space	1
+ 890              		.type	B, %object
+ 891              		.size	B, 1
+ 892              	B:
+ 893 000a 00       		.space	1
+ 894              		.type	j, %object
+ 895              		.size	j, 1
+ 896              	j:
+ 897 000b 00       		.space	1
+ 898              		.text
+ 899              	.Letext0:
+ 900              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 901              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 902              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 903              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
+ 904              		.file 6 "Generated_Source\\PSoC5/Pin_SDO_RGB.h"
+ 905              		.file 7 "Generated_Source\\PSoC5/Pin_Clock_RGB.h"
+ 906              		.file 8 "Generated_Source\\PSoC5/CyLib.h"
+ 907              		.section	.debug_info,"",%progbits
+ 908              	.Ldebug_info0:
+ 909 0000 4B0E0000 		.4byte	0xe4b
+ 910 0004 0400     		.2byte	0x4
+ 911 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 912 000a 04       		.byte	0x4
+ 913 000b 01       		.uleb128 0x1
+ 914 000c 71000000 		.4byte	.LASF39
+ 915 0010 0C       		.byte	0xc
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 22
+
+
+ 916 0011 5C010000 		.4byte	.LASF40
+ 917 0015 6F010000 		.4byte	.LASF41
+ 918 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 919 001d 00000000 		.4byte	0
+ 920 0021 00000000 		.4byte	.Ldebug_line0
+ 921 0025 02       		.uleb128 0x2
+ 922 0026 01       		.byte	0x1
+ 923 0027 06       		.byte	0x6
+ 924 0028 4F020000 		.4byte	.LASF0
+ 925 002c 03       		.uleb128 0x3
+ 926 002d 12000000 		.4byte	.LASF3
+ 927 0031 02       		.byte	0x2
+ 928 0032 1D       		.byte	0x1d
+ 929 0033 37000000 		.4byte	0x37
+ 930 0037 02       		.uleb128 0x2
+ 931 0038 01       		.byte	0x1
+ 932 0039 08       		.byte	0x8
+ 933 003a 3C010000 		.4byte	.LASF1
+ 934 003e 02       		.uleb128 0x2
+ 935 003f 02       		.byte	0x2
+ 936 0040 05       		.byte	0x5
+ 937 0041 11020000 		.4byte	.LASF2
+ 938 0045 03       		.uleb128 0x3
+ 939 0046 4A010000 		.4byte	.LASF4
+ 940 004a 02       		.byte	0x2
+ 941 004b 2B       		.byte	0x2b
+ 942 004c 50000000 		.4byte	0x50
+ 943 0050 02       		.uleb128 0x2
+ 944 0051 02       		.byte	0x2
+ 945 0052 07       		.byte	0x7
+ 946 0053 1C010000 		.4byte	.LASF5
+ 947 0057 03       		.uleb128 0x3
+ 948 0058 27000000 		.4byte	.LASF6
+ 949 005c 02       		.byte	0x2
+ 950 005d 3F       		.byte	0x3f
+ 951 005e 62000000 		.4byte	0x62
+ 952 0062 02       		.uleb128 0x2
+ 953 0063 04       		.byte	0x4
+ 954 0064 05       		.byte	0x5
+ 955 0065 3D020000 		.4byte	.LASF7
+ 956 0069 02       		.uleb128 0x2
+ 957 006a 04       		.byte	0x4
+ 958 006b 07       		.byte	0x7
+ 959 006c 0A010000 		.4byte	.LASF8
+ 960 0070 02       		.uleb128 0x2
+ 961 0071 08       		.byte	0x8
+ 962 0072 05       		.byte	0x5
+ 963 0073 FE010000 		.4byte	.LASF9
+ 964 0077 02       		.uleb128 0x2
+ 965 0078 08       		.byte	0x8
+ 966 0079 07       		.byte	0x7
+ 967 007a C5010000 		.4byte	.LASF10
+ 968 007e 04       		.uleb128 0x4
+ 969 007f 04       		.byte	0x4
+ 970 0080 05       		.byte	0x5
+ 971 0081 696E7400 		.ascii	"int\000"
+ 972 0085 02       		.uleb128 0x2
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 23
+
+
+ 973 0086 04       		.byte	0x4
+ 974 0087 07       		.byte	0x7
+ 975 0088 B3010000 		.4byte	.LASF11
+ 976 008c 03       		.uleb128 0x3
+ 977 008d DC010000 		.4byte	.LASF12
+ 978 0091 03       		.byte	0x3
+ 979 0092 18       		.byte	0x18
+ 980 0093 2C000000 		.4byte	0x2c
+ 981 0097 03       		.uleb128 0x3
+ 982 0098 2F020000 		.4byte	.LASF13
+ 983 009c 03       		.byte	0x3
+ 984 009d 24       		.byte	0x24
+ 985 009e 45000000 		.4byte	0x45
+ 986 00a2 03       		.uleb128 0x3
+ 987 00a3 59000000 		.4byte	.LASF14
+ 988 00a7 03       		.byte	0x3
+ 989 00a8 2C       		.byte	0x2c
+ 990 00a9 57000000 		.4byte	0x57
+ 991 00ad 05       		.uleb128 0x5
+ 992 00ae 4C000000 		.4byte	.LASF15
+ 993 00b2 04       		.byte	0x4
+ 994 00b3 E401     		.2byte	0x1e4
+ 995 00b5 37000000 		.4byte	0x37
+ 996 00b9 02       		.uleb128 0x2
+ 997 00ba 04       		.byte	0x4
+ 998 00bb 04       		.byte	0x4
+ 999 00bc 66000000 		.4byte	.LASF16
+ 1000 00c0 02       		.uleb128 0x2
+ 1001 00c1 08       		.byte	0x8
+ 1002 00c2 04       		.byte	0x4
+ 1003 00c3 55010000 		.4byte	.LASF17
+ 1004 00c7 02       		.uleb128 0x2
+ 1005 00c8 01       		.byte	0x1
+ 1006 00c9 08       		.byte	0x8
+ 1007 00ca 0C020000 		.4byte	.LASF18
+ 1008 00ce 02       		.uleb128 0x2
+ 1009 00cf 08       		.byte	0x8
+ 1010 00d0 04       		.byte	0x4
+ 1011 00d1 E9010000 		.4byte	.LASF19
+ 1012 00d5 02       		.uleb128 0x2
+ 1013 00d6 04       		.byte	0x4
+ 1014 00d7 07       		.byte	0x7
+ 1015 00d8 F5010000 		.4byte	.LASF20
+ 1016 00dc 06       		.uleb128 0x6
+ 1017 00dd 46020000 		.4byte	.LASF21
+ 1018 00e1 01       		.byte	0x1
+ 1019 00e2 44       		.byte	0x44
+ 1020 00e3 00000000 		.4byte	.LFB64
+ 1021 00e7 1C000000 		.4byte	.LFE64-.LFB64
+ 1022 00eb 01       		.uleb128 0x1
+ 1023 00ec 9C       		.byte	0x9c
+ 1024 00ed 25010000 		.4byte	0x125
+ 1025 00f1 07       		.uleb128 0x7
+ 1026 00f2 4D4200   		.ascii	"MB\000"
+ 1027 00f5 01       		.byte	0x1
+ 1028 00f6 44       		.byte	0x44
+ 1029 00f7 8C000000 		.4byte	0x8c
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 24
+
+
+ 1030 00fb 00000000 		.4byte	.LLST0
+ 1031 00ff 08       		.uleb128 0x8
+ 1032 0100 7200     		.ascii	"r\000"
+ 1033 0102 01       		.byte	0x1
+ 1034 0103 44       		.byte	0x44
+ 1035 0104 8C000000 		.4byte	0x8c
+ 1036 0108 01       		.uleb128 0x1
+ 1037 0109 51       		.byte	0x51
+ 1038 010a 07       		.uleb128 0x7
+ 1039 010b 6700     		.ascii	"g\000"
+ 1040 010d 01       		.byte	0x1
+ 1041 010e 44       		.byte	0x44
+ 1042 010f 8C000000 		.4byte	0x8c
+ 1043 0113 21000000 		.4byte	.LLST1
+ 1044 0117 07       		.uleb128 0x7
+ 1045 0118 6200     		.ascii	"b\000"
+ 1046 011a 01       		.byte	0x1
+ 1047 011b 44       		.byte	0x44
+ 1048 011c 8C000000 		.4byte	0x8c
+ 1049 0120 42000000 		.4byte	.LLST2
+ 1050 0124 00       		.byte	0
+ 1051 0125 06       		.uleb128 0x6
+ 1052 0126 31000000 		.4byte	.LASF22
+ 1053 012a 01       		.byte	0x1
+ 1054 012b B8       		.byte	0xb8
+ 1055 012c 00000000 		.4byte	.LFB67
+ 1056 0130 36000000 		.4byte	.LFE67-.LFB67
+ 1057 0134 01       		.uleb128 0x1
+ 1058 0135 9C       		.byte	0x9c
+ 1059 0136 B8010000 		.4byte	0x1b8
+ 1060 013a 09       		.uleb128 0x9
+ 1061 013b FF000000 		.4byte	.LASF23
+ 1062 013f 01       		.byte	0x1
+ 1063 0140 B8       		.byte	0xb8
+ 1064 0141 8C000000 		.4byte	0x8c
+ 1065 0145 63000000 		.4byte	.LLST3
+ 1066 0149 0A       		.uleb128 0xa
+ 1067 014a 6900     		.ascii	"i\000"
+ 1068 014c 01       		.byte	0x1
+ 1069 014d BA       		.byte	0xba
+ 1070 014e 8C000000 		.4byte	0x8c
+ 1071 0152 84000000 		.4byte	.LLST4
+ 1072 0156 0B       		.uleb128 0xb
+ 1073 0157 16000000 		.4byte	.LVL7
+ 1074 015b 2D0E0000 		.4byte	0xe2d
+ 1075 015f 6F010000 		.4byte	0x16f
+ 1076 0163 0C       		.uleb128 0xc
+ 1077 0164 01       		.uleb128 0x1
+ 1078 0165 50       		.byte	0x50
+ 1079 0166 07       		.uleb128 0x7
+ 1080 0167 75       		.byte	0x75
+ 1081 0168 00       		.sleb128 0
+ 1082 0169 74       		.byte	0x74
+ 1083 016a 00       		.sleb128 0
+ 1084 016b 26       		.byte	0x26
+ 1085 016c 31       		.byte	0x31
+ 1086 016d 1A       		.byte	0x1a
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 25
+
+
+ 1087 016e 00       		.byte	0
+ 1088 016f 0B       		.uleb128 0xb
+ 1089 0170 1C000000 		.4byte	.LVL8
+ 1090 0174 380E0000 		.4byte	0xe38
+ 1091 0178 82010000 		.4byte	0x182
+ 1092 017c 0C       		.uleb128 0xc
+ 1093 017d 01       		.uleb128 0x1
+ 1094 017e 50       		.byte	0x50
+ 1095 017f 01       		.uleb128 0x1
+ 1096 0180 30       		.byte	0x30
+ 1097 0181 00       		.byte	0
+ 1098 0182 0B       		.uleb128 0xb
+ 1099 0183 22000000 		.4byte	.LVL9
+ 1100 0187 430E0000 		.4byte	0xe43
+ 1101 018b 95010000 		.4byte	0x195
+ 1102 018f 0C       		.uleb128 0xc
+ 1103 0190 01       		.uleb128 0x1
+ 1104 0191 50       		.byte	0x50
+ 1105 0192 01       		.uleb128 0x1
+ 1106 0193 31       		.byte	0x31
+ 1107 0194 00       		.byte	0
+ 1108 0195 0B       		.uleb128 0xb
+ 1109 0196 28000000 		.4byte	.LVL10
+ 1110 019a 380E0000 		.4byte	0xe38
+ 1111 019e A8010000 		.4byte	0x1a8
+ 1112 01a2 0C       		.uleb128 0xc
+ 1113 01a3 01       		.uleb128 0x1
+ 1114 01a4 50       		.byte	0x50
+ 1115 01a5 01       		.uleb128 0x1
+ 1116 01a6 31       		.byte	0x31
+ 1117 01a7 00       		.byte	0
+ 1118 01a8 0D       		.uleb128 0xd
+ 1119 01a9 2E000000 		.4byte	.LVL11
+ 1120 01ad 430E0000 		.4byte	0xe43
+ 1121 01b1 0C       		.uleb128 0xc
+ 1122 01b2 01       		.uleb128 0x1
+ 1123 01b3 50       		.byte	0x50
+ 1124 01b4 01       		.uleb128 0x1
+ 1125 01b5 31       		.byte	0x31
+ 1126 01b6 00       		.byte	0
+ 1127 01b7 00       		.byte	0
+ 1128 01b8 0E       		.uleb128 0xe
+ 1129 01b9 424600   		.ascii	"BF\000"
+ 1130 01bc 01       		.byte	0x1
+ 1131 01bd 1F       		.byte	0x1f
+ 1132 01be 00000000 		.4byte	.LFB63
+ 1133 01c2 F0000000 		.4byte	.LFE63-.LFB63
+ 1134 01c6 01       		.uleb128 0x1
+ 1135 01c7 9C       		.byte	0x9c
+ 1136 01c8 DF030000 		.4byte	0x3df
+ 1137 01cc 09       		.uleb128 0x9
+ 1138 01cd 52000000 		.4byte	.LASF24
+ 1139 01d1 01       		.byte	0x1
+ 1140 01d2 1F       		.byte	0x1f
+ 1141 01d3 8C000000 		.4byte	0x8c
+ 1142 01d7 AE000000 		.4byte	.LLST5
+ 1143 01db 07       		.uleb128 0x7
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 26
+
+
+ 1144 01dc 5200     		.ascii	"R\000"
+ 1145 01de 01       		.byte	0x1
+ 1146 01df 1F       		.byte	0x1f
+ 1147 01e0 8C000000 		.4byte	0x8c
+ 1148 01e4 CF000000 		.4byte	.LLST6
+ 1149 01e8 07       		.uleb128 0x7
+ 1150 01e9 4700     		.ascii	"G\000"
+ 1151 01eb 01       		.byte	0x1
+ 1152 01ec 1F       		.byte	0x1f
+ 1153 01ed 8C000000 		.4byte	0x8c
+ 1154 01f1 F0000000 		.4byte	.LLST7
+ 1155 01f5 07       		.uleb128 0x7
+ 1156 01f6 4200     		.ascii	"B\000"
+ 1157 01f8 01       		.byte	0x1
+ 1158 01f9 1F       		.byte	0x1f
+ 1159 01fa 8C000000 		.4byte	0x8c
+ 1160 01fe 11010000 		.4byte	.LLST8
+ 1161 0202 09       		.uleb128 0x9
+ 1162 0203 61000000 		.4byte	.LASF25
+ 1163 0207 01       		.byte	0x1
+ 1164 0208 1F       		.byte	0x1f
+ 1165 0209 8C000000 		.4byte	0x8c
+ 1166 020d 32010000 		.4byte	.LLST9
+ 1167 0211 0B       		.uleb128 0xb
+ 1168 0212 10000000 		.4byte	.LVL15
+ 1169 0216 25010000 		.4byte	0x125
+ 1170 021a 24020000 		.4byte	0x224
+ 1171 021e 0C       		.uleb128 0xc
+ 1172 021f 01       		.uleb128 0x1
+ 1173 0220 50       		.byte	0x50
+ 1174 0221 01       		.uleb128 0x1
+ 1175 0222 30       		.byte	0x30
+ 1176 0223 00       		.byte	0
+ 1177 0224 0B       		.uleb128 0xb
+ 1178 0225 16000000 		.4byte	.LVL16
+ 1179 0229 25010000 		.4byte	0x125
+ 1180 022d 37020000 		.4byte	0x237
+ 1181 0231 0C       		.uleb128 0xc
+ 1182 0232 01       		.uleb128 0x1
+ 1183 0233 50       		.byte	0x50
+ 1184 0234 01       		.uleb128 0x1
+ 1185 0235 30       		.byte	0x30
+ 1186 0236 00       		.byte	0
+ 1187 0237 0B       		.uleb128 0xb
+ 1188 0238 1C000000 		.4byte	.LVL17
+ 1189 023c 25010000 		.4byte	0x125
+ 1190 0240 4A020000 		.4byte	0x24a
+ 1191 0244 0C       		.uleb128 0xc
+ 1192 0245 01       		.uleb128 0x1
+ 1193 0246 50       		.byte	0x50
+ 1194 0247 01       		.uleb128 0x1
+ 1195 0248 30       		.byte	0x30
+ 1196 0249 00       		.byte	0
+ 1197 024a 0B       		.uleb128 0xb
+ 1198 024b 22000000 		.4byte	.LVL18
+ 1199 024f 25010000 		.4byte	0x125
+ 1200 0253 5D020000 		.4byte	0x25d
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 27
+
+
+ 1201 0257 0C       		.uleb128 0xc
+ 1202 0258 01       		.uleb128 0x1
+ 1203 0259 50       		.byte	0x50
+ 1204 025a 01       		.uleb128 0x1
+ 1205 025b 30       		.byte	0x30
+ 1206 025c 00       		.byte	0
+ 1207 025d 0B       		.uleb128 0xb
+ 1208 025e 30000000 		.4byte	.LVL19
+ 1209 0262 25010000 		.4byte	0x125
+ 1210 0266 71020000 		.4byte	0x271
+ 1211 026a 0C       		.uleb128 0xc
+ 1212 026b 01       		.uleb128 0x1
+ 1213 026c 50       		.byte	0x50
+ 1214 026d 02       		.uleb128 0x2
+ 1215 026e 09       		.byte	0x9
+ 1216 026f E0       		.byte	0xe0
+ 1217 0270 00       		.byte	0
+ 1218 0271 0B       		.uleb128 0xb
+ 1219 0272 36000000 		.4byte	.LVL20
+ 1220 0276 25010000 		.4byte	0x125
+ 1221 027a 84020000 		.4byte	0x284
+ 1222 027e 0C       		.uleb128 0xc
+ 1223 027f 01       		.uleb128 0x1
+ 1224 0280 50       		.byte	0x50
+ 1225 0281 01       		.uleb128 0x1
+ 1226 0282 30       		.byte	0x30
+ 1227 0283 00       		.byte	0
+ 1228 0284 0B       		.uleb128 0xb
+ 1229 0285 3C000000 		.4byte	.LVL21
+ 1230 0289 25010000 		.4byte	0x125
+ 1231 028d 97020000 		.4byte	0x297
+ 1232 0291 0C       		.uleb128 0xc
+ 1233 0292 01       		.uleb128 0x1
+ 1234 0293 50       		.byte	0x50
+ 1235 0294 01       		.uleb128 0x1
+ 1236 0295 30       		.byte	0x30
+ 1237 0296 00       		.byte	0
+ 1238 0297 0B       		.uleb128 0xb
+ 1239 0298 42000000 		.4byte	.LVL22
+ 1240 029c 25010000 		.4byte	0x125
+ 1241 02a0 AA020000 		.4byte	0x2aa
+ 1242 02a4 0C       		.uleb128 0xc
+ 1243 02a5 01       		.uleb128 0x1
+ 1244 02a6 50       		.byte	0x50
+ 1245 02a7 01       		.uleb128 0x1
+ 1246 02a8 30       		.byte	0x30
+ 1247 02a9 00       		.byte	0
+ 1248 02aa 0B       		.uleb128 0xb
+ 1249 02ab 58000000 		.4byte	.LVL23
+ 1250 02af 25010000 		.4byte	0x125
+ 1251 02b3 BE020000 		.4byte	0x2be
+ 1252 02b7 0C       		.uleb128 0xc
+ 1253 02b8 01       		.uleb128 0x1
+ 1254 02b9 50       		.byte	0x50
+ 1255 02ba 02       		.uleb128 0x2
+ 1256 02bb 09       		.byte	0x9
+ 1257 02bc FF       		.byte	0xff
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 28
+
+
+ 1258 02bd 00       		.byte	0
+ 1259 02be 0B       		.uleb128 0xb
+ 1260 02bf 5E000000 		.4byte	.LVL24
+ 1261 02c3 25010000 		.4byte	0x125
+ 1262 02c7 D2020000 		.4byte	0x2d2
+ 1263 02cb 0C       		.uleb128 0xc
+ 1264 02cc 01       		.uleb128 0x1
+ 1265 02cd 50       		.byte	0x50
+ 1266 02ce 02       		.uleb128 0x2
+ 1267 02cf 09       		.byte	0x9
+ 1268 02d0 FF       		.byte	0xff
+ 1269 02d1 00       		.byte	0
+ 1270 02d2 0B       		.uleb128 0xb
+ 1271 02d3 64000000 		.4byte	.LVL25
+ 1272 02d7 25010000 		.4byte	0x125
+ 1273 02db E6020000 		.4byte	0x2e6
+ 1274 02df 0C       		.uleb128 0xc
+ 1275 02e0 01       		.uleb128 0x1
+ 1276 02e1 50       		.byte	0x50
+ 1277 02e2 02       		.uleb128 0x2
+ 1278 02e3 09       		.byte	0x9
+ 1279 02e4 FF       		.byte	0xff
+ 1280 02e5 00       		.byte	0
+ 1281 02e6 0B       		.uleb128 0xb
+ 1282 02e7 6A000000 		.4byte	.LVL26
+ 1283 02eb 25010000 		.4byte	0x125
+ 1284 02ef FA020000 		.4byte	0x2fa
+ 1285 02f3 0C       		.uleb128 0xc
+ 1286 02f4 01       		.uleb128 0x1
+ 1287 02f5 50       		.byte	0x50
+ 1288 02f6 02       		.uleb128 0x2
+ 1289 02f7 09       		.byte	0x9
+ 1290 02f8 FF       		.byte	0xff
+ 1291 02f9 00       		.byte	0
+ 1292 02fa 0B       		.uleb128 0xb
+ 1293 02fb 78000000 		.4byte	.LVL27
+ 1294 02ff DC000000 		.4byte	0xdc
+ 1295 0303 22030000 		.4byte	0x322
+ 1296 0307 0C       		.uleb128 0xc
+ 1297 0308 01       		.uleb128 0x1
+ 1298 0309 50       		.byte	0x50
+ 1299 030a 04       		.uleb128 0x4
+ 1300 030b 91       		.byte	0x91
+ 1301 030c 00       		.sleb128 0
+ 1302 030d 94       		.byte	0x94
+ 1303 030e 01       		.byte	0x1
+ 1304 030f 0C       		.uleb128 0xc
+ 1305 0310 01       		.uleb128 0x1
+ 1306 0311 51       		.byte	0x51
+ 1307 0312 02       		.uleb128 0x2
+ 1308 0313 74       		.byte	0x74
+ 1309 0314 00       		.sleb128 0
+ 1310 0315 0C       		.uleb128 0xc
+ 1311 0316 01       		.uleb128 0x1
+ 1312 0317 52       		.byte	0x52
+ 1313 0318 02       		.uleb128 0x2
+ 1314 0319 76       		.byte	0x76
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 29
+
+
+ 1315 031a 00       		.sleb128 0
+ 1316 031b 0C       		.uleb128 0xc
+ 1317 031c 01       		.uleb128 0x1
+ 1318 031d 53       		.byte	0x53
+ 1319 031e 02       		.uleb128 0x2
+ 1320 031f 77       		.byte	0x77
+ 1321 0320 00       		.sleb128 0
+ 1322 0321 00       		.byte	0
+ 1323 0322 0B       		.uleb128 0xb
+ 1324 0323 7E000000 		.4byte	.LVL28
+ 1325 0327 25010000 		.4byte	0x125
+ 1326 032b 35030000 		.4byte	0x335
+ 1327 032f 0C       		.uleb128 0xc
+ 1328 0330 01       		.uleb128 0x1
+ 1329 0331 50       		.byte	0x50
+ 1330 0332 01       		.uleb128 0x1
+ 1331 0333 30       		.byte	0x30
+ 1332 0334 00       		.byte	0
+ 1333 0335 0B       		.uleb128 0xb
+ 1334 0336 84000000 		.4byte	.LVL29
+ 1335 033a 25010000 		.4byte	0x125
+ 1336 033e 48030000 		.4byte	0x348
+ 1337 0342 0C       		.uleb128 0xc
+ 1338 0343 01       		.uleb128 0x1
+ 1339 0344 50       		.byte	0x50
+ 1340 0345 01       		.uleb128 0x1
+ 1341 0346 30       		.byte	0x30
+ 1342 0347 00       		.byte	0
+ 1343 0348 0B       		.uleb128 0xb
+ 1344 0349 8A000000 		.4byte	.LVL30
+ 1345 034d 25010000 		.4byte	0x125
+ 1346 0351 5B030000 		.4byte	0x35b
+ 1347 0355 0C       		.uleb128 0xc
+ 1348 0356 01       		.uleb128 0x1
+ 1349 0357 50       		.byte	0x50
+ 1350 0358 01       		.uleb128 0x1
+ 1351 0359 30       		.byte	0x30
+ 1352 035a 00       		.byte	0
+ 1353 035b 0B       		.uleb128 0xb
+ 1354 035c 90000000 		.4byte	.LVL31
+ 1355 0360 25010000 		.4byte	0x125
+ 1356 0364 6E030000 		.4byte	0x36e
+ 1357 0368 0C       		.uleb128 0xc
+ 1358 0369 01       		.uleb128 0x1
+ 1359 036a 50       		.byte	0x50
+ 1360 036b 01       		.uleb128 0x1
+ 1361 036c 30       		.byte	0x30
+ 1362 036d 00       		.byte	0
+ 1363 036e 0F       		.uleb128 0xf
+ 1364 036f A2000000 		.4byte	.LVL32
+ 1365 0373 25010000 		.4byte	0x125
+ 1366 0377 0F       		.uleb128 0xf
+ 1367 0378 A8000000 		.4byte	.LVL33
+ 1368 037c 25010000 		.4byte	0x125
+ 1369 0380 0F       		.uleb128 0xf
+ 1370 0381 B0000000 		.4byte	.LVL34
+ 1371 0385 25010000 		.4byte	0x125
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 30
+
+
+ 1372 0389 0F       		.uleb128 0xf
+ 1373 038a B6000000 		.4byte	.LVL35
+ 1374 038e 25010000 		.4byte	0x125
+ 1375 0392 0B       		.uleb128 0xb
+ 1376 0393 CC000000 		.4byte	.LVL36
+ 1377 0397 25010000 		.4byte	0x125
+ 1378 039b A6030000 		.4byte	0x3a6
+ 1379 039f 0C       		.uleb128 0xc
+ 1380 03a0 01       		.uleb128 0x1
+ 1381 03a1 50       		.byte	0x50
+ 1382 03a2 02       		.uleb128 0x2
+ 1383 03a3 09       		.byte	0x9
+ 1384 03a4 FF       		.byte	0xff
+ 1385 03a5 00       		.byte	0
+ 1386 03a6 0B       		.uleb128 0xb
+ 1387 03a7 D2000000 		.4byte	.LVL37
+ 1388 03ab 25010000 		.4byte	0x125
+ 1389 03af BA030000 		.4byte	0x3ba
+ 1390 03b3 0C       		.uleb128 0xc
+ 1391 03b4 01       		.uleb128 0x1
+ 1392 03b5 50       		.byte	0x50
+ 1393 03b6 02       		.uleb128 0x2
+ 1394 03b7 09       		.byte	0x9
+ 1395 03b8 FF       		.byte	0xff
+ 1396 03b9 00       		.byte	0
+ 1397 03ba 0B       		.uleb128 0xb
+ 1398 03bb D8000000 		.4byte	.LVL38
+ 1399 03bf 25010000 		.4byte	0x125
+ 1400 03c3 CE030000 		.4byte	0x3ce
+ 1401 03c7 0C       		.uleb128 0xc
+ 1402 03c8 01       		.uleb128 0x1
+ 1403 03c9 50       		.byte	0x50
+ 1404 03ca 02       		.uleb128 0x2
+ 1405 03cb 09       		.byte	0x9
+ 1406 03cc FF       		.byte	0xff
+ 1407 03cd 00       		.byte	0
+ 1408 03ce 0D       		.uleb128 0xd
+ 1409 03cf DE000000 		.4byte	.LVL39
+ 1410 03d3 25010000 		.4byte	0x125
+ 1411 03d7 0C       		.uleb128 0xc
+ 1412 03d8 01       		.uleb128 0x1
+ 1413 03d9 50       		.byte	0x50
+ 1414 03da 02       		.uleb128 0x2
+ 1415 03db 09       		.byte	0x9
+ 1416 03dc FF       		.byte	0xff
+ 1417 03dd 00       		.byte	0
+ 1418 03de 00       		.byte	0
+ 1419 03df 0E       		.uleb128 0xe
+ 1420 03e0 42463200 		.ascii	"BF2\000"
+ 1421 03e4 01       		.byte	0x1
+ 1422 03e5 9C       		.byte	0x9c
+ 1423 03e6 00000000 		.4byte	.LFB66
+ 1424 03ea 54000000 		.4byte	.LFE66-.LFB66
+ 1425 03ee 01       		.uleb128 0x1
+ 1426 03ef 9C       		.byte	0x9c
+ 1427 03f0 74040000 		.4byte	0x474
+ 1428 03f4 09       		.uleb128 0x9
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 31
+
+
+ 1429 03f5 52000000 		.4byte	.LASF24
+ 1430 03f9 01       		.byte	0x1
+ 1431 03fa 9C       		.byte	0x9c
+ 1432 03fb 8C000000 		.4byte	0x8c
+ 1433 03ff 52010000 		.4byte	.LLST10
+ 1434 0403 07       		.uleb128 0x7
+ 1435 0404 5200     		.ascii	"R\000"
+ 1436 0406 01       		.byte	0x1
+ 1437 0407 9C       		.byte	0x9c
+ 1438 0408 8C000000 		.4byte	0x8c
+ 1439 040c 73010000 		.4byte	.LLST11
+ 1440 0410 07       		.uleb128 0x7
+ 1441 0411 4700     		.ascii	"G\000"
+ 1442 0413 01       		.byte	0x1
+ 1443 0414 9C       		.byte	0x9c
+ 1444 0415 8C000000 		.4byte	0x8c
+ 1445 0419 94010000 		.4byte	.LLST12
+ 1446 041d 07       		.uleb128 0x7
+ 1447 041e 4200     		.ascii	"B\000"
+ 1448 0420 01       		.byte	0x1
+ 1449 0421 9C       		.byte	0x9c
+ 1450 0422 8C000000 		.4byte	0x8c
+ 1451 0426 B5010000 		.4byte	.LLST13
+ 1452 042a 09       		.uleb128 0x9
+ 1453 042b 61000000 		.4byte	.LASF25
+ 1454 042f 01       		.byte	0x1
+ 1455 0430 9C       		.byte	0x9c
+ 1456 0431 8C000000 		.4byte	0x8c
+ 1457 0435 D6010000 		.4byte	.LLST14
+ 1458 0439 0B       		.uleb128 0xb
+ 1459 043a 0C000000 		.4byte	.LVL43
+ 1460 043e DC000000 		.4byte	0xdc
+ 1461 0442 4F040000 		.4byte	0x44f
+ 1462 0446 0C       		.uleb128 0xc
+ 1463 0447 01       		.uleb128 0x1
+ 1464 0448 50       		.byte	0x50
+ 1465 0449 04       		.uleb128 0x4
+ 1466 044a 91       		.byte	0x91
+ 1467 044b 00       		.sleb128 0
+ 1468 044c 94       		.byte	0x94
+ 1469 044d 01       		.byte	0x1
+ 1470 044e 00       		.byte	0
+ 1471 044f 0F       		.uleb128 0xf
+ 1472 0450 1E000000 		.4byte	.LVL44
+ 1473 0454 25010000 		.4byte	0x125
+ 1474 0458 0F       		.uleb128 0xf
+ 1475 0459 24000000 		.4byte	.LVL45
+ 1476 045d 25010000 		.4byte	0x125
+ 1477 0461 0F       		.uleb128 0xf
+ 1478 0462 2C000000 		.4byte	.LVL46
+ 1479 0466 25010000 		.4byte	0x125
+ 1480 046a 0F       		.uleb128 0xf
+ 1481 046b 32000000 		.4byte	.LVL47
+ 1482 046f 25010000 		.4byte	0x125
+ 1483 0473 00       		.byte	0
+ 1484 0474 06       		.uleb128 0x6
+ 1485 0475 22000000 		.4byte	.LASF26
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 32
+
+
+ 1486 0479 01       		.byte	0x1
+ 1487 047a 4E       		.byte	0x4e
+ 1488 047b 00000000 		.4byte	.LFB65
+ 1489 047f 24030000 		.4byte	.LFE65-.LFB65
+ 1490 0483 01       		.uleb128 0x1
+ 1491 0484 9C       		.byte	0x9c
+ 1492 0485 4A0D0000 		.4byte	0xd4a
+ 1493 0489 09       		.uleb128 0x9
+ 1494 048a 5B020000 		.4byte	.LASF27
+ 1495 048e 01       		.byte	0x1
+ 1496 048f 4E       		.byte	0x4e
+ 1497 0490 8C000000 		.4byte	0x8c
+ 1498 0494 F6010000 		.4byte	.LLST15
+ 1499 0498 09       		.uleb128 0x9
+ 1500 0499 62020000 		.4byte	.LASF28
+ 1501 049d 01       		.byte	0x1
+ 1502 049e 4E       		.byte	0x4e
+ 1503 049f 8C000000 		.4byte	0x8c
+ 1504 04a3 17020000 		.4byte	.LLST16
+ 1505 04a7 09       		.uleb128 0x9
+ 1506 04a8 6C000000 		.4byte	.LASF29
+ 1507 04ac 01       		.byte	0x1
+ 1508 04ad 4E       		.byte	0x4e
+ 1509 04ae 8C000000 		.4byte	0x8c
+ 1510 04b2 38020000 		.4byte	.LLST17
+ 1511 04b6 09       		.uleb128 0x9
+ 1512 04b7 38020000 		.4byte	.LASF30
+ 1513 04bb 01       		.byte	0x1
+ 1514 04bc 4E       		.byte	0x4e
+ 1515 04bd 8C000000 		.4byte	0x8c
+ 1516 04c1 59020000 		.4byte	.LLST18
+ 1517 04c5 09       		.uleb128 0x9
+ 1518 04c6 1C000000 		.4byte	.LASF31
+ 1519 04ca 01       		.byte	0x1
+ 1520 04cb 4E       		.byte	0x4e
+ 1521 04cc 8C000000 		.4byte	0x8c
+ 1522 04d0 7A020000 		.4byte	.LLST19
+ 1523 04d4 0B       		.uleb128 0xb
+ 1524 04d5 18000000 		.4byte	.LVL51
+ 1525 04d9 25010000 		.4byte	0x125
+ 1526 04dd E7040000 		.4byte	0x4e7
+ 1527 04e1 0C       		.uleb128 0xc
+ 1528 04e2 01       		.uleb128 0x1
+ 1529 04e3 50       		.byte	0x50
+ 1530 04e4 01       		.uleb128 0x1
+ 1531 04e5 30       		.byte	0x30
+ 1532 04e6 00       		.byte	0
+ 1533 04e7 0B       		.uleb128 0xb
+ 1534 04e8 1E000000 		.4byte	.LVL52
+ 1535 04ec 25010000 		.4byte	0x125
+ 1536 04f0 FA040000 		.4byte	0x4fa
+ 1537 04f4 0C       		.uleb128 0xc
+ 1538 04f5 01       		.uleb128 0x1
+ 1539 04f6 50       		.byte	0x50
+ 1540 04f7 01       		.uleb128 0x1
+ 1541 04f8 30       		.byte	0x30
+ 1542 04f9 00       		.byte	0
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 33
+
+
+ 1543 04fa 0B       		.uleb128 0xb
+ 1544 04fb 24000000 		.4byte	.LVL53
+ 1545 04ff 25010000 		.4byte	0x125
+ 1546 0503 0D050000 		.4byte	0x50d
+ 1547 0507 0C       		.uleb128 0xc
+ 1548 0508 01       		.uleb128 0x1
+ 1549 0509 50       		.byte	0x50
+ 1550 050a 01       		.uleb128 0x1
+ 1551 050b 30       		.byte	0x30
+ 1552 050c 00       		.byte	0
+ 1553 050d 0B       		.uleb128 0xb
+ 1554 050e 2A000000 		.4byte	.LVL54
+ 1555 0512 25010000 		.4byte	0x125
+ 1556 0516 20050000 		.4byte	0x520
+ 1557 051a 0C       		.uleb128 0xc
+ 1558 051b 01       		.uleb128 0x1
+ 1559 051c 50       		.byte	0x50
+ 1560 051d 01       		.uleb128 0x1
+ 1561 051e 30       		.byte	0x30
+ 1562 051f 00       		.byte	0
+ 1563 0520 0B       		.uleb128 0xb
+ 1564 0521 38000000 		.4byte	.LVL55
+ 1565 0525 25010000 		.4byte	0x125
+ 1566 0529 34050000 		.4byte	0x534
+ 1567 052d 0C       		.uleb128 0xc
+ 1568 052e 01       		.uleb128 0x1
+ 1569 052f 50       		.byte	0x50
+ 1570 0530 02       		.uleb128 0x2
+ 1571 0531 09       		.byte	0x9
+ 1572 0532 E0       		.byte	0xe0
+ 1573 0533 00       		.byte	0
+ 1574 0534 0B       		.uleb128 0xb
+ 1575 0535 3E000000 		.4byte	.LVL56
+ 1576 0539 25010000 		.4byte	0x125
+ 1577 053d 47050000 		.4byte	0x547
+ 1578 0541 0C       		.uleb128 0xc
+ 1579 0542 01       		.uleb128 0x1
+ 1580 0543 50       		.byte	0x50
+ 1581 0544 01       		.uleb128 0x1
+ 1582 0545 30       		.byte	0x30
+ 1583 0546 00       		.byte	0
+ 1584 0547 0B       		.uleb128 0xb
+ 1585 0548 44000000 		.4byte	.LVL57
+ 1586 054c 25010000 		.4byte	0x125
+ 1587 0550 5A050000 		.4byte	0x55a
+ 1588 0554 0C       		.uleb128 0xc
+ 1589 0555 01       		.uleb128 0x1
+ 1590 0556 50       		.byte	0x50
+ 1591 0557 01       		.uleb128 0x1
+ 1592 0558 30       		.byte	0x30
+ 1593 0559 00       		.byte	0
+ 1594 055a 0B       		.uleb128 0xb
+ 1595 055b 4A000000 		.4byte	.LVL58
+ 1596 055f 25010000 		.4byte	0x125
+ 1597 0563 6D050000 		.4byte	0x56d
+ 1598 0567 0C       		.uleb128 0xc
+ 1599 0568 01       		.uleb128 0x1
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 34
+
+
+ 1600 0569 50       		.byte	0x50
+ 1601 056a 01       		.uleb128 0x1
+ 1602 056b 30       		.byte	0x30
+ 1603 056c 00       		.byte	0
+ 1604 056d 0B       		.uleb128 0xb
+ 1605 056e 60000000 		.4byte	.LVL59
+ 1606 0572 25010000 		.4byte	0x125
+ 1607 0576 81050000 		.4byte	0x581
+ 1608 057a 0C       		.uleb128 0xc
+ 1609 057b 01       		.uleb128 0x1
+ 1610 057c 50       		.byte	0x50
+ 1611 057d 02       		.uleb128 0x2
+ 1612 057e 09       		.byte	0x9
+ 1613 057f FF       		.byte	0xff
+ 1614 0580 00       		.byte	0
+ 1615 0581 0B       		.uleb128 0xb
+ 1616 0582 66000000 		.4byte	.LVL60
+ 1617 0586 25010000 		.4byte	0x125
+ 1618 058a 95050000 		.4byte	0x595
+ 1619 058e 0C       		.uleb128 0xc
+ 1620 058f 01       		.uleb128 0x1
+ 1621 0590 50       		.byte	0x50
+ 1622 0591 02       		.uleb128 0x2
+ 1623 0592 09       		.byte	0x9
+ 1624 0593 FF       		.byte	0xff
+ 1625 0594 00       		.byte	0
+ 1626 0595 0B       		.uleb128 0xb
+ 1627 0596 6C000000 		.4byte	.LVL61
+ 1628 059a 25010000 		.4byte	0x125
+ 1629 059e A9050000 		.4byte	0x5a9
+ 1630 05a2 0C       		.uleb128 0xc
+ 1631 05a3 01       		.uleb128 0x1
+ 1632 05a4 50       		.byte	0x50
+ 1633 05a5 02       		.uleb128 0x2
+ 1634 05a6 09       		.byte	0x9
+ 1635 05a7 FF       		.byte	0xff
+ 1636 05a8 00       		.byte	0
+ 1637 05a9 0B       		.uleb128 0xb
+ 1638 05aa 72000000 		.4byte	.LVL62
+ 1639 05ae 25010000 		.4byte	0x125
+ 1640 05b2 BD050000 		.4byte	0x5bd
+ 1641 05b6 0C       		.uleb128 0xc
+ 1642 05b7 01       		.uleb128 0x1
+ 1643 05b8 50       		.byte	0x50
+ 1644 05b9 02       		.uleb128 0x2
+ 1645 05ba 09       		.byte	0x9
+ 1646 05bb FF       		.byte	0xff
+ 1647 05bc 00       		.byte	0
+ 1648 05bd 0B       		.uleb128 0xb
+ 1649 05be 92000000 		.4byte	.LVL63
+ 1650 05c2 25010000 		.4byte	0x125
+ 1651 05c6 D0050000 		.4byte	0x5d0
+ 1652 05ca 0C       		.uleb128 0xc
+ 1653 05cb 01       		.uleb128 0x1
+ 1654 05cc 50       		.byte	0x50
+ 1655 05cd 01       		.uleb128 0x1
+ 1656 05ce 30       		.byte	0x30
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 35
+
+
+ 1657 05cf 00       		.byte	0
+ 1658 05d0 0B       		.uleb128 0xb
+ 1659 05d1 98000000 		.4byte	.LVL64
+ 1660 05d5 25010000 		.4byte	0x125
+ 1661 05d9 E3050000 		.4byte	0x5e3
+ 1662 05dd 0C       		.uleb128 0xc
+ 1663 05de 01       		.uleb128 0x1
+ 1664 05df 50       		.byte	0x50
+ 1665 05e0 01       		.uleb128 0x1
+ 1666 05e1 30       		.byte	0x30
+ 1667 05e2 00       		.byte	0
+ 1668 05e3 0B       		.uleb128 0xb
+ 1669 05e4 9E000000 		.4byte	.LVL65
+ 1670 05e8 25010000 		.4byte	0x125
+ 1671 05ec F6050000 		.4byte	0x5f6
+ 1672 05f0 0C       		.uleb128 0xc
+ 1673 05f1 01       		.uleb128 0x1
+ 1674 05f2 50       		.byte	0x50
+ 1675 05f3 01       		.uleb128 0x1
+ 1676 05f4 30       		.byte	0x30
+ 1677 05f5 00       		.byte	0
+ 1678 05f6 0B       		.uleb128 0xb
+ 1679 05f7 A4000000 		.4byte	.LVL66
+ 1680 05fb 25010000 		.4byte	0x125
+ 1681 05ff 09060000 		.4byte	0x609
+ 1682 0603 0C       		.uleb128 0xc
+ 1683 0604 01       		.uleb128 0x1
+ 1684 0605 50       		.byte	0x50
+ 1685 0606 01       		.uleb128 0x1
+ 1686 0607 30       		.byte	0x30
+ 1687 0608 00       		.byte	0
+ 1688 0609 0B       		.uleb128 0xb
+ 1689 060a B4000000 		.4byte	.LVL67
+ 1690 060e DF030000 		.4byte	0x3df
+ 1691 0612 36060000 		.4byte	0x636
+ 1692 0616 0C       		.uleb128 0xc
+ 1693 0617 01       		.uleb128 0x1
+ 1694 0618 50       		.byte	0x50
+ 1695 0619 02       		.uleb128 0x2
+ 1696 061a 08       		.byte	0x8
+ 1697 061b 2D       		.byte	0x2d
+ 1698 061c 0C       		.uleb128 0xc
+ 1699 061d 01       		.uleb128 0x1
+ 1700 061e 51       		.byte	0x51
+ 1701 061f 02       		.uleb128 0x2
+ 1702 0620 74       		.byte	0x74
+ 1703 0621 00       		.sleb128 0
+ 1704 0622 0C       		.uleb128 0xc
+ 1705 0623 01       		.uleb128 0x1
+ 1706 0624 52       		.byte	0x52
+ 1707 0625 02       		.uleb128 0x2
+ 1708 0626 74       		.byte	0x74
+ 1709 0627 00       		.sleb128 0
+ 1710 0628 0C       		.uleb128 0xc
+ 1711 0629 01       		.uleb128 0x1
+ 1712 062a 53       		.byte	0x53
+ 1713 062b 02       		.uleb128 0x2
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 36
+
+
+ 1714 062c 74       		.byte	0x74
+ 1715 062d 00       		.sleb128 0
+ 1716 062e 0C       		.uleb128 0xc
+ 1717 062f 02       		.uleb128 0x2
+ 1718 0630 7D       		.byte	0x7d
+ 1719 0631 00       		.sleb128 0
+ 1720 0632 02       		.uleb128 0x2
+ 1721 0633 74       		.byte	0x74
+ 1722 0634 00       		.sleb128 0
+ 1723 0635 00       		.byte	0
+ 1724 0636 0B       		.uleb128 0xb
+ 1725 0637 C4000000 		.4byte	.LVL68
+ 1726 063b DF030000 		.4byte	0x3df
+ 1727 063f 63060000 		.4byte	0x663
+ 1728 0643 0C       		.uleb128 0xc
+ 1729 0644 01       		.uleb128 0x1
+ 1730 0645 50       		.byte	0x50
+ 1731 0646 02       		.uleb128 0x2
+ 1732 0647 74       		.byte	0x74
+ 1733 0648 00       		.sleb128 0
+ 1734 0649 0C       		.uleb128 0xc
+ 1735 064a 01       		.uleb128 0x1
+ 1736 064b 51       		.byte	0x51
+ 1737 064c 02       		.uleb128 0x2
+ 1738 064d 74       		.byte	0x74
+ 1739 064e 00       		.sleb128 0
+ 1740 064f 0C       		.uleb128 0xc
+ 1741 0650 01       		.uleb128 0x1
+ 1742 0651 52       		.byte	0x52
+ 1743 0652 02       		.uleb128 0x2
+ 1744 0653 74       		.byte	0x74
+ 1745 0654 00       		.sleb128 0
+ 1746 0655 0C       		.uleb128 0xc
+ 1747 0656 01       		.uleb128 0x1
+ 1748 0657 53       		.byte	0x53
+ 1749 0658 02       		.uleb128 0x2
+ 1750 0659 74       		.byte	0x74
+ 1751 065a 00       		.sleb128 0
+ 1752 065b 0C       		.uleb128 0xc
+ 1753 065c 02       		.uleb128 0x2
+ 1754 065d 7D       		.byte	0x7d
+ 1755 065e 00       		.sleb128 0
+ 1756 065f 02       		.uleb128 0x2
+ 1757 0660 09       		.byte	0x9
+ 1758 0661 E0       		.byte	0xe0
+ 1759 0662 00       		.byte	0
+ 1760 0663 0B       		.uleb128 0xb
+ 1761 0664 CA000000 		.4byte	.LVL69
+ 1762 0668 25010000 		.4byte	0x125
+ 1763 066c 77060000 		.4byte	0x677
+ 1764 0670 0C       		.uleb128 0xc
+ 1765 0671 01       		.uleb128 0x1
+ 1766 0672 50       		.byte	0x50
+ 1767 0673 02       		.uleb128 0x2
+ 1768 0674 09       		.byte	0x9
+ 1769 0675 FF       		.byte	0xff
+ 1770 0676 00       		.byte	0
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 37
+
+
+ 1771 0677 0B       		.uleb128 0xb
+ 1772 0678 D0000000 		.4byte	.LVL70
+ 1773 067c 25010000 		.4byte	0x125
+ 1774 0680 8B060000 		.4byte	0x68b
+ 1775 0684 0C       		.uleb128 0xc
+ 1776 0685 01       		.uleb128 0x1
+ 1777 0686 50       		.byte	0x50
+ 1778 0687 02       		.uleb128 0x2
+ 1779 0688 09       		.byte	0x9
+ 1780 0689 FF       		.byte	0xff
+ 1781 068a 00       		.byte	0
+ 1782 068b 0B       		.uleb128 0xb
+ 1783 068c D6000000 		.4byte	.LVL71
+ 1784 0690 25010000 		.4byte	0x125
+ 1785 0694 9F060000 		.4byte	0x69f
+ 1786 0698 0C       		.uleb128 0xc
+ 1787 0699 01       		.uleb128 0x1
+ 1788 069a 50       		.byte	0x50
+ 1789 069b 02       		.uleb128 0x2
+ 1790 069c 09       		.byte	0x9
+ 1791 069d FF       		.byte	0xff
+ 1792 069e 00       		.byte	0
+ 1793 069f 0B       		.uleb128 0xb
+ 1794 06a0 DC000000 		.4byte	.LVL72
+ 1795 06a4 25010000 		.4byte	0x125
+ 1796 06a8 B3060000 		.4byte	0x6b3
+ 1797 06ac 0C       		.uleb128 0xc
+ 1798 06ad 01       		.uleb128 0x1
+ 1799 06ae 50       		.byte	0x50
+ 1800 06af 02       		.uleb128 0x2
+ 1801 06b0 09       		.byte	0x9
+ 1802 06b1 FF       		.byte	0xff
+ 1803 06b2 00       		.byte	0
+ 1804 06b3 0B       		.uleb128 0xb
+ 1805 06b4 E4000000 		.4byte	.LVL73
+ 1806 06b8 25010000 		.4byte	0x125
+ 1807 06bc C6060000 		.4byte	0x6c6
+ 1808 06c0 0C       		.uleb128 0xc
+ 1809 06c1 01       		.uleb128 0x1
+ 1810 06c2 50       		.byte	0x50
+ 1811 06c3 01       		.uleb128 0x1
+ 1812 06c4 30       		.byte	0x30
+ 1813 06c5 00       		.byte	0
+ 1814 06c6 0B       		.uleb128 0xb
+ 1815 06c7 EA000000 		.4byte	.LVL74
+ 1816 06cb 25010000 		.4byte	0x125
+ 1817 06cf D9060000 		.4byte	0x6d9
+ 1818 06d3 0C       		.uleb128 0xc
+ 1819 06d4 01       		.uleb128 0x1
+ 1820 06d5 50       		.byte	0x50
+ 1821 06d6 01       		.uleb128 0x1
+ 1822 06d7 30       		.byte	0x30
+ 1823 06d8 00       		.byte	0
+ 1824 06d9 0B       		.uleb128 0xb
+ 1825 06da F0000000 		.4byte	.LVL75
+ 1826 06de 25010000 		.4byte	0x125
+ 1827 06e2 EC060000 		.4byte	0x6ec
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 38
+
+
+ 1828 06e6 0C       		.uleb128 0xc
+ 1829 06e7 01       		.uleb128 0x1
+ 1830 06e8 50       		.byte	0x50
+ 1831 06e9 01       		.uleb128 0x1
+ 1832 06ea 30       		.byte	0x30
+ 1833 06eb 00       		.byte	0
+ 1834 06ec 0B       		.uleb128 0xb
+ 1835 06ed F6000000 		.4byte	.LVL76
+ 1836 06f1 25010000 		.4byte	0x125
+ 1837 06f5 FF060000 		.4byte	0x6ff
+ 1838 06f9 0C       		.uleb128 0xc
+ 1839 06fa 01       		.uleb128 0x1
+ 1840 06fb 50       		.byte	0x50
+ 1841 06fc 01       		.uleb128 0x1
+ 1842 06fd 30       		.byte	0x30
+ 1843 06fe 00       		.byte	0
+ 1844 06ff 0B       		.uleb128 0xb
+ 1845 0700 06010000 		.4byte	.LVL77
+ 1846 0704 DF030000 		.4byte	0x3df
+ 1847 0708 2C070000 		.4byte	0x72c
+ 1848 070c 0C       		.uleb128 0xc
+ 1849 070d 01       		.uleb128 0x1
+ 1850 070e 50       		.byte	0x50
+ 1851 070f 02       		.uleb128 0x2
+ 1852 0710 08       		.byte	0x8
+ 1853 0711 2D       		.byte	0x2d
+ 1854 0712 0C       		.uleb128 0xc
+ 1855 0713 01       		.uleb128 0x1
+ 1856 0714 51       		.byte	0x51
+ 1857 0715 02       		.uleb128 0x2
+ 1858 0716 75       		.byte	0x75
+ 1859 0717 00       		.sleb128 0
+ 1860 0718 0C       		.uleb128 0xc
+ 1861 0719 01       		.uleb128 0x1
+ 1862 071a 52       		.byte	0x52
+ 1863 071b 02       		.uleb128 0x2
+ 1864 071c 76       		.byte	0x76
+ 1865 071d 00       		.sleb128 0
+ 1866 071e 0C       		.uleb128 0xc
+ 1867 071f 01       		.uleb128 0x1
+ 1868 0720 53       		.byte	0x53
+ 1869 0721 02       		.uleb128 0x2
+ 1870 0722 77       		.byte	0x77
+ 1871 0723 00       		.sleb128 0
+ 1872 0724 0C       		.uleb128 0xc
+ 1873 0725 02       		.uleb128 0x2
+ 1874 0726 7D       		.byte	0x7d
+ 1875 0727 00       		.sleb128 0
+ 1876 0728 02       		.uleb128 0x2
+ 1877 0729 78       		.byte	0x78
+ 1878 072a 00       		.sleb128 0
+ 1879 072b 00       		.byte	0
+ 1880 072c 0B       		.uleb128 0xb
+ 1881 072d 16010000 		.4byte	.LVL78
+ 1882 0731 DF030000 		.4byte	0x3df
+ 1883 0735 55070000 		.4byte	0x755
+ 1884 0739 0C       		.uleb128 0xc
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 39
+
+
+ 1885 073a 01       		.uleb128 0x1
+ 1886 073b 50       		.byte	0x50
+ 1887 073c 01       		.uleb128 0x1
+ 1888 073d 30       		.byte	0x30
+ 1889 073e 0C       		.uleb128 0xc
+ 1890 073f 01       		.uleb128 0x1
+ 1891 0740 51       		.byte	0x51
+ 1892 0741 01       		.uleb128 0x1
+ 1893 0742 30       		.byte	0x30
+ 1894 0743 0C       		.uleb128 0xc
+ 1895 0744 01       		.uleb128 0x1
+ 1896 0745 52       		.byte	0x52
+ 1897 0746 01       		.uleb128 0x1
+ 1898 0747 30       		.byte	0x30
+ 1899 0748 0C       		.uleb128 0xc
+ 1900 0749 01       		.uleb128 0x1
+ 1901 074a 53       		.byte	0x53
+ 1902 074b 01       		.uleb128 0x1
+ 1903 074c 30       		.byte	0x30
+ 1904 074d 0C       		.uleb128 0xc
+ 1905 074e 02       		.uleb128 0x2
+ 1906 074f 7D       		.byte	0x7d
+ 1907 0750 00       		.sleb128 0
+ 1908 0751 02       		.uleb128 0x2
+ 1909 0752 09       		.byte	0x9
+ 1910 0753 E0       		.byte	0xe0
+ 1911 0754 00       		.byte	0
+ 1912 0755 0B       		.uleb128 0xb
+ 1913 0756 1C010000 		.4byte	.LVL79
+ 1914 075a 25010000 		.4byte	0x125
+ 1915 075e 69070000 		.4byte	0x769
+ 1916 0762 0C       		.uleb128 0xc
+ 1917 0763 01       		.uleb128 0x1
+ 1918 0764 50       		.byte	0x50
+ 1919 0765 02       		.uleb128 0x2
+ 1920 0766 09       		.byte	0x9
+ 1921 0767 FF       		.byte	0xff
+ 1922 0768 00       		.byte	0
+ 1923 0769 0B       		.uleb128 0xb
+ 1924 076a 22010000 		.4byte	.LVL80
+ 1925 076e 25010000 		.4byte	0x125
+ 1926 0772 7D070000 		.4byte	0x77d
+ 1927 0776 0C       		.uleb128 0xc
+ 1928 0777 01       		.uleb128 0x1
+ 1929 0778 50       		.byte	0x50
+ 1930 0779 02       		.uleb128 0x2
+ 1931 077a 09       		.byte	0x9
+ 1932 077b FF       		.byte	0xff
+ 1933 077c 00       		.byte	0
+ 1934 077d 0B       		.uleb128 0xb
+ 1935 077e 28010000 		.4byte	.LVL81
+ 1936 0782 25010000 		.4byte	0x125
+ 1937 0786 91070000 		.4byte	0x791
+ 1938 078a 0C       		.uleb128 0xc
+ 1939 078b 01       		.uleb128 0x1
+ 1940 078c 50       		.byte	0x50
+ 1941 078d 02       		.uleb128 0x2
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 40
+
+
+ 1942 078e 09       		.byte	0x9
+ 1943 078f FF       		.byte	0xff
+ 1944 0790 00       		.byte	0
+ 1945 0791 0B       		.uleb128 0xb
+ 1946 0792 2E010000 		.4byte	.LVL82
+ 1947 0796 25010000 		.4byte	0x125
+ 1948 079a A5070000 		.4byte	0x7a5
+ 1949 079e 0C       		.uleb128 0xc
+ 1950 079f 01       		.uleb128 0x1
+ 1951 07a0 50       		.byte	0x50
+ 1952 07a1 02       		.uleb128 0x2
+ 1953 07a2 09       		.byte	0x9
+ 1954 07a3 FF       		.byte	0xff
+ 1955 07a4 00       		.byte	0
+ 1956 07a5 0B       		.uleb128 0xb
+ 1957 07a6 36010000 		.4byte	.LVL83
+ 1958 07aa 25010000 		.4byte	0x125
+ 1959 07ae B8070000 		.4byte	0x7b8
+ 1960 07b2 0C       		.uleb128 0xc
+ 1961 07b3 01       		.uleb128 0x1
+ 1962 07b4 50       		.byte	0x50
+ 1963 07b5 01       		.uleb128 0x1
+ 1964 07b6 30       		.byte	0x30
+ 1965 07b7 00       		.byte	0
+ 1966 07b8 0B       		.uleb128 0xb
+ 1967 07b9 3C010000 		.4byte	.LVL84
+ 1968 07bd 25010000 		.4byte	0x125
+ 1969 07c1 CB070000 		.4byte	0x7cb
+ 1970 07c5 0C       		.uleb128 0xc
+ 1971 07c6 01       		.uleb128 0x1
+ 1972 07c7 50       		.byte	0x50
+ 1973 07c8 01       		.uleb128 0x1
+ 1974 07c9 30       		.byte	0x30
+ 1975 07ca 00       		.byte	0
+ 1976 07cb 0B       		.uleb128 0xb
+ 1977 07cc 42010000 		.4byte	.LVL85
+ 1978 07d0 25010000 		.4byte	0x125
+ 1979 07d4 DE070000 		.4byte	0x7de
+ 1980 07d8 0C       		.uleb128 0xc
+ 1981 07d9 01       		.uleb128 0x1
+ 1982 07da 50       		.byte	0x50
+ 1983 07db 01       		.uleb128 0x1
+ 1984 07dc 30       		.byte	0x30
+ 1985 07dd 00       		.byte	0
+ 1986 07de 0B       		.uleb128 0xb
+ 1987 07df 48010000 		.4byte	.LVL86
+ 1988 07e3 25010000 		.4byte	0x125
+ 1989 07e7 F1070000 		.4byte	0x7f1
+ 1990 07eb 0C       		.uleb128 0xc
+ 1991 07ec 01       		.uleb128 0x1
+ 1992 07ed 50       		.byte	0x50
+ 1993 07ee 01       		.uleb128 0x1
+ 1994 07ef 30       		.byte	0x30
+ 1995 07f0 00       		.byte	0
+ 1996 07f1 0B       		.uleb128 0xb
+ 1997 07f2 58010000 		.4byte	.LVL87
+ 1998 07f6 DF030000 		.4byte	0x3df
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 41
+
+
+ 1999 07fa 1D080000 		.4byte	0x81d
+ 2000 07fe 0C       		.uleb128 0xc
+ 2001 07ff 01       		.uleb128 0x1
+ 2002 0800 50       		.byte	0x50
+ 2003 0801 01       		.uleb128 0x1
+ 2004 0802 37       		.byte	0x37
+ 2005 0803 0C       		.uleb128 0xc
+ 2006 0804 01       		.uleb128 0x1
+ 2007 0805 51       		.byte	0x51
+ 2008 0806 02       		.uleb128 0x2
+ 2009 0807 75       		.byte	0x75
+ 2010 0808 00       		.sleb128 0
+ 2011 0809 0C       		.uleb128 0xc
+ 2012 080a 01       		.uleb128 0x1
+ 2013 080b 52       		.byte	0x52
+ 2014 080c 02       		.uleb128 0x2
+ 2015 080d 76       		.byte	0x76
+ 2016 080e 00       		.sleb128 0
+ 2017 080f 0C       		.uleb128 0xc
+ 2018 0810 01       		.uleb128 0x1
+ 2019 0811 53       		.byte	0x53
+ 2020 0812 02       		.uleb128 0x2
+ 2021 0813 77       		.byte	0x77
+ 2022 0814 00       		.sleb128 0
+ 2023 0815 0C       		.uleb128 0xc
+ 2024 0816 02       		.uleb128 0x2
+ 2025 0817 7D       		.byte	0x7d
+ 2026 0818 00       		.sleb128 0
+ 2027 0819 02       		.uleb128 0x2
+ 2028 081a 78       		.byte	0x78
+ 2029 081b 00       		.sleb128 0
+ 2030 081c 00       		.byte	0
+ 2031 081d 0B       		.uleb128 0xb
+ 2032 081e 68010000 		.4byte	.LVL88
+ 2033 0822 DF030000 		.4byte	0x3df
+ 2034 0826 46080000 		.4byte	0x846
+ 2035 082a 0C       		.uleb128 0xc
+ 2036 082b 01       		.uleb128 0x1
+ 2037 082c 50       		.byte	0x50
+ 2038 082d 01       		.uleb128 0x1
+ 2039 082e 30       		.byte	0x30
+ 2040 082f 0C       		.uleb128 0xc
+ 2041 0830 01       		.uleb128 0x1
+ 2042 0831 51       		.byte	0x51
+ 2043 0832 01       		.uleb128 0x1
+ 2044 0833 30       		.byte	0x30
+ 2045 0834 0C       		.uleb128 0xc
+ 2046 0835 01       		.uleb128 0x1
+ 2047 0836 52       		.byte	0x52
+ 2048 0837 01       		.uleb128 0x1
+ 2049 0838 30       		.byte	0x30
+ 2050 0839 0C       		.uleb128 0xc
+ 2051 083a 01       		.uleb128 0x1
+ 2052 083b 53       		.byte	0x53
+ 2053 083c 01       		.uleb128 0x1
+ 2054 083d 30       		.byte	0x30
+ 2055 083e 0C       		.uleb128 0xc
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 42
+
+
+ 2056 083f 02       		.uleb128 0x2
+ 2057 0840 7D       		.byte	0x7d
+ 2058 0841 00       		.sleb128 0
+ 2059 0842 02       		.uleb128 0x2
+ 2060 0843 09       		.byte	0x9
+ 2061 0844 E0       		.byte	0xe0
+ 2062 0845 00       		.byte	0
+ 2063 0846 0B       		.uleb128 0xb
+ 2064 0847 6E010000 		.4byte	.LVL89
+ 2065 084b 25010000 		.4byte	0x125
+ 2066 084f 5A080000 		.4byte	0x85a
+ 2067 0853 0C       		.uleb128 0xc
+ 2068 0854 01       		.uleb128 0x1
+ 2069 0855 50       		.byte	0x50
+ 2070 0856 02       		.uleb128 0x2
+ 2071 0857 09       		.byte	0x9
+ 2072 0858 FF       		.byte	0xff
+ 2073 0859 00       		.byte	0
+ 2074 085a 0B       		.uleb128 0xb
+ 2075 085b 74010000 		.4byte	.LVL90
+ 2076 085f 25010000 		.4byte	0x125
+ 2077 0863 6E080000 		.4byte	0x86e
+ 2078 0867 0C       		.uleb128 0xc
+ 2079 0868 01       		.uleb128 0x1
+ 2080 0869 50       		.byte	0x50
+ 2081 086a 02       		.uleb128 0x2
+ 2082 086b 09       		.byte	0x9
+ 2083 086c FF       		.byte	0xff
+ 2084 086d 00       		.byte	0
+ 2085 086e 0B       		.uleb128 0xb
+ 2086 086f 7A010000 		.4byte	.LVL91
+ 2087 0873 25010000 		.4byte	0x125
+ 2088 0877 82080000 		.4byte	0x882
+ 2089 087b 0C       		.uleb128 0xc
+ 2090 087c 01       		.uleb128 0x1
+ 2091 087d 50       		.byte	0x50
+ 2092 087e 02       		.uleb128 0x2
+ 2093 087f 09       		.byte	0x9
+ 2094 0880 FF       		.byte	0xff
+ 2095 0881 00       		.byte	0
+ 2096 0882 0B       		.uleb128 0xb
+ 2097 0883 80010000 		.4byte	.LVL92
+ 2098 0887 25010000 		.4byte	0x125
+ 2099 088b 96080000 		.4byte	0x896
+ 2100 088f 0C       		.uleb128 0xc
+ 2101 0890 01       		.uleb128 0x1
+ 2102 0891 50       		.byte	0x50
+ 2103 0892 02       		.uleb128 0x2
+ 2104 0893 09       		.byte	0x9
+ 2105 0894 FF       		.byte	0xff
+ 2106 0895 00       		.byte	0
+ 2107 0896 0B       		.uleb128 0xb
+ 2108 0897 88010000 		.4byte	.LVL93
+ 2109 089b 25010000 		.4byte	0x125
+ 2110 089f A9080000 		.4byte	0x8a9
+ 2111 08a3 0C       		.uleb128 0xc
+ 2112 08a4 01       		.uleb128 0x1
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 43
+
+
+ 2113 08a5 50       		.byte	0x50
+ 2114 08a6 01       		.uleb128 0x1
+ 2115 08a7 30       		.byte	0x30
+ 2116 08a8 00       		.byte	0
+ 2117 08a9 0B       		.uleb128 0xb
+ 2118 08aa 8E010000 		.4byte	.LVL94
+ 2119 08ae 25010000 		.4byte	0x125
+ 2120 08b2 BC080000 		.4byte	0x8bc
+ 2121 08b6 0C       		.uleb128 0xc
+ 2122 08b7 01       		.uleb128 0x1
+ 2123 08b8 50       		.byte	0x50
+ 2124 08b9 01       		.uleb128 0x1
+ 2125 08ba 30       		.byte	0x30
+ 2126 08bb 00       		.byte	0
+ 2127 08bc 0B       		.uleb128 0xb
+ 2128 08bd 94010000 		.4byte	.LVL95
+ 2129 08c1 25010000 		.4byte	0x125
+ 2130 08c5 CF080000 		.4byte	0x8cf
+ 2131 08c9 0C       		.uleb128 0xc
+ 2132 08ca 01       		.uleb128 0x1
+ 2133 08cb 50       		.byte	0x50
+ 2134 08cc 01       		.uleb128 0x1
+ 2135 08cd 30       		.byte	0x30
+ 2136 08ce 00       		.byte	0
+ 2137 08cf 0B       		.uleb128 0xb
+ 2138 08d0 9A010000 		.4byte	.LVL96
+ 2139 08d4 25010000 		.4byte	0x125
+ 2140 08d8 E2080000 		.4byte	0x8e2
+ 2141 08dc 0C       		.uleb128 0xc
+ 2142 08dd 01       		.uleb128 0x1
+ 2143 08de 50       		.byte	0x50
+ 2144 08df 01       		.uleb128 0x1
+ 2145 08e0 30       		.byte	0x30
+ 2146 08e1 00       		.byte	0
+ 2147 08e2 0B       		.uleb128 0xb
+ 2148 08e3 AA010000 		.4byte	.LVL97
+ 2149 08e7 DF030000 		.4byte	0x3df
+ 2150 08eb 0E090000 		.4byte	0x90e
+ 2151 08ef 0C       		.uleb128 0xc
+ 2152 08f0 01       		.uleb128 0x1
+ 2153 08f1 50       		.byte	0x50
+ 2154 08f2 01       		.uleb128 0x1
+ 2155 08f3 3F       		.byte	0x3f
+ 2156 08f4 0C       		.uleb128 0xc
+ 2157 08f5 01       		.uleb128 0x1
+ 2158 08f6 51       		.byte	0x51
+ 2159 08f7 02       		.uleb128 0x2
+ 2160 08f8 75       		.byte	0x75
+ 2161 08f9 00       		.sleb128 0
+ 2162 08fa 0C       		.uleb128 0xc
+ 2163 08fb 01       		.uleb128 0x1
+ 2164 08fc 52       		.byte	0x52
+ 2165 08fd 02       		.uleb128 0x2
+ 2166 08fe 76       		.byte	0x76
+ 2167 08ff 00       		.sleb128 0
+ 2168 0900 0C       		.uleb128 0xc
+ 2169 0901 01       		.uleb128 0x1
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 44
+
+
+ 2170 0902 53       		.byte	0x53
+ 2171 0903 02       		.uleb128 0x2
+ 2172 0904 77       		.byte	0x77
+ 2173 0905 00       		.sleb128 0
+ 2174 0906 0C       		.uleb128 0xc
+ 2175 0907 02       		.uleb128 0x2
+ 2176 0908 7D       		.byte	0x7d
+ 2177 0909 00       		.sleb128 0
+ 2178 090a 02       		.uleb128 0x2
+ 2179 090b 78       		.byte	0x78
+ 2180 090c 00       		.sleb128 0
+ 2181 090d 00       		.byte	0
+ 2182 090e 0B       		.uleb128 0xb
+ 2183 090f BA010000 		.4byte	.LVL98
+ 2184 0913 DF030000 		.4byte	0x3df
+ 2185 0917 37090000 		.4byte	0x937
+ 2186 091b 0C       		.uleb128 0xc
+ 2187 091c 01       		.uleb128 0x1
+ 2188 091d 50       		.byte	0x50
+ 2189 091e 01       		.uleb128 0x1
+ 2190 091f 30       		.byte	0x30
+ 2191 0920 0C       		.uleb128 0xc
+ 2192 0921 01       		.uleb128 0x1
+ 2193 0922 51       		.byte	0x51
+ 2194 0923 01       		.uleb128 0x1
+ 2195 0924 30       		.byte	0x30
+ 2196 0925 0C       		.uleb128 0xc
+ 2197 0926 01       		.uleb128 0x1
+ 2198 0927 52       		.byte	0x52
+ 2199 0928 01       		.uleb128 0x1
+ 2200 0929 30       		.byte	0x30
+ 2201 092a 0C       		.uleb128 0xc
+ 2202 092b 01       		.uleb128 0x1
+ 2203 092c 53       		.byte	0x53
+ 2204 092d 01       		.uleb128 0x1
+ 2205 092e 30       		.byte	0x30
+ 2206 092f 0C       		.uleb128 0xc
+ 2207 0930 02       		.uleb128 0x2
+ 2208 0931 7D       		.byte	0x7d
+ 2209 0932 00       		.sleb128 0
+ 2210 0933 02       		.uleb128 0x2
+ 2211 0934 09       		.byte	0x9
+ 2212 0935 E0       		.byte	0xe0
+ 2213 0936 00       		.byte	0
+ 2214 0937 0B       		.uleb128 0xb
+ 2215 0938 C0010000 		.4byte	.LVL99
+ 2216 093c 25010000 		.4byte	0x125
+ 2217 0940 4B090000 		.4byte	0x94b
+ 2218 0944 0C       		.uleb128 0xc
+ 2219 0945 01       		.uleb128 0x1
+ 2220 0946 50       		.byte	0x50
+ 2221 0947 02       		.uleb128 0x2
+ 2222 0948 09       		.byte	0x9
+ 2223 0949 FF       		.byte	0xff
+ 2224 094a 00       		.byte	0
+ 2225 094b 0B       		.uleb128 0xb
+ 2226 094c C6010000 		.4byte	.LVL100
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 45
+
+
+ 2227 0950 25010000 		.4byte	0x125
+ 2228 0954 5F090000 		.4byte	0x95f
+ 2229 0958 0C       		.uleb128 0xc
+ 2230 0959 01       		.uleb128 0x1
+ 2231 095a 50       		.byte	0x50
+ 2232 095b 02       		.uleb128 0x2
+ 2233 095c 09       		.byte	0x9
+ 2234 095d FF       		.byte	0xff
+ 2235 095e 00       		.byte	0
+ 2236 095f 0B       		.uleb128 0xb
+ 2237 0960 CC010000 		.4byte	.LVL101
+ 2238 0964 25010000 		.4byte	0x125
+ 2239 0968 73090000 		.4byte	0x973
+ 2240 096c 0C       		.uleb128 0xc
+ 2241 096d 01       		.uleb128 0x1
+ 2242 096e 50       		.byte	0x50
+ 2243 096f 02       		.uleb128 0x2
+ 2244 0970 09       		.byte	0x9
+ 2245 0971 FF       		.byte	0xff
+ 2246 0972 00       		.byte	0
+ 2247 0973 0B       		.uleb128 0xb
+ 2248 0974 D2010000 		.4byte	.LVL102
+ 2249 0978 25010000 		.4byte	0x125
+ 2250 097c 87090000 		.4byte	0x987
+ 2251 0980 0C       		.uleb128 0xc
+ 2252 0981 01       		.uleb128 0x1
+ 2253 0982 50       		.byte	0x50
+ 2254 0983 02       		.uleb128 0x2
+ 2255 0984 09       		.byte	0x9
+ 2256 0985 FF       		.byte	0xff
+ 2257 0986 00       		.byte	0
+ 2258 0987 0B       		.uleb128 0xb
+ 2259 0988 DA010000 		.4byte	.LVL103
+ 2260 098c 25010000 		.4byte	0x125
+ 2261 0990 9A090000 		.4byte	0x99a
+ 2262 0994 0C       		.uleb128 0xc
+ 2263 0995 01       		.uleb128 0x1
+ 2264 0996 50       		.byte	0x50
+ 2265 0997 01       		.uleb128 0x1
+ 2266 0998 30       		.byte	0x30
+ 2267 0999 00       		.byte	0
+ 2268 099a 0B       		.uleb128 0xb
+ 2269 099b E0010000 		.4byte	.LVL104
+ 2270 099f 25010000 		.4byte	0x125
+ 2271 09a3 AD090000 		.4byte	0x9ad
+ 2272 09a7 0C       		.uleb128 0xc
+ 2273 09a8 01       		.uleb128 0x1
+ 2274 09a9 50       		.byte	0x50
+ 2275 09aa 01       		.uleb128 0x1
+ 2276 09ab 30       		.byte	0x30
+ 2277 09ac 00       		.byte	0
+ 2278 09ad 0B       		.uleb128 0xb
+ 2279 09ae E6010000 		.4byte	.LVL105
+ 2280 09b2 25010000 		.4byte	0x125
+ 2281 09b6 C0090000 		.4byte	0x9c0
+ 2282 09ba 0C       		.uleb128 0xc
+ 2283 09bb 01       		.uleb128 0x1
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 46
+
+
+ 2284 09bc 50       		.byte	0x50
+ 2285 09bd 01       		.uleb128 0x1
+ 2286 09be 30       		.byte	0x30
+ 2287 09bf 00       		.byte	0
+ 2288 09c0 0B       		.uleb128 0xb
+ 2289 09c1 EC010000 		.4byte	.LVL106
+ 2290 09c5 25010000 		.4byte	0x125
+ 2291 09c9 D3090000 		.4byte	0x9d3
+ 2292 09cd 0C       		.uleb128 0xc
+ 2293 09ce 01       		.uleb128 0x1
+ 2294 09cf 50       		.byte	0x50
+ 2295 09d0 01       		.uleb128 0x1
+ 2296 09d1 30       		.byte	0x30
+ 2297 09d2 00       		.byte	0
+ 2298 09d3 0B       		.uleb128 0xb
+ 2299 09d4 FC010000 		.4byte	.LVL107
+ 2300 09d8 DF030000 		.4byte	0x3df
+ 2301 09dc FF090000 		.4byte	0x9ff
+ 2302 09e0 0C       		.uleb128 0xc
+ 2303 09e1 01       		.uleb128 0x1
+ 2304 09e2 50       		.byte	0x50
+ 2305 09e3 01       		.uleb128 0x1
+ 2306 09e4 47       		.byte	0x47
+ 2307 09e5 0C       		.uleb128 0xc
+ 2308 09e6 01       		.uleb128 0x1
+ 2309 09e7 51       		.byte	0x51
+ 2310 09e8 02       		.uleb128 0x2
+ 2311 09e9 75       		.byte	0x75
+ 2312 09ea 00       		.sleb128 0
+ 2313 09eb 0C       		.uleb128 0xc
+ 2314 09ec 01       		.uleb128 0x1
+ 2315 09ed 52       		.byte	0x52
+ 2316 09ee 02       		.uleb128 0x2
+ 2317 09ef 76       		.byte	0x76
+ 2318 09f0 00       		.sleb128 0
+ 2319 09f1 0C       		.uleb128 0xc
+ 2320 09f2 01       		.uleb128 0x1
+ 2321 09f3 53       		.byte	0x53
+ 2322 09f4 02       		.uleb128 0x2
+ 2323 09f5 77       		.byte	0x77
+ 2324 09f6 00       		.sleb128 0
+ 2325 09f7 0C       		.uleb128 0xc
+ 2326 09f8 02       		.uleb128 0x2
+ 2327 09f9 7D       		.byte	0x7d
+ 2328 09fa 00       		.sleb128 0
+ 2329 09fb 02       		.uleb128 0x2
+ 2330 09fc 78       		.byte	0x78
+ 2331 09fd 00       		.sleb128 0
+ 2332 09fe 00       		.byte	0
+ 2333 09ff 0B       		.uleb128 0xb
+ 2334 0a00 0C020000 		.4byte	.LVL108
+ 2335 0a04 DF030000 		.4byte	0x3df
+ 2336 0a08 280A0000 		.4byte	0xa28
+ 2337 0a0c 0C       		.uleb128 0xc
+ 2338 0a0d 01       		.uleb128 0x1
+ 2339 0a0e 50       		.byte	0x50
+ 2340 0a0f 01       		.uleb128 0x1
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 47
+
+
+ 2341 0a10 30       		.byte	0x30
+ 2342 0a11 0C       		.uleb128 0xc
+ 2343 0a12 01       		.uleb128 0x1
+ 2344 0a13 51       		.byte	0x51
+ 2345 0a14 01       		.uleb128 0x1
+ 2346 0a15 30       		.byte	0x30
+ 2347 0a16 0C       		.uleb128 0xc
+ 2348 0a17 01       		.uleb128 0x1
+ 2349 0a18 52       		.byte	0x52
+ 2350 0a19 01       		.uleb128 0x1
+ 2351 0a1a 30       		.byte	0x30
+ 2352 0a1b 0C       		.uleb128 0xc
+ 2353 0a1c 01       		.uleb128 0x1
+ 2354 0a1d 53       		.byte	0x53
+ 2355 0a1e 01       		.uleb128 0x1
+ 2356 0a1f 30       		.byte	0x30
+ 2357 0a20 0C       		.uleb128 0xc
+ 2358 0a21 02       		.uleb128 0x2
+ 2359 0a22 7D       		.byte	0x7d
+ 2360 0a23 00       		.sleb128 0
+ 2361 0a24 02       		.uleb128 0x2
+ 2362 0a25 09       		.byte	0x9
+ 2363 0a26 E0       		.byte	0xe0
+ 2364 0a27 00       		.byte	0
+ 2365 0a28 0B       		.uleb128 0xb
+ 2366 0a29 12020000 		.4byte	.LVL109
+ 2367 0a2d 25010000 		.4byte	0x125
+ 2368 0a31 3C0A0000 		.4byte	0xa3c
+ 2369 0a35 0C       		.uleb128 0xc
+ 2370 0a36 01       		.uleb128 0x1
+ 2371 0a37 50       		.byte	0x50
+ 2372 0a38 02       		.uleb128 0x2
+ 2373 0a39 09       		.byte	0x9
+ 2374 0a3a FF       		.byte	0xff
+ 2375 0a3b 00       		.byte	0
+ 2376 0a3c 0B       		.uleb128 0xb
+ 2377 0a3d 18020000 		.4byte	.LVL110
+ 2378 0a41 25010000 		.4byte	0x125
+ 2379 0a45 500A0000 		.4byte	0xa50
+ 2380 0a49 0C       		.uleb128 0xc
+ 2381 0a4a 01       		.uleb128 0x1
+ 2382 0a4b 50       		.byte	0x50
+ 2383 0a4c 02       		.uleb128 0x2
+ 2384 0a4d 09       		.byte	0x9
+ 2385 0a4e FF       		.byte	0xff
+ 2386 0a4f 00       		.byte	0
+ 2387 0a50 0B       		.uleb128 0xb
+ 2388 0a51 1E020000 		.4byte	.LVL111
+ 2389 0a55 25010000 		.4byte	0x125
+ 2390 0a59 640A0000 		.4byte	0xa64
+ 2391 0a5d 0C       		.uleb128 0xc
+ 2392 0a5e 01       		.uleb128 0x1
+ 2393 0a5f 50       		.byte	0x50
+ 2394 0a60 02       		.uleb128 0x2
+ 2395 0a61 09       		.byte	0x9
+ 2396 0a62 FF       		.byte	0xff
+ 2397 0a63 00       		.byte	0
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 48
+
+
+ 2398 0a64 0B       		.uleb128 0xb
+ 2399 0a65 24020000 		.4byte	.LVL112
+ 2400 0a69 25010000 		.4byte	0x125
+ 2401 0a6d 780A0000 		.4byte	0xa78
+ 2402 0a71 0C       		.uleb128 0xc
+ 2403 0a72 01       		.uleb128 0x1
+ 2404 0a73 50       		.byte	0x50
+ 2405 0a74 02       		.uleb128 0x2
+ 2406 0a75 09       		.byte	0x9
+ 2407 0a76 FF       		.byte	0xff
+ 2408 0a77 00       		.byte	0
+ 2409 0a78 0B       		.uleb128 0xb
+ 2410 0a79 2C020000 		.4byte	.LVL113
+ 2411 0a7d 25010000 		.4byte	0x125
+ 2412 0a81 8B0A0000 		.4byte	0xa8b
+ 2413 0a85 0C       		.uleb128 0xc
+ 2414 0a86 01       		.uleb128 0x1
+ 2415 0a87 50       		.byte	0x50
+ 2416 0a88 01       		.uleb128 0x1
+ 2417 0a89 30       		.byte	0x30
+ 2418 0a8a 00       		.byte	0
+ 2419 0a8b 0B       		.uleb128 0xb
+ 2420 0a8c 32020000 		.4byte	.LVL114
+ 2421 0a90 25010000 		.4byte	0x125
+ 2422 0a94 9E0A0000 		.4byte	0xa9e
+ 2423 0a98 0C       		.uleb128 0xc
+ 2424 0a99 01       		.uleb128 0x1
+ 2425 0a9a 50       		.byte	0x50
+ 2426 0a9b 01       		.uleb128 0x1
+ 2427 0a9c 30       		.byte	0x30
+ 2428 0a9d 00       		.byte	0
+ 2429 0a9e 0B       		.uleb128 0xb
+ 2430 0a9f 38020000 		.4byte	.LVL115
+ 2431 0aa3 25010000 		.4byte	0x125
+ 2432 0aa7 B10A0000 		.4byte	0xab1
+ 2433 0aab 0C       		.uleb128 0xc
+ 2434 0aac 01       		.uleb128 0x1
+ 2435 0aad 50       		.byte	0x50
+ 2436 0aae 01       		.uleb128 0x1
+ 2437 0aaf 30       		.byte	0x30
+ 2438 0ab0 00       		.byte	0
+ 2439 0ab1 0B       		.uleb128 0xb
+ 2440 0ab2 3E020000 		.4byte	.LVL116
+ 2441 0ab6 25010000 		.4byte	0x125
+ 2442 0aba C40A0000 		.4byte	0xac4
+ 2443 0abe 0C       		.uleb128 0xc
+ 2444 0abf 01       		.uleb128 0x1
+ 2445 0ac0 50       		.byte	0x50
+ 2446 0ac1 01       		.uleb128 0x1
+ 2447 0ac2 30       		.byte	0x30
+ 2448 0ac3 00       		.byte	0
+ 2449 0ac4 0B       		.uleb128 0xb
+ 2450 0ac5 4E020000 		.4byte	.LVL117
+ 2451 0ac9 DF030000 		.4byte	0x3df
+ 2452 0acd F00A0000 		.4byte	0xaf0
+ 2453 0ad1 0C       		.uleb128 0xc
+ 2454 0ad2 01       		.uleb128 0x1
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 49
+
+
+ 2455 0ad3 50       		.byte	0x50
+ 2456 0ad4 01       		.uleb128 0x1
+ 2457 0ad5 4E       		.byte	0x4e
+ 2458 0ad6 0C       		.uleb128 0xc
+ 2459 0ad7 01       		.uleb128 0x1
+ 2460 0ad8 51       		.byte	0x51
+ 2461 0ad9 02       		.uleb128 0x2
+ 2462 0ada 75       		.byte	0x75
+ 2463 0adb 00       		.sleb128 0
+ 2464 0adc 0C       		.uleb128 0xc
+ 2465 0add 01       		.uleb128 0x1
+ 2466 0ade 52       		.byte	0x52
+ 2467 0adf 02       		.uleb128 0x2
+ 2468 0ae0 76       		.byte	0x76
+ 2469 0ae1 00       		.sleb128 0
+ 2470 0ae2 0C       		.uleb128 0xc
+ 2471 0ae3 01       		.uleb128 0x1
+ 2472 0ae4 53       		.byte	0x53
+ 2473 0ae5 02       		.uleb128 0x2
+ 2474 0ae6 77       		.byte	0x77
+ 2475 0ae7 00       		.sleb128 0
+ 2476 0ae8 0C       		.uleb128 0xc
+ 2477 0ae9 02       		.uleb128 0x2
+ 2478 0aea 7D       		.byte	0x7d
+ 2479 0aeb 00       		.sleb128 0
+ 2480 0aec 02       		.uleb128 0x2
+ 2481 0aed 78       		.byte	0x78
+ 2482 0aee 00       		.sleb128 0
+ 2483 0aef 00       		.byte	0
+ 2484 0af0 0B       		.uleb128 0xb
+ 2485 0af1 5E020000 		.4byte	.LVL118
+ 2486 0af5 DF030000 		.4byte	0x3df
+ 2487 0af9 190B0000 		.4byte	0xb19
+ 2488 0afd 0C       		.uleb128 0xc
+ 2489 0afe 01       		.uleb128 0x1
+ 2490 0aff 50       		.byte	0x50
+ 2491 0b00 01       		.uleb128 0x1
+ 2492 0b01 30       		.byte	0x30
+ 2493 0b02 0C       		.uleb128 0xc
+ 2494 0b03 01       		.uleb128 0x1
+ 2495 0b04 51       		.byte	0x51
+ 2496 0b05 01       		.uleb128 0x1
+ 2497 0b06 30       		.byte	0x30
+ 2498 0b07 0C       		.uleb128 0xc
+ 2499 0b08 01       		.uleb128 0x1
+ 2500 0b09 52       		.byte	0x52
+ 2501 0b0a 01       		.uleb128 0x1
+ 2502 0b0b 30       		.byte	0x30
+ 2503 0b0c 0C       		.uleb128 0xc
+ 2504 0b0d 01       		.uleb128 0x1
+ 2505 0b0e 53       		.byte	0x53
+ 2506 0b0f 01       		.uleb128 0x1
+ 2507 0b10 30       		.byte	0x30
+ 2508 0b11 0C       		.uleb128 0xc
+ 2509 0b12 02       		.uleb128 0x2
+ 2510 0b13 7D       		.byte	0x7d
+ 2511 0b14 00       		.sleb128 0
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 50
+
+
+ 2512 0b15 02       		.uleb128 0x2
+ 2513 0b16 09       		.byte	0x9
+ 2514 0b17 E0       		.byte	0xe0
+ 2515 0b18 00       		.byte	0
+ 2516 0b19 0B       		.uleb128 0xb
+ 2517 0b1a 64020000 		.4byte	.LVL119
+ 2518 0b1e 25010000 		.4byte	0x125
+ 2519 0b22 2D0B0000 		.4byte	0xb2d
+ 2520 0b26 0C       		.uleb128 0xc
+ 2521 0b27 01       		.uleb128 0x1
+ 2522 0b28 50       		.byte	0x50
+ 2523 0b29 02       		.uleb128 0x2
+ 2524 0b2a 09       		.byte	0x9
+ 2525 0b2b FF       		.byte	0xff
+ 2526 0b2c 00       		.byte	0
+ 2527 0b2d 0B       		.uleb128 0xb
+ 2528 0b2e 6A020000 		.4byte	.LVL120
+ 2529 0b32 25010000 		.4byte	0x125
+ 2530 0b36 410B0000 		.4byte	0xb41
+ 2531 0b3a 0C       		.uleb128 0xc
+ 2532 0b3b 01       		.uleb128 0x1
+ 2533 0b3c 50       		.byte	0x50
+ 2534 0b3d 02       		.uleb128 0x2
+ 2535 0b3e 09       		.byte	0x9
+ 2536 0b3f FF       		.byte	0xff
+ 2537 0b40 00       		.byte	0
+ 2538 0b41 0B       		.uleb128 0xb
+ 2539 0b42 70020000 		.4byte	.LVL121
+ 2540 0b46 25010000 		.4byte	0x125
+ 2541 0b4a 550B0000 		.4byte	0xb55
+ 2542 0b4e 0C       		.uleb128 0xc
+ 2543 0b4f 01       		.uleb128 0x1
+ 2544 0b50 50       		.byte	0x50
+ 2545 0b51 02       		.uleb128 0x2
+ 2546 0b52 09       		.byte	0x9
+ 2547 0b53 FF       		.byte	0xff
+ 2548 0b54 00       		.byte	0
+ 2549 0b55 0B       		.uleb128 0xb
+ 2550 0b56 76020000 		.4byte	.LVL122
+ 2551 0b5a 25010000 		.4byte	0x125
+ 2552 0b5e 690B0000 		.4byte	0xb69
+ 2553 0b62 0C       		.uleb128 0xc
+ 2554 0b63 01       		.uleb128 0x1
+ 2555 0b64 50       		.byte	0x50
+ 2556 0b65 02       		.uleb128 0x2
+ 2557 0b66 09       		.byte	0x9
+ 2558 0b67 FF       		.byte	0xff
+ 2559 0b68 00       		.byte	0
+ 2560 0b69 0B       		.uleb128 0xb
+ 2561 0b6a 7E020000 		.4byte	.LVL123
+ 2562 0b6e 25010000 		.4byte	0x125
+ 2563 0b72 7C0B0000 		.4byte	0xb7c
+ 2564 0b76 0C       		.uleb128 0xc
+ 2565 0b77 01       		.uleb128 0x1
+ 2566 0b78 50       		.byte	0x50
+ 2567 0b79 01       		.uleb128 0x1
+ 2568 0b7a 30       		.byte	0x30
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 51
+
+
+ 2569 0b7b 00       		.byte	0
+ 2570 0b7c 0B       		.uleb128 0xb
+ 2571 0b7d 84020000 		.4byte	.LVL124
+ 2572 0b81 25010000 		.4byte	0x125
+ 2573 0b85 8F0B0000 		.4byte	0xb8f
+ 2574 0b89 0C       		.uleb128 0xc
+ 2575 0b8a 01       		.uleb128 0x1
+ 2576 0b8b 50       		.byte	0x50
+ 2577 0b8c 01       		.uleb128 0x1
+ 2578 0b8d 30       		.byte	0x30
+ 2579 0b8e 00       		.byte	0
+ 2580 0b8f 0B       		.uleb128 0xb
+ 2581 0b90 8A020000 		.4byte	.LVL125
+ 2582 0b94 25010000 		.4byte	0x125
+ 2583 0b98 A20B0000 		.4byte	0xba2
+ 2584 0b9c 0C       		.uleb128 0xc
+ 2585 0b9d 01       		.uleb128 0x1
+ 2586 0b9e 50       		.byte	0x50
+ 2587 0b9f 01       		.uleb128 0x1
+ 2588 0ba0 30       		.byte	0x30
+ 2589 0ba1 00       		.byte	0
+ 2590 0ba2 0B       		.uleb128 0xb
+ 2591 0ba3 90020000 		.4byte	.LVL126
+ 2592 0ba7 25010000 		.4byte	0x125
+ 2593 0bab B50B0000 		.4byte	0xbb5
+ 2594 0baf 0C       		.uleb128 0xc
+ 2595 0bb0 01       		.uleb128 0x1
+ 2596 0bb1 50       		.byte	0x50
+ 2597 0bb2 01       		.uleb128 0x1
+ 2598 0bb3 30       		.byte	0x30
+ 2599 0bb4 00       		.byte	0
+ 2600 0bb5 0B       		.uleb128 0xb
+ 2601 0bb6 A0020000 		.4byte	.LVL127
+ 2602 0bba DF030000 		.4byte	0x3df
+ 2603 0bbe E20B0000 		.4byte	0xbe2
+ 2604 0bc2 0C       		.uleb128 0xc
+ 2605 0bc3 01       		.uleb128 0x1
+ 2606 0bc4 50       		.byte	0x50
+ 2607 0bc5 02       		.uleb128 0x2
+ 2608 0bc6 08       		.byte	0x8
+ 2609 0bc7 26       		.byte	0x26
+ 2610 0bc8 0C       		.uleb128 0xc
+ 2611 0bc9 01       		.uleb128 0x1
+ 2612 0bca 51       		.byte	0x51
+ 2613 0bcb 02       		.uleb128 0x2
+ 2614 0bcc 75       		.byte	0x75
+ 2615 0bcd 00       		.sleb128 0
+ 2616 0bce 0C       		.uleb128 0xc
+ 2617 0bcf 01       		.uleb128 0x1
+ 2618 0bd0 52       		.byte	0x52
+ 2619 0bd1 02       		.uleb128 0x2
+ 2620 0bd2 76       		.byte	0x76
+ 2621 0bd3 00       		.sleb128 0
+ 2622 0bd4 0C       		.uleb128 0xc
+ 2623 0bd5 01       		.uleb128 0x1
+ 2624 0bd6 53       		.byte	0x53
+ 2625 0bd7 02       		.uleb128 0x2
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 52
+
+
+ 2626 0bd8 77       		.byte	0x77
+ 2627 0bd9 00       		.sleb128 0
+ 2628 0bda 0C       		.uleb128 0xc
+ 2629 0bdb 02       		.uleb128 0x2
+ 2630 0bdc 7D       		.byte	0x7d
+ 2631 0bdd 00       		.sleb128 0
+ 2632 0bde 02       		.uleb128 0x2
+ 2633 0bdf 78       		.byte	0x78
+ 2634 0be0 00       		.sleb128 0
+ 2635 0be1 00       		.byte	0
+ 2636 0be2 0B       		.uleb128 0xb
+ 2637 0be3 B0020000 		.4byte	.LVL128
+ 2638 0be7 DF030000 		.4byte	0x3df
+ 2639 0beb 0B0C0000 		.4byte	0xc0b
+ 2640 0bef 0C       		.uleb128 0xc
+ 2641 0bf0 01       		.uleb128 0x1
+ 2642 0bf1 50       		.byte	0x50
+ 2643 0bf2 01       		.uleb128 0x1
+ 2644 0bf3 30       		.byte	0x30
+ 2645 0bf4 0C       		.uleb128 0xc
+ 2646 0bf5 01       		.uleb128 0x1
+ 2647 0bf6 51       		.byte	0x51
+ 2648 0bf7 01       		.uleb128 0x1
+ 2649 0bf8 30       		.byte	0x30
+ 2650 0bf9 0C       		.uleb128 0xc
+ 2651 0bfa 01       		.uleb128 0x1
+ 2652 0bfb 52       		.byte	0x52
+ 2653 0bfc 01       		.uleb128 0x1
+ 2654 0bfd 30       		.byte	0x30
+ 2655 0bfe 0C       		.uleb128 0xc
+ 2656 0bff 01       		.uleb128 0x1
+ 2657 0c00 53       		.byte	0x53
+ 2658 0c01 01       		.uleb128 0x1
+ 2659 0c02 30       		.byte	0x30
+ 2660 0c03 0C       		.uleb128 0xc
+ 2661 0c04 02       		.uleb128 0x2
+ 2662 0c05 7D       		.byte	0x7d
+ 2663 0c06 00       		.sleb128 0
+ 2664 0c07 02       		.uleb128 0x2
+ 2665 0c08 09       		.byte	0x9
+ 2666 0c09 E0       		.byte	0xe0
+ 2667 0c0a 00       		.byte	0
+ 2668 0c0b 0B       		.uleb128 0xb
+ 2669 0c0c B6020000 		.4byte	.LVL129
+ 2670 0c10 25010000 		.4byte	0x125
+ 2671 0c14 1F0C0000 		.4byte	0xc1f
+ 2672 0c18 0C       		.uleb128 0xc
+ 2673 0c19 01       		.uleb128 0x1
+ 2674 0c1a 50       		.byte	0x50
+ 2675 0c1b 02       		.uleb128 0x2
+ 2676 0c1c 09       		.byte	0x9
+ 2677 0c1d FF       		.byte	0xff
+ 2678 0c1e 00       		.byte	0
+ 2679 0c1f 0B       		.uleb128 0xb
+ 2680 0c20 BC020000 		.4byte	.LVL130
+ 2681 0c24 25010000 		.4byte	0x125
+ 2682 0c28 330C0000 		.4byte	0xc33
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 53
+
+
+ 2683 0c2c 0C       		.uleb128 0xc
+ 2684 0c2d 01       		.uleb128 0x1
+ 2685 0c2e 50       		.byte	0x50
+ 2686 0c2f 02       		.uleb128 0x2
+ 2687 0c30 09       		.byte	0x9
+ 2688 0c31 FF       		.byte	0xff
+ 2689 0c32 00       		.byte	0
+ 2690 0c33 0B       		.uleb128 0xb
+ 2691 0c34 C2020000 		.4byte	.LVL131
+ 2692 0c38 25010000 		.4byte	0x125
+ 2693 0c3c 470C0000 		.4byte	0xc47
+ 2694 0c40 0C       		.uleb128 0xc
+ 2695 0c41 01       		.uleb128 0x1
+ 2696 0c42 50       		.byte	0x50
+ 2697 0c43 02       		.uleb128 0x2
+ 2698 0c44 09       		.byte	0x9
+ 2699 0c45 FF       		.byte	0xff
+ 2700 0c46 00       		.byte	0
+ 2701 0c47 0B       		.uleb128 0xb
+ 2702 0c48 C8020000 		.4byte	.LVL132
+ 2703 0c4c 25010000 		.4byte	0x125
+ 2704 0c50 5B0C0000 		.4byte	0xc5b
+ 2705 0c54 0C       		.uleb128 0xc
+ 2706 0c55 01       		.uleb128 0x1
+ 2707 0c56 50       		.byte	0x50
+ 2708 0c57 02       		.uleb128 0x2
+ 2709 0c58 09       		.byte	0x9
+ 2710 0c59 FF       		.byte	0xff
+ 2711 0c5a 00       		.byte	0
+ 2712 0c5b 0B       		.uleb128 0xb
+ 2713 0c5c D0020000 		.4byte	.LVL133
+ 2714 0c60 25010000 		.4byte	0x125
+ 2715 0c64 6E0C0000 		.4byte	0xc6e
+ 2716 0c68 0C       		.uleb128 0xc
+ 2717 0c69 01       		.uleb128 0x1
+ 2718 0c6a 50       		.byte	0x50
+ 2719 0c6b 01       		.uleb128 0x1
+ 2720 0c6c 30       		.byte	0x30
+ 2721 0c6d 00       		.byte	0
+ 2722 0c6e 0B       		.uleb128 0xb
+ 2723 0c6f D6020000 		.4byte	.LVL134
+ 2724 0c73 25010000 		.4byte	0x125
+ 2725 0c77 810C0000 		.4byte	0xc81
+ 2726 0c7b 0C       		.uleb128 0xc
+ 2727 0c7c 01       		.uleb128 0x1
+ 2728 0c7d 50       		.byte	0x50
+ 2729 0c7e 01       		.uleb128 0x1
+ 2730 0c7f 30       		.byte	0x30
+ 2731 0c80 00       		.byte	0
+ 2732 0c81 0B       		.uleb128 0xb
+ 2733 0c82 DC020000 		.4byte	.LVL135
+ 2734 0c86 25010000 		.4byte	0x125
+ 2735 0c8a 940C0000 		.4byte	0xc94
+ 2736 0c8e 0C       		.uleb128 0xc
+ 2737 0c8f 01       		.uleb128 0x1
+ 2738 0c90 50       		.byte	0x50
+ 2739 0c91 01       		.uleb128 0x1
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 54
+
+
+ 2740 0c92 30       		.byte	0x30
+ 2741 0c93 00       		.byte	0
+ 2742 0c94 0B       		.uleb128 0xb
+ 2743 0c95 E2020000 		.4byte	.LVL136
+ 2744 0c99 25010000 		.4byte	0x125
+ 2745 0c9d A70C0000 		.4byte	0xca7
+ 2746 0ca1 0C       		.uleb128 0xc
+ 2747 0ca2 01       		.uleb128 0x1
+ 2748 0ca3 50       		.byte	0x50
+ 2749 0ca4 01       		.uleb128 0x1
+ 2750 0ca5 30       		.byte	0x30
+ 2751 0ca6 00       		.byte	0
+ 2752 0ca7 0B       		.uleb128 0xb
+ 2753 0ca8 F2020000 		.4byte	.LVL137
+ 2754 0cac DF030000 		.4byte	0x3df
+ 2755 0cb0 D40C0000 		.4byte	0xcd4
+ 2756 0cb4 0C       		.uleb128 0xc
+ 2757 0cb5 01       		.uleb128 0x1
+ 2758 0cb6 50       		.byte	0x50
+ 2759 0cb7 02       		.uleb128 0x2
+ 2760 0cb8 08       		.byte	0x8
+ 2761 0cb9 2D       		.byte	0x2d
+ 2762 0cba 0C       		.uleb128 0xc
+ 2763 0cbb 01       		.uleb128 0x1
+ 2764 0cbc 51       		.byte	0x51
+ 2765 0cbd 02       		.uleb128 0x2
+ 2766 0cbe 75       		.byte	0x75
+ 2767 0cbf 00       		.sleb128 0
+ 2768 0cc0 0C       		.uleb128 0xc
+ 2769 0cc1 01       		.uleb128 0x1
+ 2770 0cc2 52       		.byte	0x52
+ 2771 0cc3 02       		.uleb128 0x2
+ 2772 0cc4 76       		.byte	0x76
+ 2773 0cc5 00       		.sleb128 0
+ 2774 0cc6 0C       		.uleb128 0xc
+ 2775 0cc7 01       		.uleb128 0x1
+ 2776 0cc8 53       		.byte	0x53
+ 2777 0cc9 02       		.uleb128 0x2
+ 2778 0cca 77       		.byte	0x77
+ 2779 0ccb 00       		.sleb128 0
+ 2780 0ccc 0C       		.uleb128 0xc
+ 2781 0ccd 02       		.uleb128 0x2
+ 2782 0cce 7D       		.byte	0x7d
+ 2783 0ccf 00       		.sleb128 0
+ 2784 0cd0 02       		.uleb128 0x2
+ 2785 0cd1 78       		.byte	0x78
+ 2786 0cd2 00       		.sleb128 0
+ 2787 0cd3 00       		.byte	0
+ 2788 0cd4 0B       		.uleb128 0xb
+ 2789 0cd5 02030000 		.4byte	.LVL138
+ 2790 0cd9 DF030000 		.4byte	0x3df
+ 2791 0cdd FD0C0000 		.4byte	0xcfd
+ 2792 0ce1 0C       		.uleb128 0xc
+ 2793 0ce2 01       		.uleb128 0x1
+ 2794 0ce3 50       		.byte	0x50
+ 2795 0ce4 01       		.uleb128 0x1
+ 2796 0ce5 30       		.byte	0x30
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 55
+
+
+ 2797 0ce6 0C       		.uleb128 0xc
+ 2798 0ce7 01       		.uleb128 0x1
+ 2799 0ce8 51       		.byte	0x51
+ 2800 0ce9 01       		.uleb128 0x1
+ 2801 0cea 30       		.byte	0x30
+ 2802 0ceb 0C       		.uleb128 0xc
+ 2803 0cec 01       		.uleb128 0x1
+ 2804 0ced 52       		.byte	0x52
+ 2805 0cee 01       		.uleb128 0x1
+ 2806 0cef 30       		.byte	0x30
+ 2807 0cf0 0C       		.uleb128 0xc
+ 2808 0cf1 01       		.uleb128 0x1
+ 2809 0cf2 53       		.byte	0x53
+ 2810 0cf3 01       		.uleb128 0x1
+ 2811 0cf4 30       		.byte	0x30
+ 2812 0cf5 0C       		.uleb128 0xc
+ 2813 0cf6 02       		.uleb128 0x2
+ 2814 0cf7 7D       		.byte	0x7d
+ 2815 0cf8 00       		.sleb128 0
+ 2816 0cf9 02       		.uleb128 0x2
+ 2817 0cfa 09       		.byte	0x9
+ 2818 0cfb E0       		.byte	0xe0
+ 2819 0cfc 00       		.byte	0
+ 2820 0cfd 0B       		.uleb128 0xb
+ 2821 0cfe 08030000 		.4byte	.LVL139
+ 2822 0d02 25010000 		.4byte	0x125
+ 2823 0d06 110D0000 		.4byte	0xd11
+ 2824 0d0a 0C       		.uleb128 0xc
+ 2825 0d0b 01       		.uleb128 0x1
+ 2826 0d0c 50       		.byte	0x50
+ 2827 0d0d 02       		.uleb128 0x2
+ 2828 0d0e 09       		.byte	0x9
+ 2829 0d0f FF       		.byte	0xff
+ 2830 0d10 00       		.byte	0
+ 2831 0d11 0B       		.uleb128 0xb
+ 2832 0d12 0E030000 		.4byte	.LVL140
+ 2833 0d16 25010000 		.4byte	0x125
+ 2834 0d1a 250D0000 		.4byte	0xd25
+ 2835 0d1e 0C       		.uleb128 0xc
+ 2836 0d1f 01       		.uleb128 0x1
+ 2837 0d20 50       		.byte	0x50
+ 2838 0d21 02       		.uleb128 0x2
+ 2839 0d22 09       		.byte	0x9
+ 2840 0d23 FF       		.byte	0xff
+ 2841 0d24 00       		.byte	0
+ 2842 0d25 0B       		.uleb128 0xb
+ 2843 0d26 14030000 		.4byte	.LVL141
+ 2844 0d2a 25010000 		.4byte	0x125
+ 2845 0d2e 390D0000 		.4byte	0xd39
+ 2846 0d32 0C       		.uleb128 0xc
+ 2847 0d33 01       		.uleb128 0x1
+ 2848 0d34 50       		.byte	0x50
+ 2849 0d35 02       		.uleb128 0x2
+ 2850 0d36 09       		.byte	0x9
+ 2851 0d37 FF       		.byte	0xff
+ 2852 0d38 00       		.byte	0
+ 2853 0d39 0D       		.uleb128 0xd
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 56
+
+
+ 2854 0d3a 1A030000 		.4byte	.LVL142
+ 2855 0d3e 25010000 		.4byte	0x125
+ 2856 0d42 0C       		.uleb128 0xc
+ 2857 0d43 01       		.uleb128 0x1
+ 2858 0d44 50       		.byte	0x50
+ 2859 0d45 02       		.uleb128 0x2
+ 2860 0d46 09       		.byte	0x9
+ 2861 0d47 FF       		.byte	0xff
+ 2862 0d48 00       		.byte	0
+ 2863 0d49 00       		.byte	0
+ 2864 0d4a 10       		.uleb128 0x10
+ 2865 0d4b 2F010000 		.4byte	.LASF32
+ 2866 0d4f 05       		.byte	0x5
+ 2867 0d50 1207     		.2byte	0x712
+ 2868 0d52 560D0000 		.4byte	0xd56
+ 2869 0d56 11       		.uleb128 0x11
+ 2870 0d57 A2000000 		.4byte	0xa2
+ 2871 0d5b 12       		.uleb128 0x12
+ 2872 0d5c 6900     		.ascii	"i\000"
+ 2873 0d5e 01       		.byte	0x1
+ 2874 0d5f 11       		.byte	0x11
+ 2875 0d60 AD000000 		.4byte	0xad
+ 2876 0d64 05       		.uleb128 0x5
+ 2877 0d65 03       		.byte	0x3
+ 2878 0d66 00000000 		.4byte	i
+ 2879 0d6a 12       		.uleb128 0x12
+ 2880 0d6b 6A00     		.ascii	"j\000"
+ 2881 0d6d 01       		.byte	0x1
+ 2882 0d6e 11       		.byte	0x11
+ 2883 0d6f AD000000 		.4byte	0xad
+ 2884 0d73 05       		.uleb128 0x5
+ 2885 0d74 03       		.byte	0x3
+ 2886 0d75 00000000 		.4byte	j
+ 2887 0d79 12       		.uleb128 0x12
+ 2888 0d7a 5200     		.ascii	"R\000"
+ 2889 0d7c 01       		.byte	0x1
+ 2890 0d7d 12       		.byte	0x12
+ 2891 0d7e 8C000000 		.4byte	0x8c
+ 2892 0d82 05       		.uleb128 0x5
+ 2893 0d83 03       		.byte	0x3
+ 2894 0d84 00000000 		.4byte	R
+ 2895 0d88 12       		.uleb128 0x12
+ 2896 0d89 4700     		.ascii	"G\000"
+ 2897 0d8b 01       		.byte	0x1
+ 2898 0d8c 12       		.byte	0x12
+ 2899 0d8d 8C000000 		.4byte	0x8c
+ 2900 0d91 05       		.uleb128 0x5
+ 2901 0d92 03       		.byte	0x3
+ 2902 0d93 00000000 		.4byte	G
+ 2903 0d97 12       		.uleb128 0x12
+ 2904 0d98 4200     		.ascii	"B\000"
+ 2905 0d9a 01       		.byte	0x1
+ 2906 0d9b 12       		.byte	0x12
+ 2907 0d9c 8C000000 		.4byte	0x8c
+ 2908 0da0 05       		.uleb128 0x5
+ 2909 0da1 03       		.byte	0x3
+ 2910 0da2 00000000 		.4byte	B
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 57
+
+
+ 2911 0da6 13       		.uleb128 0x13
+ 2912 0da7 61000000 		.4byte	.LASF25
+ 2913 0dab 01       		.byte	0x1
+ 2914 0dac 13       		.byte	0x13
+ 2915 0dad 8C000000 		.4byte	0x8c
+ 2916 0db1 05       		.uleb128 0x5
+ 2917 0db2 03       		.byte	0x3
+ 2918 0db3 00000000 		.4byte	MaxB
+ 2919 0db7 12       		.uleb128 0x12
+ 2920 0db8 426E4200 		.ascii	"BnB\000"
+ 2921 0dbc 01       		.byte	0x1
+ 2922 0dbd 14       		.byte	0x14
+ 2923 0dbe 97000000 		.4byte	0x97
+ 2924 0dc2 05       		.uleb128 0x5
+ 2925 0dc3 03       		.byte	0x3
+ 2926 0dc4 00000000 		.4byte	BnB
+ 2927 0dc8 12       		.uleb128 0x12
+ 2928 0dc9 476E5200 		.ascii	"GnR\000"
+ 2929 0dcd 01       		.byte	0x1
+ 2930 0dce 15       		.byte	0x15
+ 2931 0dcf 97000000 		.4byte	0x97
+ 2932 0dd3 05       		.uleb128 0x5
+ 2933 0dd4 03       		.byte	0x3
+ 2934 0dd5 00000000 		.4byte	GnR
+ 2935 0dd9 13       		.uleb128 0x13
+ 2936 0dda 52000000 		.4byte	.LASF24
+ 2937 0dde 01       		.byte	0x1
+ 2938 0ddf 16       		.byte	0x16
+ 2939 0de0 8C000000 		.4byte	0x8c
+ 2940 0de4 05       		.uleb128 0x5
+ 2941 0de5 03       		.byte	0x3
+ 2942 0de6 00000000 		.4byte	LedCnt
+ 2943 0dea 14       		.uleb128 0x14
+ 2944 0deb 8C000000 		.4byte	0x8c
+ 2945 0def FA0D0000 		.4byte	0xdfa
+ 2946 0df3 15       		.uleb128 0x15
+ 2947 0df4 D5000000 		.4byte	0xd5
+ 2948 0df8 03       		.byte	0x3
+ 2949 0df9 00       		.byte	0
+ 2950 0dfa 13       		.uleb128 0x13
+ 2951 0dfb E4010000 		.4byte	.LASF33
+ 2952 0dff 01       		.byte	0x1
+ 2953 0e00 19       		.byte	0x19
+ 2954 0e01 EA0D0000 		.4byte	0xdea
+ 2955 0e05 05       		.uleb128 0x5
+ 2956 0e06 03       		.byte	0x3
+ 2957 0e07 00000000 		.4byte	STFB
+ 2958 0e0b 13       		.uleb128 0x13
+ 2959 0e0c C0010000 		.4byte	.LASF34
+ 2960 0e10 01       		.byte	0x1
+ 2961 0e11 1A       		.byte	0x1a
+ 2962 0e12 EA0D0000 		.4byte	0xdea
+ 2963 0e16 05       		.uleb128 0x5
+ 2964 0e17 03       		.byte	0x3
+ 2965 0e18 00000000 		.4byte	ENFB
+ 2966 0e1c 13       		.uleb128 0x13
+ 2967 0e1d 3F000000 		.4byte	.LASF35
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 58
+
+
+ 2968 0e21 01       		.byte	0x1
+ 2969 0e22 1D       		.byte	0x1d
+ 2970 0e23 EA0D0000 		.4byte	0xdea
+ 2971 0e27 05       		.uleb128 0x5
+ 2972 0e28 03       		.byte	0x3
+ 2973 0e29 00000000 		.4byte	SPI_RGB_DATA
+ 2974 0e2d 16       		.uleb128 0x16
+ 2975 0e2e 00000000 		.4byte	.LASF36
+ 2976 0e32 00000000 		.4byte	.LASF36
+ 2977 0e36 06       		.byte	0x6
+ 2978 0e37 26       		.byte	0x26
+ 2979 0e38 16       		.uleb128 0x16
+ 2980 0e39 1B020000 		.4byte	.LASF37
+ 2981 0e3d 1B020000 		.4byte	.LASF37
+ 2982 0e41 07       		.byte	0x7
+ 2983 0e42 26       		.byte	0x26
+ 2984 0e43 16       		.uleb128 0x16
+ 2985 0e44 65010000 		.4byte	.LASF38
+ 2986 0e48 65010000 		.4byte	.LASF38
+ 2987 0e4c 08       		.byte	0x8
+ 2988 0e4d 77       		.byte	0x77
+ 2989 0e4e 00       		.byte	0
+ 2990              		.section	.debug_abbrev,"",%progbits
+ 2991              	.Ldebug_abbrev0:
+ 2992 0000 01       		.uleb128 0x1
+ 2993 0001 11       		.uleb128 0x11
+ 2994 0002 01       		.byte	0x1
+ 2995 0003 25       		.uleb128 0x25
+ 2996 0004 0E       		.uleb128 0xe
+ 2997 0005 13       		.uleb128 0x13
+ 2998 0006 0B       		.uleb128 0xb
+ 2999 0007 03       		.uleb128 0x3
+ 3000 0008 0E       		.uleb128 0xe
+ 3001 0009 1B       		.uleb128 0x1b
+ 3002 000a 0E       		.uleb128 0xe
+ 3003 000b 55       		.uleb128 0x55
+ 3004 000c 17       		.uleb128 0x17
+ 3005 000d 11       		.uleb128 0x11
+ 3006 000e 01       		.uleb128 0x1
+ 3007 000f 10       		.uleb128 0x10
+ 3008 0010 17       		.uleb128 0x17
+ 3009 0011 00       		.byte	0
+ 3010 0012 00       		.byte	0
+ 3011 0013 02       		.uleb128 0x2
+ 3012 0014 24       		.uleb128 0x24
+ 3013 0015 00       		.byte	0
+ 3014 0016 0B       		.uleb128 0xb
+ 3015 0017 0B       		.uleb128 0xb
+ 3016 0018 3E       		.uleb128 0x3e
+ 3017 0019 0B       		.uleb128 0xb
+ 3018 001a 03       		.uleb128 0x3
+ 3019 001b 0E       		.uleb128 0xe
+ 3020 001c 00       		.byte	0
+ 3021 001d 00       		.byte	0
+ 3022 001e 03       		.uleb128 0x3
+ 3023 001f 16       		.uleb128 0x16
+ 3024 0020 00       		.byte	0
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 59
+
+
+ 3025 0021 03       		.uleb128 0x3
+ 3026 0022 0E       		.uleb128 0xe
+ 3027 0023 3A       		.uleb128 0x3a
+ 3028 0024 0B       		.uleb128 0xb
+ 3029 0025 3B       		.uleb128 0x3b
+ 3030 0026 0B       		.uleb128 0xb
+ 3031 0027 49       		.uleb128 0x49
+ 3032 0028 13       		.uleb128 0x13
+ 3033 0029 00       		.byte	0
+ 3034 002a 00       		.byte	0
+ 3035 002b 04       		.uleb128 0x4
+ 3036 002c 24       		.uleb128 0x24
+ 3037 002d 00       		.byte	0
+ 3038 002e 0B       		.uleb128 0xb
+ 3039 002f 0B       		.uleb128 0xb
+ 3040 0030 3E       		.uleb128 0x3e
+ 3041 0031 0B       		.uleb128 0xb
+ 3042 0032 03       		.uleb128 0x3
+ 3043 0033 08       		.uleb128 0x8
+ 3044 0034 00       		.byte	0
+ 3045 0035 00       		.byte	0
+ 3046 0036 05       		.uleb128 0x5
+ 3047 0037 16       		.uleb128 0x16
+ 3048 0038 00       		.byte	0
+ 3049 0039 03       		.uleb128 0x3
+ 3050 003a 0E       		.uleb128 0xe
+ 3051 003b 3A       		.uleb128 0x3a
+ 3052 003c 0B       		.uleb128 0xb
+ 3053 003d 3B       		.uleb128 0x3b
+ 3054 003e 05       		.uleb128 0x5
+ 3055 003f 49       		.uleb128 0x49
+ 3056 0040 13       		.uleb128 0x13
+ 3057 0041 00       		.byte	0
+ 3058 0042 00       		.byte	0
+ 3059 0043 06       		.uleb128 0x6
+ 3060 0044 2E       		.uleb128 0x2e
+ 3061 0045 01       		.byte	0x1
+ 3062 0046 3F       		.uleb128 0x3f
+ 3063 0047 19       		.uleb128 0x19
+ 3064 0048 03       		.uleb128 0x3
+ 3065 0049 0E       		.uleb128 0xe
+ 3066 004a 3A       		.uleb128 0x3a
+ 3067 004b 0B       		.uleb128 0xb
+ 3068 004c 3B       		.uleb128 0x3b
+ 3069 004d 0B       		.uleb128 0xb
+ 3070 004e 27       		.uleb128 0x27
+ 3071 004f 19       		.uleb128 0x19
+ 3072 0050 11       		.uleb128 0x11
+ 3073 0051 01       		.uleb128 0x1
+ 3074 0052 12       		.uleb128 0x12
+ 3075 0053 06       		.uleb128 0x6
+ 3076 0054 40       		.uleb128 0x40
+ 3077 0055 18       		.uleb128 0x18
+ 3078 0056 9742     		.uleb128 0x2117
+ 3079 0058 19       		.uleb128 0x19
+ 3080 0059 01       		.uleb128 0x1
+ 3081 005a 13       		.uleb128 0x13
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 60
+
+
+ 3082 005b 00       		.byte	0
+ 3083 005c 00       		.byte	0
+ 3084 005d 07       		.uleb128 0x7
+ 3085 005e 05       		.uleb128 0x5
+ 3086 005f 00       		.byte	0
+ 3087 0060 03       		.uleb128 0x3
+ 3088 0061 08       		.uleb128 0x8
+ 3089 0062 3A       		.uleb128 0x3a
+ 3090 0063 0B       		.uleb128 0xb
+ 3091 0064 3B       		.uleb128 0x3b
+ 3092 0065 0B       		.uleb128 0xb
+ 3093 0066 49       		.uleb128 0x49
+ 3094 0067 13       		.uleb128 0x13
+ 3095 0068 02       		.uleb128 0x2
+ 3096 0069 17       		.uleb128 0x17
+ 3097 006a 00       		.byte	0
+ 3098 006b 00       		.byte	0
+ 3099 006c 08       		.uleb128 0x8
+ 3100 006d 05       		.uleb128 0x5
+ 3101 006e 00       		.byte	0
+ 3102 006f 03       		.uleb128 0x3
+ 3103 0070 08       		.uleb128 0x8
+ 3104 0071 3A       		.uleb128 0x3a
+ 3105 0072 0B       		.uleb128 0xb
+ 3106 0073 3B       		.uleb128 0x3b
+ 3107 0074 0B       		.uleb128 0xb
+ 3108 0075 49       		.uleb128 0x49
+ 3109 0076 13       		.uleb128 0x13
+ 3110 0077 02       		.uleb128 0x2
+ 3111 0078 18       		.uleb128 0x18
+ 3112 0079 00       		.byte	0
+ 3113 007a 00       		.byte	0
+ 3114 007b 09       		.uleb128 0x9
+ 3115 007c 05       		.uleb128 0x5
+ 3116 007d 00       		.byte	0
+ 3117 007e 03       		.uleb128 0x3
+ 3118 007f 0E       		.uleb128 0xe
+ 3119 0080 3A       		.uleb128 0x3a
+ 3120 0081 0B       		.uleb128 0xb
+ 3121 0082 3B       		.uleb128 0x3b
+ 3122 0083 0B       		.uleb128 0xb
+ 3123 0084 49       		.uleb128 0x49
+ 3124 0085 13       		.uleb128 0x13
+ 3125 0086 02       		.uleb128 0x2
+ 3126 0087 17       		.uleb128 0x17
+ 3127 0088 00       		.byte	0
+ 3128 0089 00       		.byte	0
+ 3129 008a 0A       		.uleb128 0xa
+ 3130 008b 34       		.uleb128 0x34
+ 3131 008c 00       		.byte	0
+ 3132 008d 03       		.uleb128 0x3
+ 3133 008e 08       		.uleb128 0x8
+ 3134 008f 3A       		.uleb128 0x3a
+ 3135 0090 0B       		.uleb128 0xb
+ 3136 0091 3B       		.uleb128 0x3b
+ 3137 0092 0B       		.uleb128 0xb
+ 3138 0093 49       		.uleb128 0x49
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 61
+
+
+ 3139 0094 13       		.uleb128 0x13
+ 3140 0095 02       		.uleb128 0x2
+ 3141 0096 17       		.uleb128 0x17
+ 3142 0097 00       		.byte	0
+ 3143 0098 00       		.byte	0
+ 3144 0099 0B       		.uleb128 0xb
+ 3145 009a 898201   		.uleb128 0x4109
+ 3146 009d 01       		.byte	0x1
+ 3147 009e 11       		.uleb128 0x11
+ 3148 009f 01       		.uleb128 0x1
+ 3149 00a0 31       		.uleb128 0x31
+ 3150 00a1 13       		.uleb128 0x13
+ 3151 00a2 01       		.uleb128 0x1
+ 3152 00a3 13       		.uleb128 0x13
+ 3153 00a4 00       		.byte	0
+ 3154 00a5 00       		.byte	0
+ 3155 00a6 0C       		.uleb128 0xc
+ 3156 00a7 8A8201   		.uleb128 0x410a
+ 3157 00aa 00       		.byte	0
+ 3158 00ab 02       		.uleb128 0x2
+ 3159 00ac 18       		.uleb128 0x18
+ 3160 00ad 9142     		.uleb128 0x2111
+ 3161 00af 18       		.uleb128 0x18
+ 3162 00b0 00       		.byte	0
+ 3163 00b1 00       		.byte	0
+ 3164 00b2 0D       		.uleb128 0xd
+ 3165 00b3 898201   		.uleb128 0x4109
+ 3166 00b6 01       		.byte	0x1
+ 3167 00b7 11       		.uleb128 0x11
+ 3168 00b8 01       		.uleb128 0x1
+ 3169 00b9 31       		.uleb128 0x31
+ 3170 00ba 13       		.uleb128 0x13
+ 3171 00bb 00       		.byte	0
+ 3172 00bc 00       		.byte	0
+ 3173 00bd 0E       		.uleb128 0xe
+ 3174 00be 2E       		.uleb128 0x2e
+ 3175 00bf 01       		.byte	0x1
+ 3176 00c0 3F       		.uleb128 0x3f
+ 3177 00c1 19       		.uleb128 0x19
+ 3178 00c2 03       		.uleb128 0x3
+ 3179 00c3 08       		.uleb128 0x8
+ 3180 00c4 3A       		.uleb128 0x3a
+ 3181 00c5 0B       		.uleb128 0xb
+ 3182 00c6 3B       		.uleb128 0x3b
+ 3183 00c7 0B       		.uleb128 0xb
+ 3184 00c8 27       		.uleb128 0x27
+ 3185 00c9 19       		.uleb128 0x19
+ 3186 00ca 11       		.uleb128 0x11
+ 3187 00cb 01       		.uleb128 0x1
+ 3188 00cc 12       		.uleb128 0x12
+ 3189 00cd 06       		.uleb128 0x6
+ 3190 00ce 40       		.uleb128 0x40
+ 3191 00cf 18       		.uleb128 0x18
+ 3192 00d0 9742     		.uleb128 0x2117
+ 3193 00d2 19       		.uleb128 0x19
+ 3194 00d3 01       		.uleb128 0x1
+ 3195 00d4 13       		.uleb128 0x13
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 62
+
+
+ 3196 00d5 00       		.byte	0
+ 3197 00d6 00       		.byte	0
+ 3198 00d7 0F       		.uleb128 0xf
+ 3199 00d8 898201   		.uleb128 0x4109
+ 3200 00db 00       		.byte	0
+ 3201 00dc 11       		.uleb128 0x11
+ 3202 00dd 01       		.uleb128 0x1
+ 3203 00de 31       		.uleb128 0x31
+ 3204 00df 13       		.uleb128 0x13
+ 3205 00e0 00       		.byte	0
+ 3206 00e1 00       		.byte	0
+ 3207 00e2 10       		.uleb128 0x10
+ 3208 00e3 34       		.uleb128 0x34
+ 3209 00e4 00       		.byte	0
+ 3210 00e5 03       		.uleb128 0x3
+ 3211 00e6 0E       		.uleb128 0xe
+ 3212 00e7 3A       		.uleb128 0x3a
+ 3213 00e8 0B       		.uleb128 0xb
+ 3214 00e9 3B       		.uleb128 0x3b
+ 3215 00ea 05       		.uleb128 0x5
+ 3216 00eb 49       		.uleb128 0x49
+ 3217 00ec 13       		.uleb128 0x13
+ 3218 00ed 3F       		.uleb128 0x3f
+ 3219 00ee 19       		.uleb128 0x19
+ 3220 00ef 3C       		.uleb128 0x3c
+ 3221 00f0 19       		.uleb128 0x19
+ 3222 00f1 00       		.byte	0
+ 3223 00f2 00       		.byte	0
+ 3224 00f3 11       		.uleb128 0x11
+ 3225 00f4 35       		.uleb128 0x35
+ 3226 00f5 00       		.byte	0
+ 3227 00f6 49       		.uleb128 0x49
+ 3228 00f7 13       		.uleb128 0x13
+ 3229 00f8 00       		.byte	0
+ 3230 00f9 00       		.byte	0
+ 3231 00fa 12       		.uleb128 0x12
+ 3232 00fb 34       		.uleb128 0x34
+ 3233 00fc 00       		.byte	0
+ 3234 00fd 03       		.uleb128 0x3
+ 3235 00fe 08       		.uleb128 0x8
+ 3236 00ff 3A       		.uleb128 0x3a
+ 3237 0100 0B       		.uleb128 0xb
+ 3238 0101 3B       		.uleb128 0x3b
+ 3239 0102 0B       		.uleb128 0xb
+ 3240 0103 49       		.uleb128 0x49
+ 3241 0104 13       		.uleb128 0x13
+ 3242 0105 3F       		.uleb128 0x3f
+ 3243 0106 19       		.uleb128 0x19
+ 3244 0107 02       		.uleb128 0x2
+ 3245 0108 18       		.uleb128 0x18
+ 3246 0109 00       		.byte	0
+ 3247 010a 00       		.byte	0
+ 3248 010b 13       		.uleb128 0x13
+ 3249 010c 34       		.uleb128 0x34
+ 3250 010d 00       		.byte	0
+ 3251 010e 03       		.uleb128 0x3
+ 3252 010f 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 63
+
+
+ 3253 0110 3A       		.uleb128 0x3a
+ 3254 0111 0B       		.uleb128 0xb
+ 3255 0112 3B       		.uleb128 0x3b
+ 3256 0113 0B       		.uleb128 0xb
+ 3257 0114 49       		.uleb128 0x49
+ 3258 0115 13       		.uleb128 0x13
+ 3259 0116 3F       		.uleb128 0x3f
+ 3260 0117 19       		.uleb128 0x19
+ 3261 0118 02       		.uleb128 0x2
+ 3262 0119 18       		.uleb128 0x18
+ 3263 011a 00       		.byte	0
+ 3264 011b 00       		.byte	0
+ 3265 011c 14       		.uleb128 0x14
+ 3266 011d 01       		.uleb128 0x1
+ 3267 011e 01       		.byte	0x1
+ 3268 011f 49       		.uleb128 0x49
+ 3269 0120 13       		.uleb128 0x13
+ 3270 0121 01       		.uleb128 0x1
+ 3271 0122 13       		.uleb128 0x13
+ 3272 0123 00       		.byte	0
+ 3273 0124 00       		.byte	0
+ 3274 0125 15       		.uleb128 0x15
+ 3275 0126 21       		.uleb128 0x21
+ 3276 0127 00       		.byte	0
+ 3277 0128 49       		.uleb128 0x49
+ 3278 0129 13       		.uleb128 0x13
+ 3279 012a 2F       		.uleb128 0x2f
+ 3280 012b 0B       		.uleb128 0xb
+ 3281 012c 00       		.byte	0
+ 3282 012d 00       		.byte	0
+ 3283 012e 16       		.uleb128 0x16
+ 3284 012f 2E       		.uleb128 0x2e
+ 3285 0130 00       		.byte	0
+ 3286 0131 3F       		.uleb128 0x3f
+ 3287 0132 19       		.uleb128 0x19
+ 3288 0133 3C       		.uleb128 0x3c
+ 3289 0134 19       		.uleb128 0x19
+ 3290 0135 6E       		.uleb128 0x6e
+ 3291 0136 0E       		.uleb128 0xe
+ 3292 0137 03       		.uleb128 0x3
+ 3293 0138 0E       		.uleb128 0xe
+ 3294 0139 3A       		.uleb128 0x3a
+ 3295 013a 0B       		.uleb128 0xb
+ 3296 013b 3B       		.uleb128 0x3b
+ 3297 013c 0B       		.uleb128 0xb
+ 3298 013d 00       		.byte	0
+ 3299 013e 00       		.byte	0
+ 3300 013f 00       		.byte	0
+ 3301              		.section	.debug_loc,"",%progbits
+ 3302              	.Ldebug_loc0:
+ 3303              	.LLST0:
+ 3304 0000 00000000 		.4byte	.LVL0
+ 3305 0004 06000000 		.4byte	.LVL1
+ 3306 0008 0100     		.2byte	0x1
+ 3307 000a 50       		.byte	0x50
+ 3308 000b 06000000 		.4byte	.LVL1
+ 3309 000f 1C000000 		.4byte	.LFE64
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 64
+
+
+ 3310 0013 0400     		.2byte	0x4
+ 3311 0015 F3       		.byte	0xf3
+ 3312 0016 01       		.uleb128 0x1
+ 3313 0017 50       		.byte	0x50
+ 3314 0018 9F       		.byte	0x9f
+ 3315 0019 00000000 		.4byte	0
+ 3316 001d 00000000 		.4byte	0
+ 3317              	.LLST1:
+ 3318 0021 00000000 		.4byte	.LVL0
+ 3319 0025 12000000 		.4byte	.LVL3
+ 3320 0029 0100     		.2byte	0x1
+ 3321 002b 52       		.byte	0x52
+ 3322 002c 12000000 		.4byte	.LVL3
+ 3323 0030 1C000000 		.4byte	.LFE64
+ 3324 0034 0400     		.2byte	0x4
+ 3325 0036 F3       		.byte	0xf3
+ 3326 0037 01       		.uleb128 0x1
+ 3327 0038 52       		.byte	0x52
+ 3328 0039 9F       		.byte	0x9f
+ 3329 003a 00000000 		.4byte	0
+ 3330 003e 00000000 		.4byte	0
+ 3331              	.LLST2:
+ 3332 0042 00000000 		.4byte	.LVL0
+ 3333 0046 0C000000 		.4byte	.LVL2
+ 3334 004a 0100     		.2byte	0x1
+ 3335 004c 53       		.byte	0x53
+ 3336 004d 0C000000 		.4byte	.LVL2
+ 3337 0051 1C000000 		.4byte	.LFE64
+ 3338 0055 0400     		.2byte	0x4
+ 3339 0057 F3       		.byte	0xf3
+ 3340 0058 01       		.uleb128 0x1
+ 3341 0059 53       		.byte	0x53
+ 3342 005a 9F       		.byte	0x9f
+ 3343 005b 00000000 		.4byte	0
+ 3344 005f 00000000 		.4byte	0
+ 3345              	.LLST3:
+ 3346 0063 00000000 		.4byte	.LVL4
+ 3347 0067 08000000 		.4byte	.LVL6
+ 3348 006b 0100     		.2byte	0x1
+ 3349 006d 50       		.byte	0x50
+ 3350 006e 08000000 		.4byte	.LVL6
+ 3351 0072 36000000 		.4byte	.LFE67
+ 3352 0076 0400     		.2byte	0x4
+ 3353 0078 F3       		.byte	0xf3
+ 3354 0079 01       		.uleb128 0x1
+ 3355 007a 50       		.byte	0x50
+ 3356 007b 9F       		.byte	0x9f
+ 3357 007c 00000000 		.4byte	0
+ 3358 0080 00000000 		.4byte	0
+ 3359              	.LLST4:
+ 3360 0084 04000000 		.4byte	.LVL5
+ 3361 0088 08000000 		.4byte	.LVL6
+ 3362 008c 0200     		.2byte	0x2
+ 3363 008e 38       		.byte	0x38
+ 3364 008f 9F       		.byte	0x9f
+ 3365 0090 08000000 		.4byte	.LVL6
+ 3366 0094 15000000 		.4byte	.LVL7-1
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 65
+
+
+ 3367 0098 0100     		.2byte	0x1
+ 3368 009a 53       		.byte	0x53
+ 3369 009b 30000000 		.4byte	.LVL12
+ 3370 009f 36000000 		.4byte	.LFE67
+ 3371 00a3 0100     		.2byte	0x1
+ 3372 00a5 53       		.byte	0x53
+ 3373 00a6 00000000 		.4byte	0
+ 3374 00aa 00000000 		.4byte	0
+ 3375              	.LLST5:
+ 3376 00ae 00000000 		.4byte	.LVL13
+ 3377 00b2 0C000000 		.4byte	.LVL14
+ 3378 00b6 0100     		.2byte	0x1
+ 3379 00b8 50       		.byte	0x50
+ 3380 00b9 0C000000 		.4byte	.LVL14
+ 3381 00bd F0000000 		.4byte	.LFE63
+ 3382 00c1 0400     		.2byte	0x4
+ 3383 00c3 F3       		.byte	0xf3
+ 3384 00c4 01       		.uleb128 0x1
+ 3385 00c5 50       		.byte	0x50
+ 3386 00c6 9F       		.byte	0x9f
+ 3387 00c7 00000000 		.4byte	0
+ 3388 00cb 00000000 		.4byte	0
+ 3389              	.LLST6:
+ 3390 00cf 00000000 		.4byte	.LVL13
+ 3391 00d3 0F000000 		.4byte	.LVL15-1
+ 3392 00d7 0100     		.2byte	0x1
+ 3393 00d9 51       		.byte	0x51
+ 3394 00da 0F000000 		.4byte	.LVL15-1
+ 3395 00de F0000000 		.4byte	.LFE63
+ 3396 00e2 0400     		.2byte	0x4
+ 3397 00e4 F3       		.byte	0xf3
+ 3398 00e5 01       		.uleb128 0x1
+ 3399 00e6 51       		.byte	0x51
+ 3400 00e7 9F       		.byte	0x9f
+ 3401 00e8 00000000 		.4byte	0
+ 3402 00ec 00000000 		.4byte	0
+ 3403              	.LLST7:
+ 3404 00f0 00000000 		.4byte	.LVL13
+ 3405 00f4 0F000000 		.4byte	.LVL15-1
+ 3406 00f8 0100     		.2byte	0x1
+ 3407 00fa 52       		.byte	0x52
+ 3408 00fb 0F000000 		.4byte	.LVL15-1
+ 3409 00ff F0000000 		.4byte	.LFE63
+ 3410 0103 0400     		.2byte	0x4
+ 3411 0105 F3       		.byte	0xf3
+ 3412 0106 01       		.uleb128 0x1
+ 3413 0107 52       		.byte	0x52
+ 3414 0108 9F       		.byte	0x9f
+ 3415 0109 00000000 		.4byte	0
+ 3416 010d 00000000 		.4byte	0
+ 3417              	.LLST8:
+ 3418 0111 00000000 		.4byte	.LVL13
+ 3419 0115 0F000000 		.4byte	.LVL15-1
+ 3420 0119 0100     		.2byte	0x1
+ 3421 011b 53       		.byte	0x53
+ 3422 011c 0F000000 		.4byte	.LVL15-1
+ 3423 0120 F0000000 		.4byte	.LFE63
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 66
+
+
+ 3424 0124 0400     		.2byte	0x4
+ 3425 0126 F3       		.byte	0xf3
+ 3426 0127 01       		.uleb128 0x1
+ 3427 0128 53       		.byte	0x53
+ 3428 0129 9F       		.byte	0x9f
+ 3429 012a 00000000 		.4byte	0
+ 3430 012e 00000000 		.4byte	0
+ 3431              	.LLST9:
+ 3432 0132 00000000 		.4byte	.LVL13
+ 3433 0136 E6000000 		.4byte	.LVL40
+ 3434 013a 0200     		.2byte	0x2
+ 3435 013c 91       		.byte	0x91
+ 3436 013d 00       		.sleb128 0
+ 3437 013e E6000000 		.4byte	.LVL40
+ 3438 0142 F0000000 		.4byte	.LFE63
+ 3439 0146 0200     		.2byte	0x2
+ 3440 0148 7D       		.byte	0x7d
+ 3441 0149 00       		.sleb128 0
+ 3442 014a 00000000 		.4byte	0
+ 3443 014e 00000000 		.4byte	0
+ 3444              	.LLST10:
+ 3445 0152 00000000 		.4byte	.LVL41
+ 3446 0156 08000000 		.4byte	.LVL42
+ 3447 015a 0100     		.2byte	0x1
+ 3448 015c 50       		.byte	0x50
+ 3449 015d 08000000 		.4byte	.LVL42
+ 3450 0161 54000000 		.4byte	.LFE66
+ 3451 0165 0400     		.2byte	0x4
+ 3452 0167 F3       		.byte	0xf3
+ 3453 0168 01       		.uleb128 0x1
+ 3454 0169 50       		.byte	0x50
+ 3455 016a 9F       		.byte	0x9f
+ 3456 016b 00000000 		.4byte	0
+ 3457 016f 00000000 		.4byte	0
+ 3458              	.LLST11:
+ 3459 0173 00000000 		.4byte	.LVL41
+ 3460 0177 0B000000 		.4byte	.LVL43-1
+ 3461 017b 0100     		.2byte	0x1
+ 3462 017d 51       		.byte	0x51
+ 3463 017e 0B000000 		.4byte	.LVL43-1
+ 3464 0182 54000000 		.4byte	.LFE66
+ 3465 0186 0400     		.2byte	0x4
+ 3466 0188 F3       		.byte	0xf3
+ 3467 0189 01       		.uleb128 0x1
+ 3468 018a 51       		.byte	0x51
+ 3469 018b 9F       		.byte	0x9f
+ 3470 018c 00000000 		.4byte	0
+ 3471 0190 00000000 		.4byte	0
+ 3472              	.LLST12:
+ 3473 0194 00000000 		.4byte	.LVL41
+ 3474 0198 0B000000 		.4byte	.LVL43-1
+ 3475 019c 0100     		.2byte	0x1
+ 3476 019e 52       		.byte	0x52
+ 3477 019f 0B000000 		.4byte	.LVL43-1
+ 3478 01a3 54000000 		.4byte	.LFE66
+ 3479 01a7 0400     		.2byte	0x4
+ 3480 01a9 F3       		.byte	0xf3
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 67
+
+
+ 3481 01aa 01       		.uleb128 0x1
+ 3482 01ab 52       		.byte	0x52
+ 3483 01ac 9F       		.byte	0x9f
+ 3484 01ad 00000000 		.4byte	0
+ 3485 01b1 00000000 		.4byte	0
+ 3486              	.LLST13:
+ 3487 01b5 00000000 		.4byte	.LVL41
+ 3488 01b9 0B000000 		.4byte	.LVL43-1
+ 3489 01bd 0100     		.2byte	0x1
+ 3490 01bf 53       		.byte	0x53
+ 3491 01c0 0B000000 		.4byte	.LVL43-1
+ 3492 01c4 54000000 		.4byte	.LFE66
+ 3493 01c8 0400     		.2byte	0x4
+ 3494 01ca F3       		.byte	0xf3
+ 3495 01cb 01       		.uleb128 0x1
+ 3496 01cc 53       		.byte	0x53
+ 3497 01cd 9F       		.byte	0x9f
+ 3498 01ce 00000000 		.4byte	0
+ 3499 01d2 00000000 		.4byte	0
+ 3500              	.LLST14:
+ 3501 01d6 00000000 		.4byte	.LVL41
+ 3502 01da 4A000000 		.4byte	.LVL48
+ 3503 01de 0200     		.2byte	0x2
+ 3504 01e0 91       		.byte	0x91
+ 3505 01e1 00       		.sleb128 0
+ 3506 01e2 4A000000 		.4byte	.LVL48
+ 3507 01e6 54000000 		.4byte	.LFE66
+ 3508 01ea 0200     		.2byte	0x2
+ 3509 01ec 7D       		.byte	0x7d
+ 3510 01ed 00       		.sleb128 0
+ 3511 01ee 00000000 		.4byte	0
+ 3512 01f2 00000000 		.4byte	0
+ 3513              	.LLST15:
+ 3514 01f6 00000000 		.4byte	.LVL49
+ 3515 01fa 14000000 		.4byte	.LVL50
+ 3516 01fe 0100     		.2byte	0x1
+ 3517 0200 50       		.byte	0x50
+ 3518 0201 14000000 		.4byte	.LVL50
+ 3519 0205 24030000 		.4byte	.LFE65
+ 3520 0209 0400     		.2byte	0x4
+ 3521 020b F3       		.byte	0xf3
+ 3522 020c 01       		.uleb128 0x1
+ 3523 020d 50       		.byte	0x50
+ 3524 020e 9F       		.byte	0x9f
+ 3525 020f 00000000 		.4byte	0
+ 3526 0213 00000000 		.4byte	0
+ 3527              	.LLST16:
+ 3528 0217 00000000 		.4byte	.LVL49
+ 3529 021b 17000000 		.4byte	.LVL51-1
+ 3530 021f 0100     		.2byte	0x1
+ 3531 0221 51       		.byte	0x51
+ 3532 0222 17000000 		.4byte	.LVL51-1
+ 3533 0226 24030000 		.4byte	.LFE65
+ 3534 022a 0400     		.2byte	0x4
+ 3535 022c F3       		.byte	0xf3
+ 3536 022d 01       		.uleb128 0x1
+ 3537 022e 51       		.byte	0x51
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 68
+
+
+ 3538 022f 9F       		.byte	0x9f
+ 3539 0230 00000000 		.4byte	0
+ 3540 0234 00000000 		.4byte	0
+ 3541              	.LLST17:
+ 3542 0238 00000000 		.4byte	.LVL49
+ 3543 023c 17000000 		.4byte	.LVL51-1
+ 3544 0240 0100     		.2byte	0x1
+ 3545 0242 52       		.byte	0x52
+ 3546 0243 17000000 		.4byte	.LVL51-1
+ 3547 0247 24030000 		.4byte	.LFE65
+ 3548 024b 0400     		.2byte	0x4
+ 3549 024d F3       		.byte	0xf3
+ 3550 024e 01       		.uleb128 0x1
+ 3551 024f 52       		.byte	0x52
+ 3552 0250 9F       		.byte	0x9f
+ 3553 0251 00000000 		.4byte	0
+ 3554 0255 00000000 		.4byte	0
+ 3555              	.LLST18:
+ 3556 0259 00000000 		.4byte	.LVL49
+ 3557 025d 17000000 		.4byte	.LVL51-1
+ 3558 0261 0100     		.2byte	0x1
+ 3559 0263 53       		.byte	0x53
+ 3560 0264 17000000 		.4byte	.LVL51-1
+ 3561 0268 24030000 		.4byte	.LFE65
+ 3562 026c 0400     		.2byte	0x4
+ 3563 026e F3       		.byte	0xf3
+ 3564 026f 01       		.uleb128 0x1
+ 3565 0270 53       		.byte	0x53
+ 3566 0271 9F       		.byte	0x9f
+ 3567 0272 00000000 		.4byte	0
+ 3568 0276 00000000 		.4byte	0
+ 3569              	.LLST19:
+ 3570 027a 00000000 		.4byte	.LVL49
+ 3571 027e 20030000 		.4byte	.LVL143
+ 3572 0282 0200     		.2byte	0x2
+ 3573 0284 91       		.byte	0x91
+ 3574 0285 00       		.sleb128 0
+ 3575 0286 20030000 		.4byte	.LVL143
+ 3576 028a 24030000 		.4byte	.LFE65
+ 3577 028e 0200     		.2byte	0x2
+ 3578 0290 7D       		.byte	0x7d
+ 3579 0291 00       		.sleb128 0
+ 3580 0292 00000000 		.4byte	0
+ 3581 0296 00000000 		.4byte	0
+ 3582              		.section	.debug_aranges,"",%progbits
+ 3583 0000 3C000000 		.4byte	0x3c
+ 3584 0004 0200     		.2byte	0x2
+ 3585 0006 00000000 		.4byte	.Ldebug_info0
+ 3586 000a 04       		.byte	0x4
+ 3587 000b 00       		.byte	0
+ 3588 000c 0000     		.2byte	0
+ 3589 000e 0000     		.2byte	0
+ 3590 0010 00000000 		.4byte	.LFB64
+ 3591 0014 1C000000 		.4byte	.LFE64-.LFB64
+ 3592 0018 00000000 		.4byte	.LFB67
+ 3593 001c 36000000 		.4byte	.LFE67-.LFB67
+ 3594 0020 00000000 		.4byte	.LFB63
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 69
+
+
+ 3595 0024 F0000000 		.4byte	.LFE63-.LFB63
+ 3596 0028 00000000 		.4byte	.LFB66
+ 3597 002c 54000000 		.4byte	.LFE66-.LFB66
+ 3598 0030 00000000 		.4byte	.LFB65
+ 3599 0034 24030000 		.4byte	.LFE65-.LFB65
+ 3600 0038 00000000 		.4byte	0
+ 3601 003c 00000000 		.4byte	0
+ 3602              		.section	.debug_ranges,"",%progbits
+ 3603              	.Ldebug_ranges0:
+ 3604 0000 00000000 		.4byte	.LFB64
+ 3605 0004 1C000000 		.4byte	.LFE64
+ 3606 0008 00000000 		.4byte	.LFB67
+ 3607 000c 36000000 		.4byte	.LFE67
+ 3608 0010 00000000 		.4byte	.LFB63
+ 3609 0014 F0000000 		.4byte	.LFE63
+ 3610 0018 00000000 		.4byte	.LFB66
+ 3611 001c 54000000 		.4byte	.LFE66
+ 3612 0020 00000000 		.4byte	.LFB65
+ 3613 0024 24030000 		.4byte	.LFE65
+ 3614 0028 00000000 		.4byte	0
+ 3615 002c 00000000 		.4byte	0
+ 3616              		.section	.debug_line,"",%progbits
+ 3617              	.Ldebug_line0:
+ 3618 0000 C7020000 		.section	.debug_str,"MS",%progbits,1
+ 3618      02007D01 
+ 3618      00000201 
+ 3618      FB0E0D00 
+ 3618      01010101 
+ 3619              	.LASF36:
+ 3620 0000 50696E5F 		.ascii	"Pin_SDO_RGB_Write\000"
+ 3620      53444F5F 
+ 3620      5247425F 
+ 3620      57726974 
+ 3620      6500
+ 3621              	.LASF3:
+ 3622 0012 5F5F7569 		.ascii	"__uint8_t\000"
+ 3622      6E74385F 
+ 3622      7400
+ 3623              	.LASF31:
+ 3624 001c 526E674D 		.ascii	"RngMB\000"
+ 3624      4200
+ 3625              	.LASF26:
+ 3626 0022 52696E67 		.ascii	"Ring\000"
+ 3626      00
+ 3627              	.LASF6:
+ 3628 0027 5F5F696E 		.ascii	"__int32_t\000"
+ 3628      7433325F 
+ 3628      7400
+ 3629              	.LASF22:
+ 3630 0031 5247425F 		.ascii	"RGB_Byte_TxOp\000"
+ 3630      42797465 
+ 3630      5F54784F 
+ 3630      7000
+ 3631              	.LASF35:
+ 3632 003f 5350495F 		.ascii	"SPI_RGB_DATA\000"
+ 3632      5247425F 
+ 3632      44415441 
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 70
+
+
+ 3632      00
+ 3633              	.LASF15:
+ 3634 004c 75696E74 		.ascii	"uint8\000"
+ 3634      3800
+ 3635              	.LASF24:
+ 3636 0052 4C656443 		.ascii	"LedCnt\000"
+ 3636      6E7400
+ 3637              	.LASF14:
+ 3638 0059 696E7433 		.ascii	"int32_t\000"
+ 3638      325F7400 
+ 3639              	.LASF25:
+ 3640 0061 4D617842 		.ascii	"MaxB\000"
+ 3640      00
+ 3641              	.LASF16:
+ 3642 0066 666C6F61 		.ascii	"float\000"
+ 3642      7400
+ 3643              	.LASF29:
+ 3644 006c 526E6747 		.ascii	"RngG\000"
+ 3644      00
+ 3645              	.LASF39:
+ 3646 0071 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 3646      43313120 
+ 3646      352E342E 
+ 3646      31203230 
+ 3646      31363036 
+ 3647 00a4 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 3647      20726576 
+ 3647      6973696F 
+ 3647      6E203233 
+ 3647      37373135 
+ 3648 00d7 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 3648      66756E63 
+ 3648      74696F6E 
+ 3648      2D736563 
+ 3648      74696F6E 
+ 3649              	.LASF23:
+ 3650 00ff 5247425F 		.ascii	"RGB_TxByte\000"
+ 3650      54784279 
+ 3650      746500
+ 3651              	.LASF8:
+ 3652 010a 6C6F6E67 		.ascii	"long unsigned int\000"
+ 3652      20756E73 
+ 3652      69676E65 
+ 3652      6420696E 
+ 3652      7400
+ 3653              	.LASF5:
+ 3654 011c 73686F72 		.ascii	"short unsigned int\000"
+ 3654      7420756E 
+ 3654      7369676E 
+ 3654      65642069 
+ 3654      6E7400
+ 3655              	.LASF32:
+ 3656 012f 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 3656      52784275 
+ 3656      66666572 
+ 3656      00
+ 3657              	.LASF1:
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 71
+
+
+ 3658 013c 756E7369 		.ascii	"unsigned char\000"
+ 3658      676E6564 
+ 3658      20636861 
+ 3658      7200
+ 3659              	.LASF4:
+ 3660 014a 5F5F7569 		.ascii	"__uint16_t\000"
+ 3660      6E743136 
+ 3660      5F7400
+ 3661              	.LASF17:
+ 3662 0155 646F7562 		.ascii	"double\000"
+ 3662      6C6500
+ 3663              	.LASF40:
+ 3664 015c 41504131 		.ascii	"APA102.c\000"
+ 3664      30322E63 
+ 3664      00
+ 3665              	.LASF38:
+ 3666 0165 43794465 		.ascii	"CyDelayUs\000"
+ 3666      6C617955 
+ 3666      7300
+ 3667              	.LASF41:
+ 3668 016f 433A5C55 		.ascii	"C:\\Users\\Revanth\\Documents\\GitHub\\AS76_FFP\\AS"
+ 3668      73657273 
+ 3668      5C526576 
+ 3668      616E7468 
+ 3668      5C446F63 
+ 3669 019c 37365F46 		.ascii	"76_FFP\\AS76_FFP5.cydsn\000"
+ 3669      46505C41 
+ 3669      5337365F 
+ 3669      46465035 
+ 3669      2E637964 
+ 3670              	.LASF11:
+ 3671 01b3 756E7369 		.ascii	"unsigned int\000"
+ 3671      676E6564 
+ 3671      20696E74 
+ 3671      00
+ 3672              	.LASF34:
+ 3673 01c0 454E4642 		.ascii	"ENFB\000"
+ 3673      00
+ 3674              	.LASF10:
+ 3675 01c5 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 3675      206C6F6E 
+ 3675      6720756E 
+ 3675      7369676E 
+ 3675      65642069 
+ 3676              	.LASF12:
+ 3677 01dc 75696E74 		.ascii	"uint8_t\000"
+ 3677      385F7400 
+ 3678              	.LASF33:
+ 3679 01e4 53544642 		.ascii	"STFB\000"
+ 3679      00
+ 3680              	.LASF19:
+ 3681 01e9 6C6F6E67 		.ascii	"long double\000"
+ 3681      20646F75 
+ 3681      626C6500 
+ 3682              	.LASF20:
+ 3683 01f5 73697A65 		.ascii	"sizetype\000"
+ 3683      74797065 
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccl8lsUF.s 			page 72
+
+
+ 3683      00
+ 3684              	.LASF9:
+ 3685 01fe 6C6F6E67 		.ascii	"long long int\000"
+ 3685      206C6F6E 
+ 3685      6720696E 
+ 3685      7400
+ 3686              	.LASF18:
+ 3687 020c 63686172 		.ascii	"char\000"
+ 3687      00
+ 3688              	.LASF2:
+ 3689 0211 73686F72 		.ascii	"short int\000"
+ 3689      7420696E 
+ 3689      7400
+ 3690              	.LASF37:
+ 3691 021b 50696E5F 		.ascii	"Pin_Clock_RGB_Write\000"
+ 3691      436C6F63 
+ 3691      6B5F5247 
+ 3691      425F5772 
+ 3691      69746500 
+ 3692              	.LASF13:
+ 3693 022f 75696E74 		.ascii	"uint16_t\000"
+ 3693      31365F74 
+ 3693      00
+ 3694              	.LASF30:
+ 3695 0238 526E6742 		.ascii	"RngB\000"
+ 3695      00
+ 3696              	.LASF7:
+ 3697 023d 6C6F6E67 		.ascii	"long int\000"
+ 3697      20696E74 
+ 3697      00
+ 3698              	.LASF21:
+ 3699 0246 4C656446 		.ascii	"LedFrame\000"
+ 3699      72616D65 
+ 3699      00
+ 3700              	.LASF0:
+ 3701 024f 7369676E 		.ascii	"signed char\000"
+ 3701      65642063 
+ 3701      68617200 
+ 3702              	.LASF27:
+ 3703 025b 526E6743 		.ascii	"RngCnt\000"
+ 3703      6E7400
+ 3704              	.LASF28:
+ 3705 0262 526E6752 		.ascii	"RngR\000"
+ 3705      00
+ 3706              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

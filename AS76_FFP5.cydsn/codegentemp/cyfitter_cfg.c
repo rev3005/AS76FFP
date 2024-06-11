@@ -372,6 +372,10 @@ void cyfitter_cfg(void)
 	static const uint8 CYCODE BS_IOPINS0_5_VAL[] = {
 		0x7Cu, 0x00u, 0x03u, 0x7Cu, 0x7Cu, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u};
 
+	/* IOPINS0_6 Address: CYREG_PRT6_DM0 Size (bytes): 8 */
+	static const uint8 CYCODE BS_IOPINS0_6_VAL[] = {
+		0x00u, 0x60u, 0x60u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u};
+
 #ifdef CYGlobalIntDisable
 	/* Disable interrupts by default. Let user enable if/when they want. */
 	CYGlobalIntDisable
@@ -2298,7 +2302,6 @@ void cyfitter_cfg(void)
 		static const cfg_memset_t CYCODE cfg_memset_list[] = {
 			/* address, size */
 			{(void CYFAR *)(CYREG_TMR0_CFG0), 48u},
-			{(void CYFAR *)(CYREG_PRT6_DR), 16u},
 			{(void CYFAR *)(CYREG_PRT12_DR), 16u},
 			{(void CYFAR *)(CYDEV_UCFG_B0_P0_U0_BASE), 2688u},
 			{(void CYFAR *)(CYDEV_UCFG_B0_P5_ROUTE_BASE), 1280u},
@@ -2372,6 +2375,7 @@ void cyfitter_cfg(void)
 	CYCONFIGCPYCODE((void CYFAR *)(CYREG_PRT3_DR), (const void CYCODE *)(BS_IOPINS0_3_VAL), 10u);
 	CYCONFIGCPYCODE((void CYFAR *)(CYREG_PRT4_DM0), (const void CYCODE *)(BS_IOPINS0_4_VAL), 8u);
 	CYCONFIGCPYCODE((void CYFAR *)(CYREG_PRT5_DR), (const void CYCODE *)(BS_IOPINS0_5_VAL), 10u);
+	CYCONFIGCPYCODE((void CYFAR *)(CYREG_PRT6_DM0), (const void CYCODE *)(BS_IOPINS0_6_VAL), 8u);
 	/* Switch Boost to the precision bandgap reference from its internal reference */
 	CY_SET_REG8((void CYXDATA *)CYREG_BOOST_CR2, (CY_GET_REG8((void CYXDATA *)CYREG_BOOST_CR2) | 0x08u));
 

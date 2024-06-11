@@ -636,6 +636,7 @@
       <Data key="54e65bb4-f114-4493-a133-6c4c6df2709a" value="UART_RX" />
       <Data key="57b193e4-300e-4862-a056-1e1dd1c35260" value="LIM_T_L" />
       <Data key="57b86002-bf19-4448-99e8-ad8156f4cf70" value="Pin_Encoder_T_B" />
+      <Data key="60f3efe0-94a6-4412-bead-dc33ecc2af90" value="Pin_Clock_RGB" />
       <Data key="61ad6aee-0c00-4b42-ae0b-b6e8624d3cec" value="Pin_OptDec_Y_A" />
       <Data key="63ab19bc-e697-416c-9183-cdddcbe04b79" value="Pin_SCK" />
       <Data key="67c21d57-4f82-467a-80ff-79447ccfb8de" value="Pin_CSMotorO" />
@@ -660,6 +661,7 @@
       <Data key="1601ac5a-d577-4a24-a0f6-839e7716f2ab" value="Pin_Collision_Sens_X_12" />
       <Data key="7417d57f-7707-4426-be22-5984d78428f9" value="Pin_CollisionSensX22" />
       <Data key="8987e99d-c3ad-4be4-bc84-25c18ae11294" value="Pin_GotoX_2" />
+      <Data key="16580bd1-e2a3-4ba1-bd52-912145491237" value="Pin_SDO_RGB" />
       <Data key="33273b26-e002-4def-8ef7-27ab31c89531" value="Pin_BusyMotorY" />
       <Data key="45691bfc-15e4-4df9-b2b8-afc83da779ff" value="Pin_Buzzer" />
       <Data key="80153e32-3d5c-464a-b8f9-44e6c7b94461" value="TMC5160_MotorO_EN" />
@@ -4146,6 +4148,11 @@
         <Data key="Port Format" value="3,3" />
       </Group>
     </Group>
+    <Group key="60f3efe0-94a6-4412-bead-dc33ecc2af90">
+      <Group key="0">
+        <Data key="Port Format" value="6,5" />
+      </Group>
+    </Group>
     <Group key="61ad6aee-0c00-4b42-ae0b-b6e8624d3cec">
       <Group key="0">
         <Data key="Port Format" value="4,3" />
@@ -4264,6 +4271,11 @@
     <Group key="8987e99d-c3ad-4be4-bc84-25c18ae11294">
       <Group key="0">
         <Data key="Port Format" value="2,6" />
+      </Group>
+    </Group>
+    <Group key="16580bd1-e2a3-4ba1-bd52-912145491237">
+      <Group key="0">
+        <Data key="Port Format" value="6,6" />
       </Group>
     </Group>
     <Group key="33273b26-e002-4def-8ef7-27ab31c89531">
