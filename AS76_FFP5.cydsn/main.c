@@ -76,6 +76,8 @@ int main(void)
     LED2_Write(0x00);
     
     Ring(0,0xFF,0x00,0x00,0x03);
+    
+    wait_timer_Stop();
         
 ////////////////////////////////////////// LOOP ///////////////////////////////////////////////////         
         
@@ -91,6 +93,7 @@ int main(void)
                 LED2_Write(0xFF);
                 Process_USB_Data();
                 LED2_Write(0x00);
+                
                   /* Process The USB incoming data. */
                 
 

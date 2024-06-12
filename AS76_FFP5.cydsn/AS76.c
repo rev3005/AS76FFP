@@ -78,12 +78,20 @@ bool exit_loop =0;
 CY_ISR(wait_interrupt_Handler) {
     ms_count++;
      
-    if(ms_count == 11000) 
+    if(ms_count == 30000) 
     { // ~30 second
         
         exit_loop = 1;
         ms_count = 0; // reset ms counter
     }
+}
+
+bool print_flag =0;
+
+CY_ISR(wait_interrupt_Handler1) 
+{
+    ms_count++;    
+
 }
 
 //Motor Movment Functions Start-------------------------------------------------------
@@ -1471,19 +1479,24 @@ void Process_USB_Data()/* Process USB incoming data command. */
     }
     else if (command == GotoZ)        
     {
+        print_flag =1;
         Write_Debug_UART_Char("\n\n\n\n\nGoto Z Starting \n");
+        print_flag =0;
         update_max_velocity(107374,TMC5160_nCS_MotorZ);
+        CyDelayUs(200);
         Position_Z_Requested = ((int32)USB_received[5] << 24) + ((int32)USB_received[4] << 16) + ((int32)USB_received[3] << 8) + (int32)USB_received[2]; //Decode USB Steps
         Write_Debug_UART_Char("Requested Position :");
         Write_Debug_UART_Int(Position_Z_Requested);
         Write_Debug_UART_Char("\n");
-        if(Previous_Y_Position != Position_Y_Requested)
+        if(Previous_Z_Position != Position_Z_Requested)
         {
         Previous_Z_Position = Position_Z_Requested;
         Position_Z_Requested = (Position_Z_Requested / 16);
         Position_Z_Requested = Position_Z_Requested * 51.2;
         Error = goTo_Z(Position_Z_Requested);
         }
+        //CyDelayUs(200);
+        
         Send_Feedback_to_USB(Error);
     }
     else if (command == GotoT)        
@@ -1659,16 +1672,74 @@ void Process_USB_Data()/* Process USB incoming data command. */
     
     else if(command == GotoZ_Vs)
     {
+    ms_count=0;
+    wait_timer_Start();
+    wait_interrupt_StartEx(wait_interrupt_Handler1); 
+    print_flag =1;
+    //Write_Debug_UART_Char("\n\n\n\n\nGotoZ Vs \n");
+    //Write_Debug_UART_Char("\n***---Command Start Movement Time : ");
+    Write_Debug_UART_Char("..\n");
+    Write_Debug_UART_Int((int)(ms_count*2.5));
+    Write_Debug_UART_Char(" \n");
+    
     Position_Z_Requested = ((int32)USB_received[5] << 24) + ((int32)USB_received[4] << 16) + ((int32)USB_received[3] << 8) + (int32)USB_received[2];   
     Motor_Speed_Z = ((int32)USB_received[9] << 24) + ((int32)USB_received[8] << 16) + ((int32)USB_received[7] << 8) + (int32)USB_received[6]; 
     update_max_velocity(Motor_Speed_Z,TMC5160_nCS_MotorZ);
-    CyDelayUs(200);
+     
+    
+    if((abs(Position_Z_Requested-Previous_Z_Position)) >= 500)
+     {
+    Previous_Z_Position = Position_Z_Requested;
     Position_Z_Requested = (Position_Z_Requested / 16);
     Position_Z_Requested = Position_Z_Requested * 51.2;
+    
+    Write_Debug_UART_Int((int)(ms_count*2.5));
+    Write_Debug_UART_Char(" \n");
     goTo_Z(Position_Z_Requested);
+    }
+    else
+    {
+    Previous_Z_Position = Position_Z_Requested;
+    Position_Z_Requested = (Position_Z_Requested / 16);
+    Position_Z_Requested = Position_Z_Requested * 51.2;
+    
+    
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070101, TMC5160_nCS_MotorY );
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070101, TMC5160_nCS_MotorX );
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070202, TMC5160_nCS_MotorZ );
+    Position_Z_Requested =  Position_Z_Requested;
+    Enable_Encoder_Z(-Buffer_Z_QuadPosition);
+   
+        Error = 0;
+        Read_All_Optical_Encoder();
+        
+       
+        Write_Debug_UART_Int((int)(ms_count*2.5));
+        Write_Debug_UART_Char(" \n");
+        GotoPos(Position_Z_Requested, TMC5160_nCS_MotorZ); // If provided value is position and not the steps to move
+        WaitTillPositionReached (TMC5160_nCS_MotorZ);
+        
+        Write_Debug_UART_Int((int)(ms_count*2.5));
+        Write_Debug_UART_Char(" \n");
+        //CyDelayUs(50);
+        
+        Read_All_Optical_Encoder();
+        Buffer_Z_QuadPosition = Z_QuadPosition;
+        
+    }
+
+  
+    
+    
+    Write_Debug_UART_Int((int)(ms_count*2.5));
+    Write_Debug_UART_Char(" \n");
+    wait_timer_Stop();
+    ms_count=0;
     //CyDelayUs(10);
     //update_max_velocity(53687*2, TMC5160_nCS_MotorZ);
+    
     Send_Feedback_to_USB(Error);
+    print_flag =0;
     }
     
     else if(command == GotoO_Vs)
@@ -2081,7 +2152,7 @@ void Clear_Pending_USB_Data()/* Clear all pending data on usb RX buffer. */
 }
 void Write_Debug_UART_Char(char Str[])
 {
-    //if(Pin_UART_Enable_Read()==0)
+   if(print_flag ==1)
     {
         static char Str_Last_One[] = "ShonitV2.2\r\n";
         if((strncmp(Str_Last_One, Str, 10)!=0))
@@ -2094,7 +2165,7 @@ void Write_Debug_UART_Char(char Str[])
 }
 void Write_Debug_UART_Int(int32 num)
 {
-   // if(Pin_UART_Enable_Read()==0)
+    if(print_flag ==1)
     {
         char uart_Buffer[20];
         sprintf(uart_Buffer,"%d, ",(int)num);
@@ -2462,7 +2533,7 @@ bool IsPositionReached (uint8_t Motor)
 
 int WaitTillPositionReached (uint8_t Motor)
 {
-         Write_Debug_UART_Char("Waiting for target position to reach\n");
+         //Write_Debug_UART_Char("Waiting for target position to reach\n");
          uint8_t wait_status = 0;
          int status = 0;
          CyDelayUs(500);
@@ -2475,7 +2546,7 @@ int WaitTillPositionReached (uint8_t Motor)
                  CyDelayUs(200);                
                                 
             }
-         Write_Debug_UART_Char("Waiting Loop Completed\n");   
+         //Write_Debug_UART_Char("Waiting Loop Completed\n");   
             
          return status;
 }
@@ -2512,77 +2583,24 @@ int run_pump (int time_ms, uint8_t direction)
     
     if( (direction == 0x00) || (direction == 0x01))
     {
-if(direction == 0x00)
+    if(direction == 0x00)
     {
         GotoPos(time_ms, TMC5160_nCS_MotorO);
-        
-        Read_32bitSPI_DATA(0x04, TMC5160_nCS_MotorO, &status_x); // Read the status register of TMC5160
-        CyDelayUs(500);
-        Read_32bitSPI_DATA(0x04, TMC5160_nCS_MotorO, &status_x); // Read the status register of TMC5160
-        while ( (status_x & 0x20) == 0x00) // Check if target position is reached or not
-            {
-             wait_timer_Start();
-             wait_interrupt_StartEx(wait_interrupt_Handler);
-             Read_32bitSPI_DATA(0x04, TMC5160_nCS_MotorO, &status_x); // Read the status register of TMC5160
-             if(exit_loop == 1)
-                {
-                Send_Feedback_to_USB(X_Homing_Not_Done_Yet);
-                wait_timer_Stop();
-                Write_32bitSPI_DATA (0x20  , (int) 0x00000000, TMC5160_nCS_MotorO );
-                Write_32bitSPI_DATA (0x21  , (int) 0x0000000, TMC5160_nCS_MotorO); // Mark the current postion as 0
-                Write_32bitSPI_DATA (0x2D  , 0x00000000, TMC5160_nCS_MotorO ); // Set thye target position as 0
-                exit_loop = 0;
-                Error = 33;
-                TMC5160_MotorO_EN_Write(0xFF);
-                return Error;
-                //break;
-                }
-             CyDelayUs(100);       
-            }
-            wait_timer_Stop();
-            exit_loop =0;
-        //WaitTillPositionReached(TMC5160_nCS_MotorO);
+        WaitTillPositionReached(TMC5160_nCS_MotorO);
         //Write_32bitSPI_DATA (0x20  , (int) 0x00000001, TMC5160_nCS_MotorO );
     }
     else
     {
-    time_ms = 0-time_ms;
-    GotoPos(time_ms, TMC5160_nCS_MotorO);
-    Read_32bitSPI_DATA(0x04, TMC5160_nCS_MotorO, &status_x); // Read the status register of TMC5160
-    CyDelayUs(500);
-    Read_32bitSPI_DATA(0x04, TMC5160_nCS_MotorO, &status_x); // Read the status register of TMC5160
-    while ( (status_x & 0x20) == 0x00) // Check if target position is reached or not
-        {
-         wait_timer_Start();
-         wait_interrupt_StartEx(wait_interrupt_Handler);
-         Read_32bitSPI_DATA(0x04, TMC5160_nCS_MotorO, &status_x); // Read the status register of TMC5160
-         if(exit_loop == 1)
-            {
-            Send_Feedback_to_USB(X_Homing_Not_Done_Yet);
-            wait_timer_Stop();
-            Write_32bitSPI_DATA (0x20  , (int) 0x00000000, TMC5160_nCS_MotorO );
-            Write_32bitSPI_DATA (0x21  , (int) 0x0000000, TMC5160_nCS_MotorO); // Mark the current postion as 0
-            Write_32bitSPI_DATA (0x2D  , 0x00000000, TMC5160_nCS_MotorO ); // Set thye target position as 0
-            exit_loop = 0;
-            Error = 33;
-            TMC5160_MotorO_EN_Write(0xFF);
-            return Error;
-            //break;
-            }
-         CyDelayUs(100);       
-        }
-        wait_timer_Stop();
-        exit_loop =0;
-    
-    //WaitTillPositionReached(TMC5160_nCS_MotorO);
-    //Write_32bitSPI_DATA (0x20  , (int) 0x00000002, TMC5160_nCS_MotorO );
+        time_ms = 0-time_ms;
+        GotoPos(time_ms, TMC5160_nCS_MotorO);
+        WaitTillPositionReached(TMC5160_nCS_MotorO);
+        //Write_32bitSPI_DATA (0x20  , (int) 0x00000002, TMC5160_nCS_MotorO );
     }
     }
     //CyDelay(time_ms);
-    time_ms = 0;
     update_max_velocity(0x00, TMC5160_nCS_MotorO);
     Write_32bitSPI_DATA (0x21  , (int) 0x00000000, TMC5160_nCS_MotorO );
-    Write_32bitSPI_DATA (0x20  , (int) 0x00000000, TMC5160_nCS_MotorO );
+    Write_32bitSPI_DATA (0x20  , (int) 0x00000001, TMC5160_nCS_MotorO );
     CyDelay(5);
     TMC5160_MotorO_EN_Write(0xFF);
     return 0;
