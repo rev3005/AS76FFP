@@ -707,7 +707,7 @@ int Step_correction_x(int32 steps)
     new_step= encoder_error_value* X_Pitchfactor ;
     
        
-    if((abs(encoder_error_value))>= 10 )
+    if((abs(encoder_error_value))>3 )
     {
       Write_Debug_UART_Char("X Loop Error difference: ");
       Write_Debug_UART_Int(encoder_error_value);
@@ -723,7 +723,7 @@ int Step_correction_x(int32 steps)
     encoder_error_value = Encoder_Position_X_Requested - X_QuadPosition;
     if((temp>5))
     {
-     if(((abs(encoder_error_value))>= 12 ) && ((abs(encoder_error_value))<2000))
+     if(((abs(encoder_error_value))>= 7 ) && ((abs(encoder_error_value))<2000))
      {
         Write_Debug_UART_Char("Fail to reach X position, Error difference: ");
         Write_Debug_UART_Int(encoder_error_value);
@@ -815,7 +815,7 @@ int Step_correction_y(int32 steps)
         Error=  9;
         break;
     }
-    if((abs(encoder_error_value))>=10)
+    if((abs(encoder_error_value))>3)
     {
       Write_Debug_UART_Char("Y Loop Error difference: ");
       Write_Debug_UART_Int(encoder_error_value);
@@ -835,7 +835,7 @@ int Step_correction_y(int32 steps)
     
     if(temp>=4)
     {
-     if(((abs(encoder_error_value))>12) && ((abs(encoder_error_value))<2000) )
+     if(((abs(encoder_error_value))>7) && ((abs(encoder_error_value))<2000) )
      {
         Write_Debug_UART_Char("Fail to reach Y position, Error difference: ");
         Write_Debug_UART_Int(encoder_error_value);
@@ -1083,8 +1083,8 @@ int Step_correction_t(int32 steps)
 int goTo_XYZ(int32 Position_X_Requested,int32 Position_Y_Requested,int32 Position_Z_Requested)
 {
     Read_All_Optical_Encoder();
-    Write_32bitSPI_DATA (0x10  , (int) 0x00070201, TMC5160_nCS_MotorY );
-    Write_32bitSPI_DATA (0x10  , (int) 0x00070301, TMC5160_nCS_MotorX );
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070302, TMC5160_nCS_MotorY );
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070302, TMC5160_nCS_MotorX );
     Write_32bitSPI_DATA (0x10  , (int) 0x00070202, TMC5160_nCS_MotorZ );
     CyDelayUs(200);
     //X_last_position = X_QuadPosition;
