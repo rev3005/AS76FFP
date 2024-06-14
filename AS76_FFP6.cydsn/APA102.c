@@ -78,7 +78,7 @@ void LedFrame(uint8_t MB,uint8_t r,uint8_t g,uint8_t b)
 void Ring(uint8_t RngCnt,uint8_t RngR,uint8_t RngG,uint8_t RngB,uint8_t RngMB)
 {   
     StartFrame
-    for(i=1;i<=52;i++ )
+    for(i=1;i<=45;i++ )
     {    
 
         RGB_Byte_TxOp(0xE0);
@@ -178,6 +178,111 @@ void BF2(uint8_t LedCnt, uint8_t R,uint8_t G,uint8_t B,uint8_t MaxB)
     i=0;
 }
 
+void BF22(uint8_t R1,uint8_t G1,uint8_t B1,uint8_t MaxB1,uint8_t R2,uint8_t G2,uint8_t B2,uint8_t MaxB2,uint8_t R3,uint8_t G3,uint8_t B3,uint8_t MaxB3,uint8_t R4,uint8_t G4,uint8_t B4,uint8_t MaxB4,uint8_t R5,uint8_t G5,uint8_t B5,uint8_t MaxB5,uint8_t R6,uint8_t G6,uint8_t B6,uint8_t MaxB6)
+{
+    
+    StartFrame
+    for(i=1;i<=45;i++ )
+    {    
+
+        RGB_Byte_TxOp(0xE0);
+        RGB_Byte_TxOp(0x00);
+        RGB_Byte_TxOp(0x00);
+        RGB_Byte_TxOp(0x00);
+              
+    }
+    EndFrame
+    
+    
+    StartFrame
+    
+    LedFrame(MaxB1,R1,G1,B1);
+    for(i=1;i<=45;i++ )
+    {
+         
+//        SPIM_WriteTxData((BnB >> 8)&0xff);
+//        SPIM_WriteTxData(BnB&0xff);
+//        SPIM_WriteTxData((GnR >> 8)&0xff);
+//        SPIM_WriteTxData(GnR&0xff);
+       if(i<8)
+    {
+        RGB_Byte_TxOp((BnB >> 8)&0xff);
+        RGB_Byte_TxOp(BnB&0xff);
+        RGB_Byte_TxOp((GnR >> 8)&0xff);
+        RGB_Byte_TxOp(GnR&0xff);
+    } 
+    
+    
+     if(i<16 && i>7)
+    {
+        if(i==8)
+        {
+        LedFrame(MaxB2,R2,G2,B2);
+        }
+        RGB_Byte_TxOp((BnB >> 8)&0xff);
+        RGB_Byte_TxOp(BnB&0xff);
+        RGB_Byte_TxOp((GnR >> 8)&0xff);
+        RGB_Byte_TxOp(GnR&0xff);
+    } 
+    
+    if(i<24 && i>15)
+    {
+        if(i==16)
+        {
+        LedFrame(MaxB3,R3,G3,B3);
+        }
+        RGB_Byte_TxOp((BnB >> 8)&0xff);
+        RGB_Byte_TxOp(BnB&0xff);
+        RGB_Byte_TxOp((GnR >> 8)&0xff);
+        RGB_Byte_TxOp(GnR&0xff);
+    }
+    
+    if(i<31 && i>23)
+    {
+        if(i==24)
+        {
+        LedFrame(MaxB4,R4,G4,B4);
+        }
+        RGB_Byte_TxOp((BnB >> 8)&0xff);
+        RGB_Byte_TxOp(BnB&0xff);
+        RGB_Byte_TxOp((GnR >> 8)&0xff);
+        RGB_Byte_TxOp(GnR&0xff);
+    }
+    
+        if(i<39 && i>30)
+    {
+        if(i==31)
+        {
+        LedFrame(MaxB5,R5,G5,B5);
+        }
+        RGB_Byte_TxOp((BnB >> 8)&0xff);
+        RGB_Byte_TxOp(BnB&0xff);
+        RGB_Byte_TxOp((GnR >> 8)&0xff);
+        RGB_Byte_TxOp(GnR&0xff);
+    }
+    
+    if(i<46 && i>38)
+    {
+        if(i==39)
+        {
+        LedFrame(MaxB6,R6,G6,B6);
+        }
+        RGB_Byte_TxOp((BnB >> 8)&0xff);
+        RGB_Byte_TxOp(BnB&0xff);
+        RGB_Byte_TxOp((GnR >> 8)&0xff);
+        RGB_Byte_TxOp(GnR&0xff);
+    }
+       
+        
+        //SPIM_WriteTxData(BnB);
+        //SPIM_WriteTxData(GnR);
+        //SPIM_PutArray(SPI_RGB_DATA,4);
+    }
+    i=0;
+    
+    BF2(0,0,0,0,0xE0);
+    EndFrame
+}
 
 
 

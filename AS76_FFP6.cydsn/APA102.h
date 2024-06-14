@@ -35,6 +35,7 @@ void LedFrame(uint8_t,uint8_t,uint8_t,uint8_t);
 void BF(uint8_t,uint8_t,uint8_t,uint8_t,uint8_t);
 void BF2(uint8_t,uint8_t,uint8_t,uint8_t,uint8_t);
 void Ring(uint8_t,uint8_t,uint8_t,uint8_t,uint8_t);
+void BF22(uint8_t R1,uint8_t G1,uint8_t B1,uint8_t MaxB1,uint8_t R2,uint8_t G2,uint8_t B2,uint8_t MaxB2,uint8_t R3,uint8_t G3,uint8_t B3,uint8_t MaxB3,uint8_t R4,uint8_t G4,uint8_t B4,uint8_t MaxB4,uint8_t R5,uint8_t G5,uint8_t B5,uint8_t MaxB5,uint8_t R6,uint8_t G6,uint8_t B6,uint8_t MaxB6);
 
 
 
