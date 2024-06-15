@@ -750,7 +750,8 @@ int Step_correction_x(int32 steps)
      {
         Write_Debug_UART_Char("X position Reached");
         Error = 0;
-        Write_32bitSPI_DATA (0x21  , steps, TMC5160_nCS_MotorX );
+        Read_All_Optical_Encoder();
+        Write_32bitSPI_DATA (0x21  , (int32)(X_QuadPosition*12.8), TMC5160_nCS_MotorX );
         CyDelayUs(500);
         
      }
@@ -820,7 +821,7 @@ int Step_correction_y(int32 steps)
         Error=  9;
         break;
     }
-    if((abs(encoder_error_value))>=3)
+    if((abs(encoder_error_value))>3)
     {
       Write_Debug_UART_Char("Y Loop Error difference: ");
       Write_Debug_UART_Int(encoder_error_value);
@@ -830,6 +831,7 @@ int Step_correction_y(int32 steps)
       WaitTillPositionReached (TMC5160_nCS_MotorY);
       CyDelayUs(50);
       Write_32bitSPI_DATA (0x21  , steps, TMC5160_nCS_MotorY );
+      CyDelayUs(200);
     }
     
     }
@@ -862,6 +864,8 @@ int Step_correction_y(int32 steps)
      {
         Write_Debug_UART_Char("Y position Reached");
         Error = 0;
+        Write_32bitSPI_DATA (0x21  , steps, TMC5160_nCS_MotorY );
+        CyDelayUs(200);
         
      }
     
@@ -1088,10 +1092,15 @@ int Step_correction_t(int32 steps)
 int goTo_XYZ(int32 Position_X_Requested,int32 Position_Y_Requested,int32 Position_Z_Requested)
 {
     Read_All_Optical_Encoder();
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070302, TMC5160_nCS_MotorY );
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070302, TMC5160_nCS_MotorX );
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070202, TMC5160_nCS_MotorZ );
+    CyDelayUs(200);
     //X_last_position = X_QuadPosition;
     Write_Debug_UART_Char("GotoX Command Recived--->");
     if(Position_X_Requested >= 0)
     { 
+        
     GotoPos(Position_X_Requested, TMC5160_nCS_MotorX); // If provided value is position and not the steps to move
     }
     if(Position_Y_Requested >= 0)
@@ -1119,7 +1128,7 @@ int goTo_XYZ(int32 Position_X_Requested,int32 Position_Y_Requested,int32 Positio
     
     if(Position_X_Requested >= 0)
     {
-    //Step_correction_x(Position_X_Requested);
+    Step_correction_x(Position_X_Requested);
     //Read_All_Optical_Encoder();
     }
     //Send_Feedback_to_USB(Error);
@@ -1136,7 +1145,7 @@ int goTo_XYZ(int32 Position_X_Requested,int32 Position_Y_Requested,int32 Positio
     Buffer_Z_QuadPosition = Z_QuadPosition;
     }
     Read_All_Optical_Encoder();
-    Send_Feedback_to_USB(Error);
+    
     
     CyDelayUs(50);
     return 0;  
@@ -1549,6 +1558,7 @@ void Process_USB_Data()/* Process USB incoming data command. */
     
     else if (command == GotoXYZ)
     {
+        update_max_velocity(107374,TMC5160_nCS_MotorZ);
         Write_Debug_UART_Char("\n\n\n\n\nGoto XYZ Starting \n");
         Position_X_Requested = ((int32)USB_received[5] << 24) + ((int32)USB_received[4] << 16) + ((int32)USB_received[3] << 8) + (int32)USB_received[2];
         Position_Y_Requested = ((int32)USB_received[9] << 24) + ((int32)USB_received[8] << 16) + ((int32)USB_received[7] << 8) + (int32)USB_received[6];
@@ -1568,14 +1578,15 @@ void Process_USB_Data()/* Process USB incoming data command. */
           Position_Z_Requested = -1  ;
         }
         
+        
         if(Position_X_Requested >= 0)
-        {
-        Previous_X_Position = Position_X_Requested;
+        {   
+        Previous_X_Position = Position_X_Requested;    
         Position_X_Requested = (Position_X_Requested / 4);
         Position_X_Requested = Position_X_Requested * 12.8;
         }
         if(Position_Y_Requested >= 0)
-        { 
+        {
         Previous_Y_Position = Position_Y_Requested;    
         Position_Y_Requested = (Position_Y_Requested / 4);
         Position_Y_Requested = Position_Y_Requested * 12.8;
@@ -1587,10 +1598,6 @@ void Process_USB_Data()/* Process USB incoming data command. */
         Position_Z_Requested = Position_Z_Requested * 51.2;
         }
         
-        Write_32bitSPI_DATA (0x10  , (int) 0x00070303, TMC5160_nCS_MotorY );
-        Write_32bitSPI_DATA (0x10  , (int) 0x00070203, TMC5160_nCS_MotorZ );
-        Write_32bitSPI_DATA (0x10  , (int) 0x00070303, TMC5160_nCS_MotorX );
-        
         Error = goTo_XYZ(Position_X_Requested, Position_Y_Requested, Position_Z_Requested);
         CyDelay(10);
         Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorY );
@@ -1598,6 +1605,7 @@ void Process_USB_Data()/* Process USB incoming data command. */
         Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorX );
         Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorT );
         Send_Feedback_to_USB(Error);
+        
     }
     
     else if (command == Set_LED_voltage)
