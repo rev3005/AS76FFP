@@ -746,7 +746,7 @@ int Step_correction_x(int32 steps)
         Write_Debug_UART_Char("X position Reached");
         Error = 0;
         Read_All_Optical_Encoder();
-        Write_32bitSPI_DATA (0x21  , (int32)(Y_QuadPosition*12.8), TMC5160_nCS_MotorY );
+        Write_32bitSPI_DATA (0x21  , (int32)(X_QuadPosition*12.8), TMC5160_nCS_MotorX );
         CyDelayUs(500);
         
      }
