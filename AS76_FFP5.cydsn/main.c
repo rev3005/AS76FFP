@@ -12,6 +12,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "AS76.h"
+
 #include "variables.h"
 
 
@@ -51,13 +52,13 @@ int main(void)
  
     // API for Homing X,Y,Z,T
     //TMC5160_MotorZ_EN_Write(0x00);
-    //CyDelay(100);
+    CyDelay(100);
     //homeZ(TMC5160_nCS_MotorZ);
     //TMC5160_MotorX_EN_Write(0x00);
-    //CyDelay(100);
+    CyDelay(100);
     //homeX(TMC5160_nCS_MotorX);
     //TMC5160_MotorY_EN_Write(0x00);
-    //CyDelay(100);
+    CyDelay(100);
     //homeY(TMC5160_nCS_MotorY);
     
     TMC5160_MotorT_EN_Write(0x00);
@@ -65,7 +66,7 @@ int main(void)
     //GotoPos(42000, TMC5160_nCS_MotorT);
     //WaitTillPositionReached(TMC5160_nCS_MotorT);
     CyDelay(100);
-    TMC5160_MotorT_EN_Write(0xFF);  
+    TMC5160_MotorT_EN_Write(0xFF); 
     //TMC5160_MotorO_EN_Write(0x00);
     update_max_velocity(6200, TMC5160_nCS_MotorO);
     
@@ -75,45 +76,33 @@ int main(void)
     LED3_Write(0x00);
     LED2_Write(0x00);
     
-    Ring(0,0xFF,0x00,0x00,0x03);
+   Ring(1,0xFF,0xFF,0x0FF,0x07);
     
-    wait_timer_Stop();
+   //BF22(0xFF,0xFF,0xFF,0x0A,0x00,0xFF,0xFF,0x0A,0xFF,128,0x00,0x0A,0x00,0x00,0x00,0x00,0xFF,0x00,0x00,0x05,0x00,0xFF,0x00,0x0A);
         
 ////////////////////////////////////////// LOOP ///////////////////////////////////////////////////         
         
     for (;;)  
     {    
         Is_USB_Unpluged();                              /* Reset MCU if USB unplugged or plugged. */
+        //LED3_Write(0xFF);
+       // goTo_X(100);
         if (0 != USB_DataIsReady())                     /* Check for input data from host. */
         {       
             count = USB_GetAll(USB_received);           /* Read received data and re-enable OUT endpoint. */
             if(count >= 2)                              /* Check if data id more then 2 bytes. */
             {
-                Write_Debug_UART_Char("DATA RECEIVED  \r\n");
+                Write_Debug_UART_Char("\n\nDATA RECEIVED  \r\n");
                 LED2_Write(0xFF);
                 Process_USB_Data();
                 LED2_Write(0x00);
-                
                   /* Process The USB incoming data. */
-                
+             
 
             }
         }            
     
-           
-   
-        
-      
-    // Test API for Movement Check with error correction 
-    //goTo_XYZ(1656000,556000,0); 
-    //goTo_XYZ(2560000,800000,60000);
-    //CyDelayUs(50);;
-    //goTo_XYZ((51200*40),(51200*6),(51200*7)); 
-    //CyDelayUs(50); 
-    //goTo_XYZ((51200*60),(51200*15),(51200*10)); 
-    //CyDelayUs(50);    
-    //goTo_XYZ(0,0,0); 
-    //CyDelayUs(50);  
+    
 
     CyDelayUs(100);
 
