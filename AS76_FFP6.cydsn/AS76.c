@@ -266,7 +266,7 @@ void homeX(uint8_t Motor)
     Write_32bitSPI_DATA (0x10  , (int) 0x00070101, Motor );
     //Write_32bitSPI_DATA (0x25  , (51200*5)-100, Motor );
 
-
+    Error =0;
     QuadDec_X_SetCounter(0); //set the encoder counter value as 0
     //X_QuadPosition =0 ; // set the encoder variable to 0
     //Input_Position_X_Temp = 0;
@@ -403,7 +403,7 @@ void homeY(uint8_t Motor)
     Write_32bitSPI_DATA (0x0B  , 0, Motor );
     Write_32bitSPI_DATA (0x10  , (int) 0x00070101, Motor );
     //Write_32bitSPI_DATA (0x25  , (51200*5)-100, Motor );
-
+    Error =0;
     //Y_last_position = 0;
     QuadDec_Y_SetCounter(0);
     X_QuadPosition =0 ;
