@@ -18,7 +18,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="AS76_FFP4-000\AS76_FFP4\Source Files\main.c">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="AS76_FFP4-000\AS76_FFP4\Source Files\AS76.c">
 <ExpandedNodeIds>
 <v>AS76_FFP4-000</v>
 <v>AS76_FFP4-000\AS76_FFP4</v>
@@ -81,6 +81,18 @@
 <v>AS76_FFP4-000\AS76_FFP4\Generated_Source\PSoC5\LIM_X_L</v>
 <v>AS76_FFP4-000\AS76_FFP4\Generated_Source\PSoC5\LIM_X_R</v>
 <v>AS76_FFP4-000\AS76_FFP4\Generated_Source\PSoC5\LIM_Y_L</v>
+<v>AS76_FFP4-000\AS76_FFP4\Generated_Source\PSoC5\LIM_Y_R</v>
+<v>AS76_FFP4-000\AS76_FFP4\Generated_Source\PSoC5\LIM_Z_L</v>
+<v>AS76_FFP4-000\AS76_FFP4\Generated_Source\PSoC5\LIM_Z_R</v>
+<v>AS76_FFP4-000\AS76_FFP4\Generated_Source\PSoC5\Pin_Backlight</v>
+<v>AS76_FFP4-000\AS76_FFP4\Generated_Source\PSoC5\Pin_BC_LED</v>
+<v>AS76_FFP4-000\AS76_FFP4\Generated_Source\PSoC5\Pin_Buzzer</v>
+<v>AS76_FFP4-000\AS76_FFP4\Generated_Source\PSoC5\Pin_CondenserLED</v>
+<v>AS76_FFP4-000\AS76_FFP4\Generated_Source\PSoC5\Pin_CSMotorO</v>
+<v>AS76_FFP4-000\AS76_FFP4\Generated_Source\PSoC5\Pin_CSMotorT</v>
+<v>AS76_FFP4-000\AS76_FFP4\Generated_Source\PSoC5\Pin_CSMotorX</v>
+<v>AS76_FFP4-000\AS76_FFP4\Generated_Source\PSoC5\Pin_CSMotorY</v>
+<v>AS76_FFP4-000\AS76_FFP4\Generated_Source\PSoC5\Pin_CSMotorZ</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -312,6 +324,18 @@
 <v>AS76_FFP4-000\AS76_FFP4\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_Backlight.lst</v>
 <v>AS76_FFP4-000\AS76_FFP4\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_BC_LED.lst</v>
 <v>AS76_FFP4-000\AS76_FFP4\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_Buzzer.lst</v>
+<v>AS76_FFP4-000\AS76_FFP4\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_CondenserLED.lst</v>
+<v>AS76_FFP4-000\AS76_FFP4\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_CSMotorO.lst</v>
+<v>AS76_FFP4-000\AS76_FFP4\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_CSMotorT.lst</v>
+<v>AS76_FFP4-000\AS76_FFP4\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_CSMotorX.lst</v>
+<v>AS76_FFP4-000\AS76_FFP4\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_CSMotorY.lst</v>
+<v>AS76_FFP4-000\AS76_FFP4\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_CSMotorZ.lst</v>
+<v>AS76_FFP4-000\AS76_FFP4\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_Encoder_T_A.lst</v>
+<v>AS76_FFP4-000\AS76_FFP4\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_Encoder_T_B.lst</v>
+<v>AS76_FFP4-000\AS76_FFP4\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_OptDec_X_A.lst</v>
+<v>AS76_FFP4-000\AS76_FFP4\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_OptDec_X_B.lst</v>
+<v>AS76_FFP4-000\AS76_FFP4\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_OptDec_Y_A.lst</v>
+<v>AS76_FFP4-000\AS76_FFP4\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_OptDec_Y_B.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -384,6 +408,7 @@
 <OpenDocs>
 <name v=".\AS76.c" />
 <name v=".\main.c" />
+<name v=".\TopDesign\TopDesign.cysch" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -391,7 +416,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1082, 487" SelectedTabbedMdiWindow="df5dfa23-fb34-4bad-87d4-8a1232dbfacc"><DocumentWindow Key="C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\AS76_FFP4.cydsn\AS76.c" Guid="1352bdc5-1dc5-47c1-95cd-4c300bd74913" /><DocumentWindow Key="C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\AS76_FFP4.cydsn\main.c" Guid="df5dfa23-fb34-4bad-87d4-8a1232dbfacc" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="f7e1abb3-0bd5-4fbb-a822-519e1e118b81" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1457, 689" SelectedTabbedMdiWindow="1352bdc5-1dc5-47c1-95cd-4c300bd74913"><DocumentWindow Key="C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\AS76_FFP4.cydsn\AS76.c" Guid="1352bdc5-1dc5-47c1-95cd-4c300bd74913" /><DocumentWindow Key="C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\AS76_FFP4.cydsn\main.c" Guid="df5dfa23-fb34-4bad-87d4-8a1232dbfacc" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="f7e1abb3-0bd5-4fbb-a822-519e1e118b81" /><DocumentWindow Key="C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\AS76_FFP4.cydsn\TopDesign\TopDesign.cysch" Guid="a1199310-bcbd-4dc4-8ed9-77866faafdfc" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
