@@ -1703,9 +1703,9 @@ void Process_USB_Data()/* Process USB incoming data command. */
     else if(command == GotoZ_Vs)
     {
     ms_count=0;
-    wait_timer_Start();
-    wait_interrupt_StartEx(wait_interrupt_Handler1); 
-    print_flag =1;
+    //wait_timer_Start();
+    //wait_interrupt_StartEx(wait_interrupt_Handler1); 
+    //print_flag =1;
     //Write_Debug_UART_Char("\n\n\n\n\nGotoZ Vs \n");
     //Write_Debug_UART_Char("\n***---Command Start Movement Time : ");
     Write_Debug_UART_Char("..\n");
@@ -1761,13 +1761,13 @@ void Process_USB_Data()/* Process USB incoming data command. */
     
     Write_Debug_UART_Int((int)(ms_count*2.5));
     Write_Debug_UART_Char(" \n");
-    wait_timer_Stop();
-    ms_count=0;
+    //wait_timer_Stop();
+    //ms_count=0;
     //CyDelayUs(10);
     //update_max_velocity(53687*2, TMC5160_nCS_MotorZ);
     
     Send_Feedback_to_USB(Error);
-    print_flag =0;
+    //print_flag =0;
     }
     
     else if(command == GotoO_Vs)
