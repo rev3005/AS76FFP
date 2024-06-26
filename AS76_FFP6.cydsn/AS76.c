@@ -1683,7 +1683,7 @@ void Process_USB_Data()/* Process USB incoming data command. */
     ms_count=0;
     //wait_timer_Start();
     //wait_interrupt_StartEx(wait_interrupt_Handler1); 
-    print_flag =1;
+    //print_flag =1;
     //Write_Debug_UART_Char("\n\n\n\n\nGotoZ Vs \n");
     //Write_Debug_UART_Char("\n***---Command Start Movement Time : ");
     Write_Debug_UART_Char("..\n");
@@ -1745,7 +1745,7 @@ void Process_USB_Data()/* Process USB incoming data command. */
     //update_max_velocity(53687*2, TMC5160_nCS_MotorZ);
     
     Send_Feedback_to_USB(Error);
-    print_flag =0;
+    //print_flag =0;
     }
     
     else if(command == GotoO_Vs)
@@ -2614,7 +2614,7 @@ int WaitTillPositionReached (uint8_t Motor)
          while ( (wait_status & 0x20) == 0x00)
             {
                  Read_32bitSPI_DATA(0x21, Motor,  &wait_status);                
-                 CyDelayUs(200);                
+                 CyDelayUs(500);                
                                 
             }
          //Write_Debug_UART_Char("Waiting Loop Completed\n");   
