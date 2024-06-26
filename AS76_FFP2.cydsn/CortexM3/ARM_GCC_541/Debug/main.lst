@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 1
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccDJQmCw.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 1
   29              		.cfi_startproc
   30              		@ Volatile: function does not return.
   31              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 2
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccDJQmCw.s 			page 2
 
 
   32              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 1
   72 002a FFF7FEFF 		bl	SPIM_Start
   73              	.LVL8:
   41:main.c        ****     Initialize_Motor(TMC5160_nCS_MotorX);
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 3
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccDJQmCw.s 			page 3
 
 
   74              		.loc 1 41 0
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 1
  115 006a 0020     		movs	r0, #0
  116 006c FFF7FEFF 		bl	TMC5160_MotorZ_EN_Write
  117              	.LVL19:
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 4
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccDJQmCw.s 			page 4
 
 
   55:main.c        ****     CyDelay(100);
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 1
  153 00a6 FFF7FEFF 		bl	LED3_Write
  154              	.LVL28:
   74:main.c        ****     LED2_Write(0x00);
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 5
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccDJQmCw.s 			page 5
 
 
  155              		.loc 1 74 0
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 1
   92:main.c        ****                   /* Process The USB incoming data. */
   93:main.c        ****                 
   94:main.c        **** 
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 6
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccDJQmCw.s 			page 6
 
 
   95:main.c        ****             }
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 1
  224 0001 FF       		.byte	-1
  225              		.type	status_y, %object
  226              		.size	status_y, 1
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 7
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccDJQmCw.s 			page 7
 
 
  227              	status_y:
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 1
  273 0021 00000000 		.4byte	.Ldebug_line0
  274 0025 02       		.uleb128 0x2
  275 0026 01       		.byte	0x1
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 8
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccDJQmCw.s 			page 8
 
 
  276 0027 06       		.byte	0x6
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 1
  330 008d 67020000 		.4byte	.LASF12
  331 0091 03       		.byte	0x3
  332 0092 2C       		.byte	0x2c
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 9
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccDJQmCw.s 			page 9
 
 
  333 0093 4C000000 		.4byte	0x4c
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 1
  387 010e 01       		.uleb128 0x1
  388 010f 50       		.byte	0x50
  389 0110 02       		.uleb128 0x2
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 10
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccDJQmCw.s 			page 10
 
 
  390 0111 09       		.byte	0x9
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 1
  444 018c 09       		.uleb128 0x9
  445 018d 01       		.uleb128 0x1
  446 018e 50       		.byte	0x50
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 11
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccDJQmCw.s 			page 11
 
 
  447 018f 02       		.uleb128 0x2
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 1
  501 01f2 33       		.byte	0x33
  502 01f3 00       		.byte	0
  503 01f4 08       		.uleb128 0x8
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 12
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccDJQmCw.s 			page 12
 
 
  504 01f5 5E000000 		.4byte	.LVL16
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 1
  558 025b DA040000 		.4byte	0x4da
  559 025f 69020000 		.4byte	0x269
  560 0263 09       		.uleb128 0x9
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 13
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccDJQmCw.s 			page 13
 
 
  561 0264 01       		.uleb128 0x1
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 1
  615 02bf 9E000000 		.4byte	.LVL26
  616 02c3 FB040000 		.4byte	0x4fb
  617 02c7 D1020000 		.4byte	0x2d1
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 14
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccDJQmCw.s 			page 14
 
 
  618 02cb 09       		.uleb128 0x9
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 1
  672 0334 CE000000 		.4byte	.LVL33
  673 0338 82040000 		.4byte	0x482
  674 033c 4A030000 		.4byte	0x34a
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 15
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccDJQmCw.s 			page 15
 
 
  675 0340 09       		.uleb128 0x9
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 1
  729 03a7 05       		.uleb128 0x5
  730 03a8 03       		.byte	0x3
  731 03a9 00000000 		.4byte	Is_Slide_On_Gripper
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 16
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccDJQmCw.s 			page 16
 
 
  732 03ad 02       		.uleb128 0x2
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 1
  786 041f 81000000 		.4byte	0x81
  787 0423 05       		.uleb128 0x5
  788 0424 03       		.byte	0x3
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 17
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccDJQmCw.s 			page 17
 
 
  789 0425 00000000 		.4byte	status_y
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 1
  843 049d 7D000000 		.4byte	.LASF38
  844 04a1 06       		.byte	0x6
  845 04a2 20       		.byte	0x20
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 18
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccDJQmCw.s 			page 18
 
 
  846 04a3 10       		.uleb128 0x10
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 1
  900 051b 38       		.byte	0x38
  901 051c 10       		.uleb128 0x10
  902 051d 04030000 		.4byte	.LASF50
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 19
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccDJQmCw.s 			page 19
 
 
  903 0521 04030000 		.4byte	.LASF50
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 1
  957 0026 0B       		.uleb128 0xb
  958 0027 49       		.uleb128 0x49
  959 0028 13       		.uleb128 0x13
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 20
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccDJQmCw.s 			page 20
 
 
  960 0029 00       		.byte	0
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 1
  1014 0061 00       		.byte	0
  1015 0062 07       		.uleb128 0x7
  1016 0063 898201   		.uleb128 0x4109
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 21
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccDJQmCw.s 			page 21
 
 
  1017 0066 00       		.byte	0
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 1
  1071 00a3 35       		.uleb128 0x35
  1072 00a4 00       		.byte	0
  1073 00a5 49       		.uleb128 0x49
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 22
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccDJQmCw.s 			page 22
 
 
  1074 00a6 13       		.uleb128 0x13
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 1
  1128 00dc 00       		.byte	0
  1129 00dd 00       		.byte	0
  1130              		.section	.debug_aranges,"",%progbits
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 23
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccDJQmCw.s 			page 23
 
 
  1131 0000 1C000000 		.4byte	0x1c
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 1
  1164 0051 49735F53 		.ascii	"Is_Slide_On_Gripper\000"
  1164      6C696465 
  1164      5F4F6E5F 
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 24
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccDJQmCw.s 			page 24
 
 
  1164      47726970 
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 1
  1184 0174 544D4335 		.ascii	"TMC5160_MotorY_EN_Write\000"
  1184      3136305F 
  1184      4D6F746F 
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 25
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccDJQmCw.s 			page 25
 
 
  1184      72595F45 
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 1
  1207              	.LASF49:
  1208 0220 49735F55 		.ascii	"Is_USB_Unpluged\000"
  1208      53425F55 
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 26
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccDJQmCw.s 			page 26
 
 
  1208      6E706C75 
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 1
  1231 02e9 6D61696E 		.ascii	"main.c\000"
  1231      2E6300
  1232              	.LASF18:
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 27
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccDJQmCw.s 			page 27
 
 
  1233 02f0 63686172 		.ascii	"char\000"
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 1
  1259      6C00
  1260              	.LASF34:
  1261 0383 496E6974 		.ascii	"Initialize_PWM\000"
-ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccuoN63I.s 			page 28
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\ccDJQmCw.s 			page 28
 
 
  1261      69616C69 
