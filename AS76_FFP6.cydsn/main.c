@@ -32,7 +32,10 @@ int main(void)
     
     LED3_Write(0xFF);
     LED2_Write(0xFF);
-    Initialize_PWM();     
+    Initialize_PWM();   
+   PWM_CondenserLED_WriteCompare(0x00);
+   PWM_BarcodeCondenser_LED_WriteCompare(0);
+   Pin_Backlight_Write(0x00);
     UART_PCB_LOG_Start();   
     Write_Debug_UART_Char("PCB On/PCB RESET**********  \r\n");
     Initialize_USB();                                   /* Start USB to communicate with motherbord. */
@@ -76,7 +79,9 @@ int main(void)
     LED3_Write(0x00);
     LED2_Write(0x00);
     
-   Ring(1,0xFF,0xFF,0x0FF,0x07);
+   
+   CyDelay(10); 
+   Ring(1,0xFF,0xFF,0xFF,0x0A);
     
    //BF22(0xFF,0xFF,0xFF,0x0A,0x00,0xFF,0xFF,0x0A,0xFF,128,0x00,0x0A,0x00,0x00,0x00,0x00,0xFF,0x00,0x00,0x05,0x00,0xFF,0x00,0x0A);
         
