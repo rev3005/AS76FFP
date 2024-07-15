@@ -51,13 +51,13 @@ int main(void)
 
  
     // API for Homing X,Y,Z,T
-    //TMC5160_MotorZ_EN_Write(0x00);
+    TMC5160_MotorZ_EN_Write(0x00);
     CyDelay(100);
     //homeZ(TMC5160_nCS_MotorZ);
-    //TMC5160_MotorX_EN_Write(0x00);
+    TMC5160_MotorX_EN_Write(0x00);
     CyDelay(100);
     //homeX(TMC5160_nCS_MotorX);
-    //TMC5160_MotorY_EN_Write(0x00);
+    TMC5160_MotorY_EN_Write(0x00);
     CyDelay(100);
     //homeY(TMC5160_nCS_MotorY);
     
@@ -72,33 +72,37 @@ int main(void)
     
     LED3_Write(0x00);
     LED2_Write(0x00);
-    
+    homeZ(TMC5160_nCS_MotorZ);
+    homeY(TMC5160_nCS_MotorY);
+    homeX(TMC5160_nCS_MotorX);
    
         
 ////////////////////////////////////////// LOOP ///////////////////////////////////////////////////         
         
     for (;;)  
     {    
-        Is_USB_Unpluged();                              /* Reset MCU if USB unplugged or plugged. */
-        if (0 != USB_DataIsReady())                     /* Check for input data from host. */
-        {       
-            count = USB_GetAll(USB_received);           /* Read received data and re-enable OUT endpoint. */
-            if(count >= 2)                              /* Check if data id more then 2 bytes. */
-            {
-                Write_Debug_UART_Char("DATA RECEIVED  \r\n");
-                LED2_Write(0xFF);
-                 Process_USB_Data();   
-                LED2_Write(0x00);
-                  /* Process The USB incoming data. */
-               
-                
-
-            }
-               
-        }            
+//        Is_USB_Unpluged();                              /* Reset MCU if USB unplugged or plugged. */
+//        if (0 != USB_DataIsReady())                     /* Check for input data from host. */
+//        {       
+//            count = USB_GetAll(USB_received);           /* Read received data and re-enable OUT endpoint. */
+//            if(count >= 2)                              /* Check if data id more then 2 bytes. */
+//            {
+//                Write_Debug_UART_Char("DATA RECEIVED  \r\n");
+//                LED2_Write(0xFF);
+//                 Process_USB_Data();   
+//                LED2_Write(0x00);
+//                  /* Process The USB incoming data. */
+//               
+//                
+//
+//            }
+//               
+//        }            
     
            
    
+    goTo_XYZ(100000, -1, 50000);
+    goTo_XYZ(0, -1, 0);
         
       
     // Test API for Movement Check with error correction 
@@ -113,7 +117,8 @@ int main(void)
     //CyDelayUs(50);  
                
 
-    CyDelayUs(500);
+//    CyDelayUs(500);
+      CyDelay(500);
 //
 //        
         }    
