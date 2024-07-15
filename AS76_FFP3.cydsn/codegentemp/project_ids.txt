@@ -1,6 +1,0 @@
-C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\AS76_FFP3.cydsn\AS76_FFP3.cyprj|3ebaee49-03ce-404e-ae23-7aaee266adfa
-C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|3ee9cc3f-53d8-4c6a-bdeb-c3cf9129e9ec
-C:\Users\Revanth\Documents\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|d9b40b6a-b727-44f4-9edc-6fa239eaab39
-C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|8262992b-c554-4c19-baec-0c25207fd509
-C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|cfe1542f-d778-444d-9272-7ca86e604ac5
-C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|4c5dd892-82ee-4afd-a6da-8e8d447624c6
