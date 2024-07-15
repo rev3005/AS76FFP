@@ -183,7 +183,7 @@ void homeX(uint8_t Motor)
     Read_32bitSPI_DATA(0x04, Motor, &status_x); // Read the status register of TMC5160
     CyDelayUs(500);
     Read_32bitSPI_DATA(0x04, Motor, &status_x); // Read the status register of TMC5160
-    while ( (status_x & 0x40) != 0x00) // Condition to check if the Left limit switch is pressed or not
+    while ( (status_x & 0x40) == 0x00) // Condition to check if the Left limit switch is pressed or not
     {
        wait_timer_Start();
        wait_interrupt_StartEx(wait_interrupt_Handler);
@@ -324,7 +324,7 @@ void homeY(uint8_t Motor)
     Read_32bitSPI_DATA(0x04, Motor, &status_y);
     CyDelayUs(500);
     Read_32bitSPI_DATA(0x04, Motor, &status_y);
-    while ( (status_y & 0x40) != 0x00)
+    while ( (status_y & 0x40) == 0x00)
     {
         wait_timer_Start();
         wait_interrupt_StartEx(wait_interrupt_Handler);
@@ -2463,7 +2463,7 @@ void Initialize_Motor(uint8_t Motor)
             Write_32bitSPI_DATA (0x2C  , (int) 0x00000000, Motor );
             
             Write_32bitSPI_DATA (0x33  , (int) 0x00000000, Motor );
-            Write_32bitSPI_DATA (0x34  , (int) 0x000002A3, Motor );
+            Write_32bitSPI_DATA (0x34  , (int) 0x000002AF, Motor );
             Write_32bitSPI_DATA (0x38  , (int) 0x00000000, Motor );
             Write_32bitSPI_DATA (0x39  , (int) 0x00000000, Motor );
             Write_32bitSPI_DATA (0x3A  , (int) 0x00010000, Motor );

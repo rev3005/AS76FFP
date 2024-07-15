@@ -1,4 +1,4 @@
---------------- Build Started: 07/11/2024 17:14:18 Project: Half_Skeleton_V2_T1, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+--------------- Build Started: 07/15/2024 11:27:21 Project: Half_Skeleton_V2_T1, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
 The code generation step is up to date.
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/AS76.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c AS76.c -o .\CortexM3\ARM_GCC_541\Debug\AS76.o
 In file included from AS76.c:14:0:
@@ -233,4 +233,4 @@ Checksum calculated and stored in ELF section .cymeta
 cyelftool.exe -S C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\Half_Skeleton_V2_T1.cydsn\CortexM3\ARM_GCC_541\Debug\Half_Skeleton_V2_T1.elf
 Flash used: 33864 of 262144 bytes (12.9%).
 SRAM used: 3209 of 65536 bytes (4.9%). Stack: 2048 bytes. Heap: 128 bytes.
---------------- Build Succeeded: 07/11/2024 17:14:21 ---------------
+--------------- Build Succeeded: 07/15/2024 11:27:24 ---------------
