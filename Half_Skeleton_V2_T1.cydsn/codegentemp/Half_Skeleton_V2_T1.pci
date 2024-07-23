@@ -1,5 +1,5 @@
 # Half_Skeleton_V2_T1
-# 2024-07-11 10:59:22Z
+# 2024-07-17 06:57:33Z
 
 # IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
 dont_use_io iocell 1 0
@@ -62,4 +62,8 @@ set_io "LIM_Z_L(0)" iocell 4 1
 set_io "LIM_Z_R(0)" iocell 4 0
 set_io "LIM_T_L(0)" iocell 3 0
 set_io "LIM_T_R(0)" iocell 3 1
+set_io "X_MOT_INT(0)" iocell 6 3
+set_io "Y_MOT_INT(0)" iocell 6 2
+set_io "Z_MOT_INT(0)" iocell 6 1
+set_io "Camera_Trigger(0)" iocell 12 3
 set_location "\USB:USB\" usbcell -1 -1 0

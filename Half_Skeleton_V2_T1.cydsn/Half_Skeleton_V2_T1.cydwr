@@ -608,6 +608,7 @@
       <Data key="5f939b41-1a9a-409e-80cb-aa3b25225ebb" value="Pin_GotoZ_1" />
       <Data key="6a067875-4eac-42eb-b7ac-3943d7cc506e" value="Pin_Collision_Sens_Z_21" />
       <Data key="6da299c4-583a-4ab9-a18c-c6f948faed17" value="TMC5160_MotorT_EN" />
+      <Data key="6de8d026-3bee-4bcc-bf1e-d6af4e97a17b" value="Camera_Trigger" />
       <Data key="6fe0176c-a151-4488-b9ca-b03de37ff7a8" value="Pin_Collision_Sens_Theta_12" />
       <Data key="7ba2a341-8cd3-4edf-9821-4cbb9ac7ece7" value="LIM_X_R" />
       <Data key="7d07f80d-e5a2-4ea8-856f-7d4f3cb6b513" value="Pin_Collision_Sens_Z_12" />
@@ -648,6 +649,7 @@
       <Data key="99d7f12b-afd7-4724-9924-cd3dd052f253" value="Pin_GotoY_2" />
       <Data key="0176f56c-ec3d-497e-b889-32d45c789e50" value="TMC5160_MotorY_EN" />
       <Data key="206b9eaa-fc8a-4613-b092-466b943c58f9" value="Pin_HomeY" />
+      <Data key="222cff35-67fa-48f6-9010-c0cdcdfbae82" value="Z_MOT_INT" />
       <Data key="223e3059-dd41-4be5-b5aa-f4bffe6254f0" value="Pin_ProxiSensZ" />
       <Data key="346b164a-b2c0-4f5e-b240-b34cc8963e51" value="Pin_Collision_Sens_X_22" />
       <Data key="500cedcf-0e5d-4128-8e67-ee84899c7054" value="Pin_ProxiSensY" />
@@ -669,6 +671,7 @@
       <Data key="665027e0-b68e-48de-ad19-318d83d293af" value="LED3" />
       <Data key="686758c1-6cfd-412f-9f99-7f329a29a757" value="EN_Z" />
       <Data key="3570074a-11ca-464d-bfbe-c0234fd4313e" value="Pin_FlagMotorLens" />
+      <Data key="5201968e-d0f8-48da-b92b-ba90e1572d73" value="X_MOT_INT" />
       <Data key="42042185-f7ae-43a2-a61e-0f2f1b5d7b71" value="Pin_Collision_Sens_Z_12" />
       <Data key="48182850-08e3-4cf7-9a6f-81a699c6fb41" value="Pin_GotoY_1" />
       <Data key="77715107-f8d5-47e5-a629-0fb83101ac6b" value="Pin_ProxiSensX" />
@@ -699,6 +702,7 @@
       <Data key="d55ce5f8-56ea-479a-8e4a-ff9eb77645b3" value="Pin_Opt_Dec_X_Dnclk" />
       <Data key="d621c22f-a098-46a1-a4cc-0aa4b4fbdd56" value="Pin_Collision_Sens_Z_21" />
       <Data key="d3782832-853a-407d-b763-791fc8ec694a" value="Pin_CSMotorY" />
+      <Data key="d4029012-3a1b-44ac-b538-4cc5b57dc7ca" value="Y_MOT_INT" />
       <Data key="dc84c1db-e857-478a-9b35-f11208d8626a" value="TMC5160_CS" />
       <Data key="dc291877-5ef4-493f-bfdc-9e9d90680275" value="Pin_Backlight" />
       <Data key="e6c8b03c-2f62-4c75-b6c0-cd33695c0e8b" value="Pin_CS" />
@@ -4011,6 +4015,11 @@
         <Data key="Port Format" value="5,5" />
       </Group>
     </Group>
+    <Group key="6de8d026-3bee-4bcc-bf1e-d6af4e97a17b">
+      <Group key="0">
+        <Data key="Port Format" value="12,3" />
+      </Group>
+    </Group>
     <Group key="6fe0176c-a151-4488-b9ca-b03de37ff7a8">
       <Group key="0">
         <Data key="Port Format" value="12,5" />
@@ -4206,6 +4215,11 @@
         <Data key="Port Format" value="12,5" />
       </Group>
     </Group>
+    <Group key="222cff35-67fa-48f6-9010-c0cdcdfbae82">
+      <Group key="0">
+        <Data key="Port Format" value="6,1" />
+      </Group>
+    </Group>
     <Group key="223e3059-dd41-4be5-b5aa-f4bffe6254f0">
       <Group key="0">
         <Data key="Port Format" value="1,7" />
@@ -4304,6 +4318,11 @@
     <Group key="3570074a-11ca-464d-bfbe-c0234fd4313e">
       <Group key="0">
         <Data key="Port Format" value="5,5" />
+      </Group>
+    </Group>
+    <Group key="5201968e-d0f8-48da-b92b-ba90e1572d73">
+      <Group key="0">
+        <Data key="Port Format" value="6,3" />
       </Group>
     </Group>
     <Group key="42042185-f7ae-43a2-a61e-0f2f1b5d7b71">
@@ -4444,6 +4463,11 @@
     <Group key="d3782832-853a-407d-b763-791fc8ec694a">
       <Group key="0">
         <Data key="Port Format" value="2,1" />
+      </Group>
+    </Group>
+    <Group key="d4029012-3a1b-44ac-b538-4cc5b57dc7ca">
+      <Group key="0">
+        <Data key="Port Format" value="6,2" />
       </Group>
     </Group>
     <Group key="dc291877-5ef4-493f-bfdc-9e9d90680275">

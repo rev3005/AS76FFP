@@ -75,6 +75,7 @@ int Step_correction_x(int32 steps);
 int Step_correction_y(int32 steps);
 int Step_correction_t(int32 steps);
 int Step_correction_z(int32 steps);
+void GsV2(int StartPosX,int EndPosX, int StartPosZ,int EndPosZ, int Xspeed, int Zspeed);
 
 
 int _Get_MOSI();

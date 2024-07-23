@@ -86,9 +86,11 @@
 <CyGuid_f44455c5-3770-4452-b988-0a7a7ff46256 type_name="CyDesigner.Common.ProjMgmt.Model.CyConfigDependencies" version="1">
 <dependency_info name="c9323d49-d323-40b8-9b59-cc008d68a989@Debug@CortexM3" xml_contents_version="2">
 <CyGuid_1173175f-1b9b-4ad4-a065-754a48a27021 type_name="CyDesigner.Common.Base.CyFileDeps" version="1">
-<file name=".\CortexM3\ARM_GCC_541\Debug\main.o">
+<file name=".\CortexM3\ARM_GCC_541\Debug\AS76.o">
 <dep name=".\Generated_Source\PSoC5\CYDMAC.H" />
 <dep name=".\Generated_Source\PSoC5\CYFITTER.H" />
+<dep name=".\Generated_Source\PSoC5\Camera_Trigger.h" />
+<dep name=".\Generated_Source\PSoC5\Camera_Trigger_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\Clock_Encoder_24Mhz.h" />
 <dep name=".\Generated_Source\PSoC5\CyDmac.h" />
 <dep name=".\Generated_Source\PSoC5\CyFlash.h" />
@@ -204,6 +206,12 @@
 <dep name=".\Generated_Source\PSoC5\USB_midi.h" />
 <dep name=".\Generated_Source\PSoC5\USB_msc.h" />
 <dep name=".\Generated_Source\PSoC5\USB_pvt.h" />
+<dep name=".\Generated_Source\PSoC5\X_MOT_INT.h" />
+<dep name=".\Generated_Source\PSoC5\X_MOT_INT_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\Y_MOT_INT.h" />
+<dep name=".\Generated_Source\PSoC5\Y_MOT_INT_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\Z_MOT_INT.h" />
+<dep name=".\Generated_Source\PSoC5\Z_MOT_INT_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_compiler.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
@@ -222,14 +230,16 @@
 <dep name=".\Generated_Source\PSoC5\timer_clock.h" />
 <dep name=".\Generated_Source\PSoC5\wait_interrupt.h" />
 <dep name=".\Generated_Source\PSoC5\wait_timer.h" />
+<dep name=".\AS76.c" />
 <dep name=".\AS76.h" />
 <dep name=".\configuration.h" />
 <dep name=".\cyapicallbacks.h" />
-<dep name=".\main.c" />
 <dep name=".\variables.h" />
 </file>
 <file name=".\Generated_Source\PSoC5\CYDMAC.H" />
 <file name=".\Generated_Source\PSoC5\CYFITTER.H" />
+<file name=".\Generated_Source\PSoC5\Camera_Trigger.h" />
+<file name=".\Generated_Source\PSoC5\Camera_Trigger_aliases.h" />
 <file name=".\Generated_Source\PSoC5\Clock_Encoder_24Mhz.h" />
 <file name=".\Generated_Source\PSoC5\CyFlash.h" />
 <file name=".\Generated_Source\PSoC5\CyLib.h" />
@@ -344,6 +354,12 @@
 <file name=".\Generated_Source\PSoC5\USB_midi.h" />
 <file name=".\Generated_Source\PSoC5\USB_msc.h" />
 <file name=".\Generated_Source\PSoC5\USB_pvt.h" />
+<file name=".\Generated_Source\PSoC5\X_MOT_INT.h" />
+<file name=".\Generated_Source\PSoC5\X_MOT_INT_aliases.h" />
+<file name=".\Generated_Source\PSoC5\Y_MOT_INT.h" />
+<file name=".\Generated_Source\PSoC5\Y_MOT_INT_aliases.h" />
+<file name=".\Generated_Source\PSoC5\Z_MOT_INT.h" />
+<file name=".\Generated_Source\PSoC5\Z_MOT_INT_aliases.h" />
 <file name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
 <file name=".\Generated_Source\PSoC5\cmsis_compiler.h" />
 <file name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
@@ -361,14 +377,16 @@
 <file name=".\Generated_Source\PSoC5\timer_clock.h" />
 <file name=".\Generated_Source\PSoC5\wait_interrupt.h" />
 <file name=".\Generated_Source\PSoC5\wait_timer.h" />
+<file name=".\AS76.c" />
 <file name=".\AS76.h" />
 <file name=".\configuration.h" />
 <file name=".\cyapicallbacks.h" />
-<file name=".\main.c" />
 <file name=".\variables.h" />
-<file name=".\CortexM3\ARM_GCC_541\Debug\AS76.o">
+<file name=".\CortexM3\ARM_GCC_541\Debug\main.o">
 <dep name=".\Generated_Source\PSoC5\CYDMAC.H" />
 <dep name=".\Generated_Source\PSoC5\CYFITTER.H" />
+<dep name=".\Generated_Source\PSoC5\Camera_Trigger.h" />
+<dep name=".\Generated_Source\PSoC5\Camera_Trigger_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\Clock_Encoder_24Mhz.h" />
 <dep name=".\Generated_Source\PSoC5\CyDmac.h" />
 <dep name=".\Generated_Source\PSoC5\CyFlash.h" />
@@ -484,6 +502,12 @@
 <dep name=".\Generated_Source\PSoC5\USB_midi.h" />
 <dep name=".\Generated_Source\PSoC5\USB_msc.h" />
 <dep name=".\Generated_Source\PSoC5\USB_pvt.h" />
+<dep name=".\Generated_Source\PSoC5\X_MOT_INT.h" />
+<dep name=".\Generated_Source\PSoC5\X_MOT_INT_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\Y_MOT_INT.h" />
+<dep name=".\Generated_Source\PSoC5\Y_MOT_INT_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\Z_MOT_INT.h" />
+<dep name=".\Generated_Source\PSoC5\Z_MOT_INT_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_compiler.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
@@ -502,27 +526,24 @@
 <dep name=".\Generated_Source\PSoC5\timer_clock.h" />
 <dep name=".\Generated_Source\PSoC5\wait_interrupt.h" />
 <dep name=".\Generated_Source\PSoC5\wait_timer.h" />
-<dep name=".\AS76.c" />
 <dep name=".\AS76.h" />
 <dep name=".\configuration.h" />
 <dep name=".\cyapicallbacks.h" />
+<dep name=".\main.c" />
 <dep name=".\variables.h" />
 </file>
-<file name=".\AS76.c" />
-<file name=".\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o">
-<dep name=".\Generated_Source\PSoC5\CyFlash.h" />
-<dep name=".\Generated_Source\PSoC5\CyLib.h" />
-<dep name=".\Generated_Source\PSoC5\CySpc.h" />
-<dep name=".\Generated_Source\PSoC5\cyPm.h" />
+<file name=".\main.c" />
+<file name=".\CortexM3\ARM_GCC_541\Debug\Camera_Trigger.o">
+<dep name=".\Generated_Source\PSoC5\Camera_Trigger.h" />
+<dep name=".\Generated_Source\PSoC5\Camera_Trigger_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\cydevice.h" />
 <dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
 <dep name=".\Generated_Source\PSoC5\cyfitter.h" />
-<dep name=".\Generated_Source\PSoC5\cyfitter_cfg.c" />
-<dep name=".\Generated_Source\PSoC5\cyfitter_cfg.h" />
+<dep name=".\Generated_Source\PSoC5\cypins.h" />
 <dep name=".\Generated_Source\PSoC5\cytypes.h" />
-<dep name=".\cyapicallbacks.h" />
+<dep name=".\Generated_Source\PSoC5\Camera_Trigger.c" />
 </file>
-<file name=".\Generated_Source\PSoC5\cyfitter_cfg.c" />
+<file name=".\Generated_Source\PSoC5\Camera_Trigger.c" />
 <file name=".\CortexM3\ARM_GCC_541\Debug\Clock_Encoder_24Mhz.o">
 <dep name=".\Generated_Source\PSoC5\Clock_Encoder_24Mhz.h" />
 <dep name=".\Generated_Source\PSoC5\cydevice.h" />
@@ -1883,6 +1904,39 @@
 <dep name=".\cyapicallbacks.h" />
 </file>
 <file name=".\Generated_Source\PSoC5\USB_vnd.c" />
+<file name=".\CortexM3\ARM_GCC_541\Debug\X_MOT_INT.o">
+<dep name=".\Generated_Source\PSoC5\X_MOT_INT.h" />
+<dep name=".\Generated_Source\PSoC5\X_MOT_INT_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cypins.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+<dep name=".\Generated_Source\PSoC5\X_MOT_INT.c" />
+</file>
+<file name=".\Generated_Source\PSoC5\X_MOT_INT.c" />
+<file name=".\CortexM3\ARM_GCC_541\Debug\Y_MOT_INT.o">
+<dep name=".\Generated_Source\PSoC5\Y_MOT_INT.h" />
+<dep name=".\Generated_Source\PSoC5\Y_MOT_INT_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cypins.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+<dep name=".\Generated_Source\PSoC5\Y_MOT_INT.c" />
+</file>
+<file name=".\Generated_Source\PSoC5\Y_MOT_INT.c" />
+<file name=".\CortexM3\ARM_GCC_541\Debug\Z_MOT_INT.o">
+<dep name=".\Generated_Source\PSoC5\Z_MOT_INT.h" />
+<dep name=".\Generated_Source\PSoC5\Z_MOT_INT_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cypins.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+<dep name=".\Generated_Source\PSoC5\Z_MOT_INT.c" />
+</file>
+<file name=".\Generated_Source\PSoC5\Z_MOT_INT.c" />
 <file name=".\CortexM3\ARM_GCC_541\Debug\cyPm.o">
 <dep name=".\Generated_Source\PSoC5\CyFlash.h" />
 <dep name=".\Generated_Source\PSoC5\CyLib.h" />
@@ -1909,10 +1963,20 @@
 <dep name=".\Generated_Source\PSoC5\cy_em_eeprom.c" />
 </file>
 <file name=".\Generated_Source\PSoC5\cy_em_eeprom.c" />
-<file name=".\CortexM3\ARM_GCC_541\Debug\cymetadata.o">
-<dep name=".\Generated_Source\PSoC5\cymetadata.c" />
+<file name=".\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o">
+<dep name=".\Generated_Source\PSoC5\CyFlash.h" />
+<dep name=".\Generated_Source\PSoC5\CyLib.h" />
+<dep name=".\Generated_Source\PSoC5\CySpc.h" />
+<dep name=".\Generated_Source\PSoC5\cyPm.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter_cfg.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter_cfg.c" />
+<dep name=".\cyapicallbacks.h" />
 </file>
-<file name=".\Generated_Source\PSoC5\cymetadata.c" />
+<file name=".\Generated_Source\PSoC5\cyfitter_cfg.c" />
 <file name=".\CortexM3\ARM_GCC_541\Debug\cyutils.o">
 <dep name=".\Generated_Source\PSoC5\cydevice.h" />
 <dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
@@ -1980,6 +2044,10 @@
 <file name=".\Generated_Source\PSoC5\cydevicegnu.inc" />
 <file name=".\Generated_Source\PSoC5\cydevicegnu_trm.inc" />
 <file name=".\Generated_Source\PSoC5\cyfittergnu.inc" />
+<file name=".\CortexM3\ARM_GCC_541\Debug\cymetadata.o">
+<dep name=".\Generated_Source\PSoC5\cymetadata.c" />
+</file>
+<file name=".\Generated_Source\PSoC5\cymetadata.c" />
 </CyGuid_1173175f-1b9b-4ad4-a065-754a48a27021>
 </dependency_info>
 </CyGuid_f44455c5-3770-4452-b988-0a7a7ff46256>
@@ -2094,6 +2162,10 @@
 <dep name=".\CortexM3\ARM_GCC_541\Debug\wait_timer.o" />
 <dep name=".\CortexM3\ARM_GCC_541\Debug\wait_timer_PM.o" />
 <dep name=".\CortexM3\ARM_GCC_541\Debug\wait_interrupt.o" />
+<dep name=".\CortexM3\ARM_GCC_541\Debug\X_MOT_INT.o" />
+<dep name=".\CortexM3\ARM_GCC_541\Debug\Y_MOT_INT.o" />
+<dep name=".\CortexM3\ARM_GCC_541\Debug\Z_MOT_INT.o" />
+<dep name=".\CortexM3\ARM_GCC_541\Debug\Camera_Trigger.o" />
 <dep name=".\CortexM3\ARM_GCC_541\Debug\Half_Skeleton_V2_T1.a" />
 <dep name="${CyRoot}\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_541\Debug\CyComponentLibrary.a" />
 </file>
@@ -2213,6 +2285,10 @@
 <name_val_pair name="Generated_Source\PSoC5\wait_timer_PM.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
 <name_val_pair name="Generated_Source\PSoC5\wait_interrupt.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
 <name_val_pair name="C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\Half_Skeleton_V2_T1.cydsn\CortexM3\ARM_GCC_541\Debug\Half_Skeleton_V2_T1.hex" v="-mcpu=cortex-m3 -mthumb -l m -L Generated_Source\PSoC5 -Wl,-Map,${OutputDir}/${ProjectShortName}.map -T Generated_Source\PSoC5\cm3gcc.ld -specs=nano.specs -Wl,--gc-sections -g -ffunction-sections -Og -ffat-lto-objects" />
+<name_val_pair name="Generated_Source\PSoC5\X_MOT_INT.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="Generated_Source\PSoC5\Y_MOT_INT.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="Generated_Source\PSoC5\Z_MOT_INT.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+<name_val_pair name="Generated_Source\PSoC5\Camera_Trigger.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
 </name>
 </genericCmdLineData>
 <codeGenCmdLineTag v="-.appdatapath &quot;C:\Users\Revanth\AppData\Local\Cypress Semiconductor\PSoC Creator\4.4&quot; -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\Half_Skeleton_V2_T1.cydsn\Half_Skeleton_V2_T1.cyprj -d CY8C5268AXI-LP047 -s C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\Half_Skeleton_V2_T1.cydsn\Generated_Source\PSoC5 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE" />
@@ -3443,6 +3519,18 @@
 <v>Generated_Source\PSoC5\wait_timer_PM.c</v>
 <v>Generated_Source\PSoC5\wait_interrupt.c</v>
 <v>Generated_Source\PSoC5\wait_interrupt.h</v>
+<v>Generated_Source\PSoC5\X_MOT_INT_aliases.h</v>
+<v>Generated_Source\PSoC5\X_MOT_INT.c</v>
+<v>Generated_Source\PSoC5\X_MOT_INT.h</v>
+<v>Generated_Source\PSoC5\Y_MOT_INT_aliases.h</v>
+<v>Generated_Source\PSoC5\Y_MOT_INT.c</v>
+<v>Generated_Source\PSoC5\Y_MOT_INT.h</v>
+<v>Generated_Source\PSoC5\Z_MOT_INT_aliases.h</v>
+<v>Generated_Source\PSoC5\Z_MOT_INT.c</v>
+<v>Generated_Source\PSoC5\Z_MOT_INT.h</v>
+<v>Generated_Source\PSoC5\Camera_Trigger_aliases.h</v>
+<v>Generated_Source\PSoC5\Camera_Trigger.c</v>
+<v>Generated_Source\PSoC5\Camera_Trigger.h</v>
 </gen_list>
 <warp_dep>
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\ieee\work\stdlogic.vif</v>
@@ -3452,7 +3540,7 @@
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif</v>
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3.vif</v>
 </warp_dep>
-<deps_time v="133651691718459410" />
+<deps_time v="133656730629044186" />
 <top_block v="TopDesign" />
 <last_generation v="7" />
 <pdl_path v="" />
@@ -3462,16 +3550,13 @@
 <dataGuid v="769d31ea-68b1-4f0c-b90a-7c10a43ee563">
 <CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563 type_name="CyDesigner.Common.ProjMgmt.Model.CyLinkCustomData" version="1">
 <link_deps_times>
-<name_val_pair name="c9323d49-d323-40b8-9b59-cc008d68a989@Debug@CortexM3" v="133655091500983932" />
+<name_val_pair name="c9323d49-d323-40b8-9b59-cc008d68a989@Debug@CortexM3" v="133658552440713946" />
 </link_deps_times>
 </CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563>
 </dataGuid>
 <dataGuid v="504337dd-7d07-4bc7-9057-90e60cf6c469">
 <CyGuid_504337dd-7d07-4bc7-9057-90e60cf6c469 type_name="CyDesigner.Common.Debugger.CyBreakpointList" version="1">
-<debugger_breakpoint_list>
-<CyGuid_76464711-0ae1-4583-b869-f07a0403fc6e type_name="CyDesigner.Common.Debugger.CyFileLineBreakpoint" version="1" hitcount="0" condition="" enabled="True" hardware="True" temparary="False" filename=".\AS76.c" linenumber="1345" />
-<CyGuid_76464711-0ae1-4583-b869-f07a0403fc6e type_name="CyDesigner.Common.Debugger.CyFileLineBreakpoint" version="1" hitcount="0" condition="" enabled="True" hardware="True" temparary="False" filename=".\AS76.c" linenumber="1314" />
-</debugger_breakpoint_list>
+<debugger_breakpoint_list />
 </CyGuid_504337dd-7d07-4bc7-9057-90e60cf6c469>
 </dataGuid>
 <dataGuid v="718b6b01-68ba-4a17-b632-d38dc61ebb3b">

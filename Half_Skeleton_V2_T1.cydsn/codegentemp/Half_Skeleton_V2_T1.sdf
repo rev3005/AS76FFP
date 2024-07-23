@@ -1,6 +1,6 @@
 (DELAYFILE
  (SDFVERSION "IEEE 1497 4.0")
- (DATE "2024-07-11T10:59:28Z")
+ (DATE "2024-07-17T06:57:39Z")
  (DESIGN "Half_Skeleton_V2_T1")
  (VENDOR "Cypress Semiconductor")
  (PROGRAM "PSoC Creator")
@@ -805,6 +805,10 @@
     (INTERCONNECT LIM_Z_R\(0\)_PAD LIM_Z_R\(0\).pad_in (0.000:0.000:0.000))
     (INTERCONNECT LIM_T_L\(0\)_PAD LIM_T_L\(0\).pad_in (0.000:0.000:0.000))
     (INTERCONNECT LIM_T_R\(0\)_PAD LIM_T_R\(0\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT X_MOT_INT\(0\)_PAD X_MOT_INT\(0\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT Y_MOT_INT\(0\)_PAD Y_MOT_INT\(0\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT Z_MOT_INT\(0\)_PAD Z_MOT_INT\(0\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT Camera_Trigger\(0\)_PAD Camera_Trigger\(0\).pad_in (0.000:0.000:0.000))
    )
   )
  )

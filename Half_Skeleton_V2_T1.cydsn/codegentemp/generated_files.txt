@@ -193,6 +193,18 @@
   <file name="C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\Half_Skeleton_V2_T1.cydsn\codegentemp\wait_timer_PM.c" value="SOURCE_C;CortexM3;;;;wait_timer" />
   <file name="C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\Half_Skeleton_V2_T1.cydsn\codegentemp\wait_interrupt.c" value="SOURCE_C;CortexM3;;;;wait_interrupt" />
   <file name="C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\Half_Skeleton_V2_T1.cydsn\codegentemp\wait_interrupt.h" value="HEADER;;;;;wait_interrupt" />
+  <file name="C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\Half_Skeleton_V2_T1.cydsn\codegentemp\X_MOT_INT_aliases.h" value="HEADER;;;;;X_MOT_INT" />
+  <file name="C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\Half_Skeleton_V2_T1.cydsn\codegentemp\X_MOT_INT.c" value="SOURCE_C;CortexM3;;;;X_MOT_INT" />
+  <file name="C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\Half_Skeleton_V2_T1.cydsn\codegentemp\X_MOT_INT.h" value="HEADER;;;;;X_MOT_INT" />
+  <file name="C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\Half_Skeleton_V2_T1.cydsn\codegentemp\Y_MOT_INT_aliases.h" value="HEADER;;;;;Y_MOT_INT" />
+  <file name="C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\Half_Skeleton_V2_T1.cydsn\codegentemp\Y_MOT_INT.c" value="SOURCE_C;CortexM3;;;;Y_MOT_INT" />
+  <file name="C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\Half_Skeleton_V2_T1.cydsn\codegentemp\Y_MOT_INT.h" value="HEADER;;;;;Y_MOT_INT" />
+  <file name="C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\Half_Skeleton_V2_T1.cydsn\codegentemp\Z_MOT_INT_aliases.h" value="HEADER;;;;;Z_MOT_INT" />
+  <file name="C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\Half_Skeleton_V2_T1.cydsn\codegentemp\Z_MOT_INT.c" value="SOURCE_C;CortexM3;;;;Z_MOT_INT" />
+  <file name="C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\Half_Skeleton_V2_T1.cydsn\codegentemp\Z_MOT_INT.h" value="HEADER;;;;;Z_MOT_INT" />
+  <file name="C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\Half_Skeleton_V2_T1.cydsn\codegentemp\Camera_Trigger_aliases.h" value="HEADER;;;;;Camera_Trigger" />
+  <file name="C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\Half_Skeleton_V2_T1.cydsn\codegentemp\Camera_Trigger.c" value="SOURCE_C;CortexM3;;;;Camera_Trigger" />
+  <file name="C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\Half_Skeleton_V2_T1.cydsn\codegentemp\Camera_Trigger.h" value="HEADER;;;;;Camera_Trigger" />
   <file name="C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\Half_Skeleton_V2_T1.cydsn\codegentemp\QuadDec_TZ_isr.c" value="SOURCE_C;CortexM3;;;;QuadDec_TZ_isr" />
   <file name="C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\Half_Skeleton_V2_T1.cydsn\codegentemp\QuadDec_TZ_isr.h" value="HEADER;;;;;QuadDec_TZ_isr" />
   <file name="C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\Half_Skeleton_V2_T1.cydsn\codegentemp\QuadDec_TZ_Cnt16.c" value="SOURCE_C;CortexM3;;;;QuadDec_TZ_Cnt16" />

@@ -74,12 +74,12 @@ extern uint8_t status_z;
 extern uint8_t status_t;
 
 // Interrupt Timer for Time out Period
-uint16_t ms_count = 0;
+int ms_count = 0;
 bool exit_loop =0;
 CY_ISR(wait_interrupt_Handler) {
     ms_count++;
      
-    if(ms_count == 11000) 
+    if(ms_count == 300000) 
     { // ~30 second
         
         exit_loop = 1;
@@ -680,7 +680,7 @@ int goTo_X(int32 Position_X_Requested)
     {
         Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorY );
         Write_32bitSPI_DATA (0x10  , (int) 0x00070103, TMC5160_nCS_MotorZ );
-        Write_32bitSPI_DATA (0x10  , (int) 0x00070305, TMC5160_nCS_MotorX );
+        Write_32bitSPI_DATA (0x10  , (int) 0x00070405, TMC5160_nCS_MotorX );
         //Position_X_Move = Position_X_Move + Position_X_Requested;
         Error = 0;
         Read_All_Optical_Encoder();
@@ -1314,7 +1314,7 @@ void Process_USB_Data()/* Process USB incoming data command. */
     if (command == HomeX)                                          
     {
         Write_Debug_UART_Char("\n\n\n\n\nHome X Starting \n");
-        
+        Write_32bitSPI_DATA (0x10  , (int) 0x00070407, TMC5160_nCS_MotorX );
         TMC5160_MotorZ_EN_Write(0xFF);
         CyDelayUs(500);
         TMC5160_MotorY_EN_Write(0xFF);
@@ -1327,7 +1327,7 @@ void Process_USB_Data()/* Process USB incoming data command. */
         goTo_X(0);
         Write_32bitSPI_DATA (0x10  , (int) 0x00070101, TMC5160_nCS_MotorY );
         Write_32bitSPI_DATA (0x10  , (int) 0x00070101, TMC5160_nCS_MotorZ );
-        Write_32bitSPI_DATA (0x10  , (int) 0x00070407, TMC5160_nCS_MotorX );
+        Write_32bitSPI_DATA (0x10  , (int) 0x00070307, TMC5160_nCS_MotorX );
         homeX(TMC5160_nCS_MotorX);   
         //Write_32bitSPI_DATA (0x26  , (int) 0x0000FFFF, TMC5160_nCS_MotorX );
         Write_32bitSPI_DATA (0x10  , (int) 0x00070301, TMC5160_nCS_MotorX );
@@ -1684,13 +1684,13 @@ void Process_USB_Data()/* Process USB incoming data command. */
     else if(command == GotoZ_Vs)
     {
     ms_count=0;
-    wait_timer_Start();
-    wait_interrupt_StartEx(wait_interrupt_Handler1); 
+    //wait_timer_Start();
+    //wait_interrupt_StartEx(wait_interrupt_Handler1); 
     print_flag =1;
     //Write_Debug_UART_Char("\n\n\n\n\nGotoZ Vs \n");
     //Write_Debug_UART_Char("\n***---Command Start Movement Time : ");
     Write_Debug_UART_Char("..\n");
-    Write_Debug_UART_Int((int)(ms_count*2.5));
+    //Write_Debug_UART_Int((int)(ms_count*2.5));
     Write_Debug_UART_Char(" \n");
     
     Position_Z_Requested = ((int32)USB_received[5] << 24) + ((int32)USB_received[4] << 16) + ((int32)USB_received[3] << 8) + (int32)USB_received[2];   
@@ -1704,7 +1704,7 @@ void Process_USB_Data()/* Process USB incoming data command. */
     Position_Z_Requested = (Position_Z_Requested / 16);
     Position_Z_Requested = Position_Z_Requested * 51.2;
     
-    Write_Debug_UART_Int((int)(ms_count*2.5));
+    //Write_Debug_UART_Int((int)(ms_count*2.5));
     Write_Debug_UART_Char(" \n");
     goTo_Z(Position_Z_Requested);
     }
@@ -1742,9 +1742,9 @@ void Process_USB_Data()/* Process USB incoming data command. */
   
     
     
-    Write_Debug_UART_Int((int)(ms_count*2.5));
+    //Write_Debug_UART_Int((int)(ms_count*2.5));
     Write_Debug_UART_Char(" \n");
-    wait_timer_Stop();
+    //wait_timer_Stop();
     ms_count=0;
     //CyDelayUs(10);
     //update_max_velocity(53687*2, TMC5160_nCS_MotorZ);
@@ -1808,6 +1808,37 @@ void Process_USB_Data()/* Process USB incoming data command. */
         Send_Feedback_to_USB(0);
         LED3_Write(0x00);
     }
+    else if (command == GSV2)
+    {
+        int Xstart ,Xstop,Zstart ,Zstop =0;
+        Xstart = ((int32)USB_received[5] << 24) + ((int32)USB_received[4] << 16) + ((int32)USB_received[3] << 8) + (int32)USB_received[2];
+        Xstop = ((int32)USB_received[9] << 24) + ((int32)USB_received[8] << 16) + ((int32)USB_received[7] << 8) + (int32)USB_received[6];
+        Zstart = ((int32)USB_received[13] << 24) + ((int32)USB_received[12] << 16) + ((int32)USB_received[11] << 8) + (int32)USB_received[10];        
+        Zstop = ((int32)USB_received[17] << 24) + ((int32)USB_received[16] << 16) + ((int32)USB_received[15] << 8) + (int32)USB_received[14];
+        
+        Xstart = (Xstart / 4);
+        Xstart = Xstart * 12.8;
+        
+        Xstop = (Xstop / 4);
+        Xstop = Xstop * 12.8;
+        
+        Zstart = (Zstart / 16);
+        Zstart = Zstart * 51.2;
+        
+        Zstop = (Zstop / 16);
+        Zstop = Zstop * 51.2;
+        
+        
+        Motor_Speed_X = ((int32)USB_received[21] << 24) + ((int32)USB_received[20] << 16) + ((int32)USB_received[19] << 8) + (int32)USB_received[18];
+        Motor_Speed_Z = ((int32)USB_received[25] << 24) + ((int32)USB_received[24] << 16) + ((int32)USB_received[23] << 8) + (int32)USB_received[22];
+        
+        GsV2(Xstart,Xstop, Zstart,Zstop, Motor_Speed_X, Motor_Speed_Z);  
+        
+        Previous_Z_Position = Zstop;
+        Previous_X_Position = Xstop;
+        Send_Feedback_to_USB(0);
+    }
+    
     else
     {
         Error = 19;//Wrong_Command_Received
@@ -2435,8 +2466,8 @@ void Initialize_Motor(uint8_t Motor)
             }
             else if ( Motor == TMC5160_nCS_MotorX)
             {
-            Write_32bitSPI_DATA (0x0B  , 90, Motor );
-            Write_32bitSPI_DATA (0x10  , (int) 0x00070105, Motor );
+            Write_32bitSPI_DATA (0x0B  , 0, Motor );
+            Write_32bitSPI_DATA (0x10  , (int) 0x00070405, Motor );
             }
             else if ( Motor == TMC5160_nCS_MotorY)
             {
@@ -2626,6 +2657,71 @@ int run_pumpvs (int time_ms, int speed, uint8_t direction)
     CyDelay(5);
     TMC5160_MotorO_EN_Write(0xFF);    
     return 0;
+}
+
+int start_quad = 0;
+bool capture_flag =0;
+
+CY_ISR(Quad_Timer)
+{    
+    X_QuadPosition = -QuadDec_X_GetCounter();
+    
+    if (X_QuadPosition > start_quad)
+    {
+       capture_flag = 1; 
+       start_quad = start_quad+72;
+        
+    }
+}
+
+void GsV2(int StartPosX,int EndPosX, int StartPosZ,int EndPosZ, int Xspeed, int Zspeed)
+{
+    //LED3_Write(0xFF);
+    goTo_XYZ(StartPosX,-1,StartPosZ);
+    
+    update_max_velocity(Xspeed, TMC5160_nCS_MotorX);
+    update_max_velocity(Zspeed, TMC5160_nCS_MotorZ);
+    
+    start_quad = (StartPosX/3.2)+72; 
+    
+    wait_timer_Start();
+    wait_interrupt_StartEx(Quad_Timer);
+    
+    int tempz =EndPosZ;
+    GotoPos(EndPosX, TMC5160_nCS_MotorX);
+    GotoPos(tempz, TMC5160_nCS_MotorZ);
+    
+       while ( (X_MOT_INT_Read()) != 0x00)
+        {
+            if(capture_flag == 1)
+             {
+                capture_flag = 0;
+                Camera_Trigger_Write(0xFF);
+                CyDelayUs(70);
+                Camera_Trigger_Write(0x00);
+             }
+            
+            if((Z_MOT_INT_Read()) == 0x00)
+             {
+              if(tempz == EndPosZ)
+                {
+                  tempz = StartPosZ;
+                  
+                }
+              else if(tempz == StartPosZ)
+                {
+                  tempz = EndPosZ; 
+                }
+                
+                GotoPos(tempz,TMC5160_nCS_MotorZ);
+             }
+        }
+    
+    wait_timer_Stop();
+    capture_flag =0;
+    //LED3_Write(0xFF);
+    
+    
 }
 //Motor Driver Configuration Function Stop-------------------------------------------------------
 

@@ -81,28 +81,30 @@ int main(void)
         
     for (;;)  
     {    
-//        Is_USB_Unpluged();                              /* Reset MCU if USB unplugged or plugged. */
-//        if (0 != USB_DataIsReady())                     /* Check for input data from host. */
-//        {       
-//            count = USB_GetAll(USB_received);           /* Read received data and re-enable OUT endpoint. */
-//            if(count >= 2)                              /* Check if data id more then 2 bytes. */
-//            {
-//                Write_Debug_UART_Char("DATA RECEIVED  \r\n");
-//                LED2_Write(0xFF);
-//                 Process_USB_Data();   
-//                LED2_Write(0x00);
-//                  /* Process The USB incoming data. */
-//               
-//                
-//
-//            }
-//               
-//        }            
+        Is_USB_Unpluged();                              /* Reset MCU if USB unplugged or plugged. */
+        if (0 != USB_DataIsReady())                     /* Check for input data from host. */
+        {       
+            count = USB_GetAll(USB_received);           /* Read received data and re-enable OUT endpoint. */
+            if(count >= 2)                              /* Check if data id more then 2 bytes. */
+            {
+                Write_Debug_UART_Char("DATA RECEIVED  \r\n");
+                LED2_Write(0xFF);
+                 Process_USB_Data();   
+                LED2_Write(0x00);
+                  /* Process The USB incoming data. */
+               
+                
+
+            }
+               
+        }            
     
            
    
-    goTo_XYZ(100000, -1, 50000);
-    goTo_XYZ(0, -1, 0);
+    //goTo_XYZ(100000, -1, 50000);
+    //goTo_XYZ(0, -1, 0);
+        
+   // GsV2(400000,900800, 5000,40000, 63687, (53687*3));    
         
       
     // Test API for Movement Check with error correction 
@@ -117,8 +119,8 @@ int main(void)
     //CyDelayUs(50);  
                
 
-//    CyDelayUs(500);
-      CyDelay(500);
+    CyDelayUs(500);
+     // CyDelay(500);
 //
 //        
         }    
