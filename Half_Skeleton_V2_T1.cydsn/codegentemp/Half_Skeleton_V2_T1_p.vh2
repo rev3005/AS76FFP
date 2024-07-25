@@ -1,5 +1,5 @@
 -- Project:   Half_Skeleton_V2_T1
--- Generated: 07/17/2024 12:27:33
+-- Generated: 07/25/2024 12:03:58
 -- PSoC Creator  4.4
 
 ENTITY Half_Skeleton_V2_T1 IS
@@ -469,7 +469,7 @@ ARCHITECTURE __DEFAULT__ OF Half_Skeleton_V2_T1 IS
     ATTRIBUTE lib_model OF Pin_CSMotorX(0) : LABEL IS "iocell21";
     ATTRIBUTE Location OF Pin_CSMotorX(0) : LABEL IS "P2[0]";
     ATTRIBUTE lib_model OF UART_TX(0) : LABEL IS "iocell22";
-    ATTRIBUTE Location OF UART_TX(0) : LABEL IS "P15[5]";
+    ATTRIBUTE Location OF UART_TX(0) : LABEL IS "P1[6]";
     ATTRIBUTE lib_model OF \USB:Dm(0)\ : LABEL IS "iocell23";
     ATTRIBUTE Location OF \USB:Dm(0)\ : LABEL IS "P15[7]";
     ATTRIBUTE lib_model OF \USB:Dp(0)\ : LABEL IS "iocell24";

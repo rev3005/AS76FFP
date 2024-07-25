@@ -1,5 +1,5 @@
 # Half_Skeleton_V2_T1
-# 2024-07-17 06:57:33Z
+# 2024-07-25 06:33:58Z
 
 # IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
 dont_use_io iocell 1 0
@@ -44,7 +44,7 @@ set_io "Pin_SCK(0)" iocell 0 7
 set_io "Pin_SDI(0)" iocell 0 6
 set_io "Pin_SDO(0)" iocell 0 5
 set_io "Pin_CSMotorX(0)" iocell 2 0
-set_io "UART_TX(0)" iocell 15 5
+set_io "UART_TX(0)" iocell 1 6
 set_io "\USB:Dm(0)\" iocell 15 7
 set_io "\USB:Dp(0)\" iocell 15 6
 set_io "TMC5160_MotorX_EN(0)" iocell 5 2

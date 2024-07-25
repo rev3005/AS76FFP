@@ -6,7 +6,7 @@
 
 #Build Date:         Sep  9 2019 11:47:43
 
-#File Generated:     Jul 17 2024 12:27:33
+#File Generated:     Jul 25 2024 12:03:58
 
 #Purpose:            
 
@@ -80,16 +80,16 @@ analysis after routing.
                      Clock Summary 
 ======================================================================
 Number of clocks: 12
-Clock: Clock_Encoder_24Mhz  | Frequency:  40.6 MHz | Target:  24.0 MHz
-Clock: CyBUS_CLK            | Frequency:  52.5 MHz | Target:  48.0 MHz
+Clock: Clock_Encoder_24Mhz  | Frequency:  42.6 MHz | Target:  24.0 MHz
+Clock: CyBUS_CLK            | Frequency:  51.8 MHz | Target:  48.0 MHz
 Clock: CyILO                | Frequency: N/A       | Target:   0.1 MHz
 Clock: CyIMO                | Frequency: N/A       | Target:  24.0 MHz
 Clock: CyMASTER_CLK         | Frequency: N/A       | Target:  48.0 MHz
 Clock: CyPLL_OUT            | Frequency: N/A       | Target:  48.0 MHz
 Clock: PWM_CLK              | Frequency: N/A       | Target:  24.0 MHz
 Clock: PWM_CLK(fixed-function) | Frequency: N/A       | Target:  24.0 MHz
-Clock: SPIM_IntClock        | Frequency:  41.4 MHz | Target:   2.0 MHz
-Clock: UART_PCB_LOG_IntClock | Frequency:  52.5 MHz | Target:   0.9 MHz
+Clock: SPIM_IntClock        | Frequency:  55.9 MHz | Target:   2.0 MHz
+Clock: UART_PCB_LOG_IntClock | Frequency:  51.8 MHz | Target:   0.9 MHz
 Clock: timer_clock          | Frequency: N/A       | Target:  24.0 MHz
 Clock: timer_clock(fixed-function) | Frequency: N/A       | Target:  24.0 MHz
 
@@ -104,23 +104,23 @@ Phase 7
                      Clock Summary 
 ======================================================================
 Number of clocks: 12
-Clock: Clock_Encoder_24Mhz  | Frequency:  36.8 MHz | Target:  24.0 MHz
-Clock: CyBUS_CLK            | Frequency:   3.5 MHz | Target:  48.0 MHz
+Clock: Clock_Encoder_24Mhz  | Frequency:  35.2 MHz | Target:  24.0 MHz
+Clock: CyBUS_CLK            | Frequency:   2.9 MHz | Target:  48.0 MHz
 Clock: CyILO                | Frequency: N/A       | Target:   0.1 MHz
 Clock: CyIMO                | Frequency: N/A       | Target:  24.0 MHz
 Clock: CyMASTER_CLK         | Frequency: N/A       | Target:  48.0 MHz
 Clock: CyPLL_OUT            | Frequency: N/A       | Target:  48.0 MHz
 Clock: PWM_CLK              | Frequency: N/A       | Target:  24.0 MHz
 Clock: PWM_CLK(fixed-function) | Frequency: N/A       | Target:  24.0 MHz
-Clock: SPIM_IntClock        | Frequency:  52.1 MHz | Target:   2.0 MHz
-Clock: UART_PCB_LOG_IntClock | Frequency:   3.5 MHz | Target:   0.9 MHz
+Clock: SPIM_IntClock        | Frequency:  43.2 MHz | Target:   2.0 MHz
+Clock: UART_PCB_LOG_IntClock | Frequency:   2.9 MHz | Target:   0.9 MHz
 Clock: timer_clock          | Frequency: N/A       | Target:  24.0 MHz
 Clock: timer_clock(fixed-function) | Frequency: N/A       | Target:  24.0 MHz
 
 ======================================================================
                      End of Clock Summary
 ######################################################################
-D2088: Phase 7, elapsed time : 1.7 (sec)
+D2088: Phase 7, elapsed time : 1.4 (sec)
 
 Final Design Statistics
     Number of Combinational MCs 	:	40
@@ -151,7 +151,7 @@ analysis after routing.
                      Clock Summary 
 ======================================================================
 Number of clocks: 12
-Clock: Clock_Encoder_24Mhz  | Frequency:  35.1 MHz | Target:  24.0 MHz
+Clock: Clock_Encoder_24Mhz  | Frequency:  32.1 MHz | Target:  24.0 MHz
 Clock: CyBUS_CLK            | Frequency:   3.7 MHz | Target:  48.0 MHz
 Clock: CyILO                | Frequency: N/A       | Target:   0.1 MHz
 Clock: CyIMO                | Frequency: N/A       | Target:  24.0 MHz
@@ -159,7 +159,7 @@ Clock: CyMASTER_CLK         | Frequency: N/A       | Target:  48.0 MHz
 Clock: CyPLL_OUT            | Frequency: N/A       | Target:  48.0 MHz
 Clock: PWM_CLK              | Frequency: N/A       | Target:  24.0 MHz
 Clock: PWM_CLK(fixed-function) | Frequency: N/A       | Target:  24.0 MHz
-Clock: SPIM_IntClock        | Frequency:  62.5 MHz | Target:   2.0 MHz
+Clock: SPIM_IntClock        | Frequency:  46.8 MHz | Target:   2.0 MHz
 Clock: UART_PCB_LOG_IntClock | Frequency:   3.7 MHz | Target:   0.9 MHz
 Clock: timer_clock          | Frequency: N/A       | Target:  24.0 MHz
 Clock: timer_clock(fixed-function) | Frequency: N/A       | Target:  24.0 MHz
@@ -173,5 +173,5 @@ D2088: Phase 8, elapsed time : 0.0 (sec)
 
 D2054: Placement of the design completed successfully
 
-I2076: Total run-time: 2.3 sec.
+I2076: Total run-time: 2.1 sec.
 

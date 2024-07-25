@@ -1313,6 +1313,7 @@ void Process_USB_Data()/* Process USB incoming data command. */
 
     if (command == HomeX)                                          
     {
+        update_max_velocity(381178,TMC5160_nCS_MotorX);
         Write_Debug_UART_Char("\n\n\n\n\nHome X Starting \n");
         Write_32bitSPI_DATA (0x10  , (int) 0x00070407, TMC5160_nCS_MotorX );
         TMC5160_MotorZ_EN_Write(0xFF);
@@ -1342,6 +1343,7 @@ void Process_USB_Data()/* Process USB incoming data command. */
     }
     else if (command == HomeY)                           
     {
+        update_max_velocity(381178,TMC5160_nCS_MotorY);
         Write_Debug_UART_Char("\n\n\n\n\nHome Y Starting \n");
         TMC5160_MotorZ_EN_Write(0xFF);
         CyDelayUs(500);
@@ -1419,6 +1421,7 @@ void Process_USB_Data()/* Process USB incoming data command. */
     }
     else if (command == GotoX)                           
     {
+        update_max_velocity(381178,TMC5160_nCS_MotorX);
         Write_Debug_UART_Char("\n\n\n\n\nGoto X Starting \n");
         Position_X_Requested = ((int32)USB_received[5] << 24) + ((int32)USB_received[4] << 16) + ((int32)USB_received[3] << 8) + (int32)USB_received[2]; //Decode USB Steps
         Write_Debug_UART_Char("Requested Position :");
@@ -1450,6 +1453,7 @@ void Process_USB_Data()/* Process USB incoming data command. */
     }
     else if (command == GotoY)          
     {
+        update_max_velocity(381178,TMC5160_nCS_MotorY);
         Write_Debug_UART_Char("\n\n\n\n\nGoto Y Starting \n");
         Position_Y_Requested = ((int32)USB_received[5] << 24) + ((int32)USB_received[4] << 16) + ((int32)USB_received[3] << 8) + (int32)USB_received[2]; //Decode USB Steps
         Write_Debug_UART_Char("Requested Position :");
@@ -1473,6 +1477,7 @@ void Process_USB_Data()/* Process USB incoming data command. */
     }
     else if (command == GotoZ)        
     {
+        
         //print_flag =1;
         Write_Debug_UART_Char("\n\n\n\n\nGoto Z Starting \n");
         //print_flag =0;
@@ -1566,6 +1571,8 @@ void Process_USB_Data()/* Process USB incoming data command. */
      else if (command == GotoXYZ)
     {
         update_max_velocity(107374,TMC5160_nCS_MotorZ);
+        update_max_velocity(381178,TMC5160_nCS_MotorX);
+        update_max_velocity(381178,TMC5160_nCS_MotorY);
         Write_Debug_UART_Char("\n\n\n\n\nGoto XYZ Starting \n");
         Position_X_Requested = ((int32)USB_received[5] << 24) + ((int32)USB_received[4] << 16) + ((int32)USB_received[3] << 8) + (int32)USB_received[2];
         Position_Y_Requested = ((int32)USB_received[9] << 24) + ((int32)USB_received[8] << 16) + ((int32)USB_received[7] << 8) + (int32)USB_received[6];
@@ -1835,6 +1842,44 @@ void Process_USB_Data()/* Process USB incoming data command. */
         GsV2(Xstart,Xstop, Zstart,Zstop, Motor_Speed_X, Motor_Speed_Z);  
         
         Previous_Z_Position = Zstop;
+        Previous_X_Position = Xstop;
+        Send_Feedback_to_USB(0);
+    }
+    
+    else if (command == GSV2_1)
+    {
+        int Xstart ,Xstop,deltaz,Z_Point1,Z_Point2  =0;
+        Xstart = ((int32)USB_received[5] << 24) + ((int32)USB_received[4] << 16) + ((int32)USB_received[3] << 8) + (int32)USB_received[2];
+        Xstop = ((int32)USB_received[9] << 24) + ((int32)USB_received[8] << 16) + ((int32)USB_received[7] << 8) + (int32)USB_received[6];
+        deltaz = ((int32)USB_received[13] << 24) + ((int32)USB_received[12] << 16) + ((int32)USB_received[11] << 8) + (int32)USB_received[10];        
+        Motor_Speed_X = ((int32)USB_received[17] << 24) + ((int32)USB_received[16] << 16) + ((int32)USB_received[15] << 8) + (int32)USB_received[14];
+        
+        Xstart = (Xstart / 4);
+        Xstart = Xstart * 12.8;
+        
+        Xstop = (Xstop / 4);
+        Xstop = Xstop * 12.8;  
+        
+        float deltaz_1 =0;
+       
+        deltaz_1 = (float)deltaz/16.0;
+        deltaz = (int32)(deltaz_1 * 51.2); 
+      
+        
+        
+        Motor_Speed_Z = ((int32)USB_received[21] << 24) + ((int32)USB_received[20] << 16) + ((int32)USB_received[19] << 8) + (int32)USB_received[18];
+        Z_Point1 = ((int32)USB_received[25] << 24) + ((int32)USB_received[24] << 16) + ((int32)USB_received[23] << 8) + (int32)USB_received[22];
+        Z_Point2 = ((int32)USB_received[29] << 24) + ((int32)USB_received[28] << 16) + ((int32)USB_received[27] << 8) + (int32)USB_received[26];
+        
+        Z_Point1 = Z_Point1/16;
+        Z_Point1 = Z_Point1*51.2;
+        
+        Z_Point2 = Z_Point2/16;
+        Z_Point2 = Z_Point2*51.2;
+        
+        GsV2_1( Xstart, Xstop,  deltaz,  Motor_Speed_X,  Motor_Speed_Z, Z_Point1, Z_Point2) ;
+        
+        Previous_Z_Position = Z_Point2+deltaz;
         Previous_X_Position = Xstop;
         Send_Feedback_to_USB(0);
     }
@@ -2173,13 +2218,10 @@ void Write_Debug_UART_Char(char Str[])
 {
     if(print_flag ==1)
     {
-        static char Str_Last_One[] = "ShonitV2.2\r\n";
-        if((strncmp(Str_Last_One, Str, 10)!=0))
-    	{
+        
             UART_PCB_LOG_PutString(Str);
             CyDelayUs(1);
-            strncpy(Str_Last_One, Str, 10); 
-    	}
+        
     }
 }
 void Write_Debug_UART_Int(int32 num)
@@ -2664,9 +2706,9 @@ bool capture_flag =0;
 
 CY_ISR(Quad_Timer)
 {    
-    X_QuadPosition = -QuadDec_X_GetCounter();
+    Y_QuadPosition = -QuadDec_Y_GetCounter();
     
-    if (X_QuadPosition > start_quad)
+    if (Y_QuadPosition > start_quad)
     {
        capture_flag = 1; 
        start_quad = start_quad+72;
@@ -2720,6 +2762,91 @@ void GsV2(int StartPosX,int EndPosX, int StartPosZ,int EndPosZ, int Xspeed, int 
     wait_timer_Stop();
     capture_flag =0;
     //LED3_Write(0xFF);
+    
+    
+}
+
+void GsV2_1(int StartPosX,int EndPosX, int deltaz, int Xspeed, int Zspeed,int Z_Point1,int Z_Point2)
+{
+    LED3_Write(0xFF);
+    
+    float m=0;
+    float k=0;
+    int32 tempz =0;
+    int32 n=1;
+    uint16_t j =0;
+    int32 Z_array[30] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+    int32 X_array[30] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+    
+    tempz = (Z_Point1 + (int)(deltaz/2));
+    
+    goTo_XYZ(-1 ,StartPosX,(Z_Point1- (int)(deltaz/2))); 
+    
+    update_max_velocity(Xspeed, TMC5160_nCS_MotorY);
+    update_max_velocity(Zspeed, TMC5160_nCS_MotorZ);
+    
+    start_quad = (StartPosX/3.2)+72; 
+    
+    wait_timer_Start();
+    wait_interrupt_StartEx(Quad_Timer);
+    
+    GotoPos(EndPosX, TMC5160_nCS_MotorY);
+    GotoPos(tempz, TMC5160_nCS_MotorZ);
+
+       while ( (Y_MOT_INT_Read()) != 0x00)
+        {
+            
+   
+            if(capture_flag == 1)
+             {
+                capture_flag = 0;
+                Camera_Trigger_Write(0xFF);
+                CyDelayUs(70);
+                Camera_Trigger_Write(0x00);
+             }
+            
+            if((Z_MOT_INT_Read()) == 0x00)
+             {
+                
+                
+                m = (((float)Z_Point2-(float)Z_Point1)/((float)EndPosX-(float)StartPosX));
+                Y_QuadPosition = -QuadDec_Y_GetCounter();
+                k =  (Z_Point1 + m*((Y_QuadPosition*3.2)-StartPosX));
+                tempz =  (int32)(k + (pow(-1,n) * (deltaz/2)));
+    
+                GotoPos(tempz,TMC5160_nCS_MotorZ);
+                if(j<30)
+                {
+                X_array[j] = (Y_QuadPosition*3.2);
+                Z_array[j] = tempz;
+                }
+                else
+                {
+                j=0;
+                }
+                n++;
+                j++;
+             }
+        }
+    
+    wait_timer_Stop();
+    capture_flag =0;
+    LED3_Write(0xFF);
+    
+    print_flag = 1;
+    uint8_t i = 0;
+    
+    while(i<29)
+    {
+        Write_Debug_UART_Char("\n");
+        Write_Debug_UART_Int(X_array[i]);
+        Write_Debug_UART_Char("   ....    ");
+        Write_Debug_UART_Int(Z_array[i]);
+        Write_Debug_UART_Char("\n");
+        i++;
+    }
+    
+    print_flag = 0;
     
     
 }

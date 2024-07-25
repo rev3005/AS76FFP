@@ -22,7 +22,7 @@
 bool Is_Slide_On_Gripper;
 uint16 count;
 uint8 USB_received[64];
-int8  USB_transmit[58];
+int8  USB_transmit[47];
 extern bool Time_Out_Error;
 #define OneRotation   51200
 
@@ -120,6 +120,8 @@ void UART_print_all_values();
 #define Pause                              0x0081
 #define Resume                             0x0082
 #define GSV2                               0x7383
+#define GSV2_1                             0x8383
+
 
 
 
