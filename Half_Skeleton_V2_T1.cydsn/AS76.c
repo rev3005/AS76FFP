@@ -2513,8 +2513,8 @@ void Initialize_Motor(uint8_t Motor)
             }
             else if ( Motor == TMC5160_nCS_MotorY)
             {
-             Write_32bitSPI_DATA (0x0B  , (int) 127, Motor );
-             Write_32bitSPI_DATA (0x10  , (int) 0x00070105, Motor );
+             Write_32bitSPI_DATA (0x0B  , (int) 0, Motor );
+             Write_32bitSPI_DATA (0x10  , (int) 0x00070405, Motor );
             }
             else if ( Motor == TMC5160_nCS_MotorO)
             {
@@ -2706,9 +2706,9 @@ bool capture_flag =0;
 
 CY_ISR(Quad_Timer)
 {    
-    Y_QuadPosition = -QuadDec_Y_GetCounter();
+    X_QuadPosition = -QuadDec_X_GetCounter();
     
-    if (Y_QuadPosition > start_quad)
+    if (X_QuadPosition > start_quad)
     {
        capture_flag = 1; 
        start_quad = start_quad+72;
@@ -2745,6 +2745,7 @@ void GsV2(int StartPosX,int EndPosX, int StartPosZ,int EndPosZ, int Xspeed, int 
             
             if((Z_MOT_INT_Read()) == 0x00)
              {
+              
               if(tempz == EndPosZ)
                 {
                   tempz = StartPosZ;
@@ -2769,7 +2770,7 @@ void GsV2(int StartPosX,int EndPosX, int StartPosZ,int EndPosZ, int Xspeed, int 
 void GsV2_1(int StartPosX,int EndPosX, int deltaz, int Xspeed, int Zspeed,int Z_Point1,int Z_Point2)
 {
     LED3_Write(0xFF);
-    
+    Enable_Encoder_Z(-Buffer_Z_QuadPosition);
     float m=0;
     float k=0;
     int32 tempz =0;
@@ -2780,9 +2781,9 @@ void GsV2_1(int StartPosX,int EndPosX, int deltaz, int Xspeed, int Zspeed,int Z_
     
     tempz = (Z_Point1 + (int)(deltaz/2));
     
-    goTo_XYZ(-1 ,StartPosX,(Z_Point1- (int)(deltaz/2))); 
+    goTo_XYZ(StartPosX ,-1,(Z_Point1- (int)(deltaz/2))); 
     
-    update_max_velocity(Xspeed, TMC5160_nCS_MotorY);
+    update_max_velocity(Xspeed, TMC5160_nCS_MotorX);
     update_max_velocity(Zspeed, TMC5160_nCS_MotorZ);
     
     start_quad = (StartPosX/3.2)+72; 
@@ -2790,10 +2791,10 @@ void GsV2_1(int StartPosX,int EndPosX, int deltaz, int Xspeed, int Zspeed,int Z_
     wait_timer_Start();
     wait_interrupt_StartEx(Quad_Timer);
     
-    GotoPos(EndPosX, TMC5160_nCS_MotorY);
+    GotoPos(EndPosX, TMC5160_nCS_MotorX);
     GotoPos(tempz, TMC5160_nCS_MotorZ);
 
-       while ( (Y_MOT_INT_Read()) != 0x00)
+       while ( (X_MOT_INT_Read()) != 0x00)
         {
             
    
@@ -2810,22 +2811,25 @@ void GsV2_1(int StartPosX,int EndPosX, int deltaz, int Xspeed, int Zspeed,int Z_
                 
                 
                 m = (((float)Z_Point2-(float)Z_Point1)/((float)EndPosX-(float)StartPosX));
-                Y_QuadPosition = -QuadDec_Y_GetCounter();
-                k =  (Z_Point1 + m*((Y_QuadPosition*3.2)-StartPosX));
-                tempz =  (int32)(k + (pow(-1,n) * (deltaz/2)));
-    
+                X_QuadPosition = -QuadDec_X_GetCounter();
+                k =  (Z_Point1 + m*(((X_QuadPosition*3.2)+72)-StartPosX));
+                //Z_QuadPosition = tempz-((-QuadDec_TZ_GetCounter())*3.2);
+                tempz =  ((int32)(k + (pow(-1,n) * (deltaz/2))) + 0 );
+                
+                
+                //goTo_Z(tempz);
                 GotoPos(tempz,TMC5160_nCS_MotorZ);
-                if(j<30)
-                {
-                X_array[j] = (Y_QuadPosition*3.2);
-                Z_array[j] = tempz;
-                }
-                else
-                {
-                j=0;
-                }
-                n++;
-                j++;
+//                if(j<30)
+//                {
+//                X_array[j] = (X_QuadPosition*3.2);
+//                Z_array[j] = tempz;
+//                }
+//                else
+//                {
+//                j=0;
+//                }
+                  n++;
+//                j++;
              }
         }
     
@@ -2847,6 +2851,9 @@ void GsV2_1(int StartPosX,int EndPosX, int deltaz, int Xspeed, int Zspeed,int Z_
     }
     
     print_flag = 0;
+    Z_QuadPosition = -QuadDec_TZ_GetCounter();
+    Buffer_Z_QuadPosition = Z_QuadPosition;
+    LED3_Write(0x00);
     
     
 }

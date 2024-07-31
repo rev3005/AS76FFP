@@ -1,4 +1,4 @@
---------------- Build Started: 07/25/2024 14:36:45 Project: Half_Skeleton_V2_T1, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+--------------- Build Started: 07/31/2024 12:47:00 Project: Half_Skeleton_V2_T1, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
 The code generation step is up to date.
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/AS76.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c AS76.c -o .\CortexM3\ARM_GCC_541\Debug\AS76.o
 In file included from AS76.c:14:0:
@@ -216,6 +216,10 @@ In file included from Generated_Source\PSoC5/project.h:81:0,
 Generated_Source\PSoC5/USB_cdc.h:35:10: note: expected 'const uint8 * {aka const unsigned char *}' but argument is of type 'int8 * {aka signed char *}'
      void USB_PutData(const uint8* pData, uint16 length) ;
           ^
+AS76.c: In function 'GsV2_1':
+AS76.c:2778:14: warning: unused variable 'j' [-Wunused-variable]
+     uint16_t j =0;
+              ^
 AS76.c: In function 'Clear_USB_RX_Buffer':
 AS76.c:2206:25: warning: iteration 64u invokes undefined behavior [-Waggressive-loop-optimizations]
          USB_received[i] = 0;   
@@ -231,6 +235,6 @@ No ELF section .cychecksum found, creating one
 Application checksum calculated and stored in ELF section .cychecksum
 Checksum calculated and stored in ELF section .cymeta
 cyelftool.exe -S C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\Half_Skeleton_V2_T1.cydsn\CortexM3\ARM_GCC_541\Debug\Half_Skeleton_V2_T1.elf
-Flash used: 41644 of 262144 bytes (15.9%).
+Flash used: 41596 of 262144 bytes (15.9%).
 SRAM used: 3193 of 65536 bytes (4.9%). Stack: 2048 bytes. Heap: 128 bytes.
---------------- Build Succeeded: 07/25/2024 14:36:49 ---------------
+--------------- Build Succeeded: 07/31/2024 12:47:03 ---------------
