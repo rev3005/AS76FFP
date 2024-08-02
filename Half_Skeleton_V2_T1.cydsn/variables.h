@@ -121,6 +121,8 @@ void UART_print_all_values();
 #define Resume                             0x0082
 #define GSV2                               0x7383
 #define GSV2_1                             0x8383
+#define GSV2_3                             0x7373
+#define GSV2LR                             0x9393
 
 
 

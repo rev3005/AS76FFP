@@ -1884,6 +1884,95 @@ void Process_USB_Data()/* Process USB incoming data command. */
         Send_Feedback_to_USB(0);
     }
     
+    else if (command == GSV2_3)
+    {
+        int Xstart ,Xstop,deltaz,Z_Point1,Z_Point2  =0;
+        Xstart = ((int32)USB_received[5] << 24) + ((int32)USB_received[4] << 16) + ((int32)USB_received[3] << 8) + (int32)USB_received[2];
+        Xstop = ((int32)USB_received[9] << 24) + ((int32)USB_received[8] << 16) + ((int32)USB_received[7] << 8) + (int32)USB_received[6];
+        deltaz = ((int32)USB_received[13] << 24) + ((int32)USB_received[12] << 16) + ((int32)USB_received[11] << 8) + (int32)USB_received[10];        
+        Motor_Speed_X = ((int32)USB_received[17] << 24) + ((int32)USB_received[16] << 16) + ((int32)USB_received[15] << 8) + (int32)USB_received[14];
+        
+        Xstart = (Xstart / 4);
+        Xstart = Xstart * 12.8;
+        
+        Xstop = (Xstop / 4);
+        Xstop = Xstop * 12.8;  
+        
+        float deltaz_1 =0;
+       
+        deltaz_1 = (float)deltaz/16.0;
+        deltaz = (int32)(deltaz_1 * 51.2); 
+      
+        
+        
+        Motor_Speed_Z = ((int32)USB_received[21] << 24) + ((int32)USB_received[20] << 16) + ((int32)USB_received[19] << 8) + (int32)USB_received[18];
+        Z_Point1 = ((int32)USB_received[25] << 24) + ((int32)USB_received[24] << 16) + ((int32)USB_received[23] << 8) + (int32)USB_received[22];
+        Z_Point2 = ((int32)USB_received[29] << 24) + ((int32)USB_received[28] << 16) + ((int32)USB_received[27] << 8) + (int32)USB_received[26];
+        
+        Z_Point1 = Z_Point1/16;
+        Z_Point1 = Z_Point1*51.2;
+        
+        Z_Point2 = Z_Point2/16;
+        Z_Point2 = Z_Point2*51.2;
+        
+        GsV2_2( Xstart, Xstop,  deltaz,  Motor_Speed_X,  Motor_Speed_Z, Z_Point1, Z_Point2) ;
+        
+        Previous_Z_Position = Z_Point2+deltaz;
+        Previous_X_Position = Xstop;
+        Send_Feedback_to_USB(0);
+    }
+    
+     else if (command == GSV2LR)
+    {
+        
+        int X1 ,X2,X3,X4,Y1,Y2,Y3,Y4,deltaz  =0;
+        X1 = ((int32)USB_received[5] << 24) + ((int32)USB_received[4] << 16) + ((int32)USB_received[3] << 8) + (int32)USB_received[2];
+        X2 = ((int32)USB_received[9] << 24) + ((int32)USB_received[8] << 16) + ((int32)USB_received[7] << 8) + (int32)USB_received[6];
+        X3 = ((int32)USB_received[13] << 24) + ((int32)USB_received[12] << 16) + ((int32)USB_received[11] << 8) + (int32)USB_received[10];        
+        X4 = ((int32)USB_received[17] << 24) + ((int32)USB_received[16] << 16) + ((int32)USB_received[15] << 8) + (int32)USB_received[14];
+        Y1 = ((int32)USB_received[21] << 24) + ((int32)USB_received[20] << 16) + ((int32)USB_received[19] << 8) + (int32)USB_received[18];
+        Y2 = ((int32)USB_received[25] << 24) + ((int32)USB_received[24] << 16) + ((int32)USB_received[23] << 8) + (int32)USB_received[22];
+        Y3 = ((int32)USB_received[29] << 24) + ((int32)USB_received[28] << 16) + ((int32)USB_received[27] << 8) + (int32)USB_received[26];
+        Y4 = ((int32)USB_received[33] << 24) + ((int32)USB_received[32] << 16) + ((int32)USB_received[31] << 8) + (int32)USB_received[30];
+        
+        deltaz = ((int32)USB_received[37] << 24) + ((int32)USB_received[36] << 16) + ((int32)USB_received[35] << 8) + (int32)USB_received[34];
+        
+        Motor_Speed_X = ((int32)USB_received[41] << 24) + ((int32)USB_received[40] << 16) + ((int32)USB_received[39] << 8) + (int32)USB_received[38];
+        Motor_Speed_Z = ((int32)USB_received[45] << 24) + ((int32)USB_received[44] << 16) + ((int32)USB_received[43] << 8) + (int32)USB_received[42];
+        
+        X1 = (X1 / 4);
+        X1 =  X1 * 12.8;
+        X2 = (X2 / 4);
+        X2 =  X2 * 12.8;
+        X3 = (X3 / 4);
+        X3 =  X3 * 12.8;
+        X4 = (X4 / 4);
+        X4 =  X4 * 12.8;
+        
+        
+        Y1 = (Y1 / 16);
+        Y1 =  Y1 * 51.2;
+        Y2 = (Y2 / 16);
+        Y2 =  Y2 * 51.2;
+        Y3 = (Y3 / 16);
+        Y3 =  Y3 * 51.2;
+        Y4 = (Y4 / 16);
+        Y4 =  Y4 * 51.2;
+        
+        
+        float deltaz_1 =0;       
+        deltaz_1 = (float)deltaz/16.0;
+        deltaz = (int32)(deltaz_1 * 51.2); 
+      
+        GsV2_LR( X1,  X2,  X3,  X4 , Y1,  Y2, Y3,  Y4,  deltaz,  Motor_Speed_X,  Motor_Speed_Z);
+        
+        Previous_Z_Position = Y4+deltaz;
+        Previous_X_Position = X4;
+        Send_Feedback_to_USB(0);
+    }
+    
+
+    
     else
     {
         Error = 19;//Wrong_Command_Received
@@ -2812,7 +2901,7 @@ void GsV2_1(int StartPosX,int EndPosX, int deltaz, int Xspeed, int Zspeed,int Z_
                 
                 m = (((float)Z_Point2-(float)Z_Point1)/((float)EndPosX-(float)StartPosX));
                 X_QuadPosition = -QuadDec_X_GetCounter();
-                k =  (Z_Point1 + m*(((X_QuadPosition*3.2)+72)-StartPosX));
+                k =  (Z_Point1 + m*(((X_QuadPosition*3.2))-StartPosX));
                 //Z_QuadPosition = tempz-((-QuadDec_TZ_GetCounter())*3.2);
                 tempz =  ((int32)(k + (pow(-1,n) * (deltaz/2))) + 0 );
                 
@@ -2851,6 +2940,151 @@ void GsV2_1(int StartPosX,int EndPosX, int deltaz, int Xspeed, int Zspeed,int Z_
     }
     
     print_flag = 0;
+    Z_QuadPosition = -QuadDec_TZ_GetCounter();
+    Buffer_Z_QuadPosition = Z_QuadPosition;
+    LED3_Write(0x00);
+    
+    
+}
+
+CY_ISR(Quad_Timer1)
+{    
+    Y_QuadPosition = -QuadDec_Y_GetCounter();
+    
+    if (Y_QuadPosition > start_quad)
+    {
+       capture_flag = 1; 
+       start_quad = start_quad+72;
+        
+    }
+}
+
+
+void GsV2_2(int StartPosX,int EndPosX, int deltaz, int Xspeed, int Zspeed,int Z_Point1,int Z_Point2)
+{
+    LED3_Write(0xFF);
+    Enable_Encoder_Z(-Buffer_Z_QuadPosition);
+    float m=0;
+    float k=0;
+    int32 tempz =0;
+    int32 n=1;
+    uint16_t j =0;
+    int32 Z_array[30] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+    int32 X_array[30] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+    
+    tempz = (Z_Point1 + (int)(deltaz/2));
+    
+    goTo_XYZ(-1 ,StartPosX,(Z_Point1- (int)(deltaz/2))); 
+    
+    update_max_velocity(Xspeed, TMC5160_nCS_MotorY);
+    update_max_velocity(Zspeed, TMC5160_nCS_MotorZ);
+    
+    start_quad = (StartPosX/3.2)+72; 
+    
+    wait_timer_Start();
+    wait_interrupt_StartEx(Quad_Timer1);
+    
+    GotoPos(EndPosX, TMC5160_nCS_MotorY);
+    GotoPos(tempz, TMC5160_nCS_MotorZ);
+
+       while ( (Y_MOT_INT_Read()) != 0x00)
+        {
+            
+   
+            if(capture_flag == 1)
+             {
+                capture_flag = 0;
+                Camera_Trigger_Write(0xFF);
+                CyDelayUs(70);
+                Camera_Trigger_Write(0x00);
+             }
+            
+            if((Z_MOT_INT_Read()) == 0x00)
+             {
+                
+                
+                m = (((float)Z_Point2-(float)Z_Point1)/((float)EndPosX-(float)StartPosX));
+                Y_QuadPosition = -QuadDec_Y_GetCounter();
+                k =  (Z_Point1 + m*(((Y_QuadPosition*3.2))-StartPosX));
+                //Z_QuadPosition = tempz-((-QuadDec_TZ_GetCounter())*3.2);
+                tempz =  ((int32)(k + (pow(-1,n) * (deltaz/2))) + 0 );    
+                GotoPos(tempz,TMC5160_nCS_MotorZ);
+                n++;
+                
+             }
+        }
+    
+    wait_timer_Stop();
+    capture_flag =0;
+    LED3_Write(0xFF);
+    
+    print_flag = 1;
+ 
+    
+ 
+    
+    print_flag = 0;
+    Z_QuadPosition = -QuadDec_TZ_GetCounter();
+    Buffer_Z_QuadPosition = Z_QuadPosition;
+    LED3_Write(0x00);
+    
+    
+}
+
+void GsV2_LR(int X1, int X2, int X3, int X4 ,int Y1, int Y2,int Y3, int Y4, int deltaz, int Xspeed, int Zspeed)
+{
+    LED3_Write(0xFF);
+    Enable_Encoder_Z(-Buffer_Z_QuadPosition);
+    float a,b=0;    
+    float Xavg,Yavg,bnum,bdenom =0;
+    int32 tempz =0;
+    
+    Xavg = (X1+X2+X3+X4)/4;
+    Yavg = (Y1+Y2+Y3+Y4)/4;
+    
+    bnum = ((X1-Xavg) * (Y1-Yavg)) + ((X2-Xavg) * (Y2-Yavg)) +((X3-Xavg) * (Y3-Yavg)) +((X4-Xavg) * (Y4-Yavg));
+    bdenom = (pow((X1-Xavg),2)) + (pow((X2-Xavg),2)) + (pow((X3-Xavg),2))+(pow((X4-Xavg),2));
+    b = bnum/bdenom;
+    a = Yavg - b*Xavg;
+    
+    
+    tempz = (Y1 + (int)(deltaz/2));    
+    goTo_XYZ(-1 ,X1,(Y1- (int)(deltaz/2))); 
+    
+    update_max_velocity(Xspeed, TMC5160_nCS_MotorY);
+    update_max_velocity(Zspeed, TMC5160_nCS_MotorZ);
+    
+    start_quad = (X1/3.2)+72; 
+    
+    wait_timer_Start();
+    wait_interrupt_StartEx(Quad_Timer1);
+    
+    GotoPos(X4, TMC5160_nCS_MotorY);
+    GotoPos(tempz, TMC5160_nCS_MotorZ);
+
+       while ( (Y_MOT_INT_Read()) != 0x00)
+        {          
+   
+            if(capture_flag == 1)
+             {
+                capture_flag = 0;
+                Camera_Trigger_Write(0xFF);
+                CyDelayUs(70);
+                Camera_Trigger_Write(0x00);
+             }
+            
+            if((Z_MOT_INT_Read()) == 0x00)
+             {
+                Y_QuadPosition = -QuadDec_Y_GetCounter();
+                tempz = (int32)(a + (b * (Y_QuadPosition*3.2))) ;                
+                GotoPos(tempz,TMC5160_nCS_MotorZ);
+             }
+        }
+    
+    wait_timer_Stop();
+    capture_flag =0;
+    LED3_Write(0xFF);
+
     Z_QuadPosition = -QuadDec_TZ_GetCounter();
     Buffer_Z_QuadPosition = Z_QuadPosition;
     LED3_Write(0x00);
