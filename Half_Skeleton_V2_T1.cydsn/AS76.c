@@ -1528,17 +1528,7 @@ void Process_USB_Data()/* Process USB incoming data command. */
         //Write_32bitSPI_DATA (0x10  , (int) 0x00070303, TMC5160_nCS_MotorT );
    
     }
-    else if (command == GotoT)        
-    {
-        Write_32bitSPI_DATA (0x10  , (int) 0x00070503, TMC5160_nCS_MotorT ); 
-        Position_T_Requested = ((int32)USB_received[5] << 24) + ((int32)USB_received[4] << 16) + ((int32)USB_received[3] << 8) + (int32)USB_received[2]; //Decode USB Steps
-        Position_T_Requested = (Position_T_Requested / 1);
-        Position_T_Requested = Position_T_Requested * 1;
-        Error = goTo_T(Position_T_Requested);
-        Send_Feedback_to_USB(Error);
-        Write_32bitSPI_DATA (0x10  , (int) 0x00070303, TMC5160_nCS_MotorT );
    
-    }
     else if ( command == Set_OilDispenser )
     {
         Write_Debug_UART_Char("\n\n\n\n Oil Dispense Command Received");
