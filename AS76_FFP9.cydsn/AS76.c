@@ -2104,7 +2104,7 @@ void Send_Feedback_to_USB(int Error)//Send Feedback to USB if USB command execut
         
         X_QuadPosition = (X_QuadPosition * 4);
         Y_QuadPosition = (Y_QuadPosition * 4);  
-        Z_QuadPosition = (Z_QuadPosition * 4); 
+        Z_QuadPosition = (Z_QuadPosition ); 
         T_QuadPosition = (int)(T_QuadPosition * 3.2); 
         USB_transmit[4] = (X_QuadPosition);
         USB_transmit[5] = (X_QuadPosition) >> 8;
