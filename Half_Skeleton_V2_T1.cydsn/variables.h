@@ -123,7 +123,7 @@ void UART_print_all_values();
 #define GSV2_1                             0x8383
 #define GSV2_3                             0x7373
 #define GSV2LR                             0x9393
-
+#define FLASH                              0x1010
 
 
 

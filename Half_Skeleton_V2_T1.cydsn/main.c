@@ -99,7 +99,7 @@ int main(void)
                
         }            
     
-           
+        //flash();   
    
     //goTo_XYZ(100000, -1, 50000);
     //goTo_XYZ(0, -1, 0);

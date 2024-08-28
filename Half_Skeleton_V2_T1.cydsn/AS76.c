@@ -1961,6 +1961,12 @@ void Process_USB_Data()/* Process USB incoming data command. */
         Send_Feedback_to_USB(0);
     }
     
+    else if (command == FLASH)
+    {
+        flash();
+        Send_Feedback_to_USB(0);
+    }
+    
 
     
     else
@@ -2602,8 +2608,10 @@ void Initialize_Motor(uint8_t Motor)
             }
             else
             {
-             Write_32bitSPI_DATA (0x0B  , (int) 0x00000000, Motor );
-             Write_32bitSPI_DATA (0x10  , (int) 0x00070501, Motor );  
+                Write_32bitSPI_DATA (0x0B  , (int) 210, Motor );
+                Write_32bitSPI_DATA (0x10  , (int) 0x00070100, Motor );
+//             Write_32bitSPI_DATA (0x0B  , (int) 0x00000000, Motor );
+//             Write_32bitSPI_DATA (0x10  , (int) 0x00070501, Motor );  
             }
             Write_32bitSPI_DATA (0x11  , (int) 0x0000000A, Motor ); // TPOWERDOWN Register sets the delay time after stand still (stst) of the motor to motor current power down. Time range is about 0 to 4 seconds
             Write_32bitSPI_DATA (0x13  , (int) 0x00000000, Motor );
@@ -2703,12 +2711,12 @@ int update_max_accelaration(int accelaration, uint8_t Motor)
 
 int run_pump (int time_ms, uint8_t direction)
 {
-    Write_32bitSPI_DATA (0x20  , (int) 0x00000000, TMC5160_nCS_MotorO );
-    Write_32bitSPI_DATA (0x21  , (int) 0x00000000, TMC5160_nCS_MotorO );
+    Write_32bitSPI_DATA (0x20  , (int) 0x00000000, TMC5160_nCS_MotorT );
+    Write_32bitSPI_DATA (0x21  , (int) 0x00000000, TMC5160_nCS_MotorT );
     
     
-    update_max_velocity(53687*2, TMC5160_nCS_MotorO);
-    TMC5160_MotorO_EN_Write(0x00);
+    update_max_velocity(53687, TMC5160_nCS_MotorT);
+    TMC5160_MotorT_EN_Write(0x00);
     CyDelay(15);
     if( (direction == 0x00) || (direction == 0x01))
     {
@@ -2723,27 +2731,27 @@ int run_pump (int time_ms, uint8_t direction)
     {
 if(direction == 0x00)
     {
-        GotoPos(time_ms, TMC5160_nCS_MotorO);
+        GotoPos(time_ms, TMC5160_nCS_MotorT);
         
-        WaitTillPositionReached(TMC5160_nCS_MotorO);
+        WaitTillPositionReached(TMC5160_nCS_MotorT);
         //Write_32bitSPI_DATA (0x20  , (int) 0x00000001, TMC5160_nCS_MotorO );
     }
     else
     {
     time_ms = 0-time_ms;
-    GotoPos(time_ms, TMC5160_nCS_MotorO);
+    GotoPos(time_ms, TMC5160_nCS_MotorT);
 
-    WaitTillPositionReached(TMC5160_nCS_MotorO);
+    WaitTillPositionReached(TMC5160_nCS_MotorT);
     //Write_32bitSPI_DATA (0x20  , (int) 0x00000002, TMC5160_nCS_MotorO );
     }
     }
     //CyDelay(time_ms);
     time_ms = 0;
-    update_max_velocity(0x00, TMC5160_nCS_MotorO);
-    Write_32bitSPI_DATA (0x21  , (int) 0x00000000, TMC5160_nCS_MotorO );
-    Write_32bitSPI_DATA (0x20  , (int) 0x00000000, TMC5160_nCS_MotorO );
+    update_max_velocity(0x00, TMC5160_nCS_MotorT);
+    Write_32bitSPI_DATA (0x21  , (int) 0x00000000, TMC5160_nCS_MotorT );
+    Write_32bitSPI_DATA (0x20  , (int) 0x00000000, TMC5160_nCS_MotorT );
     CyDelay(5);
-    TMC5160_MotorO_EN_Write(0xFF);
+    TMC5160_MotorT_EN_Write(0xFF);
     return 0;
 }
 
@@ -3028,6 +3036,7 @@ void GsV2_LR(int X1, int X2, int X3, int X4 ,int Y1, int Y2,int Y3, int Y4, int 
     float a,b=0;    
     float Xavg,Yavg,bnum,bdenom =0;
     int32 tempz =0;
+    int32 errorz =0;
     
     Xavg = (X1+X2+X3+X4)/4;
     Yavg = (Y1+Y2+Y3+Y4)/4;
@@ -3065,8 +3074,11 @@ void GsV2_LR(int X1, int X2, int X3, int X4 ,int Y1, int Y2,int Y3, int Y4, int 
             
             if((Z_MOT_INT_Read()) == 0x00)
              {
+                
+                Z_QuadPosition = -QuadDec_TZ_GetCounter();
+                errorz = tempz-Z_QuadPosition;
                 Y_QuadPosition = -QuadDec_Y_GetCounter();
-                tempz = (int32)(a + (b * (Y_QuadPosition*3.2))) ;                
+                tempz = ((int32)(a + (b * (Y_QuadPosition*3.2))) + errorz);  ;                
                 GotoPos(tempz,TMC5160_nCS_MotorZ);
              }
         }
@@ -3080,6 +3092,26 @@ void GsV2_LR(int X1, int X2, int X3, int X4 ,int Y1, int Y2,int Y3, int Y4, int 
     LED3_Write(0x00);
     
     
+}
+
+void flash()
+{
+   int i=0;
+   CyDelay(100);
+    while (i<1000)
+    {
+                CyDelayUs(70);
+                Camera_Trigger_Write(0xFF);
+                CyDelayUs(70);
+                Camera_Trigger_Write(0x00);
+                PWM_CondenserLED_WriteCompare(0);
+                CyDelay(3);
+                PWM_CondenserLED_WriteCompare(120);
+                CyDelay(2);
+                
+                i++;
+        
+    }
 }
 //Motor Driver Configuration Function Stop-------------------------------------------------------
 

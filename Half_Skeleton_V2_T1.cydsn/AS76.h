@@ -47,6 +47,7 @@ int update_max_accelaration(int accelaration, uint8_t Motor);
 int WaitTillLimitSwitchL (uint8_t Motor);
 int run_pump (int time_ms, uint8_t direction);
 int run_pumpvs (int time_ms, int speed, uint8_t direction);
+void flash();
 
 
 
