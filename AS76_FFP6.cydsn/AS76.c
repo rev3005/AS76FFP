@@ -2640,7 +2640,7 @@ int run_pump (int time_ms, uint8_t direction)
     Write_32bitSPI_DATA (0x21  , (int) 0x00000000, TMC5160_nCS_MotorO );
     
     
-    update_max_velocity(53687*2, TMC5160_nCS_MotorO);
+    update_max_velocity(53687, TMC5160_nCS_MotorO);
     TMC5160_MotorO_EN_Write(0x00);
     CyDelay(15);
     if( (direction == 0x00) || (direction == 0x01))
