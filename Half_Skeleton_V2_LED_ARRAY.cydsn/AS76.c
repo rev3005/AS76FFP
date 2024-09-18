@@ -28,9 +28,12 @@ int32 Position_X_Requested = 0; // Variable to hold position of Motor X in uStep
 int32 Position_Z_Requested = 0; // Variable to hold position of Motor X in uSteps 51200 uSteps = 1 rotation of the motor
 int32 Position_T_Requested = 0; // Variable to hold position of Motor X in uSteps 51200 uSteps = 1 rotation of the motor
 
+uint8_t gsv2_microns =18;
+
 int32 time_ms   = 0;
 int32 oil_speed = 0;
 int32 oil_dir   = 0;
+
 
 bool print_flag=0;
 
@@ -1886,6 +1889,7 @@ void Process_USB_Data()/* Process USB incoming data command. */
         Motor_Speed_Z = ((int32)USB_received[21] << 24) + ((int32)USB_received[20] << 16) + ((int32)USB_received[19] << 8) + (int32)USB_received[18];
         Z_Point1 = ((int32)USB_received[25] << 24) + ((int32)USB_received[24] << 16) + ((int32)USB_received[23] << 8) + (int32)USB_received[22];
         Z_Point2 = ((int32)USB_received[29] << 24) + ((int32)USB_received[28] << 16) + ((int32)USB_received[27] << 8) + (int32)USB_received[26];
+        gsv2_microns = USB_received[30];
         
         Z_Point1 = Z_Point1/16;
         Z_Point1 = Z_Point1*51.2;
@@ -1924,6 +1928,7 @@ void Process_USB_Data()/* Process USB incoming data command. */
         Motor_Speed_Z = ((int32)USB_received[21] << 24) + ((int32)USB_received[20] << 16) + ((int32)USB_received[19] << 8) + (int32)USB_received[18];
         Z_Point1 = ((int32)USB_received[25] << 24) + ((int32)USB_received[24] << 16) + ((int32)USB_received[23] << 8) + (int32)USB_received[22];
         Z_Point2 = ((int32)USB_received[29] << 24) + ((int32)USB_received[28] << 16) + ((int32)USB_received[27] << 8) + (int32)USB_received[26];
+        gsv2_microns = USB_received[30];
         
         Z_Point1 = Z_Point1/16;
         Z_Point1 = Z_Point1*51.2;
@@ -2824,7 +2829,19 @@ CY_ISR(Quad_Timer)
     if (X_QuadPosition > start_quad)
     {
        capture_flag = 1; 
-       start_quad = start_quad+72;
+       start_quad = start_quad+(((int32)gsv2_microns)*4);
+        
+    }
+}
+
+CY_ISR(Quad_Timer0)
+{    
+    X_QuadPosition = -QuadDec_X_GetCounter();
+    
+    if (X_QuadPosition < start_quad)
+    {
+       capture_flag = 1; 
+       start_quad = start_quad-(((int32)gsv2_microns)*4);
         
     }
 }
@@ -2889,8 +2906,9 @@ void GsV2_1(int StartPosX,int EndPosX, int deltaz, int Xspeed, int Zspeed,int Z_
     int32 tempz =0;
     int32 n=1;
     uint16_t j =0;
-    int32 Z_array[30] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-    int32 X_array[30] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+    int32 y_array[2500];
+    int32 Z_array[2500];
+    int v =0;
     
     tempz = (Z_Point1 + (int)(deltaz/2));
     
@@ -2899,10 +2917,29 @@ void GsV2_1(int StartPosX,int EndPosX, int deltaz, int Xspeed, int Zspeed,int Z_
     update_max_velocity(Xspeed, TMC5160_nCS_MotorX);
     update_max_velocity(Zspeed, TMC5160_nCS_MotorZ);
     
-    start_quad = (StartPosX/3.2)+72; 
+    //start_quad = (StartPosX/3.2)+(((int32)gsv2_microns)*4); 
+    //wait_timer_Start();
     
+    if(StartPosX>EndPosX)
+    {
+    start_quad = (StartPosX/3.2)-(((int32)gsv2_microns)*4); 
+    }
+    else
+    {
+    start_quad = (StartPosX/3.2)+(((int32)gsv2_microns)*4); 
+    }
     wait_timer_Start();
-    wait_interrupt_StartEx(Quad_Timer);
+    if(StartPosX>EndPosX)
+    {
+    wait_interrupt_StartEx(Quad_Timer0);
+    }
+    else
+    {
+    wait_interrupt_StartEx(Quad_Timer); 
+    }
+    
+    
+   
     
     GotoPos(EndPosX, TMC5160_nCS_MotorX);
     GotoPos(tempz, TMC5160_nCS_MotorZ);
@@ -2911,12 +2948,20 @@ void GsV2_1(int StartPosX,int EndPosX, int deltaz, int Xspeed, int Zspeed,int Z_
         {
             
    
-            if(capture_flag == 1)
+           if(capture_flag == 1)
              {
+                CyDelayUs(10);
                 capture_flag = 0;
+                if(v<2500)
+                {
+                y_array[v] = -QuadDec_TZ_GetCounter();
+                Z_array[v] = -QuadDec_Y_GetCounter();
+                }
                 Camera_Trigger_Write(0xFF);
-                CyDelayUs(70);
+                CyDelayUs(60);
                 Camera_Trigger_Write(0x00);
+                v++;
+                //Pin_OE_PCA9959_1_Write(1);
              }
             
             if((Z_MOT_INT_Read()) == 0x00)
@@ -2925,24 +2970,12 @@ void GsV2_1(int StartPosX,int EndPosX, int deltaz, int Xspeed, int Zspeed,int Z_
                 
                 m = (((float)Z_Point2-(float)Z_Point1)/((float)EndPosX-(float)StartPosX));
                 X_QuadPosition = -QuadDec_X_GetCounter();
-                k =  (Z_Point1 + m*(((X_QuadPosition*3.2))-StartPosX));
-                //Z_QuadPosition = tempz-((-QuadDec_TZ_GetCounter())*3.2);
+                k =  (Z_Point1 + m*((((X_QuadPosition+(gsv2_microns*8))*3.2))-StartPosX));
+                Z_QuadPosition = tempz-((-QuadDec_TZ_GetCounter())*3.2);
                 tempz =  ((int32)(k + (pow(-1,n) * (deltaz/2))) + 0 );
-                
-                
-                //goTo_Z(tempz);
                 GotoPos(tempz,TMC5160_nCS_MotorZ);
-//                if(j<30)
-//                {
-//                X_array[j] = (X_QuadPosition*3.2);
-//                Z_array[j] = tempz;
-//                }
-//                else
-//                {
-//                j=0;
-//                }
-                  n++;
-//                j++;
+                n++;
+
              }
         }
     
@@ -2951,21 +2984,30 @@ void GsV2_1(int StartPosX,int EndPosX, int deltaz, int Xspeed, int Zspeed,int Z_
     LED3_Write(0xFF);
     
     print_flag = 1;
-    uint8_t i = 0;
-    
-    while(i<29)
-    {
-        Write_Debug_UART_Char("\n");
-        Write_Debug_UART_Int(X_array[i]);
-        Write_Debug_UART_Char("   ....    ");
-        Write_Debug_UART_Int(Z_array[i]);
-        Write_Debug_UART_Char("\n");
-        i++;
-    }
-    
     print_flag = 0;
     Z_QuadPosition = -QuadDec_TZ_GetCounter();
     Buffer_Z_QuadPosition = Z_QuadPosition;
+    print_flag = 1;
+    Write_Debug_UART_Char("\n");
+    for (int g=0; g<2222;g++)
+    {
+        Write_Debug_UART_Int(y_array[g]);
+        Write_Debug_UART_Char("\n");
+        
+    }
+    
+    Write_Debug_UART_Char("\n\t************ Y Value Starts\n");
+    
+    for (int g=0; g<2222;g++)
+    {
+        Write_Debug_UART_Int(Z_array[g]);
+        Write_Debug_UART_Char("\n");
+        
+    }
+    Write_Debug_UART_Char("\n Total Capture Value is : ");
+    Write_Debug_UART_Int(v);
+    Write_Debug_UART_Char("\n");
+     print_flag = 0;
     LED3_Write(0x00);
     
     
@@ -2978,7 +3020,21 @@ CY_ISR(Quad_Timer1)
     if (Y_QuadPosition > start_quad)
     {
        capture_flag = 1; 
-       start_quad = start_quad+72;
+       start_quad = start_quad+ (((int32)gsv2_microns)*4);
+        
+    }
+}
+
+CY_ISR(Quad_Timer2)
+{    
+    Y_QuadPosition = -QuadDec_Y_GetCounter();
+    
+    if (Y_QuadPosition < start_quad)
+    {
+       //Pin_OE_PCA9959_1_Write(0);
+       //PWM_CondenserLED_WriteCompare(120);
+       capture_flag = 1; 
+       start_quad = start_quad- (((int32)gsv2_microns)*4);
         
     }
 }
@@ -2986,6 +3042,7 @@ CY_ISR(Quad_Timer1)
 
 void GsV2_2(int StartPosX,int EndPosX, int deltaz, int Xspeed, int Zspeed,int Z_Point1,int Z_Point2)
 {
+    //Pin_OE_PCA9959_1_Write(1);
     LED3_Write(0xFF);
     Enable_Encoder_Z(-Buffer_Z_QuadPosition);
     float m=0;
@@ -2993,8 +3050,9 @@ void GsV2_2(int StartPosX,int EndPosX, int deltaz, int Xspeed, int Zspeed,int Z_
     int32 tempz =0;
     int32 n=1;
     uint16_t j =0;
-    int32 Z_array[30] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-    int32 X_array[30] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+    int32 y_array[2500];
+    int32 Z_array[2500];
+    int v =0;
     
     tempz = (Z_Point1 + (int)(deltaz/2));
     
@@ -3003,8 +3061,25 @@ void GsV2_2(int StartPosX,int EndPosX, int deltaz, int Xspeed, int Zspeed,int Z_
     update_max_velocity(Xspeed, TMC5160_nCS_MotorY);
     update_max_velocity(Zspeed, TMC5160_nCS_MotorZ);
     
-    start_quad = (StartPosX/3.2)+72; 
+     
     
+    if(StartPosX>EndPosX)
+    {
+    start_quad = (StartPosX/3.2)- (((int32) gsv2_microns)*4); 
+    }
+    else
+    {
+    start_quad = (StartPosX/3.2)+ (((int32) gsv2_microns)*4);
+    }
+    wait_timer_Start();
+    if(StartPosX>EndPosX)
+    {
+    wait_interrupt_StartEx(Quad_Timer2);
+    }
+    else
+    {
+    wait_interrupt_StartEx(Quad_Timer1); 
+    }
     wait_timer_Start();
     wait_interrupt_StartEx(Quad_Timer1);
     
@@ -3017,10 +3092,18 @@ void GsV2_2(int StartPosX,int EndPosX, int deltaz, int Xspeed, int Zspeed,int Z_
    
             if(capture_flag == 1)
              {
+                CyDelayUs(10);
                 capture_flag = 0;
+                if(v<2500)
+                {
+                y_array[v] = -QuadDec_TZ_GetCounter();
+                Z_array[v] = -QuadDec_Y_GetCounter();
+                }
                 Camera_Trigger_Write(0xFF);
-                CyDelayUs(70);
+                CyDelayUs(60);
                 Camera_Trigger_Write(0x00);
+                v++;
+                //Pin_OE_PCA9959_1_Write(1);
              }
             
             if((Z_MOT_INT_Read()) == 0x00)
@@ -3029,9 +3112,9 @@ void GsV2_2(int StartPosX,int EndPosX, int deltaz, int Xspeed, int Zspeed,int Z_
                 
                 m = (((float)Z_Point2-(float)Z_Point1)/((float)EndPosX-(float)StartPosX));
                 Y_QuadPosition = -QuadDec_Y_GetCounter();
-                k =  (Z_Point1 + m*(((Y_QuadPosition*3.2))-StartPosX));
-                //Z_QuadPosition = tempz-((-QuadDec_TZ_GetCounter())*3.2);
-                tempz =  ((int32)(k + (pow(-1,n) * (deltaz/2))) + 0 );    
+                k =  (Z_Point1 + m*((((Y_QuadPosition+(gsv2_microns*8))*3.2))-StartPosX));
+                Z_QuadPosition = tempz-((-QuadDec_TZ_GetCounter())*3.2);
+                tempz =  ((int32)(k + (pow(-1,n) * (deltaz/2))) + Z_QuadPosition );    
                 GotoPos(tempz,TMC5160_nCS_MotorZ);
                 n++;
                 
@@ -3050,6 +3133,27 @@ void GsV2_2(int StartPosX,int EndPosX, int deltaz, int Xspeed, int Zspeed,int Z_
     print_flag = 0;
     Z_QuadPosition = -QuadDec_TZ_GetCounter();
     Buffer_Z_QuadPosition = Z_QuadPosition;
+    print_flag = 1;
+    Write_Debug_UART_Char("\n");
+    for (int g=0; g<2222;g++)
+    {
+        Write_Debug_UART_Int(y_array[g]);
+        Write_Debug_UART_Char("\n");
+        
+    }
+    
+    Write_Debug_UART_Char("\n\t************ Y Value Starts\n");
+    
+    for (int g=0; g<2222;g++)
+    {
+        Write_Debug_UART_Int(Z_array[g]);
+        Write_Debug_UART_Char("\n");
+        
+    }
+    Write_Debug_UART_Char("\n Total Capture Value is : ");
+    Write_Debug_UART_Int(v);
+    Write_Debug_UART_Char("\n");
+     print_flag = 0;
     LED3_Write(0x00);
     
     
