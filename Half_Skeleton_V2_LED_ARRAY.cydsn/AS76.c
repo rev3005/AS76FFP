@@ -2952,15 +2952,15 @@ void GsV2_1(int StartPosX,int EndPosX, int deltaz, int Xspeed, int Zspeed,int Z_
              {
                 CyDelayUs(10);
                 capture_flag = 0;
-                if(v<2500)
-                {
-                y_array[v] = -QuadDec_TZ_GetCounter();
-                Z_array[v] = -QuadDec_Y_GetCounter();
-                }
+//                if(v<2500)
+//                {
+//                y_array[v] = -QuadDec_TZ_GetCounter();
+//                Z_array[v] = -QuadDec_Y_GetCounter();
+//                }
                 Camera_Trigger_Write(0xFF);
                 CyDelayUs(60);
                 Camera_Trigger_Write(0x00);
-                v++;
+//                v++;
                 //Pin_OE_PCA9959_1_Write(1);
              }
             
@@ -2983,31 +2983,30 @@ void GsV2_1(int StartPosX,int EndPosX, int deltaz, int Xspeed, int Zspeed,int Z_
     capture_flag =0;
     LED3_Write(0xFF);
     
-    print_flag = 1;
-    print_flag = 0;
+
     Z_QuadPosition = -QuadDec_TZ_GetCounter();
     Buffer_Z_QuadPosition = Z_QuadPosition;
-    print_flag = 1;
-    Write_Debug_UART_Char("\n");
-    for (int g=0; g<2222;g++)
-    {
-        Write_Debug_UART_Int(y_array[g]);
-        Write_Debug_UART_Char("\n");
-        
-    }
-    
-    Write_Debug_UART_Char("\n\t************ Y Value Starts\n");
-    
-    for (int g=0; g<2222;g++)
-    {
-        Write_Debug_UART_Int(Z_array[g]);
-        Write_Debug_UART_Char("\n");
-        
-    }
-    Write_Debug_UART_Char("\n Total Capture Value is : ");
-    Write_Debug_UART_Int(v);
-    Write_Debug_UART_Char("\n");
-     print_flag = 0;
+//    print_flag = 1;
+//    Write_Debug_UART_Char("\n");
+//    for (int g=0; g<2222;g++)
+//    {
+//        Write_Debug_UART_Int(y_array[g]);
+//        Write_Debug_UART_Char("\n");
+//        
+//    }
+//    
+//    Write_Debug_UART_Char("\n\t************ Y Value Starts\n");
+//    
+//    for (int g=0; g<2222;g++)
+//    {
+//        Write_Debug_UART_Int(Z_array[g]);
+//        Write_Debug_UART_Char("\n");
+//        
+//    }
+//    Write_Debug_UART_Char("\n Total Capture Value is : ");
+//    Write_Debug_UART_Int(v);
+//    Write_Debug_UART_Char("\n");
+//     print_flag = 0;
     LED3_Write(0x00);
     
     
@@ -3080,8 +3079,7 @@ void GsV2_2(int StartPosX,int EndPosX, int deltaz, int Xspeed, int Zspeed,int Z_
     {
     wait_interrupt_StartEx(Quad_Timer1); 
     }
-    wait_timer_Start();
-    wait_interrupt_StartEx(Quad_Timer1);
+   
     
     GotoPos(EndPosX, TMC5160_nCS_MotorY);
     GotoPos(tempz, TMC5160_nCS_MotorZ);
@@ -3094,15 +3092,15 @@ void GsV2_2(int StartPosX,int EndPosX, int deltaz, int Xspeed, int Zspeed,int Z_
              {
                 CyDelayUs(10);
                 capture_flag = 0;
-                if(v<2500)
-                {
-                y_array[v] = -QuadDec_TZ_GetCounter();
-                Z_array[v] = -QuadDec_Y_GetCounter();
-                }
+//                if(v<2500)
+//                {
+//                y_array[v] = -QuadDec_TZ_GetCounter();
+//                Z_array[v] = -QuadDec_Y_GetCounter();
+//                }
                 Camera_Trigger_Write(0xFF);
                 CyDelayUs(60);
                 Camera_Trigger_Write(0x00);
-                v++;
+//                v++;
                 //Pin_OE_PCA9959_1_Write(1);
              }
             
@@ -3125,35 +3123,30 @@ void GsV2_2(int StartPosX,int EndPosX, int deltaz, int Xspeed, int Zspeed,int Z_
     capture_flag =0;
     LED3_Write(0xFF);
     
-    print_flag = 1;
- 
-    
- 
-    
-    print_flag = 0;
+
     Z_QuadPosition = -QuadDec_TZ_GetCounter();
     Buffer_Z_QuadPosition = Z_QuadPosition;
-    print_flag = 1;
-    Write_Debug_UART_Char("\n");
-    for (int g=0; g<2222;g++)
-    {
-        Write_Debug_UART_Int(y_array[g]);
-        Write_Debug_UART_Char("\n");
-        
-    }
-    
-    Write_Debug_UART_Char("\n\t************ Y Value Starts\n");
-    
-    for (int g=0; g<2222;g++)
-    {
-        Write_Debug_UART_Int(Z_array[g]);
-        Write_Debug_UART_Char("\n");
-        
-    }
-    Write_Debug_UART_Char("\n Total Capture Value is : ");
-    Write_Debug_UART_Int(v);
-    Write_Debug_UART_Char("\n");
-     print_flag = 0;
+//    print_flag = 1;
+//    Write_Debug_UART_Char("\n");
+//    for (int g=0; g<2222;g++)
+//    {
+//        Write_Debug_UART_Int(y_array[g]);
+//        Write_Debug_UART_Char("\n");
+//        
+//    }
+//    
+//    Write_Debug_UART_Char("\n\t************ Y Value Starts\n");
+//    
+//    for (int g=0; g<2222;g++)
+//    {
+//        Write_Debug_UART_Int(Z_array[g]);
+//        Write_Debug_UART_Char("\n");
+//        
+//    }
+//    Write_Debug_UART_Char("\n Total Capture Value is : ");
+//    Write_Debug_UART_Int(v);
+//    Write_Debug_UART_Char("\n");
+//     print_flag = 0;
     LED3_Write(0x00);
     
     
