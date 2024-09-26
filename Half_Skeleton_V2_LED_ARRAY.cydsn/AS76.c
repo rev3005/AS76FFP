@@ -1994,7 +1994,40 @@ void Process_USB_Data()/* Process USB incoming data command. */
     
     else if (command == FLASH)
     {
-        flash();
+        int Xstart ,Xstop,deltaz,Z_Point1,Z_Point2  =0;
+        Xstart = ((int32)USB_received[5] << 24) + ((int32)USB_received[4] << 16) + ((int32)USB_received[3] << 8) + (int32)USB_received[2];
+        Xstop = ((int32)USB_received[9] << 24) + ((int32)USB_received[8] << 16) + ((int32)USB_received[7] << 8) + (int32)USB_received[6];
+        deltaz = ((int32)USB_received[13] << 24) + ((int32)USB_received[12] << 16) + ((int32)USB_received[11] << 8) + (int32)USB_received[10];        
+        Motor_Speed_X = ((int32)USB_received[17] << 24) + ((int32)USB_received[16] << 16) + ((int32)USB_received[15] << 8) + (int32)USB_received[14];
+        
+        Xstart = (Xstart / 4);
+        Xstart = Xstart * 12.8;
+        
+        Xstop = (Xstop / 4);
+        Xstop = Xstop * 12.8;  
+        
+        float deltaz_1 =0;
+       
+        deltaz_1 = (float)deltaz/16.0;
+        deltaz = (int32)(deltaz_1 * 51.2); 
+      
+        
+        
+        Motor_Speed_Z = ((int32)USB_received[21] << 24) + ((int32)USB_received[20] << 16) + ((int32)USB_received[19] << 8) + (int32)USB_received[18];
+        Z_Point1 = ((int32)USB_received[25] << 24) + ((int32)USB_received[24] << 16) + ((int32)USB_received[23] << 8) + (int32)USB_received[22];
+        Z_Point2 = ((int32)USB_received[29] << 24) + ((int32)USB_received[28] << 16) + ((int32)USB_received[27] << 8) + (int32)USB_received[26];
+        gsv2_microns = USB_received[30];
+        
+        Z_Point1 = Z_Point1/16;
+        Z_Point1 = Z_Point1*51.2;
+        
+        Z_Point2 = Z_Point2/16;
+        Z_Point2 = Z_Point2*51.2;
+        
+        GsV2_2_Z( Xstart, Xstop,  deltaz,  Motor_Speed_X,  Motor_Speed_Z, Z_Point1, Z_Point2) ;
+        
+        Previous_Z_Position = Z_Point2+deltaz;
+        Previous_X_Position = Xstop;
         Send_Feedback_to_USB(0);
     }
     
@@ -3235,6 +3268,121 @@ void flash()
                 i++;
         
     }
+}
+
+
+CY_ISR(Quad_Timer3)
+{    
+    ms_count++;
+    
+    if (ms_count > 49)
+    {
+       
+       capture_flag = 1; 
+       ms_count = 0;
+        
+    }
+}
+
+void GsV2_2_Z(int StartPosX,int EndPosX, int deltaz, int Xspeed, int Zspeed,int Z_Point1,int Z_Point2)
+{
+    //Pin_OE_PCA9959_1_Write(1);
+    LED3_Write(0xFF);
+    Enable_Encoder_Z(-Buffer_Z_QuadPosition);
+    float m=0;
+    float k=0;
+    int32 tempz =0;
+    int32 n=1;
+    uint16_t j =0;
+    int32 y_array =0;
+    int32 Z_array[2500];
+    int v =0;
+    
+    tempz = (Z_Point1 + (int)(deltaz/2));
+    
+    goTo_XYZ(-1 ,StartPosX,(Z_Point1- (int)(deltaz/2))); 
+    
+    update_max_velocity(Xspeed, TMC5160_nCS_MotorY);
+    update_max_velocity(Zspeed, TMC5160_nCS_MotorZ);
+    
+    y_array =  (StartPosX/3.2);
+    
+    
+    wait_timer_Start();
+    
+    wait_interrupt_StartEx(Quad_Timer3);
+    
+   
+    
+    //GotoPos(EndPosX, TMC5160_nCS_MotorY);
+    GotoPos(tempz, TMC5160_nCS_MotorZ);
+       while ( y_array > (EndPosX/3.2))
+        {
+            
+   
+            if(capture_flag == 1)
+             {
+                CyDelayUs(10);
+                capture_flag = 0;
+//                if(v<2500)
+//                {
+//                y_array[v] = -QuadDec_TZ_GetCounter();
+//                Z_array[v] = -QuadDec_Y_GetCounter();
+//                }
+                Camera_Trigger_Write(0xFF);
+                CyDelayUs(60);
+                Camera_Trigger_Write(0x00);
+//                v++;
+                //Pin_OE_PCA9959_1_Write(1);
+             }
+            
+            if((Z_MOT_INT_Read()) == 0x00)
+             {
+                
+                
+                m = (((float)Z_Point2-(float)Z_Point1)/((float)EndPosX-(float)StartPosX));
+                //Y_QuadPosition = -QuadDec_Y_GetCounter();
+                k =  (Z_Point1 + m*(((((y_array/3.2)+(gsv2_microns*8))*3.2))-StartPosX));
+                Z_QuadPosition = tempz-((-QuadDec_TZ_GetCounter())*3.2);
+                tempz =  ((int32)(k + (pow(-1,n) * (deltaz/2))) + Z_QuadPosition );    
+                GotoPos(tempz,TMC5160_nCS_MotorZ);
+                n++;
+                
+                y_array = y_array + (gsv2_microns*4);
+             }
+        }
+    
+    wait_timer_Stop();
+    capture_flag =0;
+    LED3_Write(0xFF);
+    
+
+    Z_QuadPosition = -QuadDec_TZ_GetCounter();
+    Buffer_Z_QuadPosition = Z_QuadPosition;
+//    print_flag = 1;
+//    Write_Debug_UART_Char("\n");
+//    for (int g=0; g<2222;g++)
+//    {
+//        Write_Debug_UART_Int(y_array[g]);
+//        Write_Debug_UART_Char("\n");
+//        
+//    }
+//    
+//    Write_Debug_UART_Char("\n\t************ Y Value Starts\n");
+//    
+//    for (int g=0; g<2222;g++)
+//    {
+//        Write_Debug_UART_Int(Z_array[g]);
+//        Write_Debug_UART_Char("\n");
+//        
+//    }
+//    Write_Debug_UART_Char("\n Total Capture Value is : ");
+//    Write_Debug_UART_Int(v);
+//    Write_Debug_UART_Char("\n");
+//     print_flag = 0;
+    LED3_Write(0x00);
+    
+    
 }
 //Motor Driver Configuration Function Stop-------------------------------------------------------
 
