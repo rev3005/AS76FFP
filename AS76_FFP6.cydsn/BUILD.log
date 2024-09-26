@@ -1,4 +1,4 @@
---------------- Build Started: 09/09/2024 16:42:48 Project: AS76_FFP6, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+--------------- Build Started: 09/26/2024 16:37:03 Project: AS76_FFP6, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
 cydsfit.exe -.appdatapath "C:\Users\Revanth\AppData\Local\Cypress Semiconductor\PSoC Creator\4.4" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\AS76_FFP6.cydsn\AS76_FFP6.cyprj -d CY8C5268AXI-LP047 -s C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\AS76_FFP6.cydsn\Generated_Source\PSoC5 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
 Elaborating Design...
 HDL Generation...
@@ -363,4 +363,4 @@ Checksum calculated and stored in ELF section .cymeta
 cyelftool.exe -S C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\AS76_FFP6.cydsn\CortexM3\ARM_GCC_541\Debug\AS76_FFP6.elf
 Flash used: 38184 of 262144 bytes (14.6%).
 SRAM used: 3225 of 65536 bytes (4.9%). Stack: 2048 bytes. Heap: 128 bytes.
---------------- Build Succeeded: 09/09/2024 16:43:20 ---------------
+--------------- Build Succeeded: 09/26/2024 16:37:42 ---------------
