@@ -3300,7 +3300,7 @@ void GsV2_2_Z(int StartPosX,int EndPosX, int deltaz, int Xspeed, int Zspeed,int 
     
     tempz = (Z_Point1 + (int)(deltaz/2));
     
-    goTo_XYZ(-1 ,StartPosX,(Z_Point1- (int)(deltaz/2))); 
+    //goTo_XYZ(-1 ,StartPosX,(Z_Point1- (int)(deltaz/2))); 
     
     update_max_velocity(Xspeed, TMC5160_nCS_MotorY);
     update_max_velocity(Zspeed, TMC5160_nCS_MotorZ);
