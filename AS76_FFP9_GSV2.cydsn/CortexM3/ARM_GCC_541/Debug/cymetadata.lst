@@ -1,0 +1,448 @@
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\cclsLsvB.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"cymetadata.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	cy_metadata
+  20              		.global	cy_meta_flashprotect
+  21              		.global	cy_meta_wonvl
+  22              		.global	cy_meta_custnvl
+  23              		.section	.cywolatch,"a",%progbits
+  24              		.align	2
+  25              		.type	cy_meta_wonvl, %object
+  26              		.size	cy_meta_wonvl, 4
+  27              	cy_meta_wonvl:
+  28 0000 BC       		.byte	-68
+  29 0001 90       		.byte	-112
+  30 0002 AC       		.byte	-84
+  31 0003 AF       		.byte	-81
+  32              		.section	.cycustnvl,"a",%progbits
+  33              		.align	2
+  34              		.type	cy_meta_custnvl, %object
+  35              		.size	cy_meta_custnvl, 4
+  36              	cy_meta_custnvl:
+  37 0000 00       		.byte	0
+  38 0001 00       		.byte	0
+  39 0002 40       		.byte	64
+  40 0003 0D       		.byte	13
+  41              		.section	.cymeta,"a",%progbits
+  42              		.align	2
+  43              		.type	cy_metadata, %object
+  44              		.size	cy_metadata, 12
+  45              	cy_metadata:
+  46 0000 00       		.byte	0
+  47 0001 01       		.byte	1
+  48 0002 2E       		.byte	46
+  49 0003 12       		.byte	18
+  50 0004 F0       		.byte	-16
+  51 0005 69       		.byte	105
+  52 0006 00       		.byte	0
+  53 0007 01       		.byte	1
+  54 0008 00       		.byte	0
+  55 0009 00       		.byte	0
+  56 000a 00       		.byte	0
+  57 000b 00       		.byte	0
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\cclsLsvB.s 			page 2
+
+
+  58              		.section	.cyflashprotect,"a",%progbits
+  59              		.align	2
+  60              		.type	cy_meta_flashprotect, %object
+  61              		.size	cy_meta_flashprotect, 256
+  62              	cy_meta_flashprotect:
+  63 0000 00000000 		.space	256
+  63      00000000 
+  63      00000000 
+  63      00000000 
+  63      00000000 
+  64              		.text
+  65              	.Letext0:
+  66              		.file 1 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+  67              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+  68              		.file 3 "Generated_Source\\PSoC5\\cymetadata.c"
+  69              		.section	.debug_info,"",%progbits
+  70              	.Ldebug_info0:
+  71 0000 0A010000 		.4byte	0x10a
+  72 0004 0400     		.2byte	0x4
+  73 0006 00000000 		.4byte	.Ldebug_abbrev0
+  74 000a 04       		.byte	0x4
+  75 000b 01       		.uleb128 0x1
+  76 000c 24000000 		.4byte	.LASF16
+  77 0010 0C       		.byte	0xc
+  78 0011 B5010000 		.4byte	.LASF17
+  79 0015 4D010000 		.4byte	.LASF18
+  80 0019 00000000 		.4byte	.Ldebug_line0
+  81 001d 02       		.uleb128 0x2
+  82 001e 01       		.byte	0x1
+  83 001f 06       		.byte	0x6
+  84 0020 A9010000 		.4byte	.LASF0
+  85 0024 03       		.uleb128 0x3
+  86 0025 00000000 		.4byte	.LASF9
+  87 0029 01       		.byte	0x1
+  88 002a 1D       		.byte	0x1d
+  89 002b 2F000000 		.4byte	0x2f
+  90 002f 02       		.uleb128 0x2
+  91 0030 01       		.byte	0x1
+  92 0031 08       		.byte	0x8
+  93 0032 16000000 		.4byte	.LASF1
+  94 0036 02       		.uleb128 0x2
+  95 0037 02       		.byte	0x2
+  96 0038 05       		.byte	0x5
+  97 0039 96010000 		.4byte	.LASF2
+  98 003d 02       		.uleb128 0x2
+  99 003e 02       		.byte	0x2
+ 100 003f 07       		.byte	0x7
+ 101 0040 C4000000 		.4byte	.LASF3
+ 102 0044 02       		.uleb128 0x2
+ 103 0045 04       		.byte	0x4
+ 104 0046 05       		.byte	0x5
+ 105 0047 A0010000 		.4byte	.LASF4
+ 106 004b 02       		.uleb128 0x2
+ 107 004c 04       		.byte	0x4
+ 108 004d 07       		.byte	0x7
+ 109 004e B2000000 		.4byte	.LASF5
+ 110 0052 02       		.uleb128 0x2
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\cclsLsvB.s 			page 3
+
+
+ 111 0053 08       		.byte	0x8
+ 112 0054 05       		.byte	0x5
+ 113 0055 3F010000 		.4byte	.LASF6
+ 114 0059 02       		.uleb128 0x2
+ 115 005a 08       		.byte	0x8
+ 116 005b 07       		.byte	0x7
+ 117 005c F4000000 		.4byte	.LASF7
+ 118 0060 04       		.uleb128 0x4
+ 119 0061 04       		.byte	0x4
+ 120 0062 05       		.byte	0x5
+ 121 0063 696E7400 		.ascii	"int\000"
+ 122 0067 02       		.uleb128 0x2
+ 123 0068 04       		.byte	0x4
+ 124 0069 07       		.byte	0x7
+ 125 006a E7000000 		.4byte	.LASF8
+ 126 006e 03       		.uleb128 0x3
+ 127 006f 0B010000 		.4byte	.LASF10
+ 128 0073 02       		.byte	0x2
+ 129 0074 18       		.byte	0x18
+ 130 0075 24000000 		.4byte	0x24
+ 131 0079 05       		.uleb128 0x5
+ 132 007a 90000000 		.4byte	0x90
+ 133 007e 89000000 		.4byte	0x89
+ 134 0082 06       		.uleb128 0x6
+ 135 0083 89000000 		.4byte	0x89
+ 136 0087 03       		.byte	0x3
+ 137 0088 00       		.byte	0
+ 138 0089 02       		.uleb128 0x2
+ 139 008a 04       		.byte	0x4
+ 140 008b 07       		.byte	0x7
+ 141 008c 36010000 		.4byte	.LASF11
+ 142 0090 07       		.uleb128 0x7
+ 143 0091 6E000000 		.4byte	0x6e
+ 144 0095 08       		.uleb128 0x8
+ 145 0096 D7000000 		.4byte	.LASF12
+ 146 009a 03       		.byte	0x3
+ 147 009b 1F       		.byte	0x1f
+ 148 009c A6000000 		.4byte	0xa6
+ 149 00a0 05       		.uleb128 0x5
+ 150 00a1 03       		.byte	0x3
+ 151 00a2 00000000 		.4byte	cy_meta_custnvl
+ 152 00a6 07       		.uleb128 0x7
+ 153 00a7 79000000 		.4byte	0x79
+ 154 00ab 08       		.uleb128 0x8
+ 155 00ac 28010000 		.4byte	.LASF13
+ 156 00b0 03       		.byte	0x3
+ 157 00b1 2D       		.byte	0x2d
+ 158 00b2 BC000000 		.4byte	0xbc
+ 159 00b6 05       		.uleb128 0x5
+ 160 00b7 03       		.byte	0x3
+ 161 00b8 00000000 		.4byte	cy_meta_wonvl
+ 162 00bc 07       		.uleb128 0x7
+ 163 00bd 79000000 		.4byte	0x79
+ 164 00c1 05       		.uleb128 0x5
+ 165 00c2 90000000 		.4byte	0x90
+ 166 00c6 D1000000 		.4byte	0xd1
+ 167 00ca 06       		.uleb128 0x6
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\cclsLsvB.s 			page 4
+
+
+ 168 00cb 89000000 		.4byte	0x89
+ 169 00cf FF       		.byte	0xff
+ 170 00d0 00       		.byte	0
+ 171 00d1 08       		.uleb128 0x8
+ 172 00d2 13010000 		.4byte	.LASF14
+ 173 00d6 03       		.byte	0x3
+ 174 00d7 3B       		.byte	0x3b
+ 175 00d8 E2000000 		.4byte	0xe2
+ 176 00dc 05       		.uleb128 0x5
+ 177 00dd 03       		.byte	0x3
+ 178 00de 00000000 		.4byte	cy_meta_flashprotect
+ 179 00e2 07       		.uleb128 0x7
+ 180 00e3 C1000000 		.4byte	0xc1
+ 181 00e7 05       		.uleb128 0x5
+ 182 00e8 90000000 		.4byte	0x90
+ 183 00ec F7000000 		.4byte	0xf7
+ 184 00f0 06       		.uleb128 0x6
+ 185 00f1 89000000 		.4byte	0x89
+ 186 00f5 0B       		.byte	0xb
+ 187 00f6 00       		.byte	0
+ 188 00f7 08       		.uleb128 0x8
+ 189 00f8 0A000000 		.4byte	.LASF15
+ 190 00fc 03       		.byte	0x3
+ 191 00fd 68       		.byte	0x68
+ 192 00fe 08010000 		.4byte	0x108
+ 193 0102 05       		.uleb128 0x5
+ 194 0103 03       		.byte	0x3
+ 195 0104 00000000 		.4byte	cy_metadata
+ 196 0108 07       		.uleb128 0x7
+ 197 0109 E7000000 		.4byte	0xe7
+ 198 010d 00       		.byte	0
+ 199              		.section	.debug_abbrev,"",%progbits
+ 200              	.Ldebug_abbrev0:
+ 201 0000 01       		.uleb128 0x1
+ 202 0001 11       		.uleb128 0x11
+ 203 0002 01       		.byte	0x1
+ 204 0003 25       		.uleb128 0x25
+ 205 0004 0E       		.uleb128 0xe
+ 206 0005 13       		.uleb128 0x13
+ 207 0006 0B       		.uleb128 0xb
+ 208 0007 03       		.uleb128 0x3
+ 209 0008 0E       		.uleb128 0xe
+ 210 0009 1B       		.uleb128 0x1b
+ 211 000a 0E       		.uleb128 0xe
+ 212 000b 10       		.uleb128 0x10
+ 213 000c 17       		.uleb128 0x17
+ 214 000d 00       		.byte	0
+ 215 000e 00       		.byte	0
+ 216 000f 02       		.uleb128 0x2
+ 217 0010 24       		.uleb128 0x24
+ 218 0011 00       		.byte	0
+ 219 0012 0B       		.uleb128 0xb
+ 220 0013 0B       		.uleb128 0xb
+ 221 0014 3E       		.uleb128 0x3e
+ 222 0015 0B       		.uleb128 0xb
+ 223 0016 03       		.uleb128 0x3
+ 224 0017 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\cclsLsvB.s 			page 5
+
+
+ 225 0018 00       		.byte	0
+ 226 0019 00       		.byte	0
+ 227 001a 03       		.uleb128 0x3
+ 228 001b 16       		.uleb128 0x16
+ 229 001c 00       		.byte	0
+ 230 001d 03       		.uleb128 0x3
+ 231 001e 0E       		.uleb128 0xe
+ 232 001f 3A       		.uleb128 0x3a
+ 233 0020 0B       		.uleb128 0xb
+ 234 0021 3B       		.uleb128 0x3b
+ 235 0022 0B       		.uleb128 0xb
+ 236 0023 49       		.uleb128 0x49
+ 237 0024 13       		.uleb128 0x13
+ 238 0025 00       		.byte	0
+ 239 0026 00       		.byte	0
+ 240 0027 04       		.uleb128 0x4
+ 241 0028 24       		.uleb128 0x24
+ 242 0029 00       		.byte	0
+ 243 002a 0B       		.uleb128 0xb
+ 244 002b 0B       		.uleb128 0xb
+ 245 002c 3E       		.uleb128 0x3e
+ 246 002d 0B       		.uleb128 0xb
+ 247 002e 03       		.uleb128 0x3
+ 248 002f 08       		.uleb128 0x8
+ 249 0030 00       		.byte	0
+ 250 0031 00       		.byte	0
+ 251 0032 05       		.uleb128 0x5
+ 252 0033 01       		.uleb128 0x1
+ 253 0034 01       		.byte	0x1
+ 254 0035 49       		.uleb128 0x49
+ 255 0036 13       		.uleb128 0x13
+ 256 0037 01       		.uleb128 0x1
+ 257 0038 13       		.uleb128 0x13
+ 258 0039 00       		.byte	0
+ 259 003a 00       		.byte	0
+ 260 003b 06       		.uleb128 0x6
+ 261 003c 21       		.uleb128 0x21
+ 262 003d 00       		.byte	0
+ 263 003e 49       		.uleb128 0x49
+ 264 003f 13       		.uleb128 0x13
+ 265 0040 2F       		.uleb128 0x2f
+ 266 0041 0B       		.uleb128 0xb
+ 267 0042 00       		.byte	0
+ 268 0043 00       		.byte	0
+ 269 0044 07       		.uleb128 0x7
+ 270 0045 26       		.uleb128 0x26
+ 271 0046 00       		.byte	0
+ 272 0047 49       		.uleb128 0x49
+ 273 0048 13       		.uleb128 0x13
+ 274 0049 00       		.byte	0
+ 275 004a 00       		.byte	0
+ 276 004b 08       		.uleb128 0x8
+ 277 004c 34       		.uleb128 0x34
+ 278 004d 00       		.byte	0
+ 279 004e 03       		.uleb128 0x3
+ 280 004f 0E       		.uleb128 0xe
+ 281 0050 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\cclsLsvB.s 			page 6
+
+
+ 282 0051 0B       		.uleb128 0xb
+ 283 0052 3B       		.uleb128 0x3b
+ 284 0053 0B       		.uleb128 0xb
+ 285 0054 49       		.uleb128 0x49
+ 286 0055 13       		.uleb128 0x13
+ 287 0056 3F       		.uleb128 0x3f
+ 288 0057 19       		.uleb128 0x19
+ 289 0058 02       		.uleb128 0x2
+ 290 0059 18       		.uleb128 0x18
+ 291 005a 00       		.byte	0
+ 292 005b 00       		.byte	0
+ 293 005c 00       		.byte	0
+ 294              		.section	.debug_aranges,"",%progbits
+ 295 0000 14000000 		.4byte	0x14
+ 296 0004 0200     		.2byte	0x2
+ 297 0006 00000000 		.4byte	.Ldebug_info0
+ 298 000a 04       		.byte	0x4
+ 299 000b 00       		.byte	0
+ 300 000c 0000     		.2byte	0
+ 301 000e 0000     		.2byte	0
+ 302 0010 00000000 		.4byte	0
+ 303 0014 00000000 		.4byte	0
+ 304              		.section	.debug_line,"",%progbits
+ 305              	.Ldebug_line0:
+ 306 0000 3D010000 		.section	.debug_str,"MS",%progbits,1
+ 306      02003701 
+ 306      00000201 
+ 306      FB0E0D00 
+ 306      01010101 
+ 307              	.LASF9:
+ 308 0000 5F5F7569 		.ascii	"__uint8_t\000"
+ 308      6E74385F 
+ 308      7400
+ 309              	.LASF15:
+ 310 000a 63795F6D 		.ascii	"cy_metadata\000"
+ 310      65746164 
+ 310      61746100 
+ 311              	.LASF1:
+ 312 0016 756E7369 		.ascii	"unsigned char\000"
+ 312      676E6564 
+ 312      20636861 
+ 312      7200
+ 313              	.LASF16:
+ 314 0024 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 314      43313120 
+ 314      352E342E 
+ 314      31203230 
+ 314      31363036 
+ 315 0057 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 315      20726576 
+ 315      6973696F 
+ 315      6E203233 
+ 315      37373135 
+ 316 008a 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 316      66756E63 
+ 316      74696F6E 
+ 316      2D736563 
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\cclsLsvB.s 			page 7
+
+
+ 316      74696F6E 
+ 317              	.LASF5:
+ 318 00b2 6C6F6E67 		.ascii	"long unsigned int\000"
+ 318      20756E73 
+ 318      69676E65 
+ 318      6420696E 
+ 318      7400
+ 319              	.LASF3:
+ 320 00c4 73686F72 		.ascii	"short unsigned int\000"
+ 320      7420756E 
+ 320      7369676E 
+ 320      65642069 
+ 320      6E7400
+ 321              	.LASF12:
+ 322 00d7 63795F6D 		.ascii	"cy_meta_custnvl\000"
+ 322      6574615F 
+ 322      63757374 
+ 322      6E766C00 
+ 323              	.LASF8:
+ 324 00e7 756E7369 		.ascii	"unsigned int\000"
+ 324      676E6564 
+ 324      20696E74 
+ 324      00
+ 325              	.LASF7:
+ 326 00f4 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 326      206C6F6E 
+ 326      6720756E 
+ 326      7369676E 
+ 326      65642069 
+ 327              	.LASF10:
+ 328 010b 75696E74 		.ascii	"uint8_t\000"
+ 328      385F7400 
+ 329              	.LASF14:
+ 330 0113 63795F6D 		.ascii	"cy_meta_flashprotect\000"
+ 330      6574615F 
+ 330      666C6173 
+ 330      6870726F 
+ 330      74656374 
+ 331              	.LASF13:
+ 332 0128 63795F6D 		.ascii	"cy_meta_wonvl\000"
+ 332      6574615F 
+ 332      776F6E76 
+ 332      6C00
+ 333              	.LASF11:
+ 334 0136 73697A65 		.ascii	"sizetype\000"
+ 334      74797065 
+ 334      00
+ 335              	.LASF6:
+ 336 013f 6C6F6E67 		.ascii	"long long int\000"
+ 336      206C6F6E 
+ 336      6720696E 
+ 336      7400
+ 337              	.LASF18:
+ 338 014d 433A5C55 		.ascii	"C:\\Users\\Revanth\\Documents\\GitHub\\AS76_FFP\\AS"
+ 338      73657273 
+ 338      5C526576 
+ 338      616E7468 
+ARM GAS  C:\Users\Revanth\AppData\Local\Temp\cclsLsvB.s 			page 8
+
+
+ 338      5C446F63 
+ 339 017a 37365F46 		.ascii	"76_FFP\\AS76_FFP9_GSV2.cydsn\000"
+ 339      46505C41 
+ 339      5337365F 
+ 339      46465039 
+ 339      5F475356 
+ 340              	.LASF2:
+ 341 0196 73686F72 		.ascii	"short int\000"
+ 341      7420696E 
+ 341      7400
+ 342              	.LASF4:
+ 343 01a0 6C6F6E67 		.ascii	"long int\000"
+ 343      20696E74 
+ 343      00
+ 344              	.LASF0:
+ 345 01a9 7369676E 		.ascii	"signed char\000"
+ 345      65642063 
+ 345      68617200 
+ 346              	.LASF17:
+ 347 01b5 47656E65 		.ascii	"Generated_Source\\PSoC5\\cymetadata.c\000"
+ 347      72617465 
+ 347      645F536F 
+ 347      75726365 
+ 347      5C50536F 
+ 348              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
