@@ -595,6 +595,7 @@
       <Data key="2bac2b8b-e4b4-4f17-8cae-93d67f631335" value="LIM_Y_R" />
       <Data key="2ec0296c-7cd5-43a2-937c-01f3782a26cd" value="Pin_Collision_Sens_X_12" />
       <Data key="2ece988e-6ca2-43d4-8de4-4703f4792ac5" value="Pin_Collision_Sens_Z_11" />
+      <Data key="02f2cf2c-2c7a-49df-9246-7a3435c21be3" value="SCL_1" />
       <Data key="2f229cf4-cb0f-4538-b6fd-5cc63ae3b47d" value="LED2" />
       <Data key="2faabb2c-facd-4e89-b8c1-390ffd370c05" value="Pin_Sensor17" />
       <Data key="3b3ecf9f-2237-48a4-9e1f-4c1d2dedd448" value="Pin_CollisionSensY21" />
@@ -667,6 +668,7 @@
       <Data key="7417d57f-7707-4426-be22-5984d78428f9" value="Pin_CollisionSensX22" />
       <Data key="8987e99d-c3ad-4be4-bc84-25c18ae11294" value="Pin_GotoX_2" />
       <Data key="9766c3dc-650d-47dd-af02-4971fd200372" value="Pin_SDI_RGB" />
+      <Data key="22863ebe-a37b-476f-b252-6e49a8c00b12" value="SDA_1" />
       <Data key="33273b26-e002-4def-8ef7-27ab31c89531" value="Pin_BusyMotorY" />
       <Data key="45691bfc-15e4-4df9-b2b8-afc83da779ff" value="Pin_Buzzer" />
       <Data key="76079ffa-d19d-42e3-850c-bf970972247c" value="Pin_MISO_PCA9959" />
@@ -3971,6 +3973,11 @@
         <Data key="Port Format" value="2,7" />
       </Group>
     </Group>
+    <Group key="02f2cf2c-2c7a-49df-9246-7a3435c21be3">
+      <Group key="0">
+        <Data key="Port Format" value="6,4" />
+      </Group>
+    </Group>
     <Group key="2f229cf4-cb0f-4538-b6fd-5cc63ae3b47d">
       <Group key="0">
         <Data key="Port Format" value="2,6" />
@@ -4314,6 +4321,11 @@
     <Group key="9766c3dc-650d-47dd-af02-4971fd200372">
       <Group key="0">
         <Data key="Port Format" value="15,4" />
+      </Group>
+    </Group>
+    <Group key="22863ebe-a37b-476f-b252-6e49a8c00b12">
+      <Group key="0">
+        <Data key="Port Format" value="2,5" />
       </Group>
     </Group>
     <Group key="33273b26-e002-4def-8ef7-27ab31c89531">

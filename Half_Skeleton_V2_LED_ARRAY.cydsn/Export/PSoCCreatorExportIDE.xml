@@ -344,6 +344,20 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Pin_RST_PCA9959_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Pin_RST_PCA9959.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Pin_RST_PCA9959.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\SDA_1_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\SDA_1.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\SDA_1.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\SCL_1_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\SCL_1.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\SCL_1.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\I2C_1.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\I2C_1.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\I2C_1_BOOT.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\I2C_1_INT.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\I2C_1_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\I2C_1_SLAVE.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\I2C_1_MASTER.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\I2C_1_PVT.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\Half_Skeleton_V2_LED_ARRAY.cydsn\Export\ARM_GCC_Generic">
