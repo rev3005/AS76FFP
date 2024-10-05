@@ -569,7 +569,7 @@ void homeT(uint8_t Motor)
     Write_32bitSPI_DATA (0x10  , (int) 0x00070101, TMC5160_nCS_MotorY );
     Write_32bitSPI_DATA (0x10  , (int) 0x00070101, TMC5160_nCS_MotorZ );
     Write_32bitSPI_DATA (0x10  , (int) 0x00070101, TMC5160_nCS_MotorX );
-    Write_32bitSPI_DATA (0x10  , (int) 0x00070501, TMC5160_nCS_MotorT );
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070701, TMC5160_nCS_MotorT );
     CyDelayUs(100);
     TMC5160_MotorT_EN_Write(0x00);
     CyDelay(10);
@@ -973,7 +973,7 @@ int goTo_T(int32 Position_T_Requested)
     CyDelayUs(100);
     Write_32bitSPI_DATA (0x10  , (int) 0x00070101, TMC5160_nCS_MotorX );
     CyDelayUs(100);
-    Write_32bitSPI_DATA (0x10  , (int) 0x00070501, TMC5160_nCS_MotorT );
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070A01, TMC5160_nCS_MotorT );
     CyDelay(10);
     //Write_32bitSPI_DATA (0x10  , (int) 0x00070703, TMC5160_nCS_MotorT );
     TMC5160_MotorT_EN_Write(0x00);

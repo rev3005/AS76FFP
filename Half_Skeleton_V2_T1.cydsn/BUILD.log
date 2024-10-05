@@ -1,4 +1,4 @@
---------------- Build Started: 09/04/2024 14:27:10 Project: Half_Skeleton_V2_T1, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+--------------- Build Started: 10/05/2024 11:08:55 Project: Half_Skeleton_V2_T1, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
 cydsfit.exe -.appdatapath "C:\Users\Revanth\AppData\Local\Cypress Semiconductor\PSoC Creator\4.4" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\Half_Skeleton_V2_T1.cydsn\Half_Skeleton_V2_T1.cyprj -d CY8C5268AXI-LP047 -s C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\Half_Skeleton_V2_T1.cydsn\Generated_Source\PSoC5 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
 Elaborating Design...
 HDL Generation...
@@ -370,4 +370,4 @@ Checksum calculated and stored in ELF section .cymeta
 cyelftool.exe -S C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\Half_Skeleton_V2_T1.cydsn\CortexM3\ARM_GCC_541\Debug\Half_Skeleton_V2_T1.elf
 Flash used: 43868 of 262144 bytes (16.7%).
 SRAM used: 3193 of 65536 bytes (4.9%). Stack: 2048 bytes. Heap: 128 bytes.
---------------- Build Succeeded: 09/04/2024 14:27:52 ---------------
+--------------- Build Succeeded: 10/05/2024 11:09:37 ---------------
