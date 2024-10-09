@@ -2958,7 +2958,7 @@ CY_ISR(Quad_Timer)
     if (X_QuadPosition > start_quad)
     {
        capture_flag = 1; 
-       start_quad = start_quad+(((int32)gsv2_microns)*4);
+       start_quad = start_quad+(((int32)gsv2_microns));
         
     }
 }
@@ -2970,7 +2970,7 @@ CY_ISR(Quad_Timer0)
     if (X_QuadPosition < start_quad)
     {
        capture_flag = 1; 
-       start_quad = start_quad-(((int32)gsv2_microns)*4);
+       start_quad = start_quad-(((int32)gsv2_microns));
         
     }
 }
@@ -3051,11 +3051,11 @@ void GsV2_1(int StartPosX,int EndPosX, int deltaz, int Xspeed, int Zspeed,int Z_
     
     if(StartPosX>EndPosX)
     {
-    start_quad = (StartPosX/3.2)-(((int32)gsv2_microns)*4); 
+    start_quad = (StartPosX/12.8)-(((int32)gsv2_microns)); 
     }
     else
     {
-    start_quad = (StartPosX/3.2)+(((int32)gsv2_microns)*4); 
+    start_quad = (StartPosX/12.8)+(((int32)gsv2_microns)); 
     }
     wait_timer_Start();
     if(StartPosX>EndPosX)
@@ -3099,7 +3099,7 @@ void GsV2_1(int StartPosX,int EndPosX, int deltaz, int Xspeed, int Zspeed,int Z_
                 
                 m = (((float)Z_Point2-(float)Z_Point1)/((float)EndPosX-(float)StartPosX));
                 X_QuadPosition = -QuadDec_X_GetCounter();
-                k =  (Z_Point1 + m*((((X_QuadPosition+(gsv2_microns*8))*3.2))-StartPosX));
+                k =  (Z_Point1 + m*((((X_QuadPosition+(gsv2_microns*3))*12.8))-StartPosX));
                 Z_QuadPosition = tempz-((-QuadDec_TZ_GetCounter())*3.2);
                 tempz =  ((int32)(k + (pow(-1,n) * (deltaz/2))) + 0 );
                 GotoPos(tempz,TMC5160_nCS_MotorZ);
@@ -3148,7 +3148,7 @@ CY_ISR(Quad_Timer1)
     if (Y_QuadPosition > start_quad)
     {
        capture_flag = 1; 
-       start_quad = start_quad+ (((int32)gsv2_microns)*4);
+       start_quad = start_quad+ (((int32)gsv2_microns));
         
     }
 }
@@ -3162,7 +3162,7 @@ CY_ISR(Quad_Timer2)
        //Pin_OE_PCA9959_1_Write(0);
        //PWM_CondenserLED_WriteCompare(120);
        capture_flag = 1; 
-       start_quad = start_quad- (((int32)gsv2_microns)*4);
+       start_quad = start_quad- (((int32)gsv2_microns));
         
     }
 }
@@ -3193,11 +3193,11 @@ void GsV2_2(int StartPosX,int EndPosX, int deltaz, int Xspeed, int Zspeed,int Z_
     
     if(StartPosX>EndPosX)
     {
-    start_quad = (StartPosX/3.2)- (((int32) gsv2_microns)*4); 
+    start_quad = (StartPosX/12.8)- (((int32) gsv2_microns)); 
     }
     else
     {
-    start_quad = (StartPosX/3.2)+ (((int32) gsv2_microns)*4);
+    start_quad = (StartPosX/12.8)+ (((int32) gsv2_microns));
     }
     wait_timer_Start();
     if(StartPosX>EndPosX)
@@ -3239,7 +3239,7 @@ void GsV2_2(int StartPosX,int EndPosX, int deltaz, int Xspeed, int Zspeed,int Z_
                 
                 m = (((float)Z_Point2-(float)Z_Point1)/((float)EndPosX-(float)StartPosX));
                 Y_QuadPosition = -QuadDec_Y_GetCounter();
-                k =  (Z_Point1 + m*((((Y_QuadPosition+(gsv2_microns*8))*3.2))-StartPosX));
+                k =  (Z_Point1 + m*((((Y_QuadPosition+(gsv2_microns*3))*12.8))-StartPosX));
                 Z_QuadPosition = tempz-((-QuadDec_TZ_GetCounter())*3.2);
                 tempz =  ((int32)(k + (pow(-1,n) * (deltaz/2))) + Z_QuadPosition );    
                 GotoPos(tempz,TMC5160_nCS_MotorZ);
