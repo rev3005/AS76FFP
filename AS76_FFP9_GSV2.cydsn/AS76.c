@@ -3046,6 +3046,11 @@ void GsV2_1(int StartPosX,int EndPosX, int deltaz, int Xspeed, int Zspeed,int Z_
     update_max_velocity(Xspeed, TMC5160_nCS_MotorX);
     update_max_velocity(Zspeed, TMC5160_nCS_MotorZ);
     
+     while((Z_MOT_INT_Read()) != 0x00)
+    {
+        CyDelayUs(5);
+    }
+    
     //start_quad = (StartPosX/3.2)+(((int32)gsv2_microns)*4); 
     //wait_timer_Start();
     
@@ -3189,7 +3194,10 @@ void GsV2_2(int StartPosX,int EndPosX, int deltaz, int Xspeed, int Zspeed,int Z_
     update_max_velocity(Xspeed, TMC5160_nCS_MotorY);
     update_max_velocity(Zspeed, TMC5160_nCS_MotorZ);
     
-     
+    while((Z_MOT_INT_Read()) != 0x00)
+    {
+        CyDelayUs(5);
+    }
     
     if(StartPosX>EndPosX)
     {

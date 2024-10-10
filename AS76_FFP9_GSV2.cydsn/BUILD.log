@@ -1,4 +1,4 @@
---------------- Build Started: 10/09/2024 11:08:22 Project: AS76_FFP9_GSV2, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+--------------- Build Started: 10/09/2024 12:20:25 Project: AS76_FFP9_GSV2, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
 The code generation step is up to date.
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/AS76.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c AS76.c -o .\CortexM3\ARM_GCC_541\Debug\AS76.o
 AS76.c: In function 'Process_USB_Data':
@@ -234,26 +234,26 @@ AS76.c:3037:14: warning: unused variable 'j' [-Wunused-variable]
      uint16_t j =0;
               ^
 AS76.c: In function 'GsV2_2':
-AS76.c:3183:9: warning: unused variable 'v' [-Wunused-variable]
+AS76.c:3188:9: warning: unused variable 'v' [-Wunused-variable]
      int v =0;
          ^
-AS76.c:3182:11: warning: unused variable 'Z_array' [-Wunused-variable]
+AS76.c:3187:11: warning: unused variable 'Z_array' [-Wunused-variable]
      int32 Z_array[2500];
            ^
-AS76.c:3181:11: warning: unused variable 'y_array' [-Wunused-variable]
+AS76.c:3186:11: warning: unused variable 'y_array' [-Wunused-variable]
      int32 y_array[2500];
            ^
-AS76.c:3180:14: warning: unused variable 'j' [-Wunused-variable]
+AS76.c:3185:14: warning: unused variable 'j' [-Wunused-variable]
      uint16_t j =0;
               ^
 AS76.c: In function 'GsV2_2_Z':
-AS76.c:3395:9: warning: unused variable 'v' [-Wunused-variable]
+AS76.c:3403:9: warning: unused variable 'v' [-Wunused-variable]
      int v =0;
          ^
-AS76.c:3394:11: warning: unused variable 'Z_array' [-Wunused-variable]
+AS76.c:3402:11: warning: unused variable 'Z_array' [-Wunused-variable]
      int32 Z_array[2500];
            ^
-AS76.c:3392:14: warning: unused variable 'j' [-Wunused-variable]
+AS76.c:3400:14: warning: unused variable 'j' [-Wunused-variable]
      uint16_t j =0;
               ^
 AS76.c: In function 'Clear_USB_RX_Buffer':
@@ -271,6 +271,6 @@ No ELF section .cychecksum found, creating one
 Application checksum calculated and stored in ELF section .cychecksum
 Checksum calculated and stored in ELF section .cymeta
 cyelftool.exe -S C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\AS76_FFP9_GSV2.cydsn\CortexM3\ARM_GCC_541\Debug\AS76_FFP9_GSV2.elf
-Flash used: 48224 of 262144 bytes (18.4%).
+Flash used: 48256 of 262144 bytes (18.4%).
 SRAM used: 3241 of 65536 bytes (4.9%). Stack: 2048 bytes. Heap: 128 bytes.
---------------- Build Succeeded: 10/09/2024 11:08:31 ---------------
+--------------- Build Succeeded: 10/09/2024 12:20:35 ---------------
