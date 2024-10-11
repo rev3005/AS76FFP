@@ -1,6 +1,6 @@
 (DELAYFILE
  (SDFVERSION "IEEE 1497 4.0")
- (DATE "2024-10-10T08:02:10Z")
+ (DATE "2024-10-11T05:08:51Z")
  (DESIGN "AS76_FFP9_6_GSV2")
  (VENDOR "Cypress Semiconductor")
  (PROGRAM "PSoC Creator")
@@ -807,6 +807,10 @@
     (INTERCONNECT LIM_T_R\(0\)_PAD LIM_T_R\(0\).pad_in (0.000:0.000:0.000))
     (INTERCONNECT Pin_SDO_RGB\(0\)_PAD Pin_SDO_RGB\(0\).pad_in (0.000:0.000:0.000))
     (INTERCONNECT Pin_Clock_RGB\(0\)_PAD Pin_Clock_RGB\(0\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT Y_MOT_INT\(0\)_PAD Y_MOT_INT\(0\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT Z_MOT_INT\(0\)_PAD Z_MOT_INT\(0\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT X_MOT_INT\(0\)_PAD X_MOT_INT\(0\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT Camera_Trigger\(0\)_PAD Camera_Trigger\(0\).pad_in (0.000:0.000:0.000))
    )
   )
  )

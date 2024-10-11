@@ -1,5 +1,5 @@
 # AS76_FFP9_6_GSV2
-# 2024-10-10 08:02:04Z
+# 2024-10-11 05:08:44Z
 
 # IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
 dont_use_io iocell 1 0
@@ -64,4 +64,8 @@ set_io "LIM_T_L(0)" iocell 3 0
 set_io "LIM_T_R(0)" iocell 3 1
 set_io "Pin_SDO_RGB(0)" iocell 6 6
 set_io "Pin_Clock_RGB(0)" iocell 6 5
+set_io "Y_MOT_INT(0)" iocell 6 2
+set_io "Z_MOT_INT(0)" iocell 6 1
+set_io "X_MOT_INT(0)" iocell 6 3
+set_io "Camera_Trigger(0)" iocell 12 3
 set_location "\USB:USB\" usbcell -1 -1 0
