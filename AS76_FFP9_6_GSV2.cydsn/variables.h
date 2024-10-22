@@ -102,6 +102,7 @@ void UART_print_all_values();
 #define GotoZ                              0x07D0
 #define GotoT                              0x07E0
 #define GotoZ_Vs                           0x07D1
+#define GotoZ_Vs_T                         0x07DD
 #define GotoO_Vs                           0x07D2
 #define GotoXYZ_Vs                         0x07C1
 #define Set_LED_voltage                    0x7A00 

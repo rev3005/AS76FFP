@@ -941,7 +941,7 @@ int Step_correction_z(int32 steps)
         Error=  16;
         break;
     }
-    if((abs(encoder_error_value))>3)
+    if((abs(encoder_error_value))>1)
     {
       Write_Debug_UART_Char("Y Loop Error difference: ");
       Write_Debug_UART_Int(encoder_error_value);
@@ -983,6 +983,8 @@ int Step_correction_z(int32 steps)
      {
        Write_Debug_UART_Char("Z position Reached");
        Error = 0;
+       Write_32bitSPI_DATA (0x21  , steps, TMC5160_nCS_MotorZ );
+       CyDelayUs(200);
         
      }
     
@@ -1320,7 +1322,20 @@ void Read_All_Optical_Encoder()//Read all optical encoder value and update XYZ v
     Y_QuadPosition = -QuadDec_Y_GetCounter();
 }    
 //Optical Decoder Functions Stop-------------------------------------------------------
-
+int start_quadz =0;
+bool capture_flag_z =0;
+int z_microns=409;
+ CY_ISR(Quad_Timer_Z)
+{    
+    Z_QuadPosition = (int32)((float)((float)-QuadDec_TZ_GetCounter()/4.0)*51.2);
+    
+    if (Z_QuadPosition > start_quadz)
+    {
+       capture_flag_z = 1; 
+       start_quadz = start_quadz+(((int32)z_microns));
+        
+    }
+}
 
 //USB Functions Start-------------------------------------------------------
 void Process_USB_Data()/* Process USB incoming data command. */
@@ -1680,15 +1695,10 @@ void Process_USB_Data()/* Process USB incoming data command. */
         Send_Feedback_to_USB(Error);
     }
     
-    
     else if(command == GotoZ_Vs)
     {
     ms_count=0;
-    //wait_timer_Start();
-    //wait_interrupt_StartEx(wait_interrupt_Handler1); 
-    //print_flag =1;
-    //Write_Debug_UART_Char("\n\n\n\n\nGotoZ Vs \n");
-    //Write_Debug_UART_Char("\n***---Command Start Movement Time : ");
+    
     Write_Debug_UART_Char("..\n");
     Write_Debug_UART_Int((int)(ms_count*2.5));
     Write_Debug_UART_Char(" \n");
@@ -1698,25 +1708,75 @@ void Process_USB_Data()/* Process USB incoming data command. */
     
     Position_Z_Requested = ((int32)USB_received[5] << 24) + ((int32)USB_received[4] << 16) + ((int32)USB_received[3] << 8) + (int32)USB_received[2];   
     Motor_Speed_Z = ((int32)USB_received[9] << 24) + ((int32)USB_received[8] << 16) + ((int32)USB_received[7] << 8) + (int32)USB_received[6]; 
-    update_max_velocity(Motor_Speed_Z,TMC5160_nCS_MotorZ);
-     
+   
     
+    update_max_velocity(Motor_Speed_Z,TMC5160_nCS_MotorZ);
+   
     if((abs(Position_Z_Requested-Previous_Z_Position)) >= 500)
     {
     Previous_Z_Position = Position_Z_Requested;
-    Position_Z_Requested = (Position_Z_Requested / 16);
-    Position_Z_Requested = Position_Z_Requested * 51.2;
-    
-    Write_Debug_UART_Int((int)(ms_count*2.5));
-    Write_Debug_UART_Char(" \n");
+    Position_Z_Requested = (int32)(((float)Position_Z_Requested / 16.0)*51.2);
+  
     goTo_Z(Position_Z_Requested);
     }
     
     else
     {
     Previous_Z_Position = Position_Z_Requested;
-    Position_Z_Requested = (Position_Z_Requested / 16);
-    Position_Z_Requested = Position_Z_Requested * 51.2;
+    Position_Z_Requested = (int32)(((float)Position_Z_Requested / 16.0)*51.2);
+    start_quadz = Position_Z_Requested + z_microns;
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070101, TMC5160_nCS_MotorY );
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070101, TMC5160_nCS_MotorX );
+    Write_32bitSPI_DATA (0x10  , (int) 0x00070202, TMC5160_nCS_MotorZ );
+    Position_Z_Requested =  Position_Z_Requested;
+    Enable_Encoder_Z(-Buffer_Z_QuadPosition);
+   
+        Error = 0;
+        Read_All_Optical_Encoder();       
+        
+        GotoPos(Position_Z_Requested, TMC5160_nCS_MotorZ); // If provided value is position and not the steps to move
+        
+       
+        WaitTillPositionReached (TMC5160_nCS_MotorZ); 
+    
+        Read_All_Optical_Encoder();
+        Buffer_Z_QuadPosition = Z_QuadPosition;
+        
+    }
+
+
+    ms_count=0;
+  
+    Send_Feedback_to_USB(Error);
+    
+    }
+    
+    else if(command == GotoZ_Vs_T)
+    {
+    ms_count=0;
+
+    Position_Z_Requested = ((int32)USB_received[5] << 24) + ((int32)USB_received[4] << 16) + ((int32)USB_received[3] << 8) + (int32)USB_received[2];   
+    Motor_Speed_Z = ((int32)USB_received[9] << 24) + ((int32)USB_received[8] << 16) + ((int32)USB_received[7] << 8) + (int32)USB_received[6]; 
+    z_microns = (int32)USB_received[10] ;
+    z_microns = (int32)(((float)z_microns/16.0)*51.2);
+    
+    update_max_velocity(Motor_Speed_Z,TMC5160_nCS_MotorZ);
+     
+    
+    if((abs(Position_Z_Requested-Previous_Z_Position)) >= 500)
+    {
+    Previous_Z_Position = Position_Z_Requested;
+    Position_Z_Requested = (int32)(((float)Position_Z_Requested / 16.0)*51.2);
+    start_quadz = Position_Z_Requested + z_microns;
+
+    goTo_Z(Position_Z_Requested);
+    }
+    
+    else
+    {
+    Previous_Z_Position = Position_Z_Requested;
+    Position_Z_Requested = (int32)(((float)Position_Z_Requested / 16.0)*51.2);
+    start_quadz = Position_Z_Requested + z_microns;
     Write_32bitSPI_DATA (0x10  , (int) 0x00070101, TMC5160_nCS_MotorY );
     Write_32bitSPI_DATA (0x10  , (int) 0x00070101, TMC5160_nCS_MotorX );
     Write_32bitSPI_DATA (0x10  , (int) 0x00070202, TMC5160_nCS_MotorZ );
@@ -1727,28 +1787,34 @@ void Process_USB_Data()/* Process USB incoming data command. */
         Read_All_Optical_Encoder();       
         Write_Debug_UART_Int((int)(ms_count*2.5));
         Write_Debug_UART_Char(" \n");
+        wait_timer_Start();    
+        wait_interrupt_StartEx(Quad_Timer_Z);
         GotoPos(Position_Z_Requested, TMC5160_nCS_MotorZ); // If provided value is position and not the steps to move
-        WaitTillPositionReached (TMC5160_nCS_MotorZ);        
-        Write_Debug_UART_Int((int)(ms_count*2.5));
-        Write_Debug_UART_Char(" \n");
-        //CyDelayUs(50);        
+        
+        while((Z_MOT_INT_Read()) != 0x00)
+        {
+            if(capture_flag_z == 1)
+            {
+                Camera_Trigger_Write(0xFF);
+                CyDelayUs(70);
+                Camera_Trigger_Write(0x00);
+                capture_flag_z=0;
+                
+            }
+        }
+        //WaitTillPositionReached (TMC5160_nCS_MotorZ); 
+        wait_timer_Stop();
+       
+        
         Read_All_Optical_Encoder();
         Buffer_Z_QuadPosition = Z_QuadPosition;
         
     }
 
-    
-    
-    
-    Write_Debug_UART_Int((int)(ms_count*2.5));
-    Write_Debug_UART_Char(" \n");
-    //wait_timer_Stop();
     ms_count=0;
-    //CyDelayUs(10);
-    //update_max_velocity(53687*2, TMC5160_nCS_MotorZ);
-    
+ 
     Send_Feedback_to_USB(Error);
-    //print_flag =0;
+   
     }
     
     else if(command == GotoO_Vs)
