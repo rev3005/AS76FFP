@@ -1,20 +1,5 @@
---------------- Build Started: 10/22/2024 11:33:48 Project: AS76_FFP9_6_GSV2, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
-cydsfit.exe -.appdatapath "C:\Users\Revanth\AppData\Local\Cypress Semiconductor\PSoC Creator\4.4" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\AS76_FFP9_6_GSV2.cydsn\AS76_FFP9_6_GSV2.cyprj -d CY8C5268AXI-LP047 -s C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\AS76_FFP9_6_GSV2.cydsn\Generated_Source\PSoC5 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
-Elaborating Design...
-HDL Generation...
-Synthesis...
-Tech Mapping...
-Analog Placement...
-Analog Routing...
-Analog Code Generation...
-Digital Placement...
-Digital Routing...
-Bitstream Generation...
-Bitstream Verification...
-Static timing analysis...
-API Generation...
-Dependency Generation...
-Cleanup...
+--------------- Build Started: 10/22/2024 14:18:42 Project: AS76_FFP9_6_GSV2, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+The code generation step is up to date.
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/main.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c main.c -o .\CortexM3\ARM_GCC_541\Debug\main.o
 main.c: In function 'main':
 main.c:84:4: warning: implicit declaration of function 'Ring' [-Wimplicit-function-declaration]
@@ -22,216 +7,216 @@ main.c:84:4: warning: implicit declaration of function 'Ring' [-Wimplicit-functi
     ^
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/AS76.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c AS76.c -o .\CortexM3\ARM_GCC_541\Debug\AS76.o
 AS76.c: In function 'Process_USB_Data':
-AS76.c:1814:17: warning: variable 'Pattern' set but not used [-Wunused-but-set-variable]
+AS76.c:1878:17: warning: variable 'Pattern' set but not used [-Wunused-but-set-variable]
          uint8_t Pattern=0;
                  ^
 In file included from AS76.c:14:0:
 AS76.c: In function 'Send_Feedback_to_USB':
-variables.h:133:57: warning: overflow in implicit constant conversion [-Woverflow]
+variables.h:134:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define No_Error                                        0xFA00// Error No:- 0
                                                          ^
-AS76.c:2101:31: note: in expansion of macro 'No_Error'
+AS76.c:2165:31: note: in expansion of macro 'No_Error'
              USB_transmit[2] = No_Error;
                                ^
-variables.h:134:57: warning: overflow in implicit constant conversion [-Woverflow]
+variables.h:135:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define X_Motor_Not_Working                             0xFA01// Error No:- 1
                                                          ^
-AS76.c:2121:39: note: in expansion of macro 'X_Motor_Not_Working'
+AS76.c:2185:39: note: in expansion of macro 'X_Motor_Not_Working'
                      USB_transmit[2] = X_Motor_Not_Working;
                                        ^
-variables.h:135:57: warning: overflow in implicit constant conversion [-Woverflow]
+variables.h:136:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define X_Encoder_Not_Working                           0xFA02// Error No:- 2
                                                          ^
-AS76.c:2127:39: note: in expansion of macro 'X_Encoder_Not_Working'
+AS76.c:2191:39: note: in expansion of macro 'X_Encoder_Not_Working'
                      USB_transmit[2] = X_Encoder_Not_Working;
                                        ^
-variables.h:136:57: warning: overflow in implicit constant conversion [-Woverflow]
+variables.h:137:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define X_Switch_Not_Working                            0xFA17// Error No:- 3
                                                          ^
-AS76.c:2133:39: note: in expansion of macro 'X_Switch_Not_Working'
+AS76.c:2197:39: note: in expansion of macro 'X_Switch_Not_Working'
                      USB_transmit[2] = X_Switch_Not_Working;
                                        ^
-variables.h:137:57: warning: overflow in implicit constant conversion [-Woverflow]
+variables.h:138:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define X_Motor_Driver_Fault                            0xFA07// Error No:- 4
                                                          ^
-AS76.c:2139:39: note: in expansion of macro 'X_Motor_Driver_Fault'
+AS76.c:2203:39: note: in expansion of macro 'X_Motor_Driver_Fault'
                      USB_transmit[2] = X_Motor_Driver_Fault;
                                        ^
-variables.h:138:57: warning: overflow in implicit constant conversion [-Woverflow]
+variables.h:139:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define Requested_X_Step_Exceeding_The_Limit            0xFA11// Error No:- 5
                                                          ^
-AS76.c:2145:39: note: in expansion of macro 'Requested_X_Step_Exceeding_The_Limit'
+AS76.c:2209:39: note: in expansion of macro 'Requested_X_Step_Exceeding_The_Limit'
                      USB_transmit[2] = Requested_X_Step_Exceeding_The_Limit;
                                        ^
-variables.h:139:57: warning: overflow in implicit constant conversion [-Woverflow]
+variables.h:140:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define X_Homing_Not_Done_Yet                           0xFA1D// Error No:- 5
                                                          ^
-AS76.c:2151:39: note: in expansion of macro 'X_Homing_Not_Done_Yet'
+AS76.c:2215:39: note: in expansion of macro 'X_Homing_Not_Done_Yet'
                      USB_transmit[2] = X_Homing_Not_Done_Yet;
                                        ^
-variables.h:155:57: warning: overflow in implicit constant conversion [-Woverflow]
+variables.h:156:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define X_Motor_Busy                                    0xFA25// Error No:- 22
                                                          ^
-AS76.c:2157:39: note: in expansion of macro 'X_Motor_Busy'
+AS76.c:2221:39: note: in expansion of macro 'X_Motor_Busy'
                      USB_transmit[2] = X_Motor_Busy ;
                                        ^
-variables.h:140:57: warning: overflow in implicit constant conversion [-Woverflow]
+variables.h:141:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define Y_Motor_Not_Working                             0xFA03// Error No:- 7
                                                          ^
-AS76.c:2163:39: note: in expansion of macro 'Y_Motor_Not_Working'
+AS76.c:2227:39: note: in expansion of macro 'Y_Motor_Not_Working'
                      USB_transmit[2] = Y_Motor_Not_Working;
                                        ^
-variables.h:141:57: warning: overflow in implicit constant conversion [-Woverflow]
+variables.h:142:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define Y_Encoder_Not_Working                           0xFA04// Error No:- 8
                                                          ^
-AS76.c:2169:39: note: in expansion of macro 'Y_Encoder_Not_Working'
+AS76.c:2233:39: note: in expansion of macro 'Y_Encoder_Not_Working'
                      USB_transmit[2] = Y_Encoder_Not_Working;
                                        ^
-variables.h:142:57: warning: overflow in implicit constant conversion [-Woverflow]
+variables.h:143:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define Y_Switch_Not_Working                            0xFA18// Error No:- 9
                                                          ^
-AS76.c:2175:39: note: in expansion of macro 'Y_Switch_Not_Working'
+AS76.c:2239:39: note: in expansion of macro 'Y_Switch_Not_Working'
                      USB_transmit[2] = Y_Switch_Not_Working;
                                        ^
-variables.h:143:57: warning: overflow in implicit constant conversion [-Woverflow]
+variables.h:144:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define Y_Motor_Driver_Fault                            0xFA08// Error No:- 10 
                                                          ^
-AS76.c:2181:39: note: in expansion of macro 'Y_Motor_Driver_Fault'
+AS76.c:2245:39: note: in expansion of macro 'Y_Motor_Driver_Fault'
                      USB_transmit[2] = Y_Motor_Driver_Fault;
                                        ^
-variables.h:144:57: warning: overflow in implicit constant conversion [-Woverflow]
+variables.h:145:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define Requested_Y_Step_Exceeding_The_Limit            0xFA12// Error No:- 11
                                                          ^
-AS76.c:2187:39: note: in expansion of macro 'Requested_Y_Step_Exceeding_The_Limit'
+AS76.c:2251:39: note: in expansion of macro 'Requested_Y_Step_Exceeding_The_Limit'
                      USB_transmit[2] = Requested_Y_Step_Exceeding_The_Limit;
                                        ^
-variables.h:145:57: warning: overflow in implicit constant conversion [-Woverflow]
+variables.h:146:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define Y_Homing_Not_Done_Yet                           0xFA1E// Error No:- 12
                                                          ^
-AS76.c:2193:39: note: in expansion of macro 'Y_Homing_Not_Done_Yet'
+AS76.c:2257:39: note: in expansion of macro 'Y_Homing_Not_Done_Yet'
                      USB_transmit[2] = Y_Homing_Not_Done_Yet;
                                        ^
-variables.h:156:57: warning: overflow in implicit constant conversion [-Woverflow]
+variables.h:157:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define Y_Motor_Busy                                    0xFA26// Error No:- 23
                                                          ^
-AS76.c:2199:39: note: in expansion of macro 'Y_Motor_Busy'
+AS76.c:2263:39: note: in expansion of macro 'Y_Motor_Busy'
                      USB_transmit[2] = Y_Motor_Busy;
                                        ^
-variables.h:146:57: warning: overflow in implicit constant conversion [-Woverflow]
+variables.h:147:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define Z_Motor_Not_Working                             0xFA05// Error No:- 13
                                                          ^
-AS76.c:2205:39: note: in expansion of macro 'Z_Motor_Not_Working'
+AS76.c:2269:39: note: in expansion of macro 'Z_Motor_Not_Working'
                      USB_transmit[2] = Z_Motor_Not_Working ;
                                        ^
-variables.h:147:57: warning: overflow in implicit constant conversion [-Woverflow]
+variables.h:148:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define Z_Encoder_Not_Working                           0xFA06// Error No:- 14
                                                          ^
-AS76.c:2211:39: note: in expansion of macro 'Z_Encoder_Not_Working'
+AS76.c:2275:39: note: in expansion of macro 'Z_Encoder_Not_Working'
                      USB_transmit[2] = Z_Encoder_Not_Working ;
                                        ^
-variables.h:148:57: warning: overflow in implicit constant conversion [-Woverflow]
+variables.h:149:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define Z_Switch_Not_Working                            0xFA19// Error No:- 15          
                                                          ^
-AS76.c:2217:39: note: in expansion of macro 'Z_Switch_Not_Working'
+AS76.c:2281:39: note: in expansion of macro 'Z_Switch_Not_Working'
                      USB_transmit[2] = Z_Switch_Not_Working;
                                        ^
-variables.h:149:57: warning: overflow in implicit constant conversion [-Woverflow]
+variables.h:150:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define Z_Motor_Driver_Fault                            0xFA09// Error No:- 16 
                                                          ^
-AS76.c:2223:39: note: in expansion of macro 'Z_Motor_Driver_Fault'
+AS76.c:2287:39: note: in expansion of macro 'Z_Motor_Driver_Fault'
                      USB_transmit[2] = Z_Motor_Driver_Fault;
                                        ^
-variables.h:150:57: warning: overflow in implicit constant conversion [-Woverflow]
+variables.h:151:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define Requested_Z_Step_Exceeding_The_Limit            0xFA13// Error No:- 17
                                                          ^
-AS76.c:2229:39: note: in expansion of macro 'Requested_Z_Step_Exceeding_The_Limit'
+AS76.c:2293:39: note: in expansion of macro 'Requested_Z_Step_Exceeding_The_Limit'
                      USB_transmit[2] = Requested_Z_Step_Exceeding_The_Limit;
                                        ^
-variables.h:151:57: warning: overflow in implicit constant conversion [-Woverflow]
+variables.h:152:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define Z_Homing_Not_Done_Yet                           0xFA1F// Error No:- 18
                                                          ^
-AS76.c:2235:39: note: in expansion of macro 'Z_Homing_Not_Done_Yet'
+AS76.c:2299:39: note: in expansion of macro 'Z_Homing_Not_Done_Yet'
                      USB_transmit[2] = Z_Homing_Not_Done_Yet;
                                        ^
-variables.h:157:57: warning: overflow in implicit constant conversion [-Woverflow]
+variables.h:158:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define Z_Motor_Busy                                    0xFA27// Error No:- 24
                                                          ^
-AS76.c:2241:39: note: in expansion of macro 'Z_Motor_Busy'
+AS76.c:2305:39: note: in expansion of macro 'Z_Motor_Busy'
                      USB_transmit[2] = Z_Motor_Busy;
                                        ^
-variables.h:160:57: warning: overflow in implicit constant conversion [-Woverflow]
+variables.h:161:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define T_Motor_Not_Working                             0xFA2B// Error No:- 1
                                                          ^
-AS76.c:2247:39: note: in expansion of macro 'T_Motor_Not_Working'
+AS76.c:2311:39: note: in expansion of macro 'T_Motor_Not_Working'
                      USB_transmit[2] = T_Motor_Not_Working;
                                        ^
-variables.h:161:57: warning: overflow in implicit constant conversion [-Woverflow]
+variables.h:162:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define T_Encoder_Not_Working                           0xFA2C// Error No:- 2
                                                          ^
-AS76.c:2253:39: note: in expansion of macro 'T_Encoder_Not_Working'
+AS76.c:2317:39: note: in expansion of macro 'T_Encoder_Not_Working'
                      USB_transmit[2] = T_Encoder_Not_Working;
                                        ^
-variables.h:162:57: warning: overflow in implicit constant conversion [-Woverflow]
+variables.h:163:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define T_Switch_Not_Working                            0xFA2D// Error No:- 3
                                                          ^
-AS76.c:2259:39: note: in expansion of macro 'T_Switch_Not_Working'
+AS76.c:2323:39: note: in expansion of macro 'T_Switch_Not_Working'
                      USB_transmit[2] = T_Switch_Not_Working;
                                        ^
-variables.h:163:57: warning: overflow in implicit constant conversion [-Woverflow]
+variables.h:164:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define T_Motor_Driver_Fault                            0xFA2E// Error No:- 4
                                                          ^
-AS76.c:2266:39: note: in expansion of macro 'T_Motor_Driver_Fault'
+AS76.c:2330:39: note: in expansion of macro 'T_Motor_Driver_Fault'
                      USB_transmit[2] = T_Motor_Driver_Fault;
                                        ^
-variables.h:164:57: warning: overflow in implicit constant conversion [-Woverflow]
+variables.h:165:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define Requested_T_Step_Exceeding_The_Limit            0xFA2A// Error No:- 5
                                                          ^
-AS76.c:2272:39: note: in expansion of macro 'Requested_T_Step_Exceeding_The_Limit'
+AS76.c:2336:39: note: in expansion of macro 'Requested_T_Step_Exceeding_The_Limit'
                      USB_transmit[2] = Requested_T_Step_Exceeding_The_Limit;
                                        ^
-variables.h:165:57: warning: overflow in implicit constant conversion [-Woverflow]
+variables.h:166:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define T_Homing_Not_Done_Yet                           0xFA2F// Error No:- 5
                                                          ^
-AS76.c:2278:39: note: in expansion of macro 'T_Homing_Not_Done_Yet'
+AS76.c:2342:39: note: in expansion of macro 'T_Homing_Not_Done_Yet'
                      USB_transmit[2] = T_Homing_Not_Done_Yet;
                                        ^
-variables.h:158:57: warning: overflow in implicit constant conversion [-Woverflow]
+variables.h:159:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define T_Motor_Busy                                    0xFA28// Error No:- 24
                                                          ^
-AS76.c:2284:39: note: in expansion of macro 'T_Motor_Busy'
+AS76.c:2348:39: note: in expansion of macro 'T_Motor_Busy'
                      USB_transmit[2] = T_Motor_Busy;
                                        ^
-variables.h:152:57: warning: overflow in implicit constant conversion [-Woverflow]
+variables.h:153:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define Wrong_Command_Received                          0xFA22// Error No:- 19
                                                          ^
-AS76.c:2290:39: note: in expansion of macro 'Wrong_Command_Received'
+AS76.c:2354:39: note: in expansion of macro 'Wrong_Command_Received'
                      USB_transmit[2] = Wrong_Command_Received;
                                        ^
-variables.h:153:57: warning: overflow in implicit constant conversion [-Woverflow]
+variables.h:154:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define PCB_Paused                                      0xFA23// Error No:- 20
                                                          ^
-AS76.c:2296:39: note: in expansion of macro 'PCB_Paused'
+AS76.c:2360:39: note: in expansion of macro 'PCB_Paused'
                      USB_transmit[2] = PCB_Paused;
                                        ^
-variables.h:154:57: warning: overflow in implicit constant conversion [-Woverflow]
+variables.h:155:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define PCB_Busy                                        0xFA24// Error No:- 21
                                                          ^
-AS76.c:2302:39: note: in expansion of macro 'PCB_Busy'
+AS76.c:2366:39: note: in expansion of macro 'PCB_Busy'
                      USB_transmit[2] = PCB_Busy;
                                        ^
-variables.h:166:57: warning: overflow in implicit constant conversion [-Woverflow]
+variables.h:167:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define All_Motors_Homing_Not_Done                      0xFA29
                                                          ^
-AS76.c:2308:39: note: in expansion of macro 'All_Motors_Homing_Not_Done'
+AS76.c:2372:39: note: in expansion of macro 'All_Motors_Homing_Not_Done'
                      USB_transmit[2] = All_Motors_Homing_Not_Done;
                                        ^
-variables.h:167:57: warning: overflow in implicit constant conversion [-Woverflow]
+variables.h:168:57: warning: overflow in implicit constant conversion [-Woverflow]
  #define O_Motor_Not_Working                             0xFA30// Error No:- 3
                                                          ^
-AS76.c:2315:39: note: in expansion of macro 'O_Motor_Not_Working'
+AS76.c:2379:39: note: in expansion of macro 'O_Motor_Not_Working'
                      USB_transmit[2] = O_Motor_Not_Working;
                                        ^
-AS76.c:2374:21: warning: pointer targets in passing argument 1 of 'USB_PutData' differ in signedness [-Wpointer-sign]
+AS76.c:2438:21: warning: pointer targets in passing argument 1 of 'USB_PutData' differ in signedness [-Wpointer-sign]
          USB_PutData(USB_transmit, 46);  //send data back to usb
                      ^
 In file included from Generated_Source\PSoC5/project.h:81:0,
@@ -241,158 +226,48 @@ Generated_Source\PSoC5/USB_cdc.h:35:10: note: expected 'const uint8 * {aka const
      void USB_PutData(const uint8* pData, uint16 length) ;
           ^
 AS76.c: In function 'GsV2_1':
-AS76.c:3067:9: warning: unused variable 'v' [-Wunused-variable]
+AS76.c:3131:9: warning: unused variable 'v' [-Wunused-variable]
      int v =0;
          ^
-AS76.c:3066:11: warning: unused variable 'Z_array' [-Wunused-variable]
+AS76.c:3130:11: warning: unused variable 'Z_array' [-Wunused-variable]
      int32 Z_array[2500];
            ^
-AS76.c:3065:11: warning: unused variable 'y_array' [-Wunused-variable]
+AS76.c:3129:11: warning: unused variable 'y_array' [-Wunused-variable]
      int32 y_array[2500];
            ^
-AS76.c:3064:14: warning: unused variable 'j' [-Wunused-variable]
+AS76.c:3128:14: warning: unused variable 'j' [-Wunused-variable]
      uint16_t j =0;
               ^
 AS76.c: In function 'GsV2_2':
-AS76.c:3210:9: warning: unused variable 'v' [-Wunused-variable]
+AS76.c:3274:9: warning: unused variable 'v' [-Wunused-variable]
      int v =0;
          ^
-AS76.c:3209:11: warning: unused variable 'Z_array' [-Wunused-variable]
+AS76.c:3273:11: warning: unused variable 'Z_array' [-Wunused-variable]
      int32 Z_array[2500];
            ^
-AS76.c:3208:11: warning: unused variable 'y_array' [-Wunused-variable]
+AS76.c:3272:11: warning: unused variable 'y_array' [-Wunused-variable]
      int32 y_array[2500];
            ^
-AS76.c:3207:14: warning: unused variable 'j' [-Wunused-variable]
+AS76.c:3271:14: warning: unused variable 'j' [-Wunused-variable]
      uint16_t j =0;
               ^
 AS76.c: In function 'GsV2_2_Z':
-AS76.c:3417:9: warning: unused variable 'v' [-Wunused-variable]
+AS76.c:3481:9: warning: unused variable 'v' [-Wunused-variable]
      int v =0;
          ^
-AS76.c:3416:11: warning: unused variable 'Z_array' [-Wunused-variable]
+AS76.c:3480:11: warning: unused variable 'Z_array' [-Wunused-variable]
      int32 Z_array[2500];
            ^
-AS76.c:3414:14: warning: unused variable 'j' [-Wunused-variable]
+AS76.c:3478:14: warning: unused variable 'j' [-Wunused-variable]
      uint16_t j =0;
               ^
 AS76.c: In function 'Clear_USB_RX_Buffer':
-AS76.c:2416:25: warning: iteration 64u invokes undefined behavior [-Waggressive-loop-optimizations]
+AS76.c:2480:25: warning: iteration 64u invokes undefined behavior [-Waggressive-loop-optimizations]
          USB_received[i] = 0;   
                          ^
-AS76.c:2415:5: note: containing loop
+AS76.c:2479:5: note: containing loop
      for(i=0;i<65;i++)   //Initializing all bites to 0
      ^
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/APA102.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c APA102.c -o .\CortexM3\ARM_GCC_541\Debug\APA102.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/cyfitter_cfg.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\cyfitter_cfg.c -o .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/cymetadata.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\cymetadata.c -o .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Pin_CSMotorX.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Pin_CSMotorX.c -o .\CortexM3\ARM_GCC_541\Debug\Pin_CSMotorX.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Pin_CSMotorY.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Pin_CSMotorY.c -o .\CortexM3\ARM_GCC_541\Debug\Pin_CSMotorY.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Pin_CSMotorZ.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Pin_CSMotorZ.c -o .\CortexM3\ARM_GCC_541\Debug\Pin_CSMotorZ.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/SPIM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\SPIM.c -o .\CortexM3\ARM_GCC_541\Debug\SPIM.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/SPIM_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\SPIM_PM.c -o .\CortexM3\ARM_GCC_541\Debug\SPIM_PM.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/SPIM_INT.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\SPIM_INT.c -o .\CortexM3\ARM_GCC_541\Debug\SPIM_INT.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Pin_SDO.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Pin_SDO.c -o .\CortexM3\ARM_GCC_541\Debug\Pin_SDO.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Pin_SDI.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Pin_SDI.c -o .\CortexM3\ARM_GCC_541\Debug\Pin_SDI.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Pin_SCK.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Pin_SCK.c -o .\CortexM3\ARM_GCC_541\Debug\Pin_SCK.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Cm3Start.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Cm3Start.c -o .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/CyDmac.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\CyDmac.c -o .\CortexM3\ARM_GCC_541\Debug\CyDmac.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/CyFlash.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\CyFlash.c -o .\CortexM3\ARM_GCC_541\Debug\CyFlash.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/CyLib.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\CyLib.c -o .\CortexM3\ARM_GCC_541\Debug\CyLib.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/cyPm.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\cyPm.c -o .\CortexM3\ARM_GCC_541\Debug\cyPm.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/CySpc.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\CySpc.c -o .\CortexM3\ARM_GCC_541\Debug\CySpc.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/cyutils.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\cyutils.c -o .\CortexM3\ARM_GCC_541\Debug\cyutils.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/USB.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\USB.c -o .\CortexM3\ARM_GCC_541\Debug\USB.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/USB_audio.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\USB_audio.c -o .\CortexM3\ARM_GCC_541\Debug\USB_audio.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/USB_boot.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\USB_boot.c -o .\CortexM3\ARM_GCC_541\Debug\USB_boot.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/USB_cdc.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\USB_cdc.c -o .\CortexM3\ARM_GCC_541\Debug\USB_cdc.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/USB_cls.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\USB_cls.c -o .\CortexM3\ARM_GCC_541\Debug\USB_cls.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/USB_descr.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\USB_descr.c -o .\CortexM3\ARM_GCC_541\Debug\USB_descr.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/USB_drv.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\USB_drv.c -o .\CortexM3\ARM_GCC_541\Debug\USB_drv.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/USB_episr.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\USB_episr.c -o .\CortexM3\ARM_GCC_541\Debug\USB_episr.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/USB_hid.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\USB_hid.c -o .\CortexM3\ARM_GCC_541\Debug\USB_hid.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/USB_pm.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\USB_pm.c -o .\CortexM3\ARM_GCC_541\Debug\USB_pm.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/USB_std.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\USB_std.c -o .\CortexM3\ARM_GCC_541\Debug\USB_std.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/USB_vnd.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\USB_vnd.c -o .\CortexM3\ARM_GCC_541\Debug\USB_vnd.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/USB_midi.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\USB_midi.c -o .\CortexM3\ARM_GCC_541\Debug\USB_midi.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/USB_msc.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\USB_msc.c -o .\CortexM3\ARM_GCC_541\Debug\USB_msc.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/USB_Dm.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\USB_Dm.c -o .\CortexM3\ARM_GCC_541\Debug\USB_Dm.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/USB_Dp.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\USB_Dp.c -o .\CortexM3\ARM_GCC_541\Debug\USB_Dp.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/PWM_CondenserLED.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\PWM_CondenserLED.c -o .\CortexM3\ARM_GCC_541\Debug\PWM_CondenserLED.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/PWM_CondenserLED_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\PWM_CondenserLED_PM.c -o .\CortexM3\ARM_GCC_541\Debug\PWM_CondenserLED_PM.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Pin_CondenserLED.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Pin_CondenserLED.c -o .\CortexM3\ARM_GCC_541\Debug\Pin_CondenserLED.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/SPIM_IntClock.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\SPIM_IntClock.c -o .\CortexM3\ARM_GCC_541\Debug\SPIM_IntClock.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/cy_em_eeprom.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\cy_em_eeprom.c -o .\CortexM3\ARM_GCC_541\Debug\cy_em_eeprom.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/QuadDec_X.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\QuadDec_X.c -o .\CortexM3\ARM_GCC_541\Debug\QuadDec_X.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/QuadDec_X_INT.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\QuadDec_X_INT.c -o .\CortexM3\ARM_GCC_541\Debug\QuadDec_X_INT.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/QuadDec_X_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\QuadDec_X_PM.c -o .\CortexM3\ARM_GCC_541\Debug\QuadDec_X_PM.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/QuadDec_X_isr.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\QuadDec_X_isr.c -o .\CortexM3\ARM_GCC_541\Debug\QuadDec_X_isr.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/QuadDec_X_Cnt16.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\QuadDec_X_Cnt16.c -o .\CortexM3\ARM_GCC_541\Debug\QuadDec_X_Cnt16.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/QuadDec_X_Cnt16_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\QuadDec_X_Cnt16_PM.c -o .\CortexM3\ARM_GCC_541\Debug\QuadDec_X_Cnt16_PM.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/UART_PCB_LOG.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\UART_PCB_LOG.c -o .\CortexM3\ARM_GCC_541\Debug\UART_PCB_LOG.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/UART_PCB_LOG_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\UART_PCB_LOG_PM.c -o .\CortexM3\ARM_GCC_541\Debug\UART_PCB_LOG_PM.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/UART_PCB_LOG_INT.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\UART_PCB_LOG_INT.c -o .\CortexM3\ARM_GCC_541\Debug\UART_PCB_LOG_INT.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/UART_PCB_LOG_BOOT.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\UART_PCB_LOG_BOOT.c -o .\CortexM3\ARM_GCC_541\Debug\UART_PCB_LOG_BOOT.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/UART_PCB_LOG_IntClock.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\UART_PCB_LOG_IntClock.c -o .\CortexM3\ARM_GCC_541\Debug\UART_PCB_LOG_IntClock.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Clock_Encoder_24Mhz.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Clock_Encoder_24Mhz.c -o .\CortexM3\ARM_GCC_541\Debug\Clock_Encoder_24Mhz.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Pin_Buzzer.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Pin_Buzzer.c -o .\CortexM3\ARM_GCC_541\Debug\Pin_Buzzer.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Pin_Backlight.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Pin_Backlight.c -o .\CortexM3\ARM_GCC_541\Debug\Pin_Backlight.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Pin_OptDec_X_A.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Pin_OptDec_X_A.c -o .\CortexM3\ARM_GCC_541\Debug\Pin_OptDec_X_A.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/LED2.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\LED2.c -o .\CortexM3\ARM_GCC_541\Debug\LED2.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Pin_OptDec_Z_A.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Pin_OptDec_Z_A.c -o .\CortexM3\ARM_GCC_541\Debug\Pin_OptDec_Z_A.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Pin_OptDec_Z_B.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Pin_OptDec_Z_B.c -o .\CortexM3\ARM_GCC_541\Debug\Pin_OptDec_Z_B.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/PWM_CLK.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\PWM_CLK.c -o .\CortexM3\ARM_GCC_541\Debug\PWM_CLK.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Pin_CSMotorO.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Pin_CSMotorO.c -o .\CortexM3\ARM_GCC_541\Debug\Pin_CSMotorO.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Pin_CSMotorT.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Pin_CSMotorT.c -o .\CortexM3\ARM_GCC_541\Debug\Pin_CSMotorT.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Pin_BC_LED.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Pin_BC_LED.c -o .\CortexM3\ARM_GCC_541\Debug\Pin_BC_LED.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/QuadDec_TZ.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\QuadDec_TZ.c -o .\CortexM3\ARM_GCC_541\Debug\QuadDec_TZ.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/QuadDec_TZ_INT.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\QuadDec_TZ_INT.c -o .\CortexM3\ARM_GCC_541\Debug\QuadDec_TZ_INT.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/QuadDec_TZ_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\QuadDec_TZ_PM.c -o .\CortexM3\ARM_GCC_541\Debug\QuadDec_TZ_PM.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/PWM_Buzzer.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\PWM_Buzzer.c -o .\CortexM3\ARM_GCC_541\Debug\PWM_Buzzer.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/PWM_Buzzer_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\PWM_Buzzer_PM.c -o .\CortexM3\ARM_GCC_541\Debug\PWM_Buzzer_PM.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Pin_OptDec_X_B.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Pin_OptDec_X_B.c -o .\CortexM3\ARM_GCC_541\Debug\Pin_OptDec_X_B.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Pin_OptDec_Y_A.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Pin_OptDec_Y_A.c -o .\CortexM3\ARM_GCC_541\Debug\Pin_OptDec_Y_A.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/QuadDec_Y.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\QuadDec_Y.c -o .\CortexM3\ARM_GCC_541\Debug\QuadDec_Y.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/QuadDec_Y_INT.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\QuadDec_Y_INT.c -o .\CortexM3\ARM_GCC_541\Debug\QuadDec_Y_INT.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/QuadDec_Y_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\QuadDec_Y_PM.c -o .\CortexM3\ARM_GCC_541\Debug\QuadDec_Y_PM.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/PWM_BarcodeCondenser_LED.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\PWM_BarcodeCondenser_LED.c -o .\CortexM3\ARM_GCC_541\Debug\PWM_BarcodeCondenser_LED.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/PWM_BarcodeCondenser_LED_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\PWM_BarcodeCondenser_LED_PM.c -o .\CortexM3\ARM_GCC_541\Debug\PWM_BarcodeCondenser_LED_PM.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/LED3.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\LED3.c -o .\CortexM3\ARM_GCC_541\Debug\LED3.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Pin_Encoder_T_A.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Pin_Encoder_T_A.c -o .\CortexM3\ARM_GCC_541\Debug\Pin_Encoder_T_A.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Pin_Encoder_T_B.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Pin_Encoder_T_B.c -o .\CortexM3\ARM_GCC_541\Debug\Pin_Encoder_T_B.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Encoder_T_Z_Select.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Encoder_T_Z_Select.c -o .\CortexM3\ARM_GCC_541\Debug\Encoder_T_Z_Select.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Encoder_T_Z_Select_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Encoder_T_Z_Select_PM.c -o .\CortexM3\ARM_GCC_541\Debug\Encoder_T_Z_Select_PM.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/TMC5160_MotorX_EN.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\TMC5160_MotorX_EN.c -o .\CortexM3\ARM_GCC_541\Debug\TMC5160_MotorX_EN.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/TMC5160_MotorY_EN.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\TMC5160_MotorY_EN.c -o .\CortexM3\ARM_GCC_541\Debug\TMC5160_MotorY_EN.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/TMC5160_MotorZ_EN.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\TMC5160_MotorZ_EN.c -o .\CortexM3\ARM_GCC_541\Debug\TMC5160_MotorZ_EN.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/TMC5160_MotorT_EN.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\TMC5160_MotorT_EN.c -o .\CortexM3\ARM_GCC_541\Debug\TMC5160_MotorT_EN.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/TMC5160_MotorO_EN.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\TMC5160_MotorO_EN.c -o .\CortexM3\ARM_GCC_541\Debug\TMC5160_MotorO_EN.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Pin_OptDec_Y_B.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Pin_OptDec_Y_B.c -o .\CortexM3\ARM_GCC_541\Debug\Pin_OptDec_Y_B.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/LIM_X_L.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\LIM_X_L.c -o .\CortexM3\ARM_GCC_541\Debug\LIM_X_L.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/LIM_X_R.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\LIM_X_R.c -o .\CortexM3\ARM_GCC_541\Debug\LIM_X_R.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/LIM_Y_L.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\LIM_Y_L.c -o .\CortexM3\ARM_GCC_541\Debug\LIM_Y_L.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/LIM_Y_R.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\LIM_Y_R.c -o .\CortexM3\ARM_GCC_541\Debug\LIM_Y_R.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/LIM_Z_L.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\LIM_Z_L.c -o .\CortexM3\ARM_GCC_541\Debug\LIM_Z_L.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/LIM_Z_R.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\LIM_Z_R.c -o .\CortexM3\ARM_GCC_541\Debug\LIM_Z_R.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/LIM_T_L.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\LIM_T_L.c -o .\CortexM3\ARM_GCC_541\Debug\LIM_T_L.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/LIM_T_R.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\LIM_T_R.c -o .\CortexM3\ARM_GCC_541\Debug\LIM_T_R.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/QuadDec_TZ_isr.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\QuadDec_TZ_isr.c -o .\CortexM3\ARM_GCC_541\Debug\QuadDec_TZ_isr.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/QuadDec_TZ_Cnt16.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\QuadDec_TZ_Cnt16.c -o .\CortexM3\ARM_GCC_541\Debug\QuadDec_TZ_Cnt16.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/QuadDec_TZ_Cnt16_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\QuadDec_TZ_Cnt16_PM.c -o .\CortexM3\ARM_GCC_541\Debug\QuadDec_TZ_Cnt16_PM.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/QuadDec_Y_isr.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\QuadDec_Y_isr.c -o .\CortexM3\ARM_GCC_541\Debug\QuadDec_Y_isr.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/QuadDec_Y_Cnt16.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\QuadDec_Y_Cnt16.c -o .\CortexM3\ARM_GCC_541\Debug\QuadDec_Y_Cnt16.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/QuadDec_Y_Cnt16_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\QuadDec_Y_Cnt16_PM.c -o .\CortexM3\ARM_GCC_541\Debug\QuadDec_Y_Cnt16_PM.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/timer_clock.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\timer_clock.c -o .\CortexM3\ARM_GCC_541\Debug\timer_clock.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/wait_timer.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\wait_timer.c -o .\CortexM3\ARM_GCC_541\Debug\wait_timer.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/wait_timer_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\wait_timer_PM.c -o .\CortexM3\ARM_GCC_541\Debug\wait_timer_PM.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/wait_interrupt.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\wait_interrupt.c -o .\CortexM3\ARM_GCC_541\Debug\wait_interrupt.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Pin_SDO_RGB.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Pin_SDO_RGB.c -o .\CortexM3\ARM_GCC_541\Debug\Pin_SDO_RGB.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Pin_Clock_RGB.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Pin_Clock_RGB.c -o .\CortexM3\ARM_GCC_541\Debug\Pin_Clock_RGB.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Y_MOT_INT.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Y_MOT_INT.c -o .\CortexM3\ARM_GCC_541\Debug\Y_MOT_INT.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Z_MOT_INT.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Z_MOT_INT.c -o .\CortexM3\ARM_GCC_541\Debug\Z_MOT_INT.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/X_MOT_INT.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\X_MOT_INT.c -o .\CortexM3\ARM_GCC_541\Debug\X_MOT_INT.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Camera_Trigger.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Camera_Trigger.c -o .\CortexM3\ARM_GCC_541\Debug\Camera_Trigger.o
-arm-none-eabi-as.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -alh=.\CortexM3\ARM_GCC_541\Debug/CyBootAsmGnu.lst -g -W -o .\CortexM3\ARM_GCC_541\Debug\CyBootAsmGnu.o Generated_Source\PSoC5\CyBootAsmGnu.s
 arm-none-eabi-ar.exe -rs .\CortexM3\ARM_GCC_541\Debug\AS76_FFP9_6_GSV2.a .\CortexM3\ARM_GCC_541\Debug\Pin_CSMotorX.o .\CortexM3\ARM_GCC_541\Debug\Pin_CSMotorY.o .\CortexM3\ARM_GCC_541\Debug\Pin_CSMotorZ.o .\CortexM3\ARM_GCC_541\Debug\SPIM.o .\CortexM3\ARM_GCC_541\Debug\SPIM_PM.o .\CortexM3\ARM_GCC_541\Debug\SPIM_INT.o .\CortexM3\ARM_GCC_541\Debug\Pin_SDO.o .\CortexM3\ARM_GCC_541\Debug\Pin_SDI.o .\CortexM3\ARM_GCC_541\Debug\Pin_SCK.o .\CortexM3\ARM_GCC_541\Debug\CyDmac.o .\CortexM3\ARM_GCC_541\Debug\CyFlash.o .\CortexM3\ARM_GCC_541\Debug\CyLib.o .\CortexM3\ARM_GCC_541\Debug\cyPm.o .\CortexM3\ARM_GCC_541\Debug\CySpc.o .\CortexM3\ARM_GCC_541\Debug\cyutils.o .\CortexM3\ARM_GCC_541\Debug\USB.o .\CortexM3\ARM_GCC_541\Debug\USB_audio.o .\CortexM3\ARM_GCC_541\Debug\USB_boot.o .\CortexM3\ARM_GCC_541\Debug\USB_cdc.o .\CortexM3\ARM_GCC_541\Debug\USB_cls.o .\CortexM3\ARM_GCC_541\Debug\USB_descr.o .\CortexM3\ARM_GCC_541\Debug\USB_drv.o .\CortexM3\ARM_GCC_541\Debug\USB_episr.o .\CortexM3\ARM_GCC_541\Debug\USB_hid.o .\CortexM3\ARM_GCC_541\Debug\USB_pm.o .\CortexM3\ARM_GCC_541\Debug\USB_std.o .\CortexM3\ARM_GCC_541\Debug\USB_vnd.o .\CortexM3\ARM_GCC_541\Debug\USB_midi.o .\CortexM3\ARM_GCC_541\Debug\USB_msc.o .\CortexM3\ARM_GCC_541\Debug\USB_Dm.o .\CortexM3\ARM_GCC_541\Debug\USB_Dp.o .\CortexM3\ARM_GCC_541\Debug\PWM_CondenserLED.o .\CortexM3\ARM_GCC_541\Debug\PWM_CondenserLED_PM.o .\CortexM3\ARM_GCC_541\Debug\Pin_CondenserLED.o .\CortexM3\ARM_GCC_541\Debug\SPIM_IntClock.o .\CortexM3\ARM_GCC_541\Debug\cy_em_eeprom.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_X.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_X_INT.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_X_PM.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_X_isr.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_X_Cnt16.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_X_Cnt16_PM.o .\CortexM3\ARM_GCC_541\Debug\UART_PCB_LOG.o .\CortexM3\ARM_GCC_541\Debug\UART_PCB_LOG_PM.o .\CortexM3\ARM_GCC_541\Debug\UART_PCB_LOG_INT.o .\CortexM3\ARM_GCC_541\Debug\UART_PCB_LOG_BOOT.o .\CortexM3\ARM_GCC_541\Debug\UART_PCB_LOG_IntClock.o .\CortexM3\ARM_GCC_541\Debug\Clock_Encoder_24Mhz.o .\CortexM3\ARM_GCC_541\Debug\Pin_Buzzer.o .\CortexM3\ARM_GCC_541\Debug\Pin_Backlight.o .\CortexM3\ARM_GCC_541\Debug\Pin_OptDec_X_A.o .\CortexM3\ARM_GCC_541\Debug\LED2.o .\CortexM3\ARM_GCC_541\Debug\Pin_OptDec_Z_A.o .\CortexM3\ARM_GCC_541\Debug\Pin_OptDec_Z_B.o .\CortexM3\ARM_GCC_541\Debug\PWM_CLK.o .\CortexM3\ARM_GCC_541\Debug\Pin_CSMotorO.o .\CortexM3\ARM_GCC_541\Debug\Pin_CSMotorT.o .\CortexM3\ARM_GCC_541\Debug\Pin_BC_LED.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_TZ.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_TZ_INT.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_TZ_PM.o .\CortexM3\ARM_GCC_541\Debug\PWM_Buzzer.o .\CortexM3\ARM_GCC_541\Debug\PWM_Buzzer_PM.o .\CortexM3\ARM_GCC_541\Debug\Pin_OptDec_X_B.o .\CortexM3\ARM_GCC_541\Debug\Pin_OptDec_Y_A.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_Y.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_Y_INT.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_Y_PM.o .\CortexM3\ARM_GCC_541\Debug\PWM_BarcodeCondenser_LED.o .\CortexM3\ARM_GCC_541\Debug\PWM_BarcodeCondenser_LED_PM.o .\CortexM3\ARM_GCC_541\Debug\LED3.o .\CortexM3\ARM_GCC_541\Debug\Pin_Encoder_T_A.o .\CortexM3\ARM_GCC_541\Debug\Pin_Encoder_T_B.o .\CortexM3\ARM_GCC_541\Debug\Encoder_T_Z_Select.o .\CortexM3\ARM_GCC_541\Debug\Encoder_T_Z_Select_PM.o .\CortexM3\ARM_GCC_541\Debug\TMC5160_MotorX_EN.o .\CortexM3\ARM_GCC_541\Debug\TMC5160_MotorY_EN.o .\CortexM3\ARM_GCC_541\Debug\TMC5160_MotorZ_EN.o .\CortexM3\ARM_GCC_541\Debug\TMC5160_MotorT_EN.o .\CortexM3\ARM_GCC_541\Debug\TMC5160_MotorO_EN.o .\CortexM3\ARM_GCC_541\Debug\Pin_OptDec_Y_B.o .\CortexM3\ARM_GCC_541\Debug\LIM_X_L.o .\CortexM3\ARM_GCC_541\Debug\LIM_X_R.o .\CortexM3\ARM_GCC_541\Debug\LIM_Y_L.o .\CortexM3\ARM_GCC_541\Debug\LIM_Y_R.o .\CortexM3\ARM_GCC_541\Debug\LIM_Z_L.o .\CortexM3\ARM_GCC_541\Debug\LIM_Z_R.o .\CortexM3\ARM_GCC_541\Debug\LIM_T_L.o .\CortexM3\ARM_GCC_541\Debug\LIM_T_R.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_TZ_isr.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_TZ_Cnt16.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_TZ_Cnt16_PM.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_Y_isr.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_Y_Cnt16.o .\CortexM3\ARM_GCC_541\Debug\QuadDec_Y_Cnt16_PM.o .\CortexM3\ARM_GCC_541\Debug\timer_clock.o .\CortexM3\ARM_GCC_541\Debug\wait_timer.o .\CortexM3\ARM_GCC_541\Debug\wait_timer_PM.o .\CortexM3\ARM_GCC_541\Debug\wait_interrupt.o .\CortexM3\ARM_GCC_541\Debug\Pin_SDO_RGB.o .\CortexM3\ARM_GCC_541\Debug\Pin_Clock_RGB.o .\CortexM3\ARM_GCC_541\Debug\Y_MOT_INT.o .\CortexM3\ARM_GCC_541\Debug\Z_MOT_INT.o .\CortexM3\ARM_GCC_541\Debug\X_MOT_INT.o .\CortexM3\ARM_GCC_541\Debug\Camera_Trigger.o .\CortexM3\ARM_GCC_541\Debug\CyBootAsmGnu.o
 arm-none-eabi-ar.exe: creating .\CortexM3\ARM_GCC_541\Debug\AS76_FFP9_6_GSV2.a
 arm-none-eabi-gcc.exe -Wl,--start-group -o C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\AS76_FFP9_6_GSV2.cydsn\CortexM3\ARM_GCC_541\Debug\AS76_FFP9_6_GSV2.elf .\CortexM3\ARM_GCC_541\Debug\main.o .\CortexM3\ARM_GCC_541\Debug\AS76.o .\CortexM3\ARM_GCC_541\Debug\APA102.o .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o .\CortexM3\ARM_GCC_541\Debug\cymetadata.o .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o .\CortexM3\ARM_GCC_541\Debug\AS76_FFP9_6_GSV2.a "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_541\Debug\CyComponentLibrary.a" -mcpu=cortex-m3 -mthumb -l m -L Generated_Source\PSoC5 -Wl,-Map,.\CortexM3\ARM_GCC_541\Debug/AS76_FFP9_6_GSV2.map -T Generated_Source\PSoC5\cm3gcc.ld -specs=nano.specs -Wl,--gc-sections -g -ffunction-sections -Og -ffat-lto-objects -Wl,--end-group
@@ -401,6 +276,6 @@ No ELF section .cychecksum found, creating one
 Application checksum calculated and stored in ELF section .cychecksum
 Checksum calculated and stored in ELF section .cymeta
 cyelftool.exe -S C:\Users\Revanth\Documents\GitHub\AS76_FFP\AS76_FFP\AS76_FFP9_6_GSV2.cydsn\CortexM3\ARM_GCC_541\Debug\AS76_FFP9_6_GSV2.elf
-Flash used: 48464 of 262144 bytes (18.5%).
-SRAM used: 3241 of 65536 bytes (4.9%). Stack: 2048 bytes. Heap: 128 bytes.
---------------- Build Succeeded: 10/22/2024 11:34:33 ---------------
+Flash used: 48824 of 262144 bytes (18.6%).
+SRAM used: 3249 of 65536 bytes (5.0%). Stack: 2048 bytes. Heap: 128 bytes.
+--------------- Build Succeeded: 10/22/2024 14:18:48 ---------------
