@@ -3246,16 +3246,11 @@ void GsV2_2(int StartPosX,int EndPosX, int deltaz, int Xspeed, int Zspeed,int Z_
              {
                 CyDelayUs(10);
                 capture_flag = 0;
-//                if(v<2500)
-//                {
-//                y_array[v] = -QuadDec_TZ_GetCounter();
-//                Z_array[v] = -QuadDec_Y_GetCounter();
-//                }
+
                 Camera_Trigger_Write(0xFF);
                 CyDelayUs(60);
                 Camera_Trigger_Write(0x00);
-//                v++;
-                //Pin_OE_PCA9959_1_Write(1);
+
              }
             
             if((Z_MOT_INT_Read()) == 0x00)
@@ -3264,7 +3259,7 @@ void GsV2_2(int StartPosX,int EndPosX, int deltaz, int Xspeed, int Zspeed,int Z_
                 
                 m = (((float)Z_Point2-(float)Z_Point1)/((float)EndPosX-(float)StartPosX));
                 Y_QuadPosition = -QuadDec_Y_GetCounter();
-                k =  (Z_Point1 + m*((((Y_QuadPosition+(gsv2_microns*3))*12.8))-StartPosX));
+                k =  (Z_Point1 + m*((((Y_QuadPosition+(gsv2_microns*2))*12.8))-StartPosX));
                 Z_QuadPosition = tempz-((-QuadDec_TZ_GetCounter())*12.8);
                 tempz =  ((int32)(k + (pow(-1,n) * (deltaz/2))) + Z_QuadPosition );    
                 GotoPos(tempz,TMC5160_nCS_MotorZ);
