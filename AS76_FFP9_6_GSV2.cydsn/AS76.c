@@ -1786,7 +1786,7 @@ void Process_USB_Data()/* Process USB incoming data command. */
         Error = 0;
         Read_All_Optical_Encoder();   
         
-        start_quadz = (((float)Z_QuadPosition/16.0)*51.2) + z_microns;
+        start_quadz = (((float)Z_QuadPosition/4)*51.2) + z_microns;
         capture_flag_z =0;
         wait_timer_Start();    
         wait_interrupt_StartEx(Quad_Timer_Z);
