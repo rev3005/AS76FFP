@@ -1763,7 +1763,7 @@ void Process_USB_Data()/* Process USB incoming data command. */
     update_max_velocity(Motor_Speed_Z,TMC5160_nCS_MotorZ);
      
     
-    if((abs(Position_Z_Requested-Previous_Z_Position)) >= 500)
+  /*  if((abs(Position_Z_Requested-Previous_Z_Position)) >= 2000)
     {
     Previous_Z_Position = Position_Z_Requested;
     Position_Z_Requested = (int32)(((float)Position_Z_Requested / 16.0)*51.2);
@@ -1771,12 +1771,12 @@ void Process_USB_Data()/* Process USB incoming data command. */
 
     goTo_Z(Position_Z_Requested);
     }
-    
-    else
+    */
+    //else
     {
     Previous_Z_Position = Position_Z_Requested;
     Position_Z_Requested = (int32)(((float)Position_Z_Requested / 16.0)*51.2);
-    start_quadz = Position_Z_Requested + z_microns;
+    //start_quadz = Position_Z_Requested + z_microns;
     Write_32bitSPI_DATA (0x10  , (int) 0x00070101, TMC5160_nCS_MotorY );
     Write_32bitSPI_DATA (0x10  , (int) 0x00070101, TMC5160_nCS_MotorX );
     Write_32bitSPI_DATA (0x10  , (int) 0x00070202, TMC5160_nCS_MotorZ );
@@ -1784,11 +1784,13 @@ void Process_USB_Data()/* Process USB incoming data command. */
     Enable_Encoder_Z(-Buffer_Z_QuadPosition);
    
         Error = 0;
-        Read_All_Optical_Encoder();       
-        Write_Debug_UART_Int((int)(ms_count*2.5));
-        Write_Debug_UART_Char(" \n");
+        Read_All_Optical_Encoder();   
+        
+        start_quadz = (((float)Z_QuadPosition/16.0)*51.2) + z_microns;
+        capture_flag_z =0;
         wait_timer_Start();    
         wait_interrupt_StartEx(Quad_Timer_Z);
+        
         GotoPos(Position_Z_Requested, TMC5160_nCS_MotorZ); // If provided value is position and not the steps to move
         
         while((Z_MOT_INT_Read()) != 0x00)

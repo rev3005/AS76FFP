@@ -276,6 +276,51 @@
 <VisibleNodeIds>
 <v>AS76_FFP9_6_GSv2-000</v>
 <v>AS76_FFP9_6_GSv2-000\AS76_FFP9_6_GSV2</v>
+<v>AS76_FFP9_6_GSv2-000\AS76_FFP9_6_GSV2\CortexM3</v>
+<v>AS76_FFP9_6_GSv2-000\AS76_FFP9_6_GSV2\CortexM3\ARM_GCC_541</v>
+<v>AS76_FFP9_6_GSv2-000\AS76_FFP9_6_GSV2\CortexM3\ARM_GCC_541\Debug</v>
+<v>AS76_FFP9_6_GSv2-000\AS76_FFP9_6_GSV2\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>AS76_FFP9_6_GSv2-000\AS76_FFP9_6_GSV2\CortexM3\ARM_GCC_541\Debug\Listing Files\APA102.lst</v>
+<v>AS76_FFP9_6_GSv2-000\AS76_FFP9_6_GSV2\CortexM3\ARM_GCC_541\Debug\Listing Files\AS76.lst</v>
+<v>AS76_FFP9_6_GSv2-000\AS76_FFP9_6_GSV2\CortexM3\ARM_GCC_541\Debug\Listing Files\Camera_Trigger.lst</v>
+<v>AS76_FFP9_6_GSv2-000\AS76_FFP9_6_GSV2\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_Encoder_24Mhz.lst</v>
+<v>AS76_FFP9_6_GSv2-000\AS76_FFP9_6_GSV2\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>AS76_FFP9_6_GSv2-000\AS76_FFP9_6_GSV2\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>AS76_FFP9_6_GSv2-000\AS76_FFP9_6_GSV2\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>AS76_FFP9_6_GSv2-000\AS76_FFP9_6_GSV2\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>AS76_FFP9_6_GSv2-000\AS76_FFP9_6_GSV2\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>AS76_FFP9_6_GSv2-000\AS76_FFP9_6_GSV2\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>AS76_FFP9_6_GSv2-000\AS76_FFP9_6_GSV2\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>AS76_FFP9_6_GSv2-000\AS76_FFP9_6_GSV2\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>AS76_FFP9_6_GSv2-000\AS76_FFP9_6_GSV2\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>AS76_FFP9_6_GSv2-000\AS76_FFP9_6_GSV2\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>AS76_FFP9_6_GSv2-000\AS76_FFP9_6_GSV2\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>AS76_FFP9_6_GSv2-000\AS76_FFP9_6_GSV2\CortexM3\ARM_GCC_541\Debug\Listing Files\Encoder_T_Z_Select.lst</v>
+<v>AS76_FFP9_6_GSv2-000\AS76_FFP9_6_GSV2\CortexM3\ARM_GCC_541\Debug\Listing Files\Encoder_T_Z_Select_PM.lst</v>
+<v>AS76_FFP9_6_GSv2-000\AS76_FFP9_6_GSV2\CortexM3\ARM_GCC_541\Debug\Listing Files\LED2.lst</v>
+<v>AS76_FFP9_6_GSv2-000\AS76_FFP9_6_GSV2\CortexM3\ARM_GCC_541\Debug\Listing Files\LED3.lst</v>
+<v>AS76_FFP9_6_GSv2-000\AS76_FFP9_6_GSV2\CortexM3\ARM_GCC_541\Debug\Listing Files\LIM_T_L.lst</v>
+<v>AS76_FFP9_6_GSv2-000\AS76_FFP9_6_GSV2\CortexM3\ARM_GCC_541\Debug\Listing Files\LIM_T_R.lst</v>
+<v>AS76_FFP9_6_GSv2-000\AS76_FFP9_6_GSV2\CortexM3\ARM_GCC_541\Debug\Listing Files\LIM_X_L.lst</v>
+<v>AS76_FFP9_6_GSv2-000\AS76_FFP9_6_GSV2\CortexM3\ARM_GCC_541\Debug\Listing Files\LIM_X_R.lst</v>
+<v>AS76_FFP9_6_GSv2-000\AS76_FFP9_6_GSV2\CortexM3\ARM_GCC_541\Debug\Listing Files\LIM_Y_L.lst</v>
+<v>AS76_FFP9_6_GSv2-000\AS76_FFP9_6_GSV2\CortexM3\ARM_GCC_541\Debug\Listing Files\LIM_Y_R.lst</v>
+<v>AS76_FFP9_6_GSv2-000\AS76_FFP9_6_GSV2\CortexM3\ARM_GCC_541\Debug\Listing Files\LIM_Z_L.lst</v>
+<v>AS76_FFP9_6_GSv2-000\AS76_FFP9_6_GSV2\CortexM3\ARM_GCC_541\Debug\Listing Files\LIM_Z_R.lst</v>
+<v>AS76_FFP9_6_GSv2-000\AS76_FFP9_6_GSV2\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>AS76_FFP9_6_GSv2-000\AS76_FFP9_6_GSV2\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_Backlight.lst</v>
+<v>AS76_FFP9_6_GSv2-000\AS76_FFP9_6_GSV2\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_BC_LED.lst</v>
+<v>AS76_FFP9_6_GSv2-000\AS76_FFP9_6_GSV2\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_Buzzer.lst</v>
+<v>AS76_FFP9_6_GSv2-000\AS76_FFP9_6_GSV2\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_Clock_RGB.lst</v>
+<v>AS76_FFP9_6_GSv2-000\AS76_FFP9_6_GSV2\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_CondenserLED.lst</v>
+<v>AS76_FFP9_6_GSv2-000\AS76_FFP9_6_GSV2\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_CSMotorO.lst</v>
+<v>AS76_FFP9_6_GSv2-000\AS76_FFP9_6_GSV2\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_CSMotorT.lst</v>
+<v>AS76_FFP9_6_GSv2-000\AS76_FFP9_6_GSV2\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_CSMotorX.lst</v>
+<v>AS76_FFP9_6_GSv2-000\AS76_FFP9_6_GSV2\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_CSMotorY.lst</v>
+<v>AS76_FFP9_6_GSv2-000\AS76_FFP9_6_GSV2\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_CSMotorZ.lst</v>
+<v>AS76_FFP9_6_GSv2-000\AS76_FFP9_6_GSV2\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_Encoder_T_A.lst</v>
+<v>AS76_FFP9_6_GSv2-000\AS76_FFP9_6_GSV2\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_Encoder_T_B.lst</v>
+<v>AS76_FFP9_6_GSv2-000\AS76_FFP9_6_GSV2\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_OptDec_X_A.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
